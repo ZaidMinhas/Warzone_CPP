@@ -1,0 +1,7 @@
+.codelite/
+RiskProject.workspace
+RiskProject.project
+clang-format
+clangd
+compile_commands.json
+**clang**
