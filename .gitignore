@@ -5,3 +5,4 @@ clang-format
 clangd
 compile_commands.json
 **clang**
+.vscode/
