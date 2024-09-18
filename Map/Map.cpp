@@ -1,24 +1,24 @@
 #include "Map.h"
 using std::string;
 Continent::Continent(string name, int bonus){
-    this->name=name;
-    this->bonus=bonus;
+    this->name=new string(name);
+    this->bonus=new int(bonus);
 }
 string Continent::getName(){
-    return name;
+    return *name;
 }
 int Continent::getBonus(){
-    return bonus;
+    return *bonus;
 }
 
 Territory::Territory(){}
 Territory::Territory(string name, string continentName, int army, int idknmb){
-    this->name=name;
-    this->army=army;
-    this->idknmb=idknmb;
+    this->name=new string(name);
+    this->army=new int(army);
+    this->idknmb=new int(idknmb);
     
     for(int i=0;i<map.continentList.size();i++){
-        if (map.continentList.at(i).name==continentName){
+        if (*map.continentList.at(i).name==continentName){
             this->pContient=&map.continentList.at(i);
             
         }
@@ -57,7 +57,7 @@ int Map::createConnections(){
             }
             territoryName=map.tempInput.at(i).substr(0, map.tempInput.at(i).find(","));
             for(int j=0;j<graph.size();j++){
-                if(territoryName==graph.at(j).name){
+                if(territoryName==*graph.at(j).name){
                    graph.at(i).connections.push_back(&graph.at(j)); 
                 }
             }
@@ -69,9 +69,9 @@ int Map::createConnections(){
 void Map::display(){
     std::cout<<"-------------------------------------Map-----------------------------\n";
     for(int i=0;i<map.graph.size();i++){
-        std::cout<<map.graph.at(i).name<<" ("<<map.graph.at(i).pContient->name<<") -> ";
+        std::cout<<*map.graph.at(i).name<<" ("<<*(map.graph.at(i).pContient->name)<<") -> ";
         for(int j=0;j<map.graph.at(i).connections.size();j++){
-            std::cout<<map.graph.at(i).connections.at(j)->name<<" / ";
+            std::cout<<*map.graph.at(i).connections.at(j)->name<<" / ";
         }
         std::cout<<"\n";
     }
@@ -88,17 +88,17 @@ int main(){
     //-----------------------------Map Meta Data------------------------------------//
     if(fileLine.compare("[Map]\n")){
         std::getline(map.mapFile, fileLine);
-        map.author=fileLine.substr(fileLine.find("=")+1, fileLine.length()-1);
+        map.author=new string(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1));
         std::getline(map.mapFile, fileLine);
-        map.image=fileLine.substr(fileLine.find("=")+1, fileLine.length()-1);
+        map.image=new string(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1));
         std::getline(map.mapFile, fileLine);
-        map.wrap=fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes");
+        map.wrap=new bool(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes"));
         std::getline(map.mapFile, fileLine);
-        if(fileLine.compare("scroll=none")==0){map.scroll=0;}
-        else if(fileLine.compare("scroll=vertical")==0){map.scroll=1;}
-        else if(fileLine.compare("scroll=horizontal")==0){map.scroll=2;}
+        if(fileLine.compare("scroll=none")==0){map.scroll=new int(0);}
+        else if(fileLine.compare("scroll=vertical")==0){map.scroll=new int(1);}
+        else if(fileLine.compare("scroll=horizontal")==0){map.scroll=new int(2);}
         std::getline(map.mapFile, fileLine);
-        map.warn=fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes");
+        map.warn=new bool(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes"));
     }
     while(fileLine!="[Continents]"){
         std::getline(map.mapFile, fileLine);

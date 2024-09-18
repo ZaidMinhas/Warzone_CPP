@@ -26,12 +26,12 @@ Omen,157,343,Arabian Peninsula,United Arab Emigrants,Saudi Arabia,Yemen
 Yemen,89,361,Arabian Peninsula,Saudi Arabia,Omen
 
 Turkey,60,155,Asia Minor,Cyprus,Syria,Iraq,Iran,Armenia,Georgia
-Cyprus,27,191,Asia Minor,Turkey,Syria,Israel,Lebanon
-Syria,71,197,Asia Minor,Turkey,Iraq,Jordan,Israel,Lebanon,Cyprus
+Cyprus,27,191,Asia Minor,Turkey,Syria,Palestine,Lebanon
+Syria,71,197,Asia Minor,Turkey,Iraq,Jordan,Palestine,Lebanon,Cyprus
 Iraq,93,223,Asia Minor,Iran,Kuwait,Saudi Arabia,Jordan,Syria,Turkey
-Jordan,48,225,Asia Minor,Israel,Syria,Iraq,Saudi Arabia
-Lebanon,42,200,Asia Minor,Cyprus,Syria,Israel
-Israel,33,219,Asia Minor,Cyprus,Lebanon,Jordan,Syria
+Jordan,48,225,Asia Minor,Palestine,Syria,Iraq,Saudi Arabia
+Lebanon,42,200,Asia Minor,Cyprus,Syria,Palestine
+Palestine,33,219,Asia Minor,Cyprus,Lebanon,Jordan,Syria
 
 Russia,363,81,North Asia,Japan,North Korea,China,Mongolia,Kazakhstan,Georgia,Azerbaijan
 Japan,678,141,North Asia,Russia,North Korea,South Korea

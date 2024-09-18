@@ -6,8 +6,8 @@ using std::vector;
 class Continent{
     
     public:
-    string name;
-    int bonus;
+    string *name;
+    int *bonus;
     string getName();
     int getBonus();
     Continent(string name, int bonus);
@@ -15,10 +15,10 @@ class Continent{
 class Territory{
     public:
     Continent *pContient;
-    string name;
-    int army;
-    int idknmb;
-    int owner;
+    string *name;
+    int *army;
+    int *idknmb;
+    int *owner;
     vector<Territory*> connections;
     
     Territory(string name, string continentName, int army, int idknbm);
@@ -29,11 +29,11 @@ class Map{
     
     public:
 
-    string author;
-    string image;
-    bool wrap;
-    int scroll;
-    bool warn;
+    string *author;
+    string *image;
+    bool *wrap;
+    int *scroll;
+    bool *warn;
 
     vector<Territory> graph;
     vector<string> tempInput;
