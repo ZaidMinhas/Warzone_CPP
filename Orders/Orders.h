@@ -3,8 +3,7 @@ using namespace std;
 class Order{
 public:
 	//Constructors
-	Order();
-	Order(string orderName);
+	Order(string orderName,Order* next);
 	Order(Order &orderCopy);
 	//methods
 	virtual bool validate();
@@ -12,11 +11,8 @@ public:
 	//Accessors and Mutators
 	string getOrderName();
 	Order* getNext();
-	Order* getPrevious();
-	void setNext(Order &order);
-	void setPrevious(Order &previous);
+	void setNext(Order &next);
 private:
 	string orderName;
 	Order* next;
-	Order* previous;
 };
