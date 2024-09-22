@@ -19,6 +19,7 @@ class Territory{
     int *army;
     int *idknmb;
     int *owner;
+    int *check;
     vector<Territory*> connections;
     
     Territory(string name, string continentName, int army, int idknbm);
@@ -43,6 +44,8 @@ class Map{
     std::ifstream mapFile;
 
     int createConnections();
+    int checkConnectedGraph(Territory* pointer);
+    int checkConnectedSubGraph(string name, Territory* pointer);
     void display();
 
 };

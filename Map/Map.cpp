@@ -16,6 +16,7 @@ Territory::Territory(string name, string continentName, int army, int idknmb){
     this->name=new string(name);
     this->army=new int(army);
     this->idknmb=new int(idknmb);
+    this->check=new int(0);
     
     for(int i=0;i<map.continentList.size();i++){
         if (*map.continentList.at(i).name==continentName){
@@ -66,6 +67,32 @@ int Map::createConnections(){
     }
     return 0;
 }
+int Map::checkConnectedGraph(Territory* pointer){
+    *pointer->check=1;
+    for(int i=0;i<pointer->connections.size();i++){
+        if(*pointer->connections.at(i)->check==0){
+            checkConnectedGraph(pointer->connections.at(i));
+        }
+    }
+    return 0;
+    
+}
+int Map::checkConnectedSubGraph(string name, Territory* pointer){
+    
+    *pointer->check=0;
+    
+    for(int i=0;i<pointer->connections.size();i++){
+        if(*pointer->connections.at(i)->pContient->name==name){
+            checkConnectedSubGraph(name, pointer->connections.at(i));
+        }
+    }
+    return 0;
+}
+
+
+
+
+
 void Map::display(){
     std::cout<<"-------------------------------------Map-----------------------------\n";
     for(int i=0;i<map.graph.size();i++){
@@ -126,6 +153,16 @@ int main(){
     }
 
     map.display();
+    map.checkConnectedGraph(&map.graph.at(0));
+    int j=0;
+    for(int i=0;i<map.graph.size();i++){
+       if (*map.graph.at(i).check==1){
+        j++;
+       };
+    }
+    if(j==map.graph.size()){
+        std::cout<<"Graph is connected\n";
+    }
     
     return 0;
 }
