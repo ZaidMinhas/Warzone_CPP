@@ -82,7 +82,7 @@ int Map::checkConnectedSubGraph(string name, Territory* pointer){
     *pointer->check=0;
     
     for(int i=0;i<pointer->connections.size();i++){
-        if(*pointer->connections.at(i)->pContient->name==name){
+        if(*pointer->connections.at(i)->pContient->name==name&&*pointer->connections.at(i)->check==1){
             checkConnectedSubGraph(name, pointer->connections.at(i));
         }
     }
@@ -154,15 +154,49 @@ int main(){
 
     map.display();
     map.checkConnectedGraph(&map.graph.at(0));
+
     int j=0;
     for(int i=0;i<map.graph.size();i++){
        if (*map.graph.at(i).check==1){
         j++;
        };
+       //std::cout<<*map.graph.at(i).name<<"  "<<*map.graph.at(i).check<<"\n";
+       
     }
+    
     if(j==map.graph.size()){
         std::cout<<"Graph is connected\n";
     }
+    
+
+    for(int i=0;i<map.continentList.size();i++){
+        for(int j=0;j<map.graph.size();j++){
+            if(*map.continentList.at(i).name==*map.graph.at(j).pContient->name){
+                map.checkConnectedSubGraph(*map.continentList.at(i).name, &map.graph.at(j));
+                break;
+            }
+        }
+    }
+
+    j=0;
+    for(int i=0;i<map.graph.size();i++){
+       if (*map.graph.at(i).check==0){
+        j++;
+       };
+       //std::cout<<*map.graph.at(i).name<<"  "<<*map.graph.at(i).check<<"\n";
+       
+    }
+    
+    if(j==map.graph.size()){
+        std::cout<<"SubGraph is connected\n";
+    }
+
+    
+    
+    
+        
+    
+    
     
     return 0;
 }
