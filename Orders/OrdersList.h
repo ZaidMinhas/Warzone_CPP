@@ -21,7 +21,7 @@ public:
     is an order that required a card, put the card back into the players hand*/
     void toString(); //Displays the orders in the list from head to tail.
 private:
-    Order* head;//The start of the list. This would have the first order that was issued.
-    //Order* tail; This would be good to improve the performance of seeking.
+    Order* head;//The start of the list.
+    //Order* tail; This would be good to improve performance of seeking.
     Order* currentOrder; 
 };
