@@ -10,16 +10,18 @@ public:
     //Accessors and Mutators
     Order* getHead();
     Order* getCurrentOrder();
-    int getSize();
-    void setHead(Order* head);
-    void setCurrentOrder(Order* currentOrder);
+    void setHead(Order &head);
+    //void setTail(Order &tail);//This will be implemented if time permits.
+    void setCurrentOrder(Order &currentOrder);
     //methods
-    void addOrder(Order* order);//Will add an order to the end of the list.
-    void move(int oldposition,int newPosition);//Seeking the old position of the order and move it to the new position and putting it in between the order before and the order thats in the current position.
-    void remove(int position);//Seeking the order of the position and removing it from the list, if it is an order that requires a card, the card gets refunded.
-    void toString();//Displays all the orders in the players list.
+    void addOrder(Order &order);//Will add an order to the end of the list.
+    void move(int position1,int position2);/*Will seek the position of the order to move. Then will look for the order before position to be move.
+    Then but it in between that and the order currently on the position.*/
+    void remove(int position);/*Will seek the order before the one to remove, then set the next order to be the order after the one to remove. Delete the order, if the order
+    is an order that required a card, put the card back into the players hand*/
+    void toString(); //Displays the orders in the list from head to tail.
 private:
-    Order* head;
-    Order* currentOrder;
-    int size; 
+    Order* head;//The start of the list.
+    //Order* tail; This would be good to improve performance of seeking.
+    Order* currentOrder; 
 };
