@@ -17,7 +17,8 @@ class Territory{
     Continent *pContient;
     string *name;
     int *army;
-    int *idknmb;
+    int *x;
+    int *y;
     int *owner;
     int *check;
     vector<Territory*> connections;
@@ -47,6 +48,7 @@ class Map{
     int checkConnectedGraph(Territory* pointer);
     int checkConnectedSubGraph(string name, Territory* pointer);
     void display();
+    void error();
 
 };
 Map map;
