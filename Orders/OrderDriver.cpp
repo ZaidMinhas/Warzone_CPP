@@ -1,8 +1,9 @@
 #include <iostream>
 using namespace std;
+#include "OrderDriver.h"
 #include "Orders.h"
 #include "OrdersList.h"
-int testOrdersList(){
+void testOrdersList(){
     OrdersList* test=new OrdersList();
     Order* orderTest=new Order();
     Order* firstOrder=new Order("firstOrder");
@@ -13,10 +14,4 @@ int testOrdersList(){
     cout<<test->getCurrentOrder()->getOrderName()<<endl;
     test->setCurrentOrder(test->getCurrentOrder()->getNext());
     cout<<test->getCurrentOrder()->getOrderName()<<endl;
-    return 0;
-}
-
-int main(){
-    int test = testOrdersList();
-    return test;
 }
