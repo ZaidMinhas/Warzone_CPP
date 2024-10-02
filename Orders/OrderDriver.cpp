@@ -5,15 +5,10 @@ using namespace std;
 #include "OrdersList.h"
 void testOrdersList(){
     OrdersList* test=new OrdersList();
-    Order* orderTest=new Order();
-    Order* firstOrder=new Order("firstOrder");
-    test->addOrder(firstOrder);
-    test->addOrder(new Order("secondOrder"));
-    cout<<"testOrdersList is working."<<endl;
-    cout<<test<<endl;
-    test->setCurrentOrder(test->getHead()->getNext());
-    for(int i=1;i<=test->getSize();i++){
-        test->getCurrentOrder()->execute();
-        test->setCurrentOrder(test->getCurrentOrder()->getNext());
-    }
+    test->addOrder(new Order("firstOrder"));
+    test->addOrder(new Order("SecondOrder"));
+    test->addOrder(new Order("ThirdOrder"));
+    cout<<test;
+    test->remove(2);
+    cout<<test;
 }
