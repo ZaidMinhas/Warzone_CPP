@@ -1,6 +1,6 @@
 #include <cmath>
 #include "Orders.h"
-//Constructors
+//Constructors and Destructors
 Order::Order(){
     orderName="N/A";
     next=nullptr;
@@ -8,6 +8,13 @@ Order::Order(){
 
 Order::Order(string orderName){
     this->orderName=orderName;
+}
+
+Order::~Order(){
+    delete next;
+    next=NULL;
+    delete previous;
+    previous=NULL;
 }
 //methods
 bool Order::validate(){

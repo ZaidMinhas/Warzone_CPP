@@ -8,9 +8,10 @@ protected:
 	Order* previous;
 	int size;
 public:
-	//Constructors
+	//Constructors and Destructors
 	Order();
 	Order(string orderName);
+	~Order();
 	//Accessors and Mutators
 	string getOrderName(){return orderName;}
 	Order* getNext(){return next;};

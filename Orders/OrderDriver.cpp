@@ -10,7 +10,6 @@ void testOrdersList(){
     test->addOrder(firstOrder);
     test->addOrder(new Order("secondOrder"));
     cout<<"testOrdersList is working."<<endl;
-    cout<<test->getSize();
     cout<<test<<endl;
     test->setCurrentOrder(test->getHead()->getNext());
     for(int i=1;i<=test->getSize();i++){

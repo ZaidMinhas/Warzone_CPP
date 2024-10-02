@@ -1,5 +1,5 @@
 #include "OrdersList.h"
-//Constructors
+//Constructors and Destructors
 OrdersList::OrdersList(){
     head=new Order();
     tail=new Order();
@@ -11,6 +11,15 @@ OrdersList::OrdersList(Order *firstOrder){
     head->setNext(firstOrder);
     tail->setPrevious(firstOrder);
     size=1;
+}
+
+OrdersList::~OrdersList(){
+    delete currentOrder;
+    currentOrder=NULL;
+    delete head;
+    head=NULL;
+    delete tail;
+    tail=NULL;
 }
 //Accessors and Mutators
 Order* OrdersList::getHead(){

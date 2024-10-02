@@ -4,9 +4,10 @@ using namespace std;
 #include "Orders.h"
 class OrdersList{
 public:
-    //Constructors
+    //Constructors and Destructors
     OrdersList();
     OrdersList(Order* firstOrder);
+    ~OrdersList();
     //Accessors and Mutators
     Order* getHead();
     Order* getCurrentOrder();
