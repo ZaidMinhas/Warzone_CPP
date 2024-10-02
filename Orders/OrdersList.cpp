@@ -60,3 +60,19 @@ void OrdersList::addOrder(Order* newOrder){
     }
     size++;
 }
+
+ostream& operator<<(ostream &out,OrdersList *o){
+    if(o->getSize()==0){
+        out<<"Order list is empty";
+        return out;
+    }
+    else{
+        o->setCurrentOrder(o->getHead()->getNext());
+        out<<"Here is your list of current orders:"<<endl;
+        for(int i=1;i<=o->getSize();i++){
+            out<<"("<<i<<")"<<o->getCurrentOrder()<<endl;
+            o->setCurrentOrder(o->getCurrentOrder()->getNext());
+        }
+    }
+    return out;
+};

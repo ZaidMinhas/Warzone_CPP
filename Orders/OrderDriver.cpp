@@ -10,8 +10,5 @@ void testOrdersList(){
     test->addOrder(firstOrder);
     test->addOrder(new Order("secondOrder"));
     cout<<"testOrdersList is working."<<endl;
-    test->setCurrentOrder(test->getHead()->getNext());
-    cout<<test->getCurrentOrder()<<endl;
-    test->setCurrentOrder(test->getCurrentOrder()->getNext());
-    cout<<test->getCurrentOrder()<<endl;
+    cout<<test<<endl;
 }
