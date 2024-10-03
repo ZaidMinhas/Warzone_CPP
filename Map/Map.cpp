@@ -1,6 +1,10 @@
 #include "Map.h"
 using std::string;
 
+Map::Map(){}
+
+Map map=Map();
+
 void Map::error(){
     std::cout<<"Invalid Map. Exiting Program\n";
     exit(0);
@@ -123,11 +127,21 @@ void Map::display(){
     }
 }
 
+void Map::getUserInput(){
+    string input;
+    std::cout<<"Enter the file path to your .map file: ";
+    std::cin>>input;
+    if(input.compare(input.size()-4, 4, ".map")!=0){
+        map.error();
+    }else{
+        map.mapFile.open(input);
+    }
+}
 
 
-
-int main(){
-    map.mapFile.open("ErrorMap.map");
+void Map::loadMap(){
+    try{
+    map.getUserInput();
     string fileLine;
     std::getline(map.mapFile, fileLine);
 
@@ -238,6 +252,8 @@ int main(){
     }else{
         map.error();
     }
+    }catch(...){
+        map.error();
+    }
 
-    return 0;
 }

@@ -1,7 +1,8 @@
 #include <stdio.h>
-
+#include "Map\MapDriver.h"
 int main(int argc, char **argv)
 {
-	printf("hello world\n");
+	testMap();
+	scanf("Close");
 	return 0;
 }

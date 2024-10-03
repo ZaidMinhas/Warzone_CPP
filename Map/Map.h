@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -44,11 +45,16 @@ class Map{
     int addTerritory(string input);
     std::ifstream mapFile;
 
+    Map();
+
     int createConnections();
     int checkConnectedGraph(Territory* pointer);
     int checkConnectedSubGraph(string name, Territory* pointer);
     void display();
     void error();
+    void getUserInput();
+    void loadMap();
 
 };
-Map map;
+
+extern Map map;
