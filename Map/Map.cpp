@@ -223,7 +223,7 @@ void Map::loadMap(){
     }
     
     if(j==map.graph.size()){
-        std::cout<<"Graph is connected\n";
+        //std::cout<<"Graph is connected\n";
     }else{
         map.error();
     }
@@ -248,7 +248,7 @@ void Map::loadMap(){
     }
     
     if(j==map.graph.size()){
-        std::cout<<"SubGraph is connected\n";
+        //std::cout<<"SubGraph is connected\n";
     }else{
         map.error();
     }
