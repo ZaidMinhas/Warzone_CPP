@@ -168,6 +168,7 @@ void Win::exit(GameEngine& game_engine) {
 //--------------------GAME ENGINE--------------------
 GameEngine::GameEngine() {
     gameOver = false;
+    currentState = new Start();
 }
 
 
@@ -176,9 +177,7 @@ void GameEngine::setGameOver(bool b){ gameOver = b; }
 void GameEngine::run() {
     string command;
     cout << "Welcome to Warzone\n" << endl;
-
     //Run first state
-    currentState = new Start();
     currentState->enter(*this);
 
     while (true) {
