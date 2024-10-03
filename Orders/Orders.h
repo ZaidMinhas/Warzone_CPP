@@ -25,4 +25,40 @@ public:
 	virtual void execute();/*Executes the order specified, the implementation will be defined in the child classes.*/
 };
 
+class Deploy:public Order{
+public:
+	Deploy(string orderName);
+	void execute();
+};
+
+class Advance:public Order{
+public:
+	Advance(string orderName);
+	void execute();
+};
+
+class Bomb:public Order{
+public:
+	Bomb(string orderName);
+	void execute();
+};
+
+class Blockade:public Order{
+public:
+	Blockade(string orderName);
+	void execute();
+};
+
+class Airlift:public Order{
+public:
+	Airlift(string orderName);
+	void execute();
+};
+
+class Negotiate:public Order{
+public:
+	Negotiate(string orderName);
+	void execute();
+};
+
 ostream& operator<<(ostream &out,Order *o);
