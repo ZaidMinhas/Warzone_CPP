@@ -9,6 +9,10 @@ using namespace std;
 
 //--------------------START STATE--------------------
 
+State* Start::clone(){
+    return new Start();
+}
+
 //handle input takes in the input command and game_engine that the state may use to change game behavior
 State* Start::handleInput(GameEngine& game_engine, std::string& input){
     if (input == "loadmap"){
@@ -27,6 +31,11 @@ void Start::exit(GameEngine& game_engine) {
 }
 
 //--------------------MAP LOADER STATE--------------------
+
+State* MapLoaded::clone(){
+    return new MapLoaded();
+}
+
 State* MapLoaded::handleInput(GameEngine& game_engine, std::string& input){
     if (input == "loadmap"){
         return new MapLoaded();
@@ -47,6 +56,11 @@ void MapLoaded::exit(GameEngine& game_engine) {
 
 
 //--------------------MAP VALIDATED STATE--------------------
+
+State* MapValidated::clone(){
+    return new MapValidated();
+}
+
 State* MapValidated::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "addplayer") {
         return new PlayersAdded();
@@ -64,6 +78,11 @@ void MapValidated::exit(GameEngine& game_engine) {
 
 
 //--------------------PLAYERS ADDED STATE--------------------
+
+State* PlayersAdded::clone(){
+    return new PlayersAdded();
+}
+
 State* PlayersAdded::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "addplayer") {
         return new PlayersAdded();
@@ -85,6 +104,11 @@ void PlayersAdded::exit(GameEngine& game_engine) {
 
 
 //--------------------ASSIGN REINFORCEMENT STATE--------------------
+
+State* AssignReinforcement::clone(){
+    return new AssignReinforcement();
+}
+
 State* AssignReinforcement::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "issueorder") {
         return new IssueOrders();
@@ -101,6 +125,10 @@ void AssignReinforcement::exit(GameEngine& game_engine) {
 }
 
 //--------------------ISSUE ORDERS STATE--------------------
+State* IssueOrders::clone(){
+    return new IssueOrders();
+}
+
 State* IssueOrders::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "issueorder") {
         return new IssueOrders();
@@ -120,6 +148,10 @@ void IssueOrders::exit(GameEngine& game_engine) {
 }
 
 //--------------------EXECUTE ORDERS STATE--------------------
+State* ExecuteOrders::clone(){
+    return new ExecuteOrders();
+}
+
 State* ExecuteOrders::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "execorder") {
         return new ExecuteOrders();
@@ -143,6 +175,10 @@ void ExecuteOrders::exit(GameEngine& game_engine) {
 }
 
 //--------------------WIN STATE--------------------
+State* Win::clone(){
+    return new Win();
+}
+
 State* Win::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "end") {
         game_engine.setGameOver(true);
@@ -174,6 +210,10 @@ GameEngine::GameEngine() {
     currentState = new Start();
 }
 
+GameEngine::GameEngine(GameEngine* gameEngine){
+    gameOver = gameEngine->gameOver;
+    currentState = gameEngine->currentState->clone();
+}
 
 void GameEngine::setGameOver(bool b){ gameOver = b; }
 

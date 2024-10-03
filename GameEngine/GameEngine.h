@@ -13,10 +13,10 @@ class State {
 
     public:
     virtual ~State() = default;
+    virtual State* clone()  = 0;
 
 
     virtual State* handleInput(GameEngine& game_engine, std::string& input) = 0;
-
 
     virtual void enter(GameEngine& game_engine) = 0;
     virtual void exit(GameEngine& game_engine) = 0;
@@ -31,6 +31,8 @@ class State {
 
 class Start : public State {
 public:
+
+    State* clone()  override;
     State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
@@ -42,6 +44,7 @@ public:
 
 class MapLoaded : public State {
 public:
+    State* clone()  override;
     State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
@@ -53,6 +56,7 @@ public:
 
 class MapValidated : public State {
 public:
+    State* clone()  override;
     State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
@@ -64,6 +68,7 @@ public:
 
 class PlayersAdded : public State {
 public:
+    State* clone()  override;
     State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
@@ -75,6 +80,7 @@ public:
 
 class AssignReinforcement : public State {
 public:
+    State* clone()  override;
     State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
@@ -86,6 +92,7 @@ public:
 
 class IssueOrders : public State {
 public:
+    State* clone()  override;
     State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
@@ -97,6 +104,7 @@ public:
 
 class ExecuteOrders : public State {
 public:
+    State* clone()  override;
     State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
@@ -108,6 +116,7 @@ public:
 
 class Win : public State {
 public:
+    State* clone() override;
     State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
@@ -119,12 +128,10 @@ public:
 
 
 
-
-
-
 class GameEngine {
     public:
     GameEngine();
+    GameEngine(GameEngine* game_engine);
 
     void run();
     void handleInput(std::string& input);
