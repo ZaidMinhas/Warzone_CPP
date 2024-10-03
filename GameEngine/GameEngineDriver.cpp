@@ -2,6 +2,8 @@
 // Created by minha on 10/3/2024.
 //
 
+#include <iostream>
+
 #include "GameEngine.h"
 
 //Instantiate, run and delete game engine
@@ -16,6 +18,9 @@ void testGameStates(){
 }
 
 int main() {
-    testGameStates();
+    // testGameStates();
+
+    State* state = new MapLoaded();
+    std::cout << *state;
     return 0;
 }

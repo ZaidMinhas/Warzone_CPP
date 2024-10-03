@@ -7,7 +7,10 @@
 
 using namespace std;
 
-
+std::ostream& operator<<(std::ostream& os, const State& state) {
+    os << "Current State: " << state.getName();
+    return os;
+}
 
 //--------------------START STATE--------------------
 

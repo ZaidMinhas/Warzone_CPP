@@ -22,48 +22,104 @@ class State {
     virtual void exit(GameEngine& game_engine) = 0;
     // virtual void update(GameEngine& game_engine) = 0;
 
+    virtual std::string getName() const = 0;
+
+    // Declare the insertion operator as a friend function
+    friend std::ostream& operator<<(std::ostream& os, const State& state);
+
 };
 
-class Start: public State {
-    State* handleInput(GameEngine& game_engine,  std::string& input) override;
+class Start : public State {
+public:
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Start State";
+    }
 };
-class MapLoaded: public State {
-    State* handleInput(GameEngine& game_engine,  std::string& input) override;
+
+class MapLoaded : public State {
+public:
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Map Loaded State";
+    }
 };
-class MapValidated: public State {
-    State* handleInput(GameEngine& game_engine,  std::string& input) override;
+
+class MapValidated : public State {
+public:
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Map Validated State";
+    }
 };
-class PlayersAdded: public State {
-    State* handleInput(GameEngine& game_engine,  std::string& input) override;
+
+class PlayersAdded : public State {
+public:
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Players Added State";
+    }
 };
-class AssignReinforcement: public State {
-    State* handleInput(GameEngine& game_engine,  std::string& input) override;
+
+class AssignReinforcement : public State {
+public:
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Assign Reinforcement State";
+    }
 };
-class IssueOrders: public State {
-    State* handleInput(GameEngine& game_engine,  std::string& input) override;
+
+class IssueOrders : public State {
+public:
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Issue Orders State";
+    }
 };
-class ExecuteOrders: public State {
-    State* handleInput(GameEngine& game_engine,  std::string& input) override;
+
+class ExecuteOrders : public State {
+public:
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Execute Orders State";
+    }
 };
-class Win: public State {
-    State* handleInput(GameEngine& game_engine,  std::string& input) override;
+
+class Win : public State {
+public:
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
     void enter(GameEngine& game_engine) override;
     void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Win State";
+    }
 };
+
+
+
+
 
 
 class GameEngine {
