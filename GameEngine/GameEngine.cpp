@@ -7,11 +7,6 @@
 
 using namespace std;
 
-std::ostream& operator<<(std::ostream& os, const State& state) {
-    os << "Current State: " << state.getName();
-    return os;
-}
-
 //--------------------START STATE--------------------
 
 //handle input takes in the input command and game_engine that the state may use to change game behavior
@@ -166,6 +161,11 @@ void Win::exit(GameEngine& game_engine) {
     cout << "\nExiting Win State" << endl;
 }
 
+std::ostream& operator<<(std::ostream& os, const State& state) {
+    os << "Current State: " << state.getName();
+    return os;
+}
+
 //##############################################################################//
 
 //--------------------GAME ENGINE--------------------
@@ -212,6 +212,11 @@ void GameEngine::handleInput(std::string& input) {
         cout << "INCORRECT COMMAND\n" << endl;
     }
 
+}
+
+std::ostream& operator<<(std::ostream& os, const GameEngine& engine) {
+    os << *engine.currentState << ".\nIs the game over: " << (engine.gameOver == true? "YES" : "NO") ;
+    return os;
 }
 
 

@@ -36,7 +36,7 @@ public:
     void exit(GameEngine& game_engine) override;
 
     std::string getName() const override {
-        return "Start State";
+        return "Start";
     }
 };
 
@@ -47,7 +47,7 @@ public:
     void exit(GameEngine& game_engine) override;
 
     std::string getName() const override {
-        return "Map Loaded State";
+        return "Map Loaded";
     }
 };
 
@@ -58,7 +58,7 @@ public:
     void exit(GameEngine& game_engine) override;
 
     std::string getName() const override {
-        return "Map Validated State";
+        return "Map Validated";
     }
 };
 
@@ -69,7 +69,7 @@ public:
     void exit(GameEngine& game_engine) override;
 
     std::string getName() const override {
-        return "Players Added State";
+        return "Players Added";
     }
 };
 
@@ -80,7 +80,7 @@ public:
     void exit(GameEngine& game_engine) override;
 
     std::string getName() const override {
-        return "Assign Reinforcement State";
+        return "Assign Reinforcement";
     }
 };
 
@@ -91,7 +91,7 @@ public:
     void exit(GameEngine& game_engine) override;
 
     std::string getName() const override {
-        return "Issue Orders State";
+        return "Issue Orders";
     }
 };
 
@@ -102,7 +102,7 @@ public:
     void exit(GameEngine& game_engine) override;
 
     std::string getName() const override {
-        return "Execute Orders State";
+        return "Execute Orders";
     }
 };
 
@@ -113,7 +113,7 @@ public:
     void exit(GameEngine& game_engine) override;
 
     std::string getName() const override {
-        return "Win State";
+        return "Win";
     }
 };
 
@@ -130,6 +130,8 @@ class GameEngine {
     void handleInput(std::string& input);
 
     void setGameOver(bool b);
+
+    friend std::ostream& operator<<(std::ostream& os, const GameEngine& engine);
 
 private:
     State* currentState;

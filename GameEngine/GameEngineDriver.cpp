@@ -18,9 +18,8 @@ void testGameStates(){
 }
 
 int main() {
-    // testGameStates();
+    testGameStates();
 
-    State* state = new MapLoaded();
-    std::cout << *state;
+
     return 0;
 }
