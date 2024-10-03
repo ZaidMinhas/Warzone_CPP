@@ -10,7 +10,11 @@ using namespace std;
 
 
 State::State(){}
-State::State(State* state){}
+State::State(State& state){}
+State& State::operator=(const State& other) {
+    return *this;
+}
+
 //--------------------START STATE--------------------
 
 
@@ -217,7 +221,7 @@ GameEngine::GameEngine() {
 
 GameEngine::GameEngine(GameEngine* gameEngine){
     gameOver = gameEngine->gameOver;
-    currentState = gameEngine->currentState->clone();
+    currentState = gameEngine->currentState ? gameEngine->currentState->clone() : nullptr;
 }
 
 void GameEngine::setGameOver(bool b){ gameOver = b; }
@@ -262,6 +266,16 @@ void GameEngine::handleInput(std::string& input) {
 std::ostream& operator<<(std::ostream& os, const GameEngine& engine) {
     os << *engine.currentState << ".\nIs the game over: " << (engine.gameOver == true? "YES" : "NO") ;
     return os;
+}
+
+GameEngine& GameEngine::operator=(const GameEngine& other) {
+    if (this != &other) {
+
+        delete currentState;
+        currentState = other.currentState ? other.currentState->clone() : nullptr;
+        gameOver = other.gameOver;
+    }
+    return *this;
 }
 
 

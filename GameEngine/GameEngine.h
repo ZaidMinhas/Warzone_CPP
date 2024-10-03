@@ -13,9 +13,10 @@ class State {
 
     public:
     State();
-    State(State* state);
-    virtual ~State() = default;
+    State(State& state);
 
+    virtual ~State() = default;
+    State& operator=(const State& other);
 
     virtual State* clone()  = 0;
 
@@ -29,6 +30,7 @@ class State {
     virtual std::string getName() const = 0;
 
     // Declare the insertion operator as a friend function
+
     friend std::ostream& operator<<(std::ostream& os, const State& state);
 
 };
@@ -136,6 +138,7 @@ class GameEngine {
     public:
     GameEngine();
     GameEngine(GameEngine* game_engine);
+    GameEngine& operator=(const GameEngine& other);
 
     void run();
     void handleInput(std::string& input);
