@@ -1,50 +1,155 @@
-
+//
+// Created by minha on 10/2/2024.
+//
 
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
+#include <string>
+
+
+class GameEngine;
 
 class State {
-public:
-    void loadmap();
-    void validatemap();
-    void addplayer();
-    void assigncountries();
 
-    void issueorder();
-    void endissueorders();
+    public:
+    State();
+    State(State& state);
 
-    void execorder();
-    void endexecorders();
+    virtual ~State() = default;
+    State& operator=(const State& other);
 
-    void win();
-    void play();
-    void end();
+    virtual State* clone()  = 0;
+
+
+    virtual State* handleInput(GameEngine& game_engine, std::string& input) = 0;
+
+    virtual void enter(GameEngine& game_engine) = 0;
+    virtual void exit(GameEngine& game_engine) = 0;
+    // virtual void update(GameEngine& game_engine) = 0;
+
+    virtual std::string getName() const = 0;
+
+    // Declare the insertion operator as a friend function
+
+    friend std::ostream& operator<<(std::ostream& os, const State& state);
 
 };
 
-class Start : public State {};
+class Start : public State {
+public:
 
-class MapLoaded: public State {};
+    State* clone()  override;
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
+    void enter(GameEngine& game_engine) override;
+    void exit(GameEngine& game_engine) override;
 
-class MapValidated: public State {};
+    std::string getName() const override {
+        return "Start";
+    }
+};
 
-class PlayersAdded: public State {};
+class MapLoaded : public State {
+public:
+    State* clone()  override;
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
+    void enter(GameEngine& game_engine) override;
+    void exit(GameEngine& game_engine) override;
 
-class AssignReinforcement: public State {};
+    std::string getName() const override {
+        return "Map Loaded";
+    }
+};
 
-class IssueOrders: public State {};
+class MapValidated : public State {
+public:
+    State* clone()  override;
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
+    void enter(GameEngine& game_engine) override;
+    void exit(GameEngine& game_engine) override;
 
-class ExecuteOrders: public State {};
+    std::string getName() const override {
+        return "Map Validated";
+    }
+};
 
-class Win: public State {};
+class PlayersAdded : public State {
+public:
+    State* clone()  override;
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
+    void enter(GameEngine& game_engine) override;
+    void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Players Added";
+    }
+};
+
+class AssignReinforcement : public State {
+public:
+    State* clone()  override;
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
+    void enter(GameEngine& game_engine) override;
+    void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Assign Reinforcement";
+    }
+};
+
+class IssueOrders : public State {
+public:
+    State* clone()  override;
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
+    void enter(GameEngine& game_engine) override;
+    void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Issue Orders";
+    }
+};
+
+class ExecuteOrders : public State {
+public:
+    State* clone()  override;
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
+    void enter(GameEngine& game_engine) override;
+    void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Execute Orders";
+    }
+};
+
+class Win : public State {
+public:
+    State* clone() override;
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
+    void enter(GameEngine& game_engine) override;
+    void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "Win";
+    }
+};
+
 
 
 class GameEngine {
-private:
-    State state;
-public:
+    public:
     GameEngine();
-    State changeState(State state);
+    GameEngine(GameEngine* game_engine);
+    GameEngine& operator=(const GameEngine& other);
+
+    void run();
+    void handleInput(std::string& input);
+
+    void setGameOver(bool b);
+
+    friend std::ostream& operator<<(std::ostream& os, const GameEngine& engine);
+
+private:
+    State* currentState;
+    bool gameOver;
 };
 
 #endif //GAMEENGINE_H
