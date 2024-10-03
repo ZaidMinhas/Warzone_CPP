@@ -12,8 +12,11 @@ class GameEngine;
 class State {
 
     public:
+    State();
+    State(State* state);
     virtual ~State() = default;
-    
+
+
     virtual State* clone()  = 0;
 
 

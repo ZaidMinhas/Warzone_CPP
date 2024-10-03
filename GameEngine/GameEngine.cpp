@@ -8,6 +8,9 @@
 using namespace std;
 
 
+
+State::State(){}
+State::State(State* state){}
 //--------------------START STATE--------------------
 
 
