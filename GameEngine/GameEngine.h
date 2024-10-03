@@ -13,6 +13,7 @@ class State {
 
     public:
     virtual ~State() = default;
+    
     virtual State* clone()  = 0;
 
 

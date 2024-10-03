@@ -7,7 +7,9 @@
 
 using namespace std;
 
+
 //--------------------START STATE--------------------
+
 
 State* Start::clone(){
     return new Start();
