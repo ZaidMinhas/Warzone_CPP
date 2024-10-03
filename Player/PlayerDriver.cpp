@@ -48,12 +48,12 @@ void testPlayer() {
     player1.toDefend();  // This should print that the player is planning to defend
 
     // Cleanup: You need to free the dynamically allocated strings
-    for (auto territory : territories) {
+    /*for (auto territory : territories) {
         delete territory;
     }
     for (auto card : hand) {
         delete card;
-    }
+    }*/
 
 }
 
