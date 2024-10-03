@@ -8,7 +8,10 @@ void testOrdersList(){
     test->addOrder(new Order("firstOrder"));
     test->addOrder(new Order("SecondOrder"));
     test->addOrder(new Order("ThirdOrder"));
+    test->addOrder(new Order("Fourth Order"));
+    test->addOrder(new Order("Fifth Order"));
     cout<<test;
-    test->remove(2);
+    test->move(2,4);
+    cout<<"Move function terminated successfully"<<endl;
     cout<<test;
 }

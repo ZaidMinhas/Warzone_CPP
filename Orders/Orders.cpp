@@ -10,6 +10,12 @@ Order::Order(string orderName){
     this->orderName=orderName;
 }
 
+Order::Order(Order* orderCopy){
+    this->orderName=orderCopy->orderName;
+    this->next=orderCopy->next;
+    this->previous=orderCopy->previous;
+}
+
 Order::~Order(){
     delete next;
     next=NULL;

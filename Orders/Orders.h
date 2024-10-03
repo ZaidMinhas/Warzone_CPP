@@ -11,6 +11,7 @@ public:
 	//Constructors and Destructors
 	Order();
 	Order(string orderName);
+	Order(Order* orderCopy);
 	~Order();
 	//Accessors and Mutators
 	string getOrderName(){return orderName;}

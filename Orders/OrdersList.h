@@ -7,6 +7,7 @@ public:
     //Constructors and Destructors
     OrdersList();
     OrdersList(Order* firstOrder);
+    OrdersList(OrdersList* listCopy);
     ~OrdersList();
     //Accessors and Mutators
     Order* getHead();

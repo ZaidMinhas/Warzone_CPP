@@ -1,8 +1,8 @@
 #include "OrdersList.h"
 //Constructors and Destructors
 OrdersList::OrdersList(){
-    head=new Order();
-    tail=new Order();
+    head=new Order("head");
+    tail=new Order("tail");
     head->setNext(tail);
     size=0;
 }
@@ -13,6 +13,12 @@ OrdersList::OrdersList(Order *firstOrder){
     firstOrder->setPrevious(head);
     firstOrder->setNext(tail);
     size=1;
+}
+
+OrdersList::OrdersList(OrdersList* listCopy){
+    this->head=listCopy->head;
+    this->tail=listCopy->tail;
+    this->size=listCopy->size;
 }
 
 OrdersList::~OrdersList(){
@@ -59,12 +65,12 @@ void OrdersList::setSize(int size){
 //methods
 //Will add an order to the end of the list
 void OrdersList::addOrder(Order* newOrder){
-    //Step 1: Get tail. Step 2:set next of tail to newOrder. Step3: make new order the tail.
     if(size==0){
         head->setNext(newOrder);
         tail->setPrevious(newOrder);
     }
     else{
+       //Step 1:set next of newOrder to tail.
         newOrder->setNext(tail);
         newOrder->setPrevious(tail->getPrevious());
         tail->getPrevious()->setNext(newOrder);
@@ -96,11 +102,13 @@ void OrdersList::remove(int position){
             }
             currentOrder=currentOrder->getNext();
         }
+        currentOrder=head->getNext();
 
     }
 }
 
 void OrdersList::move(int position1,int position2){
+    Order* movedOrder=new Order();   
     //Step 1:Check base cases for position1 and position2, out of bounds, same positions are called.
     if((position1<1||position1>this->getSize())||(position2<1||position2>this->getSize())){
         cout<<"Positions of orders asked for are out of bounds"<<endl;
@@ -110,13 +118,38 @@ void OrdersList::move(int position1,int position2){
     }
     else{
         cout<<"Moving order "<<position1<<" to order "<<position2<<endl;
+        //Step 2:Find the order that wants to be moved (position 1).
+        setCurrentOrder(head->getNext());
+        for(int i=1;i<=getSize();i++){
+            if(i==position1){
+                //"Step 3:Keep track of that order by pointing to the current order."<<endl;
+                movedOrder=currentOrder;
+                //"Step 4: Set next of the previous order to the next of the current order"<<endl;
+                currentOrder->getPrevious()->setNext(currentOrder->getNext());
+                //"Step 5: Set previous of the next order to the previous of the current order."<<endl;
+                currentOrder->getNext()->setPrevious(currentOrder->getPrevious());
+                break;
+            }
+            setCurrentOrder(currentOrder->getNext());
+        }
+        setCurrentOrder(head->getNext());
+        //"Step 6: Find the position the order wants to be moved to."<<endl;
+        for(int i=1;i<=this->size;i++){
+            if(i==position2){
+                //"Step 7: Set the previous of movedOrder to to the previous of currentOrder"<<endl;
+                movedOrder->setPrevious(currentOrder->getPrevious());
+                //"Step 8: Set the next of movedOrder to the currentOrder"<<endl;
+                movedOrder->setNext(currentOrder);
+                //"Step 9: Set the next of the previous order to be movedOrder"<<endl;
+                movedOrder->getPrevious()->setNext(movedOrder);
+                //"Step 10: Set the previous of the currentOrder to be movedOrder"<<endl;
+                movedOrder->getNext()->setPrevious(movedOrder);
+                break;
+            }
+            currentOrder=currentOrder->getNext();
+        }
     }
-    //Step 2:Find the order that wants to be moved (position 1).
-    //Step 3:Keep track of that order, then change the next of the previous order to the next of the current order.
-    //Step 4:Change the previous of the next order to the previous of the current order.
-    //Step 5:Find the position2 that the order wants to be moved to.
-    //Step 6:
-    //Step 4: 
+    
 }
 
 ostream& operator<<(ostream &out,OrdersList *o){
