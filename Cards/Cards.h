@@ -43,11 +43,12 @@ class Deck{
         Cards draw(); //gets placed into player's hand
 
         Deck(int maxCards);
+        Deck();
 };
 
 
 class Hand{
-
+    
 };
 
 

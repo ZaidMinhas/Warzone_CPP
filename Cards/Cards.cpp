@@ -24,7 +24,7 @@ void Cards::play(){
 }
 
 //Deck object = contains finite collection of cards
-Deck::Deck(int maxCards){
+Deck::Deck(){
     this->maxCards = new int(5);
 }
 
