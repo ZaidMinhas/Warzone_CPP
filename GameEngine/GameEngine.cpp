@@ -33,6 +33,8 @@ State* Start::handleInput(GameEngine& game_engine, std::string& input){
 //run when a state reaction is finalized
 void Start::enter(GameEngine& game_engine) {
     cout << "Entering Start State\n" << endl;
+    cout << "Commands: loadmap\n\n";
+
 }
 //run before a state is deleted
 void Start::exit(GameEngine& game_engine) {
@@ -57,6 +59,7 @@ State* MapLoaded::handleInput(GameEngine& game_engine, std::string& input){
 
 void MapLoaded::enter(GameEngine& game_engine) {
     cout << "Entering MapLoaded State\n" << endl;
+    cout << "Commands: loadmap, validatemap\n\n";
 }
 
 void MapLoaded::exit(GameEngine& game_engine) {
@@ -79,6 +82,7 @@ State* MapValidated::handleInput(GameEngine& game_engine, std::string& input) {
 
 void MapValidated::enter(GameEngine& game_engine) {
     cout << "Entering MapValidated State\n" << endl;
+    cout << "Commands: addplayer\n\n";
 }
 
 void MapValidated::exit(GameEngine& game_engine) {
@@ -105,6 +109,7 @@ State* PlayersAdded::handleInput(GameEngine& game_engine, std::string& input) {
 
 void PlayersAdded::enter(GameEngine& game_engine) {
     cout << "Entering PlayersAdded State\n" << endl;
+    cout << "Commands: addplayer, assigncountries\n\n";
 }
 
 void PlayersAdded::exit(GameEngine& game_engine) {
@@ -127,6 +132,7 @@ State* AssignReinforcement::handleInput(GameEngine& game_engine, std::string& in
 
 void AssignReinforcement::enter(GameEngine& game_engine) {
     cout << "Entering AssignReinforcement State\n" << endl;
+    cout << "Commands: issueorder\n\n";
 }
 
 void AssignReinforcement::exit(GameEngine& game_engine) {
@@ -150,6 +156,7 @@ State* IssueOrders::handleInput(GameEngine& game_engine, std::string& input) {
 
 void IssueOrders::enter(GameEngine& game_engine) {
     cout << "Entering IssueOrders State\n" << endl;
+    cout << "Commands: issueorder, endissueorders\n\n";
 }
 
 void IssueOrders::exit(GameEngine& game_engine) {
@@ -177,6 +184,7 @@ State* ExecuteOrders::handleInput(GameEngine& game_engine, std::string& input) {
 
 void ExecuteOrders::enter(GameEngine& game_engine) {
     cout << "Entering ExecuteOrders State\n" << endl;
+    cout << "Commands: execorder, endexecorders, win\n\n";
 }
 
 void ExecuteOrders::exit(GameEngine& game_engine) {
@@ -200,6 +208,7 @@ State* Win::handleInput(GameEngine& game_engine, std::string& input) {
 
 void Win::enter(GameEngine& game_engine) {
     cout << "Entering Win State\n" << endl;
+    cout << "Commands: end, play\n\n";
 }
 
 void Win::exit(GameEngine& game_engine) {
