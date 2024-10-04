@@ -7,8 +7,9 @@ int main(int argc, char **argv)
 {
 	testMap();
 	testPlayer();
-	testGameStates();
 	testOrdersList();
+	testGameStates();
+	
 	std::string s;
 	std::cin>>s;
 	return 0;
