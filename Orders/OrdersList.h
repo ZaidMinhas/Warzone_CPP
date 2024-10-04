@@ -24,6 +24,8 @@ public:
     Then but it in between that and the order currently on the position.*/
     void remove(int position);/*Will seek the order before the one to remove, then set the next order to be the order after the one to remove. Delete the order, if the order
     is an order that required a card, put the card back into the players hand*/
+    //Assignment Operator
+    OrdersList operator=(const OrdersList* ordersList);
 private:
     Order* head;//The start of the list.
     Order* tail; //This will be used to add orders and will be good to improve performance of seeking.

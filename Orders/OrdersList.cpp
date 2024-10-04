@@ -148,6 +148,17 @@ void OrdersList::move(int position1,int position2){
     
 }
 
+//Operators
+
+OrdersList OrdersList::operator=(const OrdersList* ordersList){
+    if(this != ordersList){
+        head=ordersList->head;
+        tail=ordersList->tail;
+        size=ordersList->size;
+    }
+    return this;
+};
+
 ostream& operator<<(ostream &out,OrdersList *o){
     if(o->getSize()==0){
         out<<"Order list is empty";
