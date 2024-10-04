@@ -3,6 +3,7 @@
 #include <iostream>
 #include <queue>
 #include <map>
+class Hand;
 using std::string;
 
 //Types of cards you can get
@@ -14,52 +15,65 @@ const std::map<int, std::string> cards_Key = {
     {5, "diplomacy"}
 };
 
+
 class Cards{
+public:
+    Cards();
+    Cards(const Cards& cards);
+    Cards play();
 
-    public: 
+    Cards &operator=(const Cards &other);
 
-        string *cardType;
-        string getcardType();
+    friend std::ostream& operator<<(std::ostream& os, const Cards& c);
 
-        void play();
+private:
+    std::string card;
+};
 
-        Cards(int ckey);
-        Cards();
+//-----------------------------------------------------------------------
+
+class Deck {
+public:
+    Deck();
+    Deck(int size);
+    Deck(const Deck& deck);
+    void draw(Hand& hand);
+    void addCard(const Cards & card);
+
+
+    friend std::ostream& operator<<(std::ostream& os, const Deck& d);
+
+
+
+private:
+    void fillDeck();
+
+    Deck &operator=(const Deck &other);
+
+    int size;
+    std::queue<Cards> cards;
+};
+
+//----------------------------------------------------------------------
+
+class Hand {
+public:
+    Hand();
+    Hand(int size);
+    Hand(const Hand& hand);
+    bool isHandFull();
+    void play(Deck& deck, int i);
+    void addCard(const Cards &card);
+
+    Hand &operator=(const Hand &other);
+
+    friend std::ostream& operator<<(std::ostream& os, const Hand& h);
+
+private:
+    int size;
+    std::vector<Cards> cards;
 
 };
 
 
-class Deck{
-
-    public:
-
-        queue<Cards *> _gameDeck;
-
-        int *maxCards;
-        int getmaxCards();
-        
-        int fillDeck(); //fills deck with random cards
-        
-        Cards draw(); //gets placed into player's hand
-
-        Deck(int maxCards);
-        Deck();
-};
-
-
-class Hand{
-    
-};
-
-
-/*
-free function
-testCards()
-- creates a deck of all kinds of cards
-- creates a hand object
-- fills up hand object by drawing from deck 
-- calls play for each card in hand 
-    (cards get returned to deck)
-*/
-
-#endif
+#endif //CARDS_H
