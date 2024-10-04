@@ -1,13 +1,26 @@
 #include "Map.h"
 using std::string;
 
-Map::Map(){}
+Continent::Continent(const Continent &c){
+    bonus=new int(*c.bonus);
+    name=c.name;
+}
 
-Map map=Map();
+std::ostream & operator << (std::ostream &out, const Continent &c){
+    std::cout<<"Name: "<<*c.name<<"\nBonus: "<<*c.bonus<<"\n";
+    return std::cout;
+}
 
-void Map::error(){
-    std::cout<<"Invalid Map. Exiting Program\n";
-    loadMap();
+Continent &Continent::operator = (const Continent &c){
+    if(this!=&c){
+        delete name;
+        delete bonus;
+
+        bonus=new int(*c.bonus);
+        name=c.name;
+    }
+
+    return *this;
 }
 
 Continent::Continent(string name, int bonus){
@@ -22,12 +35,54 @@ int Continent::getBonus(){
 }
 
 Territory::Territory(){}
-Territory::Territory(string name, string continentName, int army, int idknmb){
+
+Territory::Territory(const Territory &t){
+    pContient=new Continent (*t.pContient);
+    name=t.name;
+    army=new int(*t.army);
+    x=new int(*t.x);
+    y=new int(*t.y);
+    owner=new int(*t.owner);
+    check=new int(*t.check);
+    connections=t.connections;
+
+}
+
+std::ostream & operator << (std::ostream &out, const Territory &t){
+    std::cout<<"Contient: \n"<<*t.pContient<<"\nName: "<<*t.name<<"\nArmy: "<<*t.army<<"\nx: "<<*t.x<<"\ny: "<<*t.y<<"\nOwner: "<<*t.owner;
+    return std::cout;
+}
+
+Territory &Territory::operator=(const Territory &t){
+    if(this!=&t){
+        delete pContient;
+        delete name;
+        delete army;
+        delete x;
+        delete y;
+        delete owner;
+        delete check;
+        connections.clear();
+
+        pContient=new Continent (*t.pContient);
+        name=t.name;
+        army=new int(*t.army);
+        x=new int(*t.x);
+        y=new int(*t.y);
+        owner=new int(*t.owner);
+        check=new int(*t.check);
+        connections=t.connections;
+    }
+    return *this;
+}
+
+Territory::Territory(string name, string continentName, int x, int y){
     this->name=new string(name);
-    this->x=new int(army);
-    this->y=new int(idknmb);
+    this->x=new int(x);
+    this->y=new int(y);
     this->check=new int(0);
-    this->army=0;
+    this->army=new int(0);
+    this->owner=new int(0);
     bool found=false;
     
     for(int i=0;i<map.continentList.size();i++){
@@ -37,9 +92,67 @@ Territory::Territory(string name, string continentName, int army, int idknmb){
         }
     }
     if(!found){
+        std::cout<<"Territory";
         map.error();
     }
 }
+
+
+
+Map::Map(){}
+
+Map::Map(const Map &m){
+    author=m.author;
+    image=m.image;
+    wrap=new bool(*m.wrap);
+    scroll=new int(*m.scroll);
+    warn=new bool(*m.warn);
+
+    graph=m.graph;
+    tempInput=m.tempInput;
+    continentList=m.continentList;
+}
+
+std::ostream & operator << (std::ostream &out,Map &m){
+    std::cout<<"Author: "<<*m.author<<"\nImage: "<<*m.image<<"\n Wrap: "<<*m.wrap<<"\nScroll: "<<*m.scroll<<"\nWarn: "<<*m.warn<<"\n";
+    m.display();
+    return std::cout;
+}
+
+Map &Map::operator=(const Map &m)
+{
+    if(this != &m){
+        delete author;
+        delete image;
+        delete wrap;
+        delete scroll;
+        delete warn;
+
+        graph.clear();
+        tempInput.clear();
+        continentList.clear();
+
+        author=m.author;
+        image=m.image;
+        wrap=new bool(*m.wrap);
+        scroll=new int(*m.scroll);
+        warn=new bool(*m.warn);
+
+        graph=m.graph;
+        tempInput=m.tempInput;
+        continentList=m.continentList;
+
+    }
+    return *this;
+}
+
+Map map=Map();
+
+void Map::error(){
+    std::cout<<"Invalid Map\n";
+    loadMap();
+}
+
 int Map::addContinent(string input){
     string name=input.substr(0, input.find("="));
     int bonus = std::stoi(input.substr(input.find("=")+1, input.length()));
@@ -50,20 +163,22 @@ int Map::addTerritory(string input){
     try{
     string name=input.substr(0, input.find(","));
     input=input.substr(input.find(",")+1, input.length());
-    int army=std::stoi(input.substr(0, input.find(",")));
+    int x=std::stoi(input.substr(0, input.find(",")));
     input=input.substr(input.find(",")+1, input.length());
-    int idknmb=std::stoi(input.substr(0, input.find(",")));
+    int y=std::stoi(input.substr(0, input.find(",")));
     input=input.substr(input.find(",")+1, input.length());
     string continent = input.substr(0, input.find(","));
     
-    graph.push_back(Territory(name, continent, army, idknmb));
+    graph.push_back(Territory(name, continent, x, y));
     }catch(...){
         map.error();
     }
     
     return 0;
 }
-int Map::createConnections(){
+
+int Map::createConnections()
+{
     string territoryName;
     for(int i=0;i<tempInput.size();i++){
         bool loop=true;
@@ -208,8 +323,6 @@ void Map::loadMap(){
         map.createConnections();
     }
 
-    map.display();
-
     //-------------------------Validating Graph----------------------------------//
     map.checkConnectedGraph(&map.graph.at(0));
 
@@ -252,6 +365,8 @@ void Map::loadMap(){
     }else{
         map.error();
     }
+
+        map.display();
     }catch(...){
         map.error();
     }
