@@ -8,90 +8,66 @@ void testPlayer() {
 
     // Create territories and hands using raw pointers
      std::vector<std::string*> territories;
-     territories.push_back(new std::string("Territory1"));
-     territories.push_back(new std::string("Territory2"));
+     territories.push_back(new std::string("Japan"));
+     territories.push_back(new std::string("Korea"));
+     territories.push_back(new std::string("Brazil"));
+     territories.push_back(new std::string("Cuba"));
 
-        // Print the territories using printf
+    // All the territories 
     for (const auto& territory : territories) {
-        printf("%s\n", territory->c_str());  // Use c_str() to convert std::string to C-style string
+        printf("%s\n", territory->c_str());  
     }
 
-    // Cleanup: Don't forget to delete the allocated strings
+    // Cleanup
     for (auto territory : territories) {
         delete territory;
     }
 
     std::vector<std::string*> hand;
-     hand.push_back(new std::string("Card1"));
-     hand.push_back(new std::string("Card2"));
+     hand.push_back(new std::string("Bomb Card"));
+     hand.push_back(new std::string("Reinforcement Card"));
+     hand.push_back(new std::string("Blockade Card"));
+     //hand.push_back(new std::string("Airlift Card"));
+     //hand.push_back(new std::string("Diplomacy Card"));
 
     
     std::vector<std::string*> orders; // Start with an empty list of orders
-    orders.push_back(new std::string("Order 1"));
-    orders.push_back(new std::string("Order 2"));
+    //orders.push_back(new std::string("Order 1"));
+    //orders.push_back(new std::string("Order 2"));
 
-    std::string name = "Player K";
-
-    // Instantiate a Player object using the parameterized constructor
-    Player player1(name, territories, hand, orders);
+    // Instantiate a Player object using dynamic allocation
+    Player* player1 = new Player("Player K", territories, hand, orders);
     
-    // Issue some orders
-    player1.issueOrder("Attack Territory1");
-    player1.issueOrder("Defend Territory2");
-
-    // Print orders
-    std::cout << "Orders for " << player1.getName() << ":\n";  // Now getName() should exist
-    player1.printOrder();
-
-    // Demonstration
-    player1.toAttack();  // This should print that the player is planning to attack
-    player1.toDefend();  // This should print that the player is planning to defend
-
-    // Cleanup: You need to free the dynamically allocated strings
-    /*for (auto territory : territories) {
-        delete territory;
+    // Automatically assign the first 3 territories to the player's owned territories - mock 
+    for (size_t i = 0; i < 3 && i < territories.size(); ++i) {
+        player1->addTerritory(territories[i]);
     }
-    for (auto card : hand) {
-        delete card;
-    }*/
+
+    // Print the territories owned by the player
+    //std::cout << "\nPlayer K owns the following territories:\n";
+    player1->toDefend();  // Player can only defend the territories owned
+
+    // Get player input for attack or defense
+    std::string action;
+    std::cout << "Enter 'attack' or 'defend': ";
+    std::cin >> action;
+
+    if (action == "attack") {
+        player1->toAttack(); // Player can attack territories not owned
+        std::cout << "Issuing an attack order...\n";
+        player1->issueOrder("Attack");
+    } else if (action == "defend") {
+        player1->toDefend(); // Player can defend owned territories
+        std::cout << "Issuing a defend order...\n";
+        player1->issueOrder("Defend");
+    } else {
+        std::cout << "Invalid action. Please enter 'attack' or 'defend'.\n";
+    }
+
+    // Display all issued orders
+    std::cout << "\nOrders issued by " << player1->getName() << ":\n";
+    player1->printOrder();  // Print the issued orders - mock order object
+
 
 }
 
-
-// void testPlayer()
-// {
-//     // Create territories and hands using raw pointers
-//     std::vector<std::string*> territories;
-//     territories.push_back(new std::string("Territory1"));
-//     territories.push_back(new std::string("Territory2"));
-
-//     std::vector<std::string*> hand;
-//     hand.push_back(new std::string("Card1"));
-//     hand.push_back(new std::string("Card2"));
-
-//     std::vector<std::string*> orders; // Start with an empty list of orders
-
-//     // Create a Player
-//     Player player1("Player 1", territories, hand, orders);
-
-//     // Issue some orders
-//     player1.issueOrder("Attack Territory1");
-//     player1.issueOrder("Defend Territory2");
-
-//     // Print orders
-//     std::cout << "Orders for " << player1.getName() << ":\n";  // Now getName() should exist
-//     player1.printOrder();
-
-//     // Demonstrate attack and defend methods
-//     player1.toAttack();  // This should print that the player is planning to attack
-//     player1.toDefend();  // This should print that the player is planning to defend
-
-//     // Cleanup: You need to free the dynamically allocated strings
-//     for (auto territory : territories) {
-//         delete territory;
-//     }
-//     for (auto card : hand) {
-//         delete card;
-//     }
-
-// }

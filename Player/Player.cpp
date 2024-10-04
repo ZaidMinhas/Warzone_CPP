@@ -13,25 +13,26 @@ using namespace std;
 Player::Player(const string &name, const vector<string*> &territory, const vector<string*> &hand, const vector<string*> &order)
 {
     this->_name = name;
-    this->_territory = territory;
+    this->_territories = territory;
     this->_handCard = hand;
     this->_orderList = order;
 }
 
 //player reference
-Player::Player(const Player& p)
+Player::Player(const Player& other)
 {
-    this->_name = p._name;
-    this->_territory = p._territory;
-    this->_handCard = p._handCard;
-    this->_orderList = p._orderList;
+    this->_name = other._name;
+    this->_territories = other._territories;
+    this->_handCard = other._handCard;
+    this->_orderList = other._orderList;
+    this->_playerterritories = other._playerterritories;
 }
 
 //destructor
 Player::~Player()
 {
     this->_name.clear();
-    this->_territory.clear();
+    this->_territories.clear();
     this->_handCard.clear();
     for (auto order : this->_orderList)
     {
@@ -42,7 +43,7 @@ Player::~Player()
 
 // Issue an order
 void Player::issueOrder(string order) {
-    _orderList.push_back(new string(order)); // Add a new order to the list
+    _orderList.push_back(new string(order)); 
 }
 
 // Print the list of orders
@@ -57,14 +58,29 @@ vector<string*> Player::getOrderList() {
     return _orderList;
 }
 
-// Define the toAttack method
+// Returns a list of territories that are to be attacked
 void Player::toAttack() const {
-    cout << _name << " is planning to attack." << endl;
+    std::cout << _name << " can attack the following territories:\n";
+    for (const auto& territory : _territories) {
+        // Only show territories not owned by the player
+        if (std::find(_playerterritories.begin(), _playerterritories.end(), territory) == _playerterritories.end()) {
+            std::cout << *territory << std::endl;
+        }
+    }
 }
 
-// Define the toDefend method
+// Returns a list of territories that are to be defended
 void Player::toDefend() const {
-    cout << _name << " is planning to defend." << endl;
+    std::cout << _name << " can defend the following territories:\n";
+    for (const auto& territory : _playerterritories) {
+        std::cout << *territory << std::endl;
+    }
 }
+
+// Add a territory to player-owned territories
+void Player::addTerritory(std::string* territory) {
+    _playerterritories.push_back(territory);
+}
+
 
 

@@ -12,7 +12,7 @@ public:
     Player();
     
     // Parameterized constructor
-    Player(const std::string &name, const std::vector<std::string*> &territory, const std::vector<std::string*> &hand, const std::vector<std::string*> &order);
+    Player(const std::string &name, const std::vector<std::string*> &territories, const std::vector<std::string*> &hand, const std::vector<std::string*> &orders);
 
     // Copy constructor
     Player(const Player&);
@@ -29,10 +29,14 @@ public:
         return _name;
     }
     void printOrder() const;
+    
+    // Custom function to add a territory to the player's owned territories
+    void addTerritory(std::string* territory);
 
 private:
     std::string _name;
-    std::vector<std::string*> _territory;
+    std::vector<std::string*> _territories;
+    std::vector<std::string*> _playerterritories;
     std::vector<std::string*> _handCard;
     std::vector<std::string*> _orderList;
 };
