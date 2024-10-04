@@ -1,3 +1,5 @@
+
+
 /*
 testCards() 
 1) create a deck of cards of mixed types
@@ -7,4 +9,10 @@ testCards()
 4) call play() for all cards 
     cards go back into deck
 */
+
+int main(){
+
+
+}
+
 
