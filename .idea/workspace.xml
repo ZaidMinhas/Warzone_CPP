@@ -21,7 +21,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfeef208-c80b-4133-bb57-cbc5b98d11b9" name="Changes" comment="" />
+    <list default="true" id="cfeef208-c80b-4133-bb57-cbc5b98d11b9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cards/Cards.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/Cards.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cards/Cards.h" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/Cards.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cards/CardsDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/CardsDriver.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,13 +86,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8e3198c4-7ae2-4198-8281-0ef6bd64c4fd" name="Changes" comment="" />
+      <changelist id="cfeef208-c80b-4133-bb57-cbc5b98d11b9" name="Changes" comment="" />
       <created>1727626155512</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727626155512</updated>
       <workItem from="1727626156634" duration="2055000" />
       <workItem from="1727632063571" duration="2835000" />
+      <workItem from="1728085117128" duration="34000" />
     </task>
     <servers />
   </component>

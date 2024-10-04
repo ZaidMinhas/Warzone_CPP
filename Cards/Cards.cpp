@@ -20,7 +20,7 @@ Cards::Cards(const Cards &cards) {
 }
 
 Cards Cards::play() {
-    cout << "Playing " << card << "\n\n";
+    cout << "Playing " << card << "\n";
 
     return *this;
 }
@@ -105,7 +105,7 @@ Deck& Deck::operator=(const Deck& other) {
 
 //--------------------------------------HAND-------------------------------------
 
-Hand::Hand() : size(10) {
+Hand::Hand() : size(3) {
 }
 
 Hand::Hand(int size) {
@@ -120,6 +120,10 @@ Hand::Hand(const Hand &hand) {
 
 bool Hand::isHandFull() {
     return size == cards.size();
+}
+
+int Hand::getHandSize() {
+    return cards.size();
 }
 
 void Hand::play(Deck& deck, int i) {
