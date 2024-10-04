@@ -68,6 +68,8 @@ void OrdersList::addOrder(Order* newOrder){
     if(size==0){
         head->setNext(newOrder);
         tail->setPrevious(newOrder);
+        newOrder->setPrevious(head);
+        newOrder->setNext(tail);
     }
     else{
        //Step 1:set next of newOrder to tail.
@@ -92,6 +94,7 @@ void OrdersList::remove(int position){
             if(i==position){
                 //Step 3: Check if order needed a card to execute, if it did return it to player (Part 2)
                 //Step 4: Set the next of the previous order to the next of the order to remove.
+                cout<<"About to get order head"<<endl;
                 currentOrder->getPrevious()->setNext(currentOrder->getNext());
                 currentOrder->getNext()->setPrevious(currentOrder->getPrevious());
                 //Step 6: Deconstruct order
