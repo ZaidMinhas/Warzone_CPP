@@ -7,7 +7,7 @@ Map map=Map();
 
 void Map::error(){
     std::cout<<"Invalid Map. Exiting Program\n";
-    exit(0);
+    loadMap();
 }
 
 Continent::Continent(string name, int bonus){
