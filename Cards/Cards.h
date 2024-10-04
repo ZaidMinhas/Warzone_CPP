@@ -65,6 +65,8 @@ public:
     void play(Deck& deck, int i);
     void addCard(const Cards &card);
 
+    int getHandSize();
+
     Hand &operator=(const Hand &other);
 
     friend std::ostream& operator<<(std::ostream& os, const Hand& h);
