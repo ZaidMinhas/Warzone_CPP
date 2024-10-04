@@ -23,6 +23,8 @@ public:
 	//methods
 	virtual bool validate();/*Checks if the order is capable to execute, the implementation will be defined in the child classes.*/
 	virtual void execute();/*Executes the order specified, the implementation will be defined in the child classes.*/
+	//operators
+	Order operator=(const Order* order);
 };
 
 class Deploy:public Order{

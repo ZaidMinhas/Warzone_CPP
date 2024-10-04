@@ -116,6 +116,13 @@ void Negotiate::execute(){
 }
 
 //operators
+Order Order::operator=(const Order* order){
+    this->orderName=order->orderName;
+    this->next=order->next;
+    this->previous=order->previous;
+    return this;
+}
+
 ostream& operator<<(ostream &out, Order *o){
     out<<o->getOrderName();
     return out;
