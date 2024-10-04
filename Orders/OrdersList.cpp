@@ -4,6 +4,7 @@ OrdersList::OrdersList(){
     head=new Order("head");
     tail=new Order("tail");
     head->setNext(tail);
+    tail->setPrevious(head);
     size=0;
 }
 
