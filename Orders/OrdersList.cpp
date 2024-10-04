@@ -146,6 +146,15 @@ void OrdersList::move(int position1,int position2){
     }
     
 }
+//operators
+OrdersList OrdersList::operator=(const OrdersList* ordersList){
+        if(this!=ordersList){
+            this->head=ordersList->head;
+            this->tail=ordersList->tail;
+            this->size=ordersList->size;
+        }
+        return this;
+    }
 
 ostream& operator<<(ostream &out,OrdersList *o){
     if(o->getSize()==0){
