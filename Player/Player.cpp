@@ -9,6 +9,7 @@
 
 using namespace std;
 
+Player::Player(){}; 
 
 Player::Player(const string &name, const vector<string*> &territory, const vector<string*> &hand, const vector<string*> &order)
 {
@@ -18,7 +19,7 @@ Player::Player(const string &name, const vector<string*> &territory, const vecto
     this->_orderList = order;
 }
 
-//player reference
+//copy constructor
 Player::Player(const Player& other)
 {
     this->_name = other._name;
@@ -41,6 +42,32 @@ Player::~Player()
     this->_orderList.clear();
 }
 
+
+// Assignment operator
+Player& Player::operator=(const Player& other) {
+    if (this == &other) return *this; // Self-assignment check
+
+    // Clear existing data
+    for (auto order : this->_orderList) {
+        delete order;
+    }
+
+    this->_name.clear();
+    this->_territories.clear();
+    this->_handCard.clear();
+    this->_playerterritories.clear();
+    this->_orderList.clear();
+
+    // Deep copy the data
+    this->_name = other._name;
+    this->_territories = other._territories;
+    this->_handCard = other._handCard;
+    this->_orderList = other._orderList;
+    this->_playerterritories = other._playerterritories;
+
+    return *this;
+}
+
 // Issue an order
 void Player::issueOrder(string order) {
     _orderList.push_back(new string(order)); 
@@ -56,6 +83,14 @@ void Player::printOrder() const {
 // Return a vector of orders
 vector<string*> Player::getOrderList() {
     return _orderList;
+}
+
+// Print the hand cards
+void Player::printHand() const {
+    std::cout << _name << "'s hand cards:\n";
+    for (const string* card : _handCard) {
+        std::cout << *card << std::endl;
+    }
 }
 
 // Returns a list of territories that are to be attacked
@@ -82,5 +117,15 @@ void Player::addTerritory(std::string* territory) {
     _playerterritories.push_back(territory);
 }
 
+// Operator to display player information (optional)
+ostream& operator<<(ostream &out, const Player &player) {
+    out << "Player Name: " << player.getName();
+    return out;
+}
+
+// Implementing the getName() method with the const qualifier
+std::string Player::getName() const {
+    return _name;
+}
 
 

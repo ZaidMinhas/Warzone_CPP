@@ -25,13 +25,16 @@ public:
     void toDefend() const;
     void issueOrder(std::string);
     std::vector<std::string*> getOrderList();
-    std::string getName(){
-        return _name;
-    }
+    std::string getName() const;
     void printOrder() const;
+    // Function to print hand cards -- optional just to show player's hand
+    void printHand() const;
     
     // Custom function to add a territory to the player's owned territories
     void addTerritory(std::string* territory);
+
+    //Operator
+    Player& operator = (const Player& player);
 
 private:
     std::string _name;
@@ -40,5 +43,7 @@ private:
     std::vector<std::string*> _handCard;
     std::vector<std::string*> _orderList;
 };
+
+std::ostream& operator <<(std::ostream &out, Player &player);
 
 #endif

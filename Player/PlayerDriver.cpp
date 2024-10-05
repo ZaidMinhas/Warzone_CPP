@@ -43,6 +43,9 @@ void testPlayer() {
         player1->addTerritory(territories[i]);
     }
 
+    //print player's hand
+    player1->printHand();
+
     // Print the territories owned by the player
     //std::cout << "\nPlayer K owns the following territories:\n";
     player1->toDefend();  // Player can only defend the territories owned
@@ -70,4 +73,6 @@ void testPlayer() {
 
 
 }
+
+//this is the last one yes
 
