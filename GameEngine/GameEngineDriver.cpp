@@ -15,7 +15,7 @@ void testGameStates(){
     delete gameEngine;
 }
 
- int main() {
-     testGameStates();
-     return 0;
- }
+// int main() {
+//     testGameStates();
+//     return 0;
+// }
