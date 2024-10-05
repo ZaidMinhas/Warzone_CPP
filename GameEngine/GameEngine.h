@@ -132,6 +132,19 @@ public:
     }
 };
 
+class End : public State {
+public:
+    State* clone() override;
+    State* handleInput(GameEngine& game_engine, std::string& input) override;
+    void enter(GameEngine& game_engine) override;
+    void exit(GameEngine& game_engine) override;
+
+    std::string getName() const override {
+        return "End";
+    }
+};
+
+
 
 
 class GameEngine {

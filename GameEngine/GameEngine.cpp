@@ -199,6 +199,8 @@ State* Win::clone(){
 State* Win::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "end") {
         game_engine.setGameOver(true);
+        return new End();
+
     }
     if (input == "play") {
         return new Start();
@@ -214,6 +216,27 @@ void Win::enter(GameEngine& game_engine) {
 void Win::exit(GameEngine& game_engine) {
     cout << "\nExiting Win State" << endl;
 }
+
+//--------------------END STATE--------------------
+State* End::clone(){
+    return new End();
+}
+
+State* End::handleInput(GameEngine& game_engine, std::string& input) {
+    return nullptr;
+}
+
+void End::enter(GameEngine& game_engine) {
+    cout << "Entering End State\n" << endl;
+//    cout << "Commands: end, play\n\n";
+}
+
+void End::exit(GameEngine& game_engine) {
+    cout << "\nExiting End State" << endl;
+}
+
+
+
 
 std::ostream& operator<<(std::ostream& os, const State& state) {
     os << "Current State: " << state.getName();
