@@ -101,6 +101,18 @@ Territory::Territory(string name, string continentName, int x, int y){
 
 Map::Map(){}
 
+Map::~Map(){
+    delete author;
+        delete image;
+        delete wrap;
+        delete scroll;
+        delete warn;
+
+        graph.clear();
+        tempInput.clear();
+        continentList.clear();
+}
+
 Map::Map(const Map &m){
     author=m.author;
     image=m.image;

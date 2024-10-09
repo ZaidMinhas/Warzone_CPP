@@ -52,6 +52,7 @@ class Map{
     std::ifstream mapFile;
 
     Map();
+    ~Map();
     Map(const Map &m);
     friend std::ostream & operator << (std::ostream &out,Map &m);
     Map & operator = (const Map &m);
