@@ -116,10 +116,13 @@ void Negotiate::execute(){
 }
 
 //operators
-Order Order::operator=(const Order* order){
-    this->orderName=order->orderName;
-    this->next=order->next;
-    this->previous=order->previous;
+Order Order::operator=(const Order *order)
+{
+    if(this!=order){
+        this->orderName=order->orderName;
+        this->next=order->next;
+        this->previous=order->previous;
+    }
     return this;
 }
 

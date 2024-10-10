@@ -95,7 +95,6 @@ void OrdersList::remove(int position){
             if(i==position){
                 //Step 3: Check if order needed a card to execute, if it did return it to player (Part 2)
                 //Step 4: Set the next of the previous order to the next of the order to remove.
-                cout<<"About to get order head"<<endl;
                 currentOrder->getPrevious()->setNext(currentOrder->getNext());
                 currentOrder->getNext()->setPrevious(currentOrder->getPrevious());
                 //Step 6: Deconstruct order
@@ -148,17 +147,15 @@ void OrdersList::move(int position1,int position2){
     }
     
 }
-
-//Operators
-
+//operators
 OrdersList OrdersList::operator=(const OrdersList* ordersList){
-    if(this != ordersList){
-        head=ordersList->head;
-        tail=ordersList->tail;
-        size=ordersList->size;
+        if(this!=ordersList){
+            this->head=ordersList->head;
+            this->tail=ordersList->tail;
+            this->size=ordersList->size;
+        }
+        return this;
     }
-    return this;
-};
 
 ostream& operator<<(ostream &out,OrdersList *o){
     if(o->getSize()==0){
