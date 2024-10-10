@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-#include <stdio.h>
-#include "Orders/OrderDriver.h"
-
-int main(int argc, char **argv)
-{
-	testOrdersList();
-=======
 #include <iostream>
 #include "Map\MapDriver.h"
 #include "GameEngine\GameEngineDriver.h"
@@ -14,14 +6,13 @@ int main(int argc, char **argv)
 #include "Cards\CardsDriver.h"
 int main(int argc, char **argv)
 {
-	testMap();
-	testPlayer();
+	//testMap();
+	//testPlayer();
 	testOrdersList();
-    testCards();
-	testGameStates();
+    //testCards();
+	//testGameStates();
 	
 	std::string s;
 	std::cin>>s;
->>>>>>> origin/main
 	return 0;
 }
