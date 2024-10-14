@@ -62,6 +62,7 @@ class Map{
     int checkConnectedSubGraph(string name, Territory* pointer);
     void display();
     void error();
+    void error(string cause);
     void getUserInput();
     void loadMap();
 
