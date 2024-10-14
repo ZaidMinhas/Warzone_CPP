@@ -63,8 +63,10 @@ class Map{
     void display();
     void error();
     void error(string cause);
-    void getUserInput();
+    int getUserInput();
     void loadMap();
+    void validate();
+    void clear();
 
 };
 
