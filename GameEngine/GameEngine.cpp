@@ -4,6 +4,7 @@
 
 #include "GameEngine.h"
 #include <iostream>
+#include "../Map/Map.h"
 
 using namespace std;
 
@@ -24,8 +25,13 @@ State* Start::clone(){
 
 //handle input takes in the input command and game_engine that the state may use to change game behavior
 State* Start::handleInput(GameEngine& game_engine, std::string& input){
-    if (input == "loadmap"){
-        return new MapLoaded();
+    if (input.compare(0, 7, "loadmap") == 0){
+        string fileName=input.substr(input.find(" ")+1, input.length());
+        if(map.loadMap(fileName)==0){
+            return new MapLoaded();
+        }else{
+            return new Start();
+        }
     }
     return nullptr;
 }
@@ -52,7 +58,11 @@ State* MapLoaded::handleInput(GameEngine& game_engine, std::string& input){
         return new MapLoaded();
     }
     if (input == "validatemap") {
-        return new MapValidated();
+        if(map.validate()==0){
+            return new MapValidated();
+        }else{
+            return new Start();
+        }
     }
     return nullptr;
 }
@@ -310,4 +320,6 @@ GameEngine& GameEngine::operator=(const GameEngine& other) {
     return *this;
 }
 
-
+void GameEngine::startupPhase(){
+    
+}

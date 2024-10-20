@@ -6,8 +6,8 @@
 #include "Cards\CardsDriver.h"
 int main(int argc, char **argv)
 {
-	testMap();
-	testPlayer();
+	//testMap();
+	//testPlayer();
 	testOrdersList();
     testCards();
 	testGameStates();

@@ -122,6 +122,8 @@ void Map::clear(){
         map.graph.clear();
         map.tempInput.clear();
         map.continentList.clear();
+
+        map.mapFile.close();
 }
 
 Map::Map(const Map &m){
@@ -202,7 +204,6 @@ int Map::addTerritory(string input){
     
     graph.push_back(Territory(name, continent, x, y));
     }catch(...){
-        std::cout<<"Can't add territory";
         return 1;
     }
     
@@ -278,8 +279,6 @@ void Map::display(){
 }
 
 int Map::getUserInput(string input){
-    std::cout<<"Enter the file path to your .map file: ";
-    std::cin>>input;
     if(input.compare(input.size()-4, 4, ".map")!=0){
         std::cout<<"File must end with .map";
         return 1;
@@ -298,12 +297,11 @@ int Map::validate(){
        if (*map.graph.at(i).check==1){
         j++;
        };
-       //std::cout<<*map.graph.at(i).name<<"  "<<*map.graph.at(i).check<<"\n";
        
     }
     
     if(j==map.graph.size()){
-        //std::cout<<"Graph is connected\n";
+        return 0;
     }else{
         std::cout<<"Graph is not connected";
         return 1;
@@ -324,12 +322,11 @@ int Map::validate(){
        if (*map.graph.at(i).check==0){
         j++;
        };
-       //std::cout<<*map.graph.at(i).name<<"  "<<*map.graph.at(i).check<<"\n";
        
     }
     
     if(j==map.graph.size()){
-        //std::cout<<"SubGraph is connected\n";
+        return 0;
     }else{
         std::cout<<"Continents are not connected";
         return 1;
@@ -432,18 +429,16 @@ int Map::loadMap(string fileName){
         }
         map.createConnections();
     }
-
-    map.validate();
-
         map.display();
     }catch(...){
             std::cout<<"Invalid map";
             map.clear();
             return 1;
     }
-
+    return 0;
 }
 
-char * InvalidMapException::what(){
-    return "Invalid Map";
-}
+/*char * InvalidMapException::what(){
+    char * msg="Invalid Map";
+    return msg;
+}*/

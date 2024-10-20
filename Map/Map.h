@@ -71,8 +71,8 @@ class Map{
 };
 
 class InvalidMapException : public std::exception {
-    public:
-        char * what ();
+    /*public:
+        char * what ();*/
 };
 
 extern Map map;
