@@ -61,13 +61,18 @@ class Map{
     int checkConnectedGraph(Territory* pointer);
     int checkConnectedSubGraph(string name, Territory* pointer);
     void display();
-    void error();
-    void error(string cause);
-    int getUserInput();
-    void loadMap();
-    void validate();
+    //void error();
+    //void error(string cause);
+    int getUserInput(string fileName);
+    int loadMap(string fileName);
+    int validate();
     void clear();
 
+};
+
+class InvalidMapException : public std::exception {
+    public:
+        char * what ();
 };
 
 extern Map map;

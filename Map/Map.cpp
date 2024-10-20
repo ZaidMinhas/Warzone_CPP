@@ -92,8 +92,7 @@ Territory::Territory(string name, string continentName, int x, int y){
         }
     }
     if(!found){
-        std::cout<<"Territory";
-        map.error("Contient not found");
+        throw InvalidMapException();
     }
 }
 
@@ -172,18 +171,18 @@ Map &Map::operator=(const Map &m)
 
 Map map=Map();
 
-void Map::error(){
+/*void Map::error(){
     std::cout<<"Invalid Map\n";
     map.mapFile.close();
     map.clear();
-    loadMap();
+    throw InvalidMapException();
 }
 void Map::error(string cause){
     std::cout<<"Invalid Map: "<<cause<<"\n";
     map.mapFile.close();
     map.clear();
-    loadMap();
-}
+    throw InvalidMapException();
+}*/
 
 int Map::addContinent(string input){
     string name=input.substr(0, input.find("="));
@@ -203,7 +202,7 @@ int Map::addTerritory(string input){
     
     graph.push_back(Territory(name, continent, x, y));
     }catch(...){
-        map.error("Can't add territory");
+        std::cout<<"Can't add territory";
         return 1;
     }
     
@@ -232,7 +231,10 @@ int Map::createConnections()
                    found=true; 
                 }
             }
-            if(!found){map.error("Connection Territory not found");}
+            if(!found){
+                std::cout<<"Connection Territory not found";
+                return 1;
+            }
             map.tempInput.at(i)=map.tempInput.at(i).substr(map.tempInput.at(i).find(",")+1, map.tempInput.at(i).length());
         }
     }
@@ -275,12 +277,11 @@ void Map::display(){
     }
 }
 
-int Map::getUserInput(){
-    string input;
+int Map::getUserInput(string input){
     std::cout<<"Enter the file path to your .map file: ";
     std::cin>>input;
     if(input.compare(input.size()-4, 4, ".map")!=0){
-        map.error("File must end with .map");
+        std::cout<<"File must end with .map";
         return 1;
     }else{
         map.mapFile.open(input);
@@ -288,7 +289,7 @@ int Map::getUserInput(){
     }
 }
 
-void Map::validate(){
+int Map::validate(){
     //-------------------------Validating Graph----------------------------------//
     map.checkConnectedGraph(&map.graph.at(0));
 
@@ -304,7 +305,8 @@ void Map::validate(){
     if(j==map.graph.size()){
         //std::cout<<"Graph is connected\n";
     }else{
-        map.error("Graph is not connected");
+        std::cout<<"Graph is not connected";
+        return 1;
     }
     
 
@@ -329,15 +331,17 @@ void Map::validate(){
     if(j==map.graph.size()){
         //std::cout<<"SubGraph is connected\n";
     }else{
-        map.error("Continents are not connected");
+        std::cout<<"Continents are not connected";
+        return 1;
     }
 }
 
 
-void Map::loadMap(){
+int Map::loadMap(string fileName){
     try{
-    if(map.getUserInput()==1){
-        return;
+    if(map.getUserInput(fileName)==1){
+        map.clear();
+        return 1;
     };
     string fileLine;
     std::getline(map.mapFile, fileLine);
@@ -346,50 +350,63 @@ void Map::loadMap(){
     if(fileLine.compare("[Map]\n")){
         std::getline(map.mapFile, fileLine);
         if(fileLine.rfind("author", 0)!=0){
-            map.error(fileLine);
-            return;
+            std::cout<<"Invalid Meta Data";
+            map.clear();
+            return 1;
         }
         map.author=new string(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1));
         std::getline(map.mapFile, fileLine);
         if(fileLine.rfind("image", 0)!=0){
-            map.error("Invalid Meta Data Image");
-            return;
+            std::cout<<"Invalid Meta Data";
+            map.clear();
+            return 1;
         }
         map.image=new string(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1));
         std::getline(map.mapFile, fileLine);
         if(fileLine.rfind("wrap", 0)!=0){
-            map.error("Invalid Meta Data wrap");
-            return;
+            std::cout<<"Invalid Meta Data";
+            map.clear();
+            return 1;
         }
         map.wrap=new bool(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes"));
         std::getline(map.mapFile, fileLine);
         if(fileLine.rfind("scroll", 0)!=0){
-            map.error("Invalid Meta Data scroll");
-            return;
+            std::cout<<"Invalid Meta Data";
+            map.clear();
+            return 1;
         }
         if(fileLine.compare("scroll=none")==0){map.scroll=new int(0);}
         else if(fileLine.compare("scroll=vertical")==0){map.scroll=new int(1);}
         else if(fileLine.compare("scroll=horizontal")==0){map.scroll=new int(2);}
         std::getline(map.mapFile, fileLine);
         if(fileLine.rfind("warn", 0)!=0){
-            map.error("Invalid Meta Data warn");
-            return;
+            std::cout<<"Invalid Meta Data";
+            map.clear();
+            return 1;
         }
         map.warn=new bool(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes"));
     }else{
-        map.error("Missing [Map] tag");
+        std::cout<<"Missing [Map] tag";
+            map.clear();
+            return 1;
     }
     while(fileLine!="[Continents]"){
         std::getline(map.mapFile, fileLine);
         if(map.mapFile.eof()){
-            map.error("Missing [Continents] tag");
+            std::cout<<"Missing [Continents] tag";
+            map.clear();
+            return 1;
         }
     };
     //-----------------------------Continent------------------------------------//
     if(fileLine.compare("[Continents]\n")){
         std::getline(map.mapFile, fileLine);
         while(fileLine!="[Territories]"&&!fileLine.empty()){
-            map.addContinent(fileLine);
+            if(map.addContinent(fileLine)==1){
+                std::cout<<"Can't add Continent";
+                map.clear();
+                return 1;
+            };
             std::getline(map.mapFile, fileLine);
         }
     }
@@ -397,7 +414,9 @@ void Map::loadMap(){
     while(fileLine!="[Territories]"){
         std::getline(map.mapFile, fileLine);
         if(map.mapFile.eof()){
-            map.error("Missing [Territories] tag");
+            std::cout<<"Missing [Territory] tag";
+            map.clear();
+            return 1;
         }
     };
     if(fileLine.compare("[Territories]\n")){
@@ -405,7 +424,9 @@ void Map::loadMap(){
             if(!fileLine.empty()){
                 map.tempInput.push_back(fileLine);
                 if(map.addTerritory(fileLine)==1){
-                    return;
+                    std::cout<<"Can't add Territory";
+                    map.clear();
+                    return 1;
                 };
             }
         }
@@ -415,8 +436,14 @@ void Map::loadMap(){
     map.validate();
 
         map.display();
-    }catch(const std::runtime_error& re){
-        map.error("Unknown error occured");
+    }catch(...){
+            std::cout<<"Invalid map";
+            map.clear();
+            return 1;
     }
 
+}
+
+char * InvalidMapException::what(){
+    return "Invalid Map";
 }
