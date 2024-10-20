@@ -25,8 +25,10 @@ State* Start::clone(){
 
 //handle input takes in the input command and game_engine that the state may use to change game behavior
 State* Start::handleInput(GameEngine& game_engine, std::string& input){
-    if (input.compare(0, 7, "loadmap") == 0){
-        string fileName=input.substr(input.find(" ")+1, input.length());
+    if (input=="loadmap"){
+        string fileName;
+        cin>>fileName;
+        std::cout<<"\n"<<fileName<<"\n";
         if(map.loadMap(fileName)==0){
             return new MapLoaded();
         }else{
@@ -54,8 +56,15 @@ State* MapLoaded::clone(){
 }
 
 State* MapLoaded::handleInput(GameEngine& game_engine, std::string& input){
-    if (input == "loadmap"){
-        return new MapLoaded();
+    if (input=="loadmap"){
+        string fileName;
+        cin>>fileName;
+        std::cout<<"\n"<<fileName<<"\n";
+        if(map.loadMap(fileName)==0){
+            return new MapLoaded();
+        }else{
+            return new Start();
+        }
     }
     if (input == "validatemap") {
         if(map.validate()==0){
@@ -277,7 +286,6 @@ void GameEngine::run() {
     while (true) {
         cout << "Enter command:";
         cin >> command;
-
         handleInput(command);
 
         if (gameOver) {
