@@ -21,8 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="cfeef208-c80b-4133-bb57-cbc5b98d11b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/GameEngine/GameEngineDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/GameEngineDriver.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameEngine/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/a.exe" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/GameEngine/GameEngine.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/GameEngine.h" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,9 +107,17 @@
       <created>1727808716943</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< Updated upstream
       <updated>1727808716943</updated>
       <workItem from="1727808718193" duration="1861000" />
       <workItem from="1727929953851" duration="154000" />
+=======
+      <updated>1727626155512</updated>
+      <workItem from="1727626156634" duration="2055000" />
+      <workItem from="1727632063571" duration="2835000" />
+      <workItem from="1728085117128" duration="1730000" />
+      <workItem from="1729522425455" duration="598000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
