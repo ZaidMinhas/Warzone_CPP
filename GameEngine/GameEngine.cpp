@@ -297,6 +297,7 @@ void GameEngine::run() {
     cout << "Welcome to Warzone\n" << endl;
     //Run first state
     currentState->enter(*this);
+    startupPhase();
 
     while (true) {
         cout << "Enter command:";
@@ -328,6 +329,15 @@ void GameEngine::handleInput(std::string& input) {
 
 }
 
+void GameEngine::setCurrentState(State* state){
+    delete currentState;
+    this->currentState=state;
+}
+
+string GameEngine::getCurrentState(){
+    return this->currentState->getName();
+}
+
 std::ostream& operator<<(std::ostream& os, const GameEngine& engine) {
     os << *engine.currentState << ".\nIs the game over: " << (engine.gameOver == true? "YES" : "NO") ;
     return os;
@@ -344,7 +354,40 @@ GameEngine& GameEngine::operator=(const GameEngine& other) {
 }
 
 void GameEngine::startupPhase(){
-    
+    string input;
+    while(true){
+    cout<<"Enter command:";
+    cin>>input;
+    if(input=="loadmap"&&(getCurrentState()=="Start"||getCurrentState()=="Map Loaded")){
+        string fileName;
+        cin>>fileName;
+        std::cout<<"\n"<<fileName<<"\n";
+        if(map.loadMap(fileName)==0){
+            setCurrentState(new MapLoaded());
+        }else{
+            setCurrentState(new Start());
+        }
+    }else if(input=="validatemap"&&(getCurrentState()=="Map Loaded"||getCurrentState()=="Map Validated")){
+        if(map.validate()==0){
+            cout<<"Map is valid\n";
+            setCurrentState(new MapValidated());
+        }else{
+            cout<<"Map is not valid\n";
+            setCurrentState(new Start());
+        }
+    }else if(input=="addplayer"&&(getCurrentState()=="Map Validated"||getCurrentState()=="Players Added")){
+        string name;
+        cin>>name;
+        playerList.push_back(new Player(name));
+        setCurrentState(new PlayersAdded());
+    }else if(input=="gamestart"&&getCurrentState()=="Players Added"){
+        gamestart();
+        setCurrentState(new AssignReinforcement());
+        break;
+    }else{
+        cout<<"INCORRECT COMMAND\n";
+    }
+    }
 }
 void gamestart(){
     //Equal Distribution of Territories
