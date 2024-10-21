@@ -435,6 +435,7 @@ int Map::loadMap(string fileName){
             map.clear();
             return 1;
     }
+    mapFile.close();
     return 0;
 }
 
