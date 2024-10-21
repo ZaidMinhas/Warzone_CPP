@@ -6,6 +6,7 @@
 #define GAMEENGINE_H
 #include <string>
 
+void gamestart();
 
 class GameEngine;
 
@@ -160,6 +161,8 @@ class GameEngine {
     void setGameOver(bool b);
 
     friend std::ostream& operator<<(std::ostream& os, const GameEngine& engine);
+
+    void startupPhase();
 
 private:
     State* currentState;
