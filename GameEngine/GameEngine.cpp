@@ -5,8 +5,12 @@
 #include "GameEngine.h"
 #include <iostream>
 #include "../Map/Map.h"
+#include "../Player/Player.h"
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::string;
+using std::endl;
 
 
 
@@ -94,6 +98,9 @@ State* MapValidated::clone(){
 
 State* MapValidated::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "addplayer") {
+        string name;
+        cin>>name;
+        playerList.push_back(new Player(name));
         return new PlayersAdded();
     }
     return nullptr;
@@ -117,7 +124,15 @@ State* PlayersAdded::clone(){
 
 State* PlayersAdded::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "addplayer") {
+        string name;
+        cin>>name;
+        playerList.push_back(new Player(name));
         return new PlayersAdded();
+    }
+
+    if (input == "gamestart"){
+        gamestart();
+        return new AssignReinforcement();
     }
 
     if (input == "assigncountries") {
@@ -330,4 +345,22 @@ GameEngine& GameEngine::operator=(const GameEngine& other) {
 
 void GameEngine::startupPhase(){
     
+}
+void gamestart(){
+    //Equal Distribution of Territories
+    for (int i=0;i<map.graph.size();i++){
+        playerList.at(i%playerList.size())->addTerritory(&map.graph.at(i));
+    }
+    //Determin random order of play
+
+    //Give every Player 50 inital troops and drawing 2 cards
+    for(int j=0;j<playerList.size();j++){
+        playerList.at(j)->_reinforcementPool=new int(50);
+        playerList.at(j)->_handCard=new Hand();
+        deck.draw(*playerList.at(j)->_handCard);
+        deck.draw(*playerList.at(j)->_handCard);
+        std::cout<<"\n"<<playerList.at(j)->getName();
+        std::cout<<"\n"<<*playerList.at(j)->_reinforcementPool;
+        std::cout<<"\n"<<*playerList.at(j)->_handCard;
+    }
 }

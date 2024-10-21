@@ -11,12 +11,16 @@ using namespace std;
 
 Player::Player(){}; 
 
-Player::Player(const string &name, const vector<string*> &territory, const vector<string*> &hand, const vector<string*> &order)
+/*Player::Player(const string &name, const vector<string*> &territory, const vector<string*> &hand, const vector<string*> &order)
 {
     this->_name = name;
     this->_territories = territory;
     this->_handCard = hand;
     this->_orderList = order;
+}*/
+
+Player::Player(const string &name){
+    this->_name = name;
 }
 
 //copy constructor
@@ -34,7 +38,7 @@ Player::~Player()
 {
     this->_name.clear();
     this->_territories.clear();
-    this->_handCard.clear();
+    delete _handCard;
     for (auto order : this->_orderList)
     {
         delete order;
@@ -54,7 +58,7 @@ Player& Player::operator=(const Player& other) {
 
     this->_name.clear();
     this->_territories.clear();
-    this->_handCard.clear();
+    delete _handCard;
     this->_playerterritories.clear();
     this->_orderList.clear();
 
@@ -88,9 +92,7 @@ vector<string*> Player::getOrderList() {
 // Print the hand cards
 void Player::printHand() const {
     std::cout << _name << "'s hand cards:\n";
-    for (const string* card : _handCard) {
-        std::cout << *card << std::endl;
-    }
+    std::cout << *_handCard;
 }
 
 // Returns a list of territories that are to be attacked
@@ -113,7 +115,7 @@ void Player::toDefend() const {
 }
 
 // Add a territory to player-owned territories
-void Player::addTerritory(std::string* territory) {
+void Player::addTerritory(Territory* territory) {
     _playerterritories.push_back(territory);
 }
 
@@ -128,4 +130,4 @@ std::string Player::getName() const {
     return _name;
 }
 
-
+std::vector<Player*> playerList;

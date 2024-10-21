@@ -6,7 +6,7 @@
 #define GAMEENGINE_H
 #include <string>
 
-
+void gamestart();
 
 class GameEngine;
 
