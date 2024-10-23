@@ -29,37 +29,55 @@ public:
 
 class Deploy:public Order{
 public:
+	Deploy();
 	Deploy(string orderName);
+	Deploy(Deploy* deployCopy);
+	~Deploy();
 	void execute();
 };
 
 class Advance:public Order{
 public:
+	Advance();
 	Advance(string orderName);
+	Advance(Advance* advanceCopy);
+	~Advance();
 	void execute();
 };
 
 class Bomb:public Order{
 public:
+	Bomb();
 	Bomb(string orderName);
+	Bomb(Bomb* bombCopy);
+	~Bomb();
 	void execute();
 };
 
 class Blockade:public Order{
 public:
+	Blockade();
 	Blockade(string orderName);
+	Blockade(Blockade* blockadeCopy);
+	~Blockade();
 	void execute();
 };
 
 class Airlift:public Order{
 public:
+	Airlift();
 	Airlift(string orderName);
+	Airlift(Airlift* airliftCopy);
+	~Airlift();
 	void execute();
 };
 
 class Negotiate:public Order{
 public:
+	Negotiate();
 	Negotiate(string orderName);
+	Negotiate(Negotiate* negotiateCopy);
+	~Negotiate();
 	void execute();
 };
 

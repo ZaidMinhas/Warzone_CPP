@@ -1,20 +1,11 @@
 #include <cmath>
 #include "Orders.h"
 //Constructors and Destructors
-Order::Order(){
-    orderName="N/A";
-    next=nullptr;
-}
+Order::Order():orderName("NA"),next(nullptr),previous(nullptr){}
 
-Order::Order(string orderName){
-    this->orderName=orderName;
-}
+Order::Order(string orderName):orderName(orderName),next(nullptr),previous(nullptr){}
 
-Order::Order(Order* orderCopy){
-    this->orderName=orderCopy->orderName;
-    this->next=orderCopy->next;
-    this->previous=orderCopy->previous;
-}
+Order::Order(Order* orderCopy): orderName(orderCopy->orderName),next(orderCopy->next),previous(orderCopy->previous){}
 
 Order::~Order(){
     delete next;
@@ -23,17 +14,53 @@ Order::~Order(){
     previous=NULL;
 }
 
+Deploy::Deploy():Order(){}
+
 Deploy::Deploy(string orderName):Order(orderName){}
+
+Deploy::Deploy(Deploy* deployCopy):Order(deployCopy){}
+
+Deploy::~Deploy(){}
+
+Advance::Advance():Order(){}
 
 Advance::Advance(string orderName):Order(orderName){}
 
+Advance::Advance(Advance* advanceCopy):Order(advanceCopy){}
+
+Advance::~Advance(){}
+
+Bomb::Bomb():Order(){}
+
 Bomb::Bomb(string orderName):Order(orderName){}
+
+Bomb::Bomb(Bomb* bombCopy):Order(bombCopy){}
+
+Bomb::~Bomb(){}
+
+Blockade::Blockade():Order(){}
 
 Blockade::Blockade(string orderName):Order(orderName){}
 
+Blockade::Blockade(Blockade* blockadeCopy):Order(blockadeCopy){}
+
+Blockade::~Blockade(){}
+
+Airlift::Airlift():Order(){}
+
 Airlift::Airlift(string orderName):Order(orderName){}
 
+Airlift::Airlift(Airlift* airliftCopy):Order(airliftCopy){}
+
+Airlift::~Airlift(){}
+
+Negotiate::Negotiate():Order(){}
+
 Negotiate::Negotiate(string orderName):Order(orderName){}
+
+Negotiate::Negotiate(Negotiate* negotiateCopy):Order(negotiateCopy){}
+
+Negotiate::~Negotiate(){}
 
 //methods
 bool Order::validate(){

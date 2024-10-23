@@ -55,7 +55,7 @@ void testOrdersList(){
     }
     while(true){
         cout<<test;
-        int position1; 
+        int position1;
         int position2;
         cout<<"Commander!! Are there any orders you would like to Move or Remove before execution:";
         cin>>order;
