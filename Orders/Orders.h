@@ -22,18 +22,18 @@ public:
 	void setPrevious(Order* previous);
 	//methods
 	virtual bool validate();/*Checks if the order is capable to execute, the implementation will be defined in the child classes.*/
-	virtual void execute();/*Executes the order specified, the implementation will be defined in the child classes.*/
-	//operators
-	Order operator=(const Order* order);
+	virtual void execute() = 0;/*Executes the order specified, the implementation will be defined in the child classes.*/
 };
 
-class Deploy:public Order{
+class Deploy:public virtual Order{
 public:
 	Deploy();
 	Deploy(string orderName);
 	Deploy(Deploy* deployCopy);
 	~Deploy();
+	bool validate();
 	void execute();
+	Deploy operator=(const Deploy* order);
 };
 
 class Advance:public Order{

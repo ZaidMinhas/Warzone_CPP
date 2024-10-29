@@ -166,17 +166,6 @@ void Negotiate::execute(){
     }
 }
 
-//operators
-Order Order::operator=(const Order *order)
-{
-    if(this!=order){
-        this->orderName=order->orderName;
-        this->next=order->next;
-        this->previous=order->previous;
-    }
-    return this;
-}
-
 ostream& operator<<(ostream &out, Order *o){
     out<<o->getOrderName();
     return out;
@@ -184,8 +173,8 @@ ostream& operator<<(ostream &out, Order *o){
 
 //Constructors and Destructors
 OrdersList::OrdersList(){
-    head=new Order("head");
-    tail=new Order("tail");
+    head = new Deploy();
+    tail = new Deploy();
     head->setNext(tail);
     tail->setPrevious(head);
     size=0;
@@ -294,7 +283,7 @@ void OrdersList::remove(int position){
 }
 
 void OrdersList::move(int position1,int position2){
-    Order* movedOrder=new Order();   
+    Order* movedOrder;   
     //Check base cases for position1 and position2: out of bounds, same positions are called.
     if((position1<1||position1>this->getSize())||(position2<1||position2>this->getSize())){
         cout<<"Positions of orders asked for are out of bounds"<<endl;
