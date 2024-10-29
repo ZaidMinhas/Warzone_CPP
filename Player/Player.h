@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 #include <string>  // to use std::string
+#include "../Map/Map.h"
+#include "../Cards/Cards.h"
 
 class Player {
 
@@ -12,7 +14,10 @@ public:
     Player();
     
     // Parameterized constructor
-    Player(const std::string &name, const std::vector<std::string*> &territories, const std::vector<std::string*> &hand, const std::vector<std::string*> &orders);
+    //Player(const std::string &name, const std::vector<std::string*> &territories, const std::vector<std::string*> &hand, const std::vector<std::string*> &orders);
+
+    // Constructor with only name
+    Player(const std::string &name);
 
     // Copy constructor
     Player(const Player&);
@@ -31,19 +36,23 @@ public:
     void printHand() const;
     
     // Custom function to add a territory to the player's owned territories
-    void addTerritory(std::string* territory);
+    void addTerritory(Territory* territory);
 
     //Operator
     Player& operator = (const Player& player);
 
+
+    int*  _reinforcementPool;
+    Hand* _handCard;
 private:
     std::string _name;
-    std::vector<std::string*> _territories;
-    std::vector<std::string*> _playerterritories;
-    std::vector<std::string*> _handCard;
+    std::vector<Territory*> _territories;
+    std::vector<Territory*> _playerterritories;
     std::vector<std::string*> _orderList;
+    
 };
 
+extern std::vector<Player*> playerList;
 std::ostream& operator <<(std::ostream &out, Player &player);
 
 #endif

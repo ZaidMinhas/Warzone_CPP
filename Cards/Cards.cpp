@@ -103,6 +103,8 @@ Deck& Deck::operator=(const Deck& other) {
     return *this; // Return the current object
 }
 
+Deck deck=Deck();
+
 //--------------------------------------HAND-------------------------------------
 
 Hand::Hand() : size(3) {

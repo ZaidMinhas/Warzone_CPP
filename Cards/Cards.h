@@ -76,6 +76,6 @@ private:
     std::vector<Cards> cards;
 
 };
-
+extern Deck deck;
 
 #endif //CARDS_H
