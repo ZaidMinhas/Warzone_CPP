@@ -1,18 +1,26 @@
-#include <cmath>
+#include <random>
 #include "Orders.h"
+#include "..\Map/Map.h"
 //Constructors and Destructors
-Order::Order():orderName("NA"),next(nullptr),previous(nullptr){}
+abOrder::abOrder(){}
 
-Order::Order(string orderName):orderName(orderName),next(nullptr),previous(nullptr){}
+Order::Order():orderName("NA"),next(nullptr),previous(nullptr),playerIndex(0){}
 
-Order::Order(Order* orderCopy): orderName(orderCopy->orderName),next(orderCopy->next),previous(orderCopy->previous){}
+Order::Order(string orderName,int* playerIndex):orderName(orderName),next(nullptr),previous(nullptr),playerIndex(playerIndex){}
+
+Order::Order(Order* orderCopy): orderName(orderCopy->orderName),next(orderCopy->next),previous(orderCopy->previous),playerIndex(playerIndex){}
 
 Order::~Order(){
+    delete playerIndex;
+    playerIndex = NULL;
     delete next;
     next=NULL;
     delete previous;
     previous=NULL;
 }
+
+
+//Accessors
 
 string Order::getOrderName(){
     return orderName;
@@ -25,6 +33,32 @@ Order* Order::getNext(){
 Order* Order::getPrevious(){
     return previous;
 }
+
+int* Order::getPlayerIndex(){
+    return playerIndex;
+}
+
+Territory* Deploy::getToDeploy(){
+    return toDeploy;
+}
+
+int* Deploy::getNUnits(){
+    return nUnits;
+}
+
+Territory* Advance::getAdvanceFrom(){
+    return advanceFrom;
+}
+
+Territory* Advance::getAdvanceTo(){
+    return advanceTo;
+}
+
+int* Advance::getNUnits(){
+    return nUnits;
+}
+
+//Mutators
 
 void Order::setNext(Order* next){
     this->next=next;
@@ -40,7 +74,7 @@ void Order::setPrevious(Order* previous){
 
 Deploy::Deploy():Order(){}
 
-Deploy::Deploy(string orderName):Order(orderName){}
+Deploy::Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits):Order(orderName,playerIndex),toDeploy(toDeploy),nUnits(nUnits){}
 
 Deploy::Deploy(Deploy* deployCopy):Order(deployCopy){}
 
@@ -48,7 +82,7 @@ Deploy::~Deploy(){}
 
 Advance::Advance():Order(){}
 
-Advance::Advance(string orderName):Order(orderName){}
+Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits):Order(orderName,playerIndex),advanceFrom(advanceFrom),advanceTo(advanceTo),nUnits(nUnits){}
 
 Advance::Advance(Advance* advanceCopy):Order(advanceCopy){}
 
@@ -56,7 +90,7 @@ Advance::~Advance(){}
 
 Bomb::Bomb():Order(){}
 
-Bomb::Bomb(string orderName):Order(orderName){}
+Bomb::Bomb(string orderName,int* playerIndex):Order(orderName,playerIndex){}
 
 Bomb::Bomb(Bomb* bombCopy):Order(bombCopy){}
 
@@ -64,7 +98,7 @@ Bomb::~Bomb(){}
 
 Blockade::Blockade():Order(){}
 
-Blockade::Blockade(string orderName):Order(orderName){}
+Blockade::Blockade(string orderName,int* playerIndex):Order(orderName,playerIndex){}
 
 Blockade::Blockade(Blockade* blockadeCopy):Order(blockadeCopy){}
 
@@ -72,7 +106,7 @@ Blockade::~Blockade(){}
 
 Airlift::Airlift():Order(){}
 
-Airlift::Airlift(string orderName):Order(orderName){}
+Airlift::Airlift(string orderName,int* playerIndex):Order(orderName,playerIndex){}
 
 Airlift::Airlift(Airlift* airliftCopy):Order(airliftCopy){}
 
@@ -80,47 +114,87 @@ Airlift::~Airlift(){}
 
 Negotiate::Negotiate():Order(){}
 
-Negotiate::Negotiate(string orderName):Order(orderName){}
+Negotiate::Negotiate(string orderName,int* playerIndex):Order(orderName,playerIndex){}
 
 Negotiate::Negotiate(Negotiate* negotiateCopy):Order(negotiateCopy){}
 
 Negotiate::~Negotiate(){}
 
 //methods
+
 bool Order::validate(){
-    int random = rand()%10 + 1;
-    if(random<=5){
-        return false;
-    }
     return true;
 }
 
-void Order::execute(){
-    if(this->validate()){
-        cout<<"Executing order: "<<this<<endl;
+void Order::execute(){}
+
+bool Deploy::validate(){
+    if(toDeploy->owner==playerIndex){
+        return true;
     }
-    else{
-        cout<<"Unable to execute order: "<<this<<endl;
-    }
+    return false;
 }
 
 void Deploy::execute(){
     if(this->validate()){
-        cout<<"Executing order: "<<this<<endl;
+        cout<<"Deploying on: "<<toDeploy->name<<endl;
+        toDeploy->army= toDeploy->army+*(this->getNUnits());
         cout<<"Puts a certain number of army units on a target territory"<<endl;
     }
     else{
-        cout<<"Unable to execute order: "<<this<<endl;
+        cout<<"Unable to Deploy on: "<<toDeploy->name<<" for you no longer, or never did, own that territory" <<endl;
     }
+}
+
+bool Advance::validate(){
+    if(advanceFrom->owner!=playerIndex){
+        cout<<"Unable to execute Advance order!! You do not own "<<advanceFrom->name<<endl;
+        return false;
+    }
+    else{
+        for(auto link : advanceFrom->connections){
+           if(link->name==advanceTo->name){
+                return true;
+           } 
+        }
+    }
+    cout<<"Unable to execute Advance order!! "<<advanceFrom->name<<" does not connect to "<<advanceTo->name<<"!!"<<endl;
+    return false;
 }
 
 void Advance::execute(){
     if(this->validate()){
-        cout<<"Executing order: "<<this<<endl;
-        cout<<"moves a certain number of army units from one territory (source territory) to another territory (target territory)"<<endl;
-    }
-    else{
-        cout<<"Unable to execute order: "<<this<<endl;
+        if(advanceTo->owner==playerIndex){
+            *(advanceTo->army)=*(advanceTo->army)+*(nUnits);
+            *(advanceFrom->army)=*(advanceFrom->army)-*(nUnits);
+        }
+        else{
+            cout<<"Entering hostile territory!! Preparing the assault"<<endl;
+            *(advanceFrom->army)=*(advanceFrom->army)-*(nUnits);
+            int attackingUnits = *(nUnits);
+            while(attackingUnits==0||*(advanceTo->army)==0){
+                random_device rd;
+                mt19937 gen(rd());
+                uniform_int_distribution<> distrib(1,100);
+                if((distrib(gen)<=60)){
+                    *(advanceFrom->army)=*(advanceFrom->army)-1;
+                }
+                if(distrib(gen)<=70){
+                    attackingUnits=attackingUnits-1;
+                }
+                cout<<"Attacking units remaining: "<<attackingUnits<<endl;
+                cout<<"Defending units remaining: "<<*(advanceTo->army)<<endl;
+            }
+            if(*(advanceFrom->army)==0){
+                *(advanceFrom->owner)=*(playerIndex);
+                *(advanceFrom->army)=attackingUnits;
+                cout<<"The attacking player has succeeded in taking over "<<advanceFrom->name<<"!!"<<endl;
+            }
+            else if(attackingUnits==0){
+                cout<<"The defender has successfully drove off the invaders from "<<advanceTo->name<<"!!"<<endl;
+            }
+
+        }
     }
 }
 
@@ -166,6 +240,29 @@ void Negotiate::execute(){
     }
 }
 
+//operators
+
+Deploy Deploy::operator=(const Deploy *order)
+{
+    this->next=order->next;
+    this->previous=order->previous;
+    this->playerIndex=order->playerIndex;
+    this->toDeploy=order->toDeploy;
+    this->nUnits=order->nUnits;
+    return this;
+}
+
+Advance Advance::operator=(const Advance *order)
+{
+    this->next = order->next;
+    this->previous = order->previous;
+    this->playerIndex = order->playerIndex;
+    this->advanceFrom = order->advanceFrom;
+    this->advanceTo = order->advanceTo;
+    this->nUnits = order->nUnits;
+    return this;
+}
+
 ostream& operator<<(ostream &out, Order *o){
     out<<o->getOrderName();
     return out;
@@ -173,8 +270,8 @@ ostream& operator<<(ostream &out, Order *o){
 
 //Constructors and Destructors
 OrdersList::OrdersList(){
-    head = new Deploy();
-    tail = new Deploy();
+    head = new Order();
+    tail = new Order();
     head->setNext(tail);
     tail->setPrevious(head);
     size=0;

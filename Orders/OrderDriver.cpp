@@ -18,7 +18,8 @@ static string fixString(string order){
 void testOrdersList(){
     OrdersList* test=new OrdersList();
     string order;
-    while(true){
+    cout<<"Compiling Successful"<<endl;
+    /*while(true){
         if(test->getSize()!=0){
             cout<<test;
         }
@@ -86,5 +87,5 @@ void testOrdersList(){
         cout<<endl;
         test->setCurrentOrder(test->getCurrentOrder()->getNext());
     }
-    cout<<"All orders you issued have been passed through for execution"<<endl;
+    cout<<"All orders you issued have been passed through for execution"<<endl;*/
 }

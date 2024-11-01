@@ -1,54 +1,81 @@
 #pragma once
 #include <iostream>
 using namespace std;
-class Order{
+#include "../Map/Map.h"
+
+class abOrder{
+public:
+	abOrder();
+	virtual bool validate() = 0;
+	virtual void execute() = 0;
+};
+class Order: virtual public abOrder{
 protected:
 	string orderName;
 	Order* next;
 	Order* previous;
-	int size;
+	int* playerIndex;
 public:
 	//Constructors and Destructors
 	Order();
-	Order(string orderName);
+	Order(string orderName,int* playerIndex);
 	Order(Order* orderCopy);
 	~Order();
 	//Accessors and Mutators
 	string getOrderName();
 	Order* getNext();
 	Order* getPrevious();
+	int* getPlayerIndex();
 	void setNext(Order* next);
 	void setOrderName(string orderName);
 	void setPrevious(Order* previous);
 	//methods
 	virtual bool validate();/*Checks if the order is capable to execute, the implementation will be defined in the child classes.*/
-	virtual void execute() = 0;/*Executes the order specified, the implementation will be defined in the child classes.*/
+	virtual void execute();/*Executes the order specified, the implementation will be defined in the child classes.*/
 };
 
-class Deploy:public virtual Order{
+class Deploy:virtual public Order{
 public:
 	Deploy();
-	Deploy(string orderName);
+	Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits);
 	Deploy(Deploy* deployCopy);
 	~Deploy();
 	bool validate();
 	void execute();
+	//Accessors
+	Territory* getToDeploy();
+	int* getNUnits();
 	Deploy operator=(const Deploy* order);
+private:
+	Territory* toDeploy;
+	int* nUnits;
 };
 
-class Advance:public Order{
+class Advance:virtual public Order{
 public:
 	Advance();
-	Advance(string orderName);
+	Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits);
 	Advance(Advance* advanceCopy);
 	~Advance();
+	//Accessors
+	Territory* getAdvanceFrom();
+	Territory* getAdvanceTo();
+	int* getNUnits();
+	//methods
+	bool validate();
 	void execute();
+	//operator
+	Advance operator=(const Advance* order);
+private:
+	Territory* advanceFrom;
+	Territory* advanceTo;
+	int* nUnits;
 };
 
 class Bomb:public Order{
 public:
 	Bomb();
-	Bomb(string orderName);
+	Bomb(string orderName,int* playerIndex);
 	Bomb(Bomb* bombCopy);
 	~Bomb();
 	void execute();
@@ -57,7 +84,7 @@ public:
 class Blockade:public Order{
 public:
 	Blockade();
-	Blockade(string orderName);
+	Blockade(string orderName,int* playerIndex);
 	Blockade(Blockade* blockadeCopy);
 	~Blockade();
 	void execute();
@@ -66,7 +93,7 @@ public:
 class Airlift:public Order{
 public:
 	Airlift();
-	Airlift(string orderName);
+	Airlift(string orderName,int* playerIndex);
 	Airlift(Airlift* airliftCopy);
 	~Airlift();
 	void execute();
@@ -75,7 +102,7 @@ public:
 class Negotiate:public Order{
 public:
 	Negotiate();
-	Negotiate(string orderName);
+	Negotiate(string orderName,int* playerIndex);
 	Negotiate(Negotiate* negotiateCopy);
 	~Negotiate();
 	void execute();
