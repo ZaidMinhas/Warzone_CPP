@@ -100,7 +100,7 @@ State* MapValidated::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "addplayer") {
         string name;
         cin>>name;
-        playerList.push_back(new Player(name));
+        playerList.push_back(new Player());
         return new PlayersAdded();
     }
     return nullptr;
@@ -126,7 +126,7 @@ State* PlayersAdded::handleInput(GameEngine& game_engine, std::string& input) {
     if (input == "addplayer") {
         string name;
         cin>>name;
-        playerList.push_back(new Player(name));
+        playerList.push_back(new Player());
         return new PlayersAdded();
     }
 
@@ -294,6 +294,7 @@ void GameEngine::setGameOver(bool b){ gameOver = b; }
 
 void GameEngine::run() {
     string command;
+    this->playerCount=new int(0);
     cout << "Welcome to Warzone\n" << endl;
     //Run first state
     currentState->enter(*this);
@@ -378,7 +379,8 @@ void GameEngine::startupPhase(){
     }else if(input=="addplayer"&&(getCurrentState()=="Map Validated"||getCurrentState()=="Players Added")){
         string name;
         cin>>name;
-        playerList.push_back(new Player(name));
+        playerList.push_back(new Player(name, this->playerCount));
+        this->playerCount++;
         setCurrentState(new PlayersAdded());
     }else if(input=="gamestart"&&getCurrentState()=="Players Added"){
         gamestart();

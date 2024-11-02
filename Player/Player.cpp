@@ -19,8 +19,9 @@ Player::Player(){};
     this->_orderList = order;
 }*/
 
-Player::Player(const string &name){
+Player::Player(const string &name, int* id){
     this->_name = name;
+    this->_id=new int(*id);
 }
 
 //copy constructor
@@ -116,6 +117,7 @@ void Player::toDefend() const {
 
 // Add a territory to player-owned territories
 void Player::addTerritory(Territory* territory) {
+    territory->owner=this->_id;
     _playerterritories.push_back(territory);
 }
 

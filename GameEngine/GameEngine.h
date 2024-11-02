@@ -165,6 +165,7 @@ class GameEngine {
     void setCurrentState(State* state);
     std::string getCurrentState();
 private:
+    int* playerCount;
     State* currentState;
     bool gameOver;
 };

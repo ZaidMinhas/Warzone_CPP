@@ -16,8 +16,8 @@ public:
     // Parameterized constructor
     //Player(const std::string &name, const std::vector<std::string*> &territories, const std::vector<std::string*> &hand, const std::vector<std::string*> &orders);
 
-    // Constructor with only name
-    Player(const std::string &name);
+    // Constructor with only name and id
+    Player(const std::string &name, int* id);
 
     // Copy constructor
     Player(const Player&);
@@ -44,6 +44,7 @@ public:
 
     int*  _reinforcementPool;
     Hand* _handCard;
+    int* _id;
 private:
     std::string _name;
     std::vector<Territory*> _territories;
