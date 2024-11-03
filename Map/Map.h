@@ -75,4 +75,5 @@ class InvalidMapException : public std::exception {
         char * what ();*/
 };
 
-extern Map map;
+//extern Map map; -- changed : ambiguous 'map' -> it's a keyword, throws a conflict error
+extern Map gameMap;

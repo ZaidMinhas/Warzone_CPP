@@ -85,9 +85,9 @@ Territory::Territory(string name, string continentName, int x, int y){
     this->owner=new int(0);
     bool found=false;
     
-    for(int i=0;i<map.continentList.size();i++){
-        if (*map.continentList.at(i).name==continentName){
-            this->pContient=&map.continentList.at(i);
+    for(int i=0;i<gameMap.continentList.size();i++){
+        if (*gameMap.continentList.at(i).name==continentName){
+            this->pContient=&gameMap.continentList.at(i);
             found=true;
         }
     }
@@ -113,17 +113,17 @@ Map::~Map(){
 }
 
 void Map::clear(){
-        delete map.author;
-        delete map.image;
-        delete map.wrap;
-        delete map.scroll;
-        delete map.warn;
+        delete gameMap.author;
+        delete gameMap.image;
+        delete gameMap.wrap;
+        delete gameMap.scroll;
+        delete gameMap.warn;
 
-        map.graph.clear();
-        map.tempInput.clear();
-        map.continentList.clear();
+        gameMap.graph.clear();
+        gameMap.tempInput.clear();
+        gameMap.continentList.clear();
 
-        map.mapFile.close();
+        gameMap.mapFile.close();
 }
 
 Map::Map(const Map &m){
@@ -171,7 +171,8 @@ Map &Map::operator=(const Map &m)
     return *this;
 }
 
-Map map=Map();
+//Map map=Map(); -- same reason why map is changed
+Map gameMap = Map();
 
 /*void Map::error(){
     std::cout<<"Invalid Map\n";
@@ -216,16 +217,16 @@ int Map::createConnections()
     for(int i=0;i<tempInput.size();i++){
         bool loop=true;
         bool found=false;
-        map.tempInput.at(i)=map.tempInput.at(i).substr(map.tempInput.at(i).find(",")+1, map.tempInput.at(i).length());//removing name
-        map.tempInput.at(i)=map.tempInput.at(i).substr(map.tempInput.at(i).find(",")+1, map.tempInput.at(i).length());//removing first int
-        map.tempInput.at(i)=map.tempInput.at(i).substr(map.tempInput.at(i).find(",")+1, map.tempInput.at(i).length());//removing second int
-        map.tempInput.at(i)=map.tempInput.at(i).substr(map.tempInput.at(i).find(",")+1, map.tempInput.at(i).length());//removing continent
+        gameMap.tempInput.at(i)=gameMap.tempInput.at(i).substr(gameMap.tempInput.at(i).find(",")+1, gameMap.tempInput.at(i).length());//removing name
+        gameMap.tempInput.at(i)=gameMap.tempInput.at(i).substr(gameMap.tempInput.at(i).find(",")+1, gameMap.tempInput.at(i).length());//removing first int
+        gameMap.tempInput.at(i)=gameMap.tempInput.at(i).substr(gameMap.tempInput.at(i).find(",")+1, gameMap.tempInput.at(i).length());//removing second int
+        gameMap.tempInput.at(i)=gameMap.tempInput.at(i).substr(gameMap.tempInput.at(i).find(",")+1, gameMap.tempInput.at(i).length());//removing continent
         while(loop){
             found=false;
-            if(map.tempInput.at(i).substr(0, map.tempInput.at(i).find(","))==map.tempInput.at(i).substr(map.tempInput.at(i).find(",")+1, map.tempInput.at(i).length())){
+            if(gameMap.tempInput.at(i).substr(0, gameMap.tempInput.at(i).find(","))==gameMap.tempInput.at(i).substr(gameMap.tempInput.at(i).find(",")+1, gameMap.tempInput.at(i).length())){
                 loop=false;
             }
-            territoryName=map.tempInput.at(i).substr(0, map.tempInput.at(i).find(","));
+            territoryName=gameMap.tempInput.at(i).substr(0, gameMap.tempInput.at(i).find(","));
             for(int j=0;j<graph.size();j++){
                 if(territoryName==*graph.at(j).name){
                    graph.at(i).connections.push_back(&graph.at(j));
@@ -236,7 +237,7 @@ int Map::createConnections()
                 std::cout<<"Connection Territory not found";
                 return 1;
             }
-            map.tempInput.at(i)=map.tempInput.at(i).substr(map.tempInput.at(i).find(",")+1, map.tempInput.at(i).length());
+            gameMap.tempInput.at(i)=gameMap.tempInput.at(i).substr(gameMap.tempInput.at(i).find(",")+1, gameMap.tempInput.at(i).length());
         }
     }
     return 0;
@@ -269,10 +270,10 @@ int Map::checkConnectedSubGraph(string name, Territory* pointer){
 
 void Map::display(){
     std::cout<<"-------------------------------------Map-----------------------------\n";
-    for(int i=0;i<map.graph.size();i++){
-        std::cout<<*map.graph.at(i).name<<" ("<<*(map.graph.at(i).pContient->name)<<") -> ";
-        for(int j=0;j<map.graph.at(i).connections.size();j++){
-            std::cout<<*map.graph.at(i).connections.at(j)->name<<" / ";
+    for(int i=0;i<gameMap.graph.size();i++){
+        std::cout<<*gameMap.graph.at(i).name<<" ("<<*(gameMap.graph.at(i).pContient->name)<<") -> ";
+        for(int j=0;j<gameMap.graph.at(i).connections.size();j++){
+            std::cout<<*gameMap.graph.at(i).connections.at(j)->name<<" / ";
         }
         std::cout<<"\n";
     }
@@ -283,24 +284,24 @@ int Map::getUserInput(string input){
         std::cout<<"File must end with .map";
         return 1;
     }else{
-        map.mapFile.open(input);
+        gameMap.mapFile.open(input);
         return 0;
     }
 }
 
 int Map::validate(){
     //-------------------------Validating Graph----------------------------------//
-    map.checkConnectedGraph(&map.graph.at(0));
+    gameMap.checkConnectedGraph(&gameMap.graph.at(0));
 
     int j=0;
-    for(int i=0;i<map.graph.size();i++){
-       if (*map.graph.at(i).check==1){
+    for(int i=0;i<gameMap.graph.size();i++){
+       if (*gameMap.graph.at(i).check==1){
         j++;
        };
        
     }
     
-    if(j==map.graph.size()){
+    if(j==gameMap.graph.size()){
         return 0;
     }else{
         std::cout<<"Graph is not connected";
@@ -308,24 +309,24 @@ int Map::validate(){
     }
     
 
-    for(int i=0;i<map.continentList.size();i++){
-        for(int j=0;j<map.graph.size();j++){
-            if(*map.continentList.at(i).name==*map.graph.at(j).pContient->name){
-                map.checkConnectedSubGraph(*map.continentList.at(i).name, &map.graph.at(j));
+    for(int i=0;i<gameMap.continentList.size();i++){
+        for(int j=0;j<gameMap.graph.size();j++){
+            if(*gameMap.continentList.at(i).name==*gameMap.graph.at(j).pContient->name){
+                gameMap.checkConnectedSubGraph(*gameMap.continentList.at(i).name, &gameMap.graph.at(j));
                 break;
             }
         }
     }
 
     j=0;
-    for(int i=0;i<map.graph.size();i++){
-       if (*map.graph.at(i).check==0){
+    for(int i=0;i<gameMap.graph.size();i++){
+       if (*gameMap.graph.at(i).check==0){
         j++;
        };
        
     }
     
-    if(j==map.graph.size()){
+    if(j==gameMap.graph.size()){
         return 0;
     }else{
         std::cout<<"Continents are not connected";
@@ -336,103 +337,115 @@ int Map::validate(){
 
 int Map::loadMap(string fileName){
     try{
-    if(map.getUserInput(fileName)==1){
-        map.clear();
+    if(gameMap.getUserInput(fileName)==1){
+        gameMap.clear();
+        gameMap.mapFile.close();
         return 1;
     };
     string fileLine;
-    std::getline(map.mapFile, fileLine);
+    std::getline(gameMap.mapFile, fileLine);
 
     //-----------------------------Map Meta Data------------------------------------//
     if(fileLine.compare("[Map]\n")){
-        std::getline(map.mapFile, fileLine);
+        std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("author", 0)!=0){
-            std::cout<<"Invalid Meta Data";
-            map.clear();
+            std::cout<<"Invalid Meta Data 1";
+            gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
-        map.author=new string(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1));
-        std::getline(map.mapFile, fileLine);
+        gameMap.author=new string(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1));
+        std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("image", 0)!=0){
-            std::cout<<"Invalid Meta Data";
-            map.clear();
+            std::cout<<"Invalid Meta Data 2";
+            gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
-        map.image=new string(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1));
-        std::getline(map.mapFile, fileLine);
+        gameMap.image=new string(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1));
+        std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("wrap", 0)!=0){
-            std::cout<<"Invalid Meta Data";
-            map.clear();
+            std::cout<<"Invalid Meta Data 3";
+            gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
-        map.wrap=new bool(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes"));
-        std::getline(map.mapFile, fileLine);
+        gameMap.wrap=new bool(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes"));
+        std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("scroll", 0)!=0){
-            std::cout<<"Invalid Meta Data";
-            map.clear();
+            std::cout<<"Invalid Meta Data 4";
+            gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
-        if(fileLine.compare("scroll=none")==0){map.scroll=new int(0);}
-        else if(fileLine.compare("scroll=vertical")==0){map.scroll=new int(1);}
-        else if(fileLine.compare("scroll=horizontal")==0){map.scroll=new int(2);}
-        std::getline(map.mapFile, fileLine);
+        if(fileLine.compare("scroll=none")==0){gameMap.scroll=new int(0);}
+        else if(fileLine.compare("scroll=vertical")==0){gameMap.scroll=new int(1);}
+        else if(fileLine.compare("scroll=horizontal")==0){gameMap.scroll=new int(2);}
+        std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("warn", 0)!=0){
-            std::cout<<"Invalid Meta Data";
-            map.clear();
+            std::cout<<"Invalid Meta Data 5";
+            gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
-        map.warn=new bool(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes"));
+        gameMap.warn=new bool(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes"));
     }else{
         std::cout<<"Missing [Map] tag";
-            map.clear();
+            gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
     }
     while(fileLine!="[Continents]"){
-        std::getline(map.mapFile, fileLine);
-        if(map.mapFile.eof()){
+        std::getline(gameMap.mapFile, fileLine);
+        if(gameMap.mapFile.eof()){
             std::cout<<"Missing [Continents] tag";
-            map.clear();
+            gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
     };
     //-----------------------------Continent------------------------------------//
     if(fileLine.compare("[Continents]\n")){
-        std::getline(map.mapFile, fileLine);
+        std::getline(gameMap.mapFile, fileLine);
         while(fileLine!="[Territories]"&&!fileLine.empty()){
-            if(map.addContinent(fileLine)==1){
+            if(gameMap.addContinent(fileLine)==1){
                 std::cout<<"Can't add Continent";
-                map.clear();
+                gameMap.clear();
+                gameMap.mapFile.close();
                 return 1;
             };
-            std::getline(map.mapFile, fileLine);
+            std::getline(gameMap.mapFile, fileLine);
         }
     }
     //-----------------------------Territory------------------------------------//
     while(fileLine!="[Territories]"){
-        std::getline(map.mapFile, fileLine);
-        if(map.mapFile.eof()){
+        std::getline(gameMap.mapFile, fileLine);
+        if(gameMap.mapFile.eof()){
             std::cout<<"Missing [Territory] tag";
-            map.clear();
+            gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
     };
     if(fileLine.compare("[Territories]\n")){
-        while(std::getline(map.mapFile, fileLine)){
+        while(std::getline(gameMap.mapFile, fileLine)){
             if(!fileLine.empty()){
-                map.tempInput.push_back(fileLine);
-                if(map.addTerritory(fileLine)==1){
+                gameMap.tempInput.push_back(fileLine);
+                if(gameMap.addTerritory(fileLine)==1){
                     std::cout<<"Can't add Territory";
-                    map.clear();
+                    gameMap.clear();
+                    gameMap.mapFile.close();
                     return 1;
                 };
             }
         }
-        map.createConnections();
+        gameMap.createConnections();
     }
-        map.display();
+        gameMap.display();
     }catch(...){
             std::cout<<"Invalid map";
-            map.clear();
+            gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
     }
     mapFile.close();

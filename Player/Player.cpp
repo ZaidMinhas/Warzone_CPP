@@ -1,15 +1,13 @@
-//
-// Created by Kaoutar El on 2024-09-19.
-//
 
 #include "Player.h"
 #include <algorithm>
 #include <iostream>
 #include <utility>
+#include "..\Orders\OrdersList.h"
 
-using namespace std;
 
-Player::Player(){}; 
+//Player::Player(){}; 
+Player::Player() : _orderList(new OrdersList()) {} // Added - K - A2
 
 /*Player::Player(const string &name, const vector<string*> &territory, const vector<string*> &hand, const vector<string*> &order)
 {
@@ -30,8 +28,8 @@ Player::Player(const Player& other)
     this->_name = other._name;
     this->_territories = other._territories;
     this->_handCard = other._handCard;
-    this->_orderList = other._orderList;
     this->_playerterritories = other._playerterritories;
+    _orderList = new OrdersList(*other._orderList);
 }
 
 //destructor
@@ -40,16 +38,12 @@ Player::~Player()
     this->_name.clear();
     this->_territories.clear();
     delete _handCard;
-    for (auto order : this->_orderList)
-    {
-        delete order;
-    }
-    this->_orderList.clear();
+    delete _orderList; // changed - K - A2
 }
 
 
 // Assignment operator
-Player& Player::operator=(const Player& other) {
+/*Player& Player::operator=(const Player& other) {
     if (this == &other) return *this; // Self-assignment check
 
     // Clear existing data
@@ -61,7 +55,7 @@ Player& Player::operator=(const Player& other) {
     this->_territories.clear();
     delete _handCard;
     this->_playerterritories.clear();
-    this->_orderList.clear();
+    this->_orderList.clear(); 
 
     // Deep copy the data
     this->_name = other._name;
@@ -71,22 +65,71 @@ Player& Player::operator=(const Player& other) {
     this->_playerterritories = other._playerterritories;
 
     return *this;
+}*/
+
+// Assignment operator
+Player& Player::operator=(const Player& other) {
+    if (this == &other) return *this; // Self-assignment check
+
+    delete _id;
+    delete _handCard;
+    delete _orderList;
+
+    _name = other._name;
+    _territories = other._territories;
+    _handCard = other._handCard;
+    _playerterritories = other._playerterritories;
+
+    _orderList = new OrdersList(*other._orderList); // Deep copy
+
+    return *this;
 }
 
 // Issue an order
-void Player::issueOrder(string order) {
+/*void Player::issueOrder(string order) {
     _orderList.push_back(new string(order)); 
+} -- old */ 
+
+void Player::issueOrder(const string& orderName) { // changed - K - A2
+    Order* newOrder = new Order(orderName);  // Create a new order
+    _orderList->addOrder(newOrder);          // Add the new order to the actual OrdersList
 }
 
 // Print the list of orders
-void Player::printOrder() const {
+
+/*void Player::printOrder() const {
     for (const string* order : _orderList) {
         cout << *order << endl;
+    }
+} old*/
+
+/*void Player::printOrder() const {
+    cout << *_orderList; // Overloaded << operator will handle OrdersList printing -> changing the method instead
+}*/
+
+void Player::printOrder() const { // changed - K - A2
+    if (_orderList->getSize() == 0) {
+        std::cout << "Order list is empty." << std::endl;
+        return;
+    }
+
+    std::cout << "Here is your list of current orders, Commander:" << std::endl;
+    Order* currentOrder = _orderList->getHead()->getNext(); // Start from the first actual order
+    int index = 1;
+
+    while (currentOrder != _orderList->getTail()) {
+        std::cout << "(" << index++ << ") " << currentOrder->getOrderName() << std::endl;
+        currentOrder = currentOrder->getNext();
     }
 }
 
 // Return a vector of orders
-vector<string*> Player::getOrderList() {
+/*vector<string*> Player::getOrderList() {
+    return _orderList;
+}*/
+
+// Return the OrdersList
+OrdersList* Player::getOrderList() { // changed - K - A2
     return _orderList;
 }
 
