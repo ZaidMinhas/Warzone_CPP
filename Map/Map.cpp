@@ -284,8 +284,14 @@ int Map::getUserInput(string input){
         std::cout<<"File must end with .map";
         return 1;
     }else{
+        
         gameMap.mapFile.open(input);
-        return 0;
+        if(gameMap.mapFile.good()){
+            return 0;
+        }else{
+            std::cout<<"File does not exist";
+            return 1;
+        }
     }
 }
 
