@@ -349,7 +349,8 @@ int Map::loadMap(string fileName){
     if(fileLine.compare("[Map]\n")){
         std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("author", 0)!=0){
-            std::cout<<"Invalid Meta Data 1";
+            std::cout<<"Invalid Meta Data 1\n";
+            std::cout<<fileLine<<"\n";
             gameMap.clear();
             gameMap.mapFile.close();
             return 1;

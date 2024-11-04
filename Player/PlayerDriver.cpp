@@ -10,7 +10,7 @@ void testPlayer() {
     
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-    if (gameMap.loadMap("../Map/Asia.map") != 0) {
+    if (gameMap.loadMap("Map/Asia.map") != 0) {
         std::cout << "Failed to load map." << std::endl;
         return;
     }

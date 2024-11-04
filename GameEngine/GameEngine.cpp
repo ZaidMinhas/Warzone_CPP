@@ -33,7 +33,7 @@ State* Start::handleInput(GameEngine& game_engine, std::string& input){
         string fileName;
         cin>>fileName;
         std::cout<<"\n"<<fileName<<"\n";
-        if(map.loadMap(fileName)==0){
+        if(gameMap.loadMap(fileName)==0){
             return new MapLoaded();
         }else{
             return new Start();
@@ -64,14 +64,14 @@ State* MapLoaded::handleInput(GameEngine& game_engine, std::string& input){
         string fileName;
         cin>>fileName;
         std::cout<<"\n"<<fileName<<"\n";
-        if(map.loadMap(fileName)==0){
+        if(gameMap.loadMap(fileName)==0){
             return new MapLoaded();
         }else{
             return new Start();
         }
     }
     if (input == "validatemap") {
-        if(map.validate()==0){
+        if(gameMap.validate()==0){
             return new MapValidated();
         }else{
             return new Start();
@@ -363,13 +363,13 @@ void GameEngine::startupPhase(){
         string fileName;
         cin>>fileName;
         std::cout<<"\n"<<fileName<<"\n";
-        if(map.loadMap(fileName)==0){
+        if(gameMap.loadMap(fileName)==0){
             setCurrentState(new MapLoaded());
         }else{
             setCurrentState(new Start());
         }
     }else if(input=="validatemap"&&(getCurrentState()=="Map Loaded"||getCurrentState()=="Map Validated")){
-        if(map.validate()==0){
+        if(gameMap.validate()==0){
             cout<<"Map is valid\n";
             setCurrentState(new MapValidated());
         }else{
@@ -393,8 +393,8 @@ void GameEngine::startupPhase(){
 }
 void gamestart(){
     //Equal Distribution of Territories
-    for (int i=0;i<map.graph.size();i++){
-        playerList.at(i%playerList.size())->addTerritory(&map.graph.at(i));
+    for (int i=0;i<gameMap.graph.size();i++){
+        playerList.at(i%playerList.size())->addTerritory(&gameMap.graph.at(i));
     }
     //Determin random order of play
 
