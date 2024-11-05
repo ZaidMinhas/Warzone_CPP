@@ -49,12 +49,23 @@ void testPlayer() {
     std::cout << *hand;  // Print hand contents
 
     // Display the names of territories owned by the player
-    std::cout << "\nTerritories owned by " << player1->getName() << ":\n";
+    /*std::cout << "\nTerritories owned by " << player1->getName() << ":\n";
     for (const auto& territory : player1->getTerritories()) { // Assuming getTerritories() returns a vector<Territory*>
         //std::cout << territory->getName() << std::endl; // Print only the name of each territory
         std::cout << *territory << std::endl;
         std::cout<<"\n";
-    }
+    } -- works but doesn't call toDefend()*/
+
+
+    std::cout << "\nTerritories to defend by " << player1->getName() << ":\n";
+    std::vector<Territory*> territoriesToDefend = player1->toDefend();  // use the updated version of toDefend() to get the territories
+    if (territoriesToDefend.empty()) {
+        std::cout << "No territories to defend." << std::endl;
+    } else {
+        for (const auto& territory : territoriesToDefend) {
+            std::cout << *territory << std::endl;  // Print each territory the player can defend
+        }
+    } 
 
 }
 

@@ -25,7 +25,9 @@ public:
 
     // Member functions
     void toAttack() const;
-    void toDefend() const;
+    //vector<Territory*> toAttack(vector<Territory*>); // changed - K - A2
+    //void toDefend() const; CHANGED
+    std::vector<Territory*> toDefend() const;
     void issueOrder(const std::string& orderName); // changed - K - A2
     OrdersList* getOrderList(); // changed - K - A2
     //void issueOrder(std::string);

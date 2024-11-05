@@ -41,32 +41,6 @@ Player::~Player()
     delete _orderList; // changed - K - A2
 }
 
-
-// Assignment operator
-/*Player& Player::operator=(const Player& other) {
-    if (this == &other) return *this; // Self-assignment check
-
-    // Clear existing data
-    for (auto order : this->_orderList) {
-        delete order;
-    }
-
-    this->_name.clear();
-    this->_territories.clear();
-    delete _handCard;
-    this->_playerterritories.clear();
-    this->_orderList.clear(); 
-
-    // Deep copy the data
-    this->_name = other._name;
-    this->_territories = other._territories;
-    this->_handCard = other._handCard;
-    this->_orderList = other._orderList;
-    this->_playerterritories = other._playerterritories;
-
-    return *this;
-}*/
-
 // Assignment operator
 Player& Player::operator=(const Player& other) {
     if (this == &other) return *this; // Self-assignment check
@@ -166,11 +140,23 @@ void Player::toAttack() const {
 }
 
 // Returns a list of territories that are to be defended
-void Player::toDefend() const {
+/*void Player::toDefend() const {
     std::cout << _name << " can defend the following territories:\n";
-    for (const auto& territory : _playerterritories) {
+    for (const auto& territory : _playerterritories) { // Each time the player concquer a territory, it should be added in _playerTerritory
         std::cout << *territory << std::endl;
     }
+}*/
+
+//Defend changed - K - A2
+std::vector<Territory*> Player::toDefend() const {
+    std::vector<Territory*> territoriesToDefend;
+
+    // Add all player-owned territories to the vector
+    for (const auto& territory : _playerterritories) { // Each time the player concquer a territory, it should be added in _playerTerritory
+        territoriesToDefend.push_back(territory);
+    }
+
+    return territoriesToDefend;
 }
 
 // Add a territory to player-owned territories
