@@ -98,7 +98,6 @@ void testPlayer() {
         std::cout << "Invalid choice. Please select a valid territory." << std::endl;
     }
 
-
 }
 
 

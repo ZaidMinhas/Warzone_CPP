@@ -30,7 +30,11 @@ public:
     //vector<Territory*> toAttack(vector<Territory*>); // changed - K - A2
     std::vector<Territory*> toAttack() const;
     std::vector<Territory*> toDefend() const;
-    void issueOrder(const std::string& orderName); // changed - K - A2
+    //void issueOrder(const std::string& orderName);
+    // Updated issueOrder signature
+    void issueOrder(const std::string& orderName, 
+                    const std::vector<Territory*>& availableTerritoriesToDefend, 
+                    const std::vector<Territory*>& attackableTerritories); // changed
     // Custom function to add a territory to the player's owned territories
     void addTerritory(Territory* territory);
     

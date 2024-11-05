@@ -64,10 +64,10 @@ Player& Player::operator=(const Player& other) {
     _orderList.push_back(new string(order)); 
 } -- old */ 
 
-void Player::issueOrder(const string& orderName) { // changed - K - A2
+/*void Player::issueOrder(const string& orderName) { // changed - K - A2
     Order* newOrder = new Order(orderName);  // Create a new order
     _orderList->addOrder(newOrder);          // Add the new order to the actual OrdersList
-}
+}*/
 
 // Print the list of orders
 
@@ -128,17 +128,99 @@ int Player::getID(){
     return *this->_id;
 }
 
-// Returns a list of territories that are to be attacked
-/*void Player::toAttack() const {
-    std::cout << _name << " can attack the following territories:\n";
-    for (const auto& territory : _territories) {
-        // Only show territories not owned by the player
-        if (std::find(_playerterritories.begin(), _playerterritories.end(), territory) == _playerterritories.end()) {
-            std::cout << *territory << std::endl;
-        }
-    }
-}*/
+// ------------------------------------------------------------
+//                          Issue ORDERS
+// ------------------------------------------------------------
+void Player::issueOrder(const std::string& orderName, 
+                        const std::vector<Territory*>& availableTerritoriesToDefend, 
+                        const std::vector<Territory*>& attackableTerritories) {
 
+    // Ensure the order is "deploy"
+    if (orderName == "deploy") {
+        std::cout << "Deploy order selected.\n";
+
+        // Check if the player has any territories to defend
+        std::cout << "You currently own the following territories:\n";
+        if (availableTerritoriesToDefend.empty()) {
+            std::cout << "No territories available to deploy armies.\n";
+            return;
+        }
+
+        // List available territories that can be attacked or deployed to (not owned by the player)
+        std::cout << "Available territories to deploy armies to (not owned by you):\n";
+        for (const auto& territory : attackableTerritories) {
+            std::cout << territory->getName() << std::endl;
+        }
+
+        // Ensure there are territories to deploy armies to
+        if (attackableTerritories.empty()) {
+            std::cout << "No available territories to deploy armies to.\n";
+            return;
+        }
+
+        // Prompt the player to select a territory to deploy to
+        std::cout << "Select a territory to deploy to (by number):\n";
+        int territoryChoice;
+        std::cin >> territoryChoice;
+
+        if (territoryChoice < 1 || territoryChoice > attackableTerritories.size()) {
+            std::cout << "Invalid choice. Try again.\n";
+            return;
+        }
+
+        // Get the selected territory
+        Territory* selectedTerritory = attackableTerritories[territoryChoice - 1];
+
+        // Ask how many units they want to deploy (default is 50)
+        int unitsToDeploy = 50;
+        std::cout << "Enter the number of units to deploy (default is 50):\n";
+        std::cin >> unitsToDeploy;
+        if (unitsToDeploy <= 0) {
+            std::cout << "Invalid number of units. Try again.\n";
+            return;
+        }
+
+        // Check if player has enough units (assuming 50 units for each player at the start)
+        if (unitsToDeploy > 50) {
+            std::cout << "You don't have enough units to deploy.\n";
+            return;
+        }
+
+        // Ask the player to select a card to play
+        std::cout << "Select a card from your hand (by number):\n";
+        std::vector<Card*> handCards = this->getHand()->getCards(); // Assume getCards() returns a list of cards in the player's hand
+        if (handCards.empty()) {
+            std::cout << "You don't have any cards in your hand.\n";
+            return;
+        }
+
+        // Display the available cards
+        for (size_t i = 0; i < handCards.size(); ++i) {
+            std::cout << i + 1 << ". " << handCards[i]->getName() << std::endl;
+        }
+
+        int cardChoice;
+        std::cin >> cardChoice;
+
+        if (cardChoice < 1 || cardChoice > handCards.size()) {
+            std::cout << "Invalid choice. Try again.\n";
+            return;
+        }
+
+        Card* selectedCard = handCards[cardChoice - 1];
+
+        // Now, create the Deploy order and add it to the player's order list
+        Deploy* deployOrder = new Deploy("deploy", selectedTerritory, this->_id, &unitsToDeploy);
+        this->_orderList->addOrder(deployOrder);  // Add the Deploy order to the player's list
+
+        std::cout << "Deploy order successfully issued! Deploying " << unitsToDeploy << " units to " << selectedTerritory->getName() << ".\n";
+    }
+}
+
+
+// -------------------------------------------------------------
+//                      Territories to ATTACK
+// -------------------------------------------------------------
 
 std::vector<Territory*> Player::toAttack() const {
     std::vector<Territory*> territoriesToAttack;
@@ -155,17 +237,10 @@ std::vector<Territory*> Player::toAttack() const {
     return territoriesToAttack;
 }
 
-
-
-// Returns a list of territories that are to be defended
-/*void Player::toDefend() const {
-    std::cout << _name << " can defend the following territories:\n";
-    for (const auto& territory : _playerterritories) { // Each time the player concquer a territory, it should be added in _playerTerritory
-        std::cout << *territory << std::endl;
-    }
-}*/
-
 //Defend changed - K - A2
+// ------------------------------------------------------------
+//                      Territories TO DEFEND
+// ------------------------------------------------------------
 std::vector<Territory*> Player::toDefend() const {
     std::vector<Territory*> territoriesToDefend;
 
