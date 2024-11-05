@@ -67,6 +67,40 @@ void testPlayer() {
         }
     } 
 
+    // list of attackable territories
+    std::cout << "\nTerritories to attack by " << player1->getName() << ":\n";
+    std::vector<Territory*> territoriesToAttack = player1->toAttack();  // territories the player can attack
+
+    // display them
+    if (territoriesToAttack.empty()) {
+        std::cout << "No territories available to attack." << std::endl;
+    } else {
+        std::cout << "Select a territory to attack by entering the corresponding number:\n";
+        for (size_t i = 0; i < territoriesToAttack.size(); ++i) {
+            // indexing (i+1 for user-friendly display) and the name of each territory
+            std::cout << "\n - Territory number " << i + 1 << "\n" << *territoriesToAttack[i] << std::endl;
+        }
+    }
+
+
+    //Attack simulation
+    // Optionally, you could ask the player to select a territory:
+    int choice;
+    std::cout << "Enter the territory you want to attack (1 to " << territoriesToAttack.size() << "): ";
+    std::cin >> choice;
+
+    // Validate the user's choice
+    if (choice >= 1 && choice <= territoriesToAttack.size()) {
+        Territory* selectedTerritory = territoriesToAttack[choice - 1];
+        std::cout << "You selected: \n" << *selectedTerritory << std::endl;
+        
+        // attack logic for the selected territory -> issue order
+        // (Call the appropriate method to issue the attack order)
+    } else {
+        std::cout << "Invalid choice. Please select a valid territory." << std::endl;
+    }
+
+
 }
 
 

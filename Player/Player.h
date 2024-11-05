@@ -23,29 +23,36 @@ public:
     // Destructor
     ~Player();
 
-    // Member functions
-    void toAttack() const;
+    // --------------------------------------------------
+    //          Member functions of player
+    // --------------------------------------------------
+    //void toAttack() const;
     //vector<Territory*> toAttack(vector<Territory*>); // changed - K - A2
-    //void toDefend() const; CHANGED
+    std::vector<Territory*> toAttack() const;
     std::vector<Territory*> toDefend() const;
     void issueOrder(const std::string& orderName); // changed - K - A2
+    // Custom function to add a territory to the player's owned territories
+    void addTerritory(Territory* territory);
+    
+    // --------------------------------------------------
+    //                  Getters/Setters
+    // --------------------------------------------------
+    
     OrdersList* getOrderList(); // changed - K - A2
-    //void issueOrder(std::string);
-    //std::vector<std::string*> getOrderList();
     std::string getName() const;
-    void setHand(Hand* hand); // changed - K - A2
     Hand* getHand();
-
+    std::vector<Territory*> getTerritories() const;  // New method to get owned territories - K - A2
     int getID();
+    void setHand(Hand* hand); // changed - K - A2
 
+    // --------------------------------------------------
+    //                  Display tests
+    // --------------------------------------------------
     void printOrder() const;
     // Function to print hand cards -- optional just to show player's hand
     void printHand() const;
     
-    // Custom function to add a territory to the player's owned territories
-    void addTerritory(Territory* territory);
-    std::vector<Territory*> getTerritories() const;  // New method to get owned territories - K - A2
-
+   
     //Operator
     Player& operator = (const Player& player);
     int*  _reinforcementPool;

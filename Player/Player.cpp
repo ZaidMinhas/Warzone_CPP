@@ -129,7 +129,7 @@ int Player::getID(){
 }
 
 // Returns a list of territories that are to be attacked
-void Player::toAttack() const {
+/*void Player::toAttack() const {
     std::cout << _name << " can attack the following territories:\n";
     for (const auto& territory : _territories) {
         // Only show territories not owned by the player
@@ -137,7 +137,25 @@ void Player::toAttack() const {
             std::cout << *territory << std::endl;
         }
     }
+}*/
+
+
+std::vector<Territory*> Player::toAttack() const {
+    std::vector<Territory*> territoriesToAttack;
+
+    // Loop through all territories in the game map
+    for (const Territory& territory : gameMap.graph) {
+        // Check if the territory is not owned by the player
+        if (std::find(_playerterritories.begin(), _playerterritories.end(), &territory) == _playerterritories.end()) {
+            // Territory is available for attack, push back the pointer to the territory
+            territoriesToAttack.push_back(const_cast<Territory*>(&territory));
+        }
+    }
+
+    return territoriesToAttack;
 }
+
+
 
 // Returns a list of territories that are to be defended
 /*void Player::toDefend() const {
