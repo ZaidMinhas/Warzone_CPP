@@ -77,14 +77,12 @@ void testPlayer() {
     } else {
         std::cout << "Select a territory to attack by entering the corresponding number:\n";
         for (size_t i = 0; i < territoriesToAttack.size(); ++i) {
-            // indexing (i+1 for user-friendly display) and the name of each territory
             std::cout << "\n - Territory number " << i + 1 << "\n" << *territoriesToAttack[i] << std::endl;
         }
     }
 
 
     //Attack simulation
-    // Optionally, you could ask the player to select a territory:
     int choice;
     std::cout << "Enter the territory you want to attack (1 to " << territoriesToAttack.size() << "): ";
     std::cin >> choice;
