@@ -162,12 +162,16 @@ class GameEngine {
     friend std::ostream& operator<<(std::ostream& os, const GameEngine& engine);
 
     void startupPhase();
+    void gamestart();
+    int checkWinCon();
     void setCurrentState(State* state);
     std::string getCurrentState();
+    
 private:
     int* playerCount;
     State* currentState;
     bool gameOver;
 };
 
+extern std::vector<int> turns;
 #endif //GAMEENGINE_H

@@ -4,6 +4,8 @@
 
 #include "GameEngine.h"
 #include <iostream>
+#include <algorithm>
+#include <random>
 #include "../Map/Map.h"
 #include "../Player/Player.h"
 
@@ -33,7 +35,7 @@ State* Start::handleInput(GameEngine& game_engine, std::string& input){
         string fileName;
         cin>>fileName;
         std::cout<<"\n"<<fileName<<"\n";
-        if(map.loadMap(fileName)==0){
+        if(gameMap.loadMap(fileName)==0){
             return new MapLoaded();
         }else{
             return new Start();
@@ -64,14 +66,14 @@ State* MapLoaded::handleInput(GameEngine& game_engine, std::string& input){
         string fileName;
         cin>>fileName;
         std::cout<<"\n"<<fileName<<"\n";
-        if(map.loadMap(fileName)==0){
+        if(gameMap.loadMap(fileName)==0){
             return new MapLoaded();
         }else{
             return new Start();
         }
     }
     if (input == "validatemap") {
-        if(map.validate()==0){
+        if(gameMap.validate()==0){
             return new MapValidated();
         }else{
             return new Start();
@@ -354,6 +356,8 @@ GameEngine& GameEngine::operator=(const GameEngine& other) {
     return *this;
 }
 
+std::vector<int> turns;
+
 void GameEngine::startupPhase(){
     string input;
     while(true){
@@ -363,13 +367,13 @@ void GameEngine::startupPhase(){
         string fileName;
         cin>>fileName;
         std::cout<<"\n"<<fileName<<"\n";
-        if(map.loadMap(fileName)==0){
+        if(gameMap.loadMap(fileName)==0){
             setCurrentState(new MapLoaded());
         }else{
             setCurrentState(new Start());
         }
     }else if(input=="validatemap"&&(getCurrentState()=="Map Loaded"||getCurrentState()=="Map Validated")){
-        if(map.validate()==0){
+        if(gameMap.validate()==0){
             cout<<"Map is valid\n";
             setCurrentState(new MapValidated());
         }else{
@@ -391,10 +395,11 @@ void GameEngine::startupPhase(){
     }
     }
 }
-void gamestart(){
+
+void GameEngine::gamestart(){
     //Equal Distribution of Territories
-    for (int i=0;i<map.graph.size();i++){
-        playerList.at(i%playerList.size())->addTerritory(&map.graph.at(i));
+    for (int i=0;i<gameMap.graph.size();i++){
+        playerList.at(i%playerList.size())->addTerritory(&gameMap.graph.at(i));
     }
     //Determin random order of play
 
@@ -408,4 +413,42 @@ void gamestart(){
         std::cout<<"\n"<<*playerList.at(j)->_reinforcementPool;
         std::cout<<"\n"<<*playerList.at(j)->_handCard;
     }
+
+    //Shuffle player order
+    for(int k=0;k<playerList.size();k++){
+        turns.push_back(k);
+    }
+
+    std::random_device rd;
+    std::mt19937 m(rd());
+
+    std::shuffle(turns.begin(), turns.end(), m);
+}
+
+int GameEngine::checkWinCon(){
+    int territoriesOwned[playerList.size()];
+    int endCon=1;
+    int currentWinner=*gameMap.graph.at(0).owner;
+    territoriesOwned[currentWinner]++;
+
+    for(int i=1;i<gameMap.graph.size();i++){
+        if(endCon==1&&(currentWinner!=*gameMap.graph.at(i).owner)){
+            endCon=0;
+        }
+        territoriesOwned[*gameMap.graph.at(i).owner]++;
+    }
+    if(endCon==1){
+        return 1;//Game is over a player owns everything
+    }
+    for(int j=0;j<playerList.size();j++){
+        if(territoriesOwned[j]==0){
+            playerList.erase(playerList.begin()+ j);
+            for(int k=0;k<turns.size();k++){
+                if(turns[k]==j){
+                    turns.erase(turns.begin()+k);
+                }
+            }
+        }
+    }
+    
 }

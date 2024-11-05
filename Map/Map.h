@@ -75,4 +75,4 @@ class InvalidMapException : public std::exception {
         char * what ();*/
 };
 
-extern Map map;
+extern Map gameMap;
