@@ -33,10 +33,10 @@ void testPlayer() {
     // Instantiate Player 
     int* playerId = new int(1);
     Player* player1 = new Player("Player K", playerId);
-
+    
     // Assign the hand created above to the player
     player1->setHand(hand);
-
+    
     // Randomly assign territories to the player - using random Index
     int numTerritoriesToAssign = 3; // 3 teritorries for each new player
     for (int i = 0; i < numTerritoriesToAssign; ++i) {
@@ -53,6 +53,7 @@ void testPlayer() {
     for (const auto& territory : player1->getTerritories()) { // Assuming getTerritories() returns a vector<Territory*>
         //std::cout << territory->getName() << std::endl; // Print only the name of each territory
         std::cout << *territory << std::endl;
+        std::cout<<"\n";
     }
 
 }

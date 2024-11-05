@@ -140,7 +140,7 @@ void Player::printHand() const {
 }
 
 void Player::setHand(Hand* hand) {
-    if (_handCard) {
+    if (_handCard==nullptr) {
         delete _handCard;  // Clean up existing hand 
     }
     _handCard = hand;      // Assign new hand
