@@ -5,7 +5,7 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 #include <string>
-
+#include "../CommandProcessor/CommandProcessor.h"
 
 class GameEngine;
 
@@ -150,17 +150,20 @@ public:
 class GameEngine {
     public:
     GameEngine();
-    GameEngine(GameEngine* game_engine);
+    explicit GameEngine(GameEngine* game_engine);
     GameEngine& operator=(const GameEngine& other);
 
     void run();
     void handleInput(std::string& input);
+
+    string getCommand();
 
     void setGameOver(bool b);
 
     friend std::ostream& operator<<(std::ostream& os, const GameEngine& engine);
 
 private:
+    CommandProcessor* commandProcessor;
     State* currentState;
     bool gameOver;
 };

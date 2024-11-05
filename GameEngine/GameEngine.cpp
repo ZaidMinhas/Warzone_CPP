@@ -4,7 +4,7 @@
 
 #include "GameEngine.h"
 #include <iostream>
-
+#include <cstdlib>
 using namespace std;
 
 
@@ -33,7 +33,7 @@ State* Start::handleInput(GameEngine& game_engine, std::string& input){
 //run when a state reaction is finalized
 void Start::enter(GameEngine& game_engine) {
     cout << "Entering Start State\n" << endl;
-    cout << "Commands: loadmap\n\n";
+    cout << "Commands: loadmap <mapfile>\n\n";
 
 }
 //run before a state is deleted
@@ -58,8 +58,17 @@ State* MapLoaded::handleInput(GameEngine& game_engine, std::string& input){
 }
 
 void MapLoaded::enter(GameEngine& game_engine) {
-    cout << "Entering MapLoaded State\n" << endl;
-    cout << "Commands: loadmap, validatemap\n\n";
+
+
+    cout << "Entering MapLoaded State" << endl;
+
+    string mapFile = game_engine.getCommand();
+
+    cout << "Accessing: " << mapFile << " map file\n\n";
+
+    cout << "Commands: loadmap <mapfile>, validatemap\n\n";
+
+
 }
 
 void MapLoaded::exit(GameEngine& game_engine) {
@@ -82,6 +91,7 @@ State* MapValidated::handleInput(GameEngine& game_engine, std::string& input) {
 
 void MapValidated::enter(GameEngine& game_engine) {
     cout << "Entering MapValidated State\n" << endl;
+
     cout << "Commands: addplayer\n\n";
 }
 
@@ -109,6 +119,7 @@ State* PlayersAdded::handleInput(GameEngine& game_engine, std::string& input) {
 
 void PlayersAdded::enter(GameEngine& game_engine) {
     cout << "Entering PlayersAdded State\n" << endl;
+    string playerName = game_engine.getCommand();
     cout << "Commands: addplayer, assigncountries\n\n";
 }
 
@@ -247,11 +258,13 @@ std::ostream& operator<<(std::ostream& os, const State& state) {
 
 //--------------------GAME ENGINE--------------------
 GameEngine::GameEngine() {
+    commandProcessor = new CommandProcessor();
     gameOver = false;
     currentState = new Start();
 }
 
 GameEngine::GameEngine(GameEngine* gameEngine){
+    commandProcessor = new CommandProcessor(gameEngine->commandProcessor);
     gameOver = gameEngine->gameOver;
     currentState = gameEngine->currentState ? gameEngine->currentState->clone() : nullptr;
 }
@@ -259,14 +272,13 @@ GameEngine::GameEngine(GameEngine* gameEngine){
 void GameEngine::setGameOver(bool b){ gameOver = b; }
 
 void GameEngine::run() {
-    string command;
     cout << "Welcome to Warzone\n" << endl;
     //Run first state
     currentState->enter(*this);
 
     while (true) {
         cout << "Enter command:";
-        cin >> command;
+        string command = commandProcessor->getCommand();
 
         handleInput(command);
 
@@ -276,23 +288,36 @@ void GameEngine::run() {
         }
     }
 
+    for (Command* cmd : commandProcessor->commands) {
+        cout << cmd->getCommand() << "\n";
+        cout << cmd->getEffect() << "\n";
+    }
+
 }
 
 void GameEngine::handleInput(std::string& input) {
     State* nextState = currentState->handleInput(*this,  input);
+    commandProcessor->validate(nextState);
+
 
     if (nextState != nullptr) {
+        system("cls");
         currentState->exit(*this);
 
         delete currentState;
         currentState = nextState;
 
         currentState->enter(*this);
+
     }
     else {
         cout << "INCORRECT COMMAND\n" << endl;
     }
 
+}
+
+string GameEngine::getCommand() {
+    return commandProcessor->getCommand();
 }
 
 std::ostream& operator<<(std::ostream& os, const GameEngine& engine) {

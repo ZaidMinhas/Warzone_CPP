@@ -1,0 +1,3 @@
+C:/Users/minha/OneDrive/Desktop/Warzone_CPP/cmake-build-debug/CMakeFiles/Warzone_CPP.dir
+C:/Users/minha/OneDrive/Desktop/Warzone_CPP/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/minha/OneDrive/Desktop/Warzone_CPP/cmake-build-debug/CMakeFiles/rebuild_cache.dir
