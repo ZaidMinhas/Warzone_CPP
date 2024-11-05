@@ -128,18 +128,17 @@ int Player::getID(){
     return *this->_id;
 }
 
-// Returns a list of territories that are to be attacked
-/*void Player::toAttack() const {
-    std::cout << _name << " can attack the following territories:\n";
-    for (const auto& territory : _territories) {
-        // Only show territories not owned by the player
-        if (std::find(_playerterritories.begin(), _playerterritories.end(), territory) == _playerterritories.end()) {
-            std::cout << *territory << std::endl;
-        }
-    }
-}*/
+//Defend changed - K - A2
+// --------------------------------------------------
+//                 Issue Order
+// --------------------------------------------------
 
 
+
+//Defend changed - K - A2
+// --------------------------------------------------
+//              Territories to attack
+// --------------------------------------------------
 std::vector<Territory*> Player::toAttack() const {
     std::vector<Territory*> territoriesToAttack;
 
@@ -156,16 +155,10 @@ std::vector<Territory*> Player::toAttack() const {
 }
 
 
-
-// Returns a list of territories that are to be defended
-/*void Player::toDefend() const {
-    std::cout << _name << " can defend the following territories:\n";
-    for (const auto& territory : _playerterritories) { // Each time the player concquer a territory, it should be added in _playerTerritory
-        std::cout << *territory << std::endl;
-    }
-}*/
-
 //Defend changed - K - A2
+// --------------------------------------------------
+//              Territories to defend
+// --------------------------------------------------
 std::vector<Territory*> Player::toDefend() const {
     std::vector<Territory*> territoriesToDefend;
 
@@ -177,7 +170,10 @@ std::vector<Territory*> Player::toDefend() const {
     return territoriesToDefend;
 }
 
-// Add a territory to player-owned territories
+
+// --------------------------------------------------
+//           Territories to add from map
+// --------------------------------------------------
 void Player::addTerritory(Territory* territory) {
     territory->owner=this->_id;
     _playerterritories.push_back(territory);
