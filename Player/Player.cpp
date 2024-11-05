@@ -146,6 +146,14 @@ void Player::setHand(Hand* hand) {
     _handCard = hand;      // Assign new hand
 }
 
+Hand* Player::getHand(){
+    return this->_handCard;
+}
+
+int Player::getID(){
+    return *this->_id;
+}
+
 // Returns a list of territories that are to be attacked
 void Player::toAttack() const {
     std::cout << _name << " can attack the following territories:\n";

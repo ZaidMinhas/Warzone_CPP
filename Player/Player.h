@@ -32,6 +32,10 @@ public:
     //std::vector<std::string*> getOrderList();
     std::string getName() const;
     void setHand(Hand* hand); // changed - K - A2
+    Hand* getHand();
+
+    int getID();
+
     void printOrder() const;
     // Function to print hand cards -- optional just to show player's hand
     void printHand() const;

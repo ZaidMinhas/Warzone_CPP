@@ -9,6 +9,8 @@ class Continent{
     public:
     string *name;
     int *bonus;
+    int *nbrTerritories;
+    int *index;
     string getName();
     int getBonus();
     Continent(string name, int bonus);

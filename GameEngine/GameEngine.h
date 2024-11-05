@@ -161,7 +161,10 @@ class GameEngine {
 
     friend std::ostream& operator<<(std::ostream& os, const GameEngine& engine);
 
-    void startupPhase();
+    void startupPhase();// A2
+    void reinforcementPhase();// A2
+
+
     void setCurrentState(State* state);
     std::string getCurrentState();
 private:

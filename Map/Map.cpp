@@ -4,6 +4,7 @@ using std::string;
 Continent::Continent(const Continent &c){
     bonus=new int(*c.bonus);
     name=c.name;
+    nbrTerritories=new int(0);
 }
 
 std::ostream & operator << (std::ostream &out, const Continent &c){
@@ -26,6 +27,8 @@ Continent &Continent::operator = (const Continent &c){
 Continent::Continent(string name, int bonus){
     this->name=new string(name);
     this->bonus=new int(bonus);
+    this->nbrTerritories=new int(0);
+    this->index=new int(gameMap.continentList.size());
 }
 string Continent::getName(){
     return *name;
@@ -88,6 +91,7 @@ Territory::Territory(string name, string continentName, int x, int y){
     for(int i=0;i<gameMap.continentList.size();i++){
         if (*gameMap.continentList.at(i).name==continentName){
             this->pContient=&gameMap.continentList.at(i);
+            *gameMap.continentList.at(i).nbrTerritories++;
             found=true;
         }
     }
