@@ -139,6 +139,13 @@ void Player::printHand() const {
     std::cout << *_handCard;
 }
 
+void Player::setHand(Hand* hand) {
+    if (_handCard) {
+        delete _handCard;  // Clean up existing hand 
+    }
+    _handCard = hand;      // Assign new hand
+}
+
 // Returns a list of territories that are to be attacked
 void Player::toAttack() const {
     std::cout << _name << " can attack the following territories:\n";
@@ -162,6 +169,10 @@ void Player::toDefend() const {
 void Player::addTerritory(Territory* territory) {
     territory->owner=this->_id;
     _playerterritories.push_back(territory);
+}
+
+std::vector<Territory*> Player::getTerritories() const { // new - A2 - K
+    return _playerterritories;
 }
 
 // Operator to display player information (optional)

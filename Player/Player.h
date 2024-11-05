@@ -14,9 +14,6 @@ public:
     // Default constructor
     Player();
     
-    // Parameterized constructor
-    //Player(const std::string &name, const std::vector<std::string*> &territories, const std::vector<std::string*> &hand, const std::vector<std::string*> &orders);
-
     // Constructor with only name and id
     Player(const std::string &name, int* id);
 
@@ -34,34 +31,26 @@ public:
     //void issueOrder(std::string);
     //std::vector<std::string*> getOrderList();
     std::string getName() const;
+    void setHand(Hand* hand); // changed - K - A2
     void printOrder() const;
     // Function to print hand cards -- optional just to show player's hand
     void printHand() const;
     
     // Custom function to add a territory to the player's owned territories
     void addTerritory(Territory* territory);
+    std::vector<Territory*> getTerritories() const;  // New method to get owned territories - K - A2
 
     //Operator
     Player& operator = (const Player& player);
-
-
     int*  _reinforcementPool;
-    Hand* _handCard;
-    int* _id;
-
-/*private:
-    std::string _name;
-    std::vector<Territory*> _territories;
-    std::vector<Territory*> _playerterritories;
-    std::vector<std::string*> _orderList;
-    
-};*/
 
 private:
+    int* _id;
     std::string _name;
     std::vector<Territory*> _territories;
     std::vector<Territory*> _playerterritories;
     OrdersList* _orderList;  // Changed to OrdersList pointer - K - A2
+    Hand* _handCard; //moved to private - A2 - K
 };
 
 extern std::vector<Player*> playerList;
