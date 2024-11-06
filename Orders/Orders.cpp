@@ -22,6 +22,51 @@ Order::~Order(){
     previous=NULL;
 }
 
+Deploy::Deploy():Order(),toDeploy(nullptr),nUnits(new int (0)){}
+
+Deploy::Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits):Order(orderName,playerIndex),toDeploy(toDeploy),nUnits(nUnits){}
+
+Deploy::Deploy(Deploy* deployCopy):Order(deployCopy),toDeploy(deployCopy->toDeploy),nUnits(new int(*(deployCopy->nUnits))){}
+
+Deploy::~Deploy(){}
+
+Advance::Advance():Order(),advanceFrom(nullptr),advanceTo(nullptr),nUnits(new int(0)){}
+
+Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits):Order(orderName,playerIndex),advanceFrom(advanceFrom),advanceTo(advanceTo),nUnits(nUnits){}
+
+Advance::Advance(Advance* advanceCopy):Order(advanceCopy),advanceFrom(advanceCopy->advanceFrom),advanceTo(advanceCopy->advanceTo),nUnits(advanceCopy->nUnits){}
+
+Advance::~Advance(){}
+
+Bomb::Bomb():Order(),toBomb(nullptr){}
+
+Bomb::Bomb(string orderName,int* playerIndex,Territory* toBomb):Order(orderName,playerIndex),toBomb(toBomb){}
+
+Bomb::Bomb(Bomb* bombCopy):Order(bombCopy),toBomb(bombCopy->getToBomb()){}
+
+Blockade::Blockade():Order(),toBlock(nullptr){}
+
+Blockade::Blockade(string orderName,int* playerIndex,Territory* toBlock):Order(orderName,playerIndex),toBlock(toBlock){}
+
+Blockade::Blockade(Blockade* blockadeCopy):Order(blockadeCopy),toBlock(blockadeCopy->getToBlock()){}
+
+Blockade::~Blockade(){}
+
+Airlift::Airlift():Order(),airliftFrom(nullptr),airliftTo(nullptr){}
+
+Airlift::Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits):Order(orderName,playerIndex),airliftFrom(airliftFrom),airliftTo(airliftTo),nUnits(nUnits){}
+
+Airlift::Airlift(Airlift* airliftCopy):Order(airliftCopy),airliftFrom(airliftCopy->getAirliftFrom()),airliftTo(airliftCopy->getAirliftTo()),nUnits(new int(*(airliftCopy->getnUnits()))){}
+
+Airlift::~Airlift(){}
+
+Negotiate::Negotiate():Order(){}
+
+Negotiate::Negotiate(string orderName,int* playerIndex):Order(orderName,playerIndex){}
+
+Negotiate::Negotiate(Negotiate* negotiateCopy):Order(negotiateCopy){}
+
+Negotiate::~Negotiate(){}
 
 //Accessors
 
@@ -67,6 +112,8 @@ Territory* Airlift::getAirliftFrom(){return airliftFrom;}
 
 Territory* Airlift::getAirliftTo(){return airliftTo;}
 
+int* Airlift::getnUnits(){return nUnits;}
+
 //Mutators
 
 void Order::setNext(Order* next){
@@ -82,52 +129,6 @@ void Order::setPrevious(Order* previous){
 }
 
 void Bomb::setToBomb(Territory* toBomb){this->toBomb = toBomb;}
-
-Deploy::Deploy():Order(){}
-
-Deploy::Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits):Order(orderName,playerIndex),toDeploy(toDeploy),nUnits(nUnits){}
-
-Deploy::Deploy(Deploy* deployCopy):Order(deployCopy){}
-
-Deploy::~Deploy(){}
-
-Advance::Advance():Order(){}
-
-Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits):Order(orderName,playerIndex),advanceFrom(advanceFrom),advanceTo(advanceTo),nUnits(nUnits){}
-
-Advance::Advance(Advance* advanceCopy):Order(advanceCopy),advanceFrom(advanceCopy->advanceFrom),advanceTo(advanceCopy->advanceTo),nUnits(advanceCopy->nUnits){}
-
-Advance::~Advance(){}
-
-Bomb::Bomb():Order(),toBomb(nullptr){}
-
-Bomb::Bomb(string orderName,int* playerIndex,Territory* toBomb):Order(orderName,playerIndex),toBomb(toBomb){}
-
-Bomb::Bomb(Bomb* bombCopy):Order(bombCopy),toBomb(bombCopy->getToBomb()){}
-
-Blockade::Blockade():Order(){}
-
-Blockade::Blockade(string orderName,int* playerIndex):Order(orderName,playerIndex){}
-
-Blockade::Blockade(Blockade* blockadeCopy):Order(blockadeCopy){}
-
-Blockade::~Blockade(){}
-
-Airlift::Airlift():Order(),airliftFrom(nullptr),airliftTo(nullptr){}
-
-Airlift::Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits):Order(orderName,playerIndex),airliftFrom(airliftFrom),airliftTo(airliftTo),nUnits(nUnits){}
-
-Airlift::Airlift(Airlift* airliftCopy):Order(airliftCopy){}
-
-Airlift::~Airlift(){}
-
-Negotiate::Negotiate():Order(){}
-
-Negotiate::Negotiate(string orderName,int* playerIndex):Order(orderName,playerIndex){}
-
-Negotiate::Negotiate(Negotiate* negotiateCopy):Order(negotiateCopy){}
-
-Negotiate::~Negotiate(){}
 
 //methods
 
@@ -176,7 +177,7 @@ bool Advance::validate(){
 
 void Advance::execute(){
     if(this->validate()){
-        if(advanceTo->owner==playerIndex){
+        if(advanceTo->owner==playerIndex||*(advanceTo->owner)==-1){
             //Add validation for nUnits. if advanceFrom->army<nUnits. advanceFrom->army is transfered instead.
             if(nUnits>advanceTo->army){
                 *(advanceTo->army)=*(advanceTo->army)+*(advanceFrom->army);
@@ -192,6 +193,7 @@ void Advance::execute(){
             *(advanceFrom->army)=*(advanceFrom->army)-*(nUnits);
             int attackingUnits = *(nUnits);
             while(attackingUnits!=0 && *(advanceTo->army)!=0){
+                //Randomizer to calculate the probability during combat.
                 random_device rd;
                 mt19937 gen(rd());
                 uniform_int_distribution<> distrib(1,100);
@@ -219,7 +221,6 @@ void Advance::execute(){
     }
 }
 
-
 //Will work with Kaoutar to determine how to update player's owned order list after advancing/Blockading
 void Bomb::execute(){
     if(this->validate()){
@@ -230,14 +231,19 @@ void Bomb::execute(){
         cout<<"Unable to execute order: "<<this<<endl;
     }
 }
+bool Blockade::validate(){
+    if(toBlock->owner!=playerIndex){
+        cout<<"Commander, "<<toBlock->owner<<" is under enemy command!! We cannot execute the blockade."<<endl;
+        return false;
+    }
+    return true;
+}
 
 void Blockade::execute(){
     if(this->validate()){
-        cout<<"Executing order: "<<this<<endl;
-        cout<<"Triples the number of army units on a target territory and makes it a neutral territory. This order can only be issued if a player has the blockade card in their hand."<<endl;
-    }
-    else{
-        cout<<"Unable to execute order: "<<this<<endl;
+        cout<<"Initiating Blockade on: "<<toBlock->name<<endl;
+        *(toBlock->army) = *(toBlock->army)*2;
+        *(toBlock->owner) = -2;
     }
 }
 

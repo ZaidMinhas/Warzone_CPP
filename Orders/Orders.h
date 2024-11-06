@@ -92,10 +92,16 @@ private:
 class Blockade:public Order{
 public:
 	Blockade();
-	Blockade(string orderName,int* playerIndex);
+	Blockade(string orderName,int* playerIndex,Territory* toBlock);
 	Blockade(Blockade* blockadeCopy);
 	~Blockade();
+	//Accessors
+	Territory* getToBlock();
+	//methods
+	bool validate();
 	void execute();
+private:
+	Territory* toBlock;
 };
 
 class Airlift:public Order{
@@ -107,6 +113,7 @@ public:
 	//Accessors
 	Territory* getAirliftFrom();
 	Territory* getAirliftTo();
+	int* getnUnits();
 	bool validate();
 	void execute();
 
