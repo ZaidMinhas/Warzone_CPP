@@ -149,7 +149,7 @@ public:
 
 class GameEngine {
     public:
-    GameEngine();
+    GameEngine(char **argv);
     explicit GameEngine(GameEngine* game_engine);
     GameEngine& operator=(const GameEngine& other);
 

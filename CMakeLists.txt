@@ -8,4 +8,5 @@ add_executable(Warzone_CPP Main.cpp
         GameEngine/GameEngine.h
         GameEngine/GameEngine.cpp
         CommandProcessor/CommandProcessor.cpp
+        GameEngine/GameEngineDriver.cpp
 )

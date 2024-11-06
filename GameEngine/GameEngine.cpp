@@ -257,9 +257,16 @@ std::ostream& operator<<(std::ostream& os, const State& state) {
 //##############################################################################//
 
 //--------------------GAME ENGINE--------------------
-GameEngine::GameEngine() {
-    // commandProcessor = new CommandProcessor();
-    commandProcessor = new FileCommandProcessorAdapter("CMDFile.txt");
+GameEngine::GameEngine(char **argv) {
+
+    if (string(argv[1]) == "-command") {
+        commandProcessor = new CommandProcessor();
+    }
+    else if (string(argv[1]) == "-file") {
+        commandProcessor = new FileCommandProcessorAdapter(argv[2]);
+    }
+
+
     gameOver = false;
     currentState = new Start();
 }

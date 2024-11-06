@@ -6,9 +6,9 @@
 #include "GameEngineDriver.h"
 
 //Instantiate, run and delete game engine
-void testGameStates(){
+void testGameStates(char **argv){
 
-    GameEngine* gameEngine = new GameEngine();
+    GameEngine* gameEngine = new GameEngine(argv);
 
     gameEngine->run();
 

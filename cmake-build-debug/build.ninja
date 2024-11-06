@@ -67,11 +67,11 @@ build CMakeFiles/Warzone_CPP.dir/CommandProcessor/CommandProcessor.cpp.obj: CXX_
   OBJECT_DIR = CMakeFiles\Warzone_CPP.dir
   OBJECT_FILE_DIR = CMakeFiles\Warzone_CPP.dir\CommandProcessor
 
-build CMakeFiles/Warzone_CPP.dir/CommandProcessor/Command.cpp.obj: CXX_COMPILER__Warzone_CPP_unscanned_Debug C$:/Users/minha/OneDrive/Desktop/Warzone_CPP/CommandProcessor/Command.cpp || cmake_object_order_depends_target_Warzone_CPP
-  DEP_FILE = CMakeFiles\Warzone_CPP.dir\CommandProcessor\Command.cpp.obj.d
+build CMakeFiles/Warzone_CPP.dir/GameEngine/GameEngineDriver.cpp.obj: CXX_COMPILER__Warzone_CPP_unscanned_Debug C$:/Users/minha/OneDrive/Desktop/Warzone_CPP/GameEngine/GameEngineDriver.cpp || cmake_object_order_depends_target_Warzone_CPP
+  DEP_FILE = CMakeFiles\Warzone_CPP.dir\GameEngine\GameEngineDriver.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\Warzone_CPP.dir
-  OBJECT_FILE_DIR = CMakeFiles\Warzone_CPP.dir\CommandProcessor
+  OBJECT_FILE_DIR = CMakeFiles\Warzone_CPP.dir\GameEngine
 
 
 # =============================================================================
@@ -81,7 +81,7 @@ build CMakeFiles/Warzone_CPP.dir/CommandProcessor/Command.cpp.obj: CXX_COMPILER_
 #############################################
 # Link the executable Warzone_CPP.exe
 
-build Warzone_CPP.exe: CXX_EXECUTABLE_LINKER__Warzone_CPP_Debug CMakeFiles/Warzone_CPP.dir/Main.cpp.obj CMakeFiles/Warzone_CPP.dir/GameEngine/GameEngine.cpp.obj CMakeFiles/Warzone_CPP.dir/CommandProcessor/CommandProcessor.cpp.obj CMakeFiles/Warzone_CPP.dir/CommandProcessor/Command.cpp.obj
+build Warzone_CPP.exe: CXX_EXECUTABLE_LINKER__Warzone_CPP_Debug CMakeFiles/Warzone_CPP.dir/Main.cpp.obj CMakeFiles/Warzone_CPP.dir/GameEngine/GameEngine.cpp.obj CMakeFiles/Warzone_CPP.dir/CommandProcessor/CommandProcessor.cpp.obj CMakeFiles/Warzone_CPP.dir/GameEngine/GameEngineDriver.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Warzone_CPP.dir

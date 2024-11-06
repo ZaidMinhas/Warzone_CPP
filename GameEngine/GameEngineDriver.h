@@ -5,6 +5,6 @@
 #ifndef GAMEENGINEDRIVER_H
 #define GAMEENGINEDRIVER_H
 
-void testGameStates();
+void testGameStates(char **argv);
 
 #endif //GAMEENGINEDRIVER_H

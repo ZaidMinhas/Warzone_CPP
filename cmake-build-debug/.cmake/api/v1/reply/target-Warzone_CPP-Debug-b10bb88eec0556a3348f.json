@@ -103,8 +103,7 @@
 			"sourceIndexes" : 
 			[
 				1,
-				2,
-				6
+				2
 			]
 		}
 	],
@@ -141,13 +140,8 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "CommandProcessor/Command.cpp",
+			"path" : "GameEngine/GameEngineDriver.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "CommandProcessor/Command.h",
-			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"
