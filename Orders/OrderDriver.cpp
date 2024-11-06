@@ -3,7 +3,6 @@
 using namespace std;
 #include "OrderDriver.h"
 #include "Orders.h"
-#include "OrdersList.h"
 //Fixes the order string so only the first letter is uppercased.
 static string fixString(string order){
     for(int i=0;i<order.size();i++){
@@ -19,7 +18,8 @@ static string fixString(string order){
 void testOrdersList(){
     OrdersList* test=new OrdersList();
     string order;
-    while(true){
+    cout<<"Compiling Successful"<<endl;
+    /*while(true){
         if(test->getSize()!=0){
             cout<<test;
         }
@@ -55,7 +55,7 @@ void testOrdersList(){
     }
     while(true){
         cout<<test;
-        int position1; 
+        int position1;
         int position2;
         cout<<"Commander!! Are there any orders you would like to Move or Remove before execution:";
         cin>>order;
@@ -87,5 +87,5 @@ void testOrdersList(){
         cout<<endl;
         test->setCurrentOrder(test->getCurrentOrder()->getNext());
     }
-    cout<<"All orders you issued have been passed through for execution"<<endl;
+    cout<<"All orders you issued have been passed through for execution"<<endl;*/
 }

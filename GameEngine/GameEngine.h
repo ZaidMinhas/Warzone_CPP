@@ -160,10 +160,13 @@ class GameEngine {
     void setGameOver(bool b);
 
     friend std::ostream& operator<<(std::ostream& os, const GameEngine& engine);
-
-    void startupPhase();
+    
     void gamestart();
     int checkWinCon();
+    void startupPhase();// A2
+    void reinforcementPhase();// A2
+
+
     void setCurrentState(State* state);
     std::string getCurrentState();
     
