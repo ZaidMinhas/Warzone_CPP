@@ -258,7 +258,8 @@ std::ostream& operator<<(std::ostream& os, const State& state) {
 
 //--------------------GAME ENGINE--------------------
 GameEngine::GameEngine() {
-    commandProcessor = new CommandProcessor();
+    // commandProcessor = new CommandProcessor();
+    commandProcessor = new FileCommandProcessorAdapter("CMDFile.txt");
     gameOver = false;
     currentState = new Start();
 }
@@ -286,6 +287,7 @@ void GameEngine::run() {
             cout << "Game has ended!" << endl;
             break;
         }
+
     }
 
     for (Command* cmd : commandProcessor->commands) {
@@ -301,7 +303,7 @@ void GameEngine::handleInput(std::string& input) {
 
 
     if (nextState != nullptr) {
-        system("cls");
+        // system("cls");
         currentState->exit(*this);
 
         delete currentState;

@@ -1,0 +1,14 @@
+loadmap
+zuko
+loadmap
+anko
+validatemap
+addplayer
+Zaid
+addplayer
+James
+assigncountries
+issueorder
+endissueorders
+win
+end

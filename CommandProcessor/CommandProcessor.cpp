@@ -3,11 +3,13 @@
 //
 
 #include "CommandProcessor.h"
+
+#include <fstream>
 #include <iostream>
 #include <string>
 #include "../GameEngine/GameEngine.h"
 
-using std::cin, std::string;
+using std::cin, std::string, std::ifstream;
 
 Command::Command(const string &command) {
     this->command = command;
@@ -55,4 +57,22 @@ void CommandProcessor::saveCommand(const string& command) {
     currentCommand = new Command(command);
     commands.push_back(currentCommand);
 }
+
+FileCommandProcessorAdapter::FileCommandProcessorAdapter(const string& fileName):file(fileName) {
+    if (!file.is_open()) {
+        std::cerr << "Error: Could not open file " << fileName << std::endl;
+    }
+}
+
+string FileCommandProcessorAdapter::readCommand()  {
+
+    string line;
+    if (getline(file, line)) {
+        return line;
+    } else {
+        std::cerr << "End of file reached or error reading file.\n";
+        return "";
+    }
+}
+
 

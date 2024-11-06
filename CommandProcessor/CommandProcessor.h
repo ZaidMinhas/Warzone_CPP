@@ -6,6 +6,7 @@
 #define COMMANDPROCESSOR_H
 
 
+#include <fstream>
 #include <iostream>
 #include <vector>
 
@@ -30,7 +31,8 @@ class CommandProcessor {
 		vector<Command*> commands;
 		CommandProcessor();
 		explicit CommandProcessor(CommandProcessor*);
-		~CommandProcessor() = default;
+
+		virtual ~CommandProcessor() = default;
 
 		string getCommand();
 		void validate(const void* ptr);
@@ -38,12 +40,21 @@ class CommandProcessor {
 private:
 	Command *currentCommand{};
 
-	string readCommand();
+	virtual string readCommand();
 	void saveCommand(const string&);
 
-
+	friend class FileCommandProcessorAdapter;
 };
 
 
+class FileCommandProcessorAdapter : public CommandProcessor {
+	public:
+	explicit FileCommandProcessorAdapter(const string& fileName);
+
+	string readCommand() override;
+
+private:
+	std::ifstream file;
+};
 
 #endif //COMMANDPROCESSOR_H
