@@ -1,4 +1,6 @@
 #include <random>
+#include <iostream>
+using namespace std;
 #include "Orders.h"
 #include "..\Map/Map.h"
 #include "..\GameEngine/GameEngine.h"
@@ -59,6 +61,12 @@ int* Advance::getNUnits(){
     return nUnits;
 }
 
+Territory* Bomb::getToBomb(){return toBomb;}
+
+Territory* Airlift::getAirliftFrom(){return airliftFrom;}
+
+Territory* Airlift::getAirliftTo(){return airliftTo;}
+
 //Mutators
 
 void Order::setNext(Order* next){
@@ -73,6 +81,8 @@ void Order::setPrevious(Order* previous){
     this->previous=previous;
 }
 
+void Bomb::setToBomb(Territory* toBomb){this->toBomb = toBomb;}
+
 Deploy::Deploy():Order(){}
 
 Deploy::Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits):Order(orderName,playerIndex),toDeploy(toDeploy),nUnits(nUnits){}
@@ -85,17 +95,15 @@ Advance::Advance():Order(){}
 
 Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits):Order(orderName,playerIndex),advanceFrom(advanceFrom),advanceTo(advanceTo),nUnits(nUnits){}
 
-Advance::Advance(Advance* advanceCopy):Order(advanceCopy){}
+Advance::Advance(Advance* advanceCopy):Order(advanceCopy),advanceFrom(advanceCopy->advanceFrom),advanceTo(advanceCopy->advanceTo),nUnits(advanceCopy->nUnits){}
 
 Advance::~Advance(){}
 
-Bomb::Bomb():Order(){}
+Bomb::Bomb():Order(),toBomb(nullptr){}
 
-Bomb::Bomb(string orderName,int* playerIndex):Order(orderName,playerIndex){}
+Bomb::Bomb(string orderName,int* playerIndex,Territory* toBomb):Order(orderName,playerIndex),toBomb(toBomb){}
 
-Bomb::Bomb(Bomb* bombCopy):Order(bombCopy){}
-
-Bomb::~Bomb(){}
+Bomb::Bomb(Bomb* bombCopy):Order(bombCopy),toBomb(bombCopy->getToBomb()){}
 
 Blockade::Blockade():Order(){}
 
@@ -105,9 +113,9 @@ Blockade::Blockade(Blockade* blockadeCopy):Order(blockadeCopy){}
 
 Blockade::~Blockade(){}
 
-Airlift::Airlift():Order(){}
+Airlift::Airlift():Order(),airliftFrom(nullptr),airliftTo(nullptr){}
 
-Airlift::Airlift(string orderName,int* playerIndex):Order(orderName,playerIndex){}
+Airlift::Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits):Order(orderName,playerIndex),airliftFrom(airliftFrom),airliftTo(airliftTo),nUnits(nUnits){}
 
 Airlift::Airlift(Airlift* airliftCopy):Order(airliftCopy){}
 
@@ -152,8 +160,10 @@ bool Advance::validate(){
         cout<<"Unable to execute Advance order!! You do not own "<<advanceFrom->name<<endl;
         return false;
     }
+    /*If the player is attacking a player that has played the negatiate order on them,
+     cout<<"Commander, we have made a peace treaty with <<advanceTo->owner<< this round!! We cannot invade their territory!!"<<endl;
+     return false*/
     else{
-        //Add validation for nUnits. if advanceFrom->army<nUnits. Return false;
         for(auto link : advanceFrom->connections){
            if(link->name==advanceTo->name){
                 return true;
@@ -167,8 +177,15 @@ bool Advance::validate(){
 void Advance::execute(){
     if(this->validate()){
         if(advanceTo->owner==playerIndex){
+            //Add validation for nUnits. if advanceFrom->army<nUnits. advanceFrom->army is transfered instead.
+            if(nUnits>advanceTo->army){
+                *(advanceTo->army)=*(advanceTo->army)+*(advanceFrom->army);
+                *(advanceFrom->army) = 0;
+            }
+        else{
             *(advanceTo->army)=*(advanceTo->army)+*(nUnits);
             *(advanceFrom->army)=*(advanceFrom->army)-*(nUnits);
+            }
         }
         else{
             cout<<"Entering hostile territory!! Preparing the assault"<<endl;
@@ -192,7 +209,7 @@ void Advance::execute(){
                 *(advanceTo->owner)=*(playerIndex);
                 *(advanceTo->army)=attackingUnits;
                 cout<<"The attacking player has succeeded in taking over "<<advanceTo->name<<"!!"<<endl;
-                //Update Players owned Territories vector!!!
+                //Update Players owned Territories vector either after executing the function or during.
             }
             else if(attackingUnits==0){
                 cout<<"The defender has successfully drove off the invaders from "<<advanceTo->name<<"!!"<<endl;
@@ -202,6 +219,8 @@ void Advance::execute(){
     }
 }
 
+
+//Will work with Kaoutar to determine how to update player's owned order list after advancing/Blockading
 void Bomb::execute(){
     if(this->validate()){
         cout<<"Executing order: "<<this<<endl;
@@ -222,14 +241,29 @@ void Blockade::execute(){
     }
 }
 
+bool Airlift::validate(){
+    if(airliftFrom->owner!=playerIndex){
+         cout<<"Commander!! Airlifting is not possible!! We cannot pick them up for "<<airliftFrom->name<<" is controlled by enemy hands!!"<<endl;
+        return false;
+    }
+    else if(airliftTo->owner!=playerIndex){
+        cout<<"Commander!! Airlifting is not possible!! We cannot drop them off at for "<<airliftTo->name<<" is controlled by enemy hands!!"<<endl;
+        return false;
+    }
+    return true;
+}
+
 void Airlift::execute(){
     if(this->validate()){
-        cout<<"Executing order: "<<this<<endl;
-        cout<<"Advances a certain number of army units from one from one territory (source territory) to another"<<endl;
-        cout<<"territory (target territory). This order can only be issued if a player has the airlift card in their hand."<<endl;
-    }
-    else{
-        cout<<"Unable to execute order: "<<this<<endl;
+        cout<<"Airlifting "<<*(nUnits)<<" units from "<<airliftFrom->name<<" to "<<airliftTo->name<<"!!!"<<endl;
+        if(*(nUnits)>*(airliftFrom->army)){
+            *(airliftTo->army) = *(airliftTo->army) + *(airliftFrom->army);
+            *(airliftFrom->army) = 0;
+        }
+        else{
+            *(airliftTo->army) = *(airliftTo->army) + *(nUnits);
+            *(airliftFrom->army) = *(airliftFrom->army) - *(nUnits);
+        }
     }
 }
 

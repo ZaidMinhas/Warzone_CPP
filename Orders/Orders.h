@@ -46,6 +46,7 @@ public:
 	//Accessors
 	Territory* getToDeploy();
 	int* getNUnits();
+	//operator
 	Deploy operator=(const Deploy* order);
 private:
 	Territory* toDeploy;
@@ -76,10 +77,16 @@ private:
 class Bomb:public Order{
 public:
 	Bomb();
-	Bomb(string orderName,int* playerIndex);
+	Bomb(string orderName,int* playerIndex,Territory* toBomb);
 	Bomb(Bomb* bombCopy);
 	~Bomb();
+	//Accessors and Mutators
+	Territory* getToBomb();
+	void setToBomb(Territory* toBomb);
 	void execute();
+
+private:
+	Territory* toBomb;
 };
 
 class Blockade:public Order{
@@ -94,10 +101,19 @@ public:
 class Airlift:public Order{
 public:
 	Airlift();
-	Airlift(string orderName,int* playerIndex);
+	Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits);
 	Airlift(Airlift* airliftCopy);
 	~Airlift();
+	//Accessors
+	Territory* getAirliftFrom();
+	Territory* getAirliftTo();
+	bool validate();
 	void execute();
+
+private:
+	Territory* airliftFrom;
+	Territory* airliftTo;
+	int* nUnits;
 };
 
 class Negotiate:public Order{
