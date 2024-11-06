@@ -67,7 +67,7 @@ FileCommandProcessorAdapter::FileCommandProcessorAdapter(const string& fileName)
 string FileCommandProcessorAdapter::readCommand()  {
 
     string line;
-    if (getline(file, line)) {
+    if (file >> line) {
         return line;
     } else {
         std::cerr << "End of file reached or error reading file.\n";

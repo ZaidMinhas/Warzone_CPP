@@ -25,10 +25,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cfeef208-c80b-4133-bb57-cbc5b98d11b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMDFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMDFile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.h" beforeDir="false" afterPath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameEngine/GameEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/GameEngine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/a.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +104,7 @@
       <workItem from="1727626156634" duration="2055000" />
       <workItem from="1727632063571" duration="2835000" />
       <workItem from="1728085117128" duration="1730000" />
-      <workItem from="1730846172984" duration="6872000" />
+      <workItem from="1730846172984" duration="7004000" />
     </task>
     <servers />
   </component>

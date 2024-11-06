@@ -1,12 +1,8 @@
-loadmap
-zuko
-loadmap
-anko
+loadmap zuko
+loadmap anko
 validatemap
-addplayer
-Zaid
-addplayer
-James
+addplayer Zaid
+addplayer James
 assigncountries
 issueorder
 endissueorders
