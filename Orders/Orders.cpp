@@ -48,7 +48,7 @@ Blockade::Blockade():Order(),toBlock(nullptr){}
 
 Blockade::Blockade(string orderName,int* playerIndex,Territory* toBlock):Order(orderName,playerIndex),toBlock(toBlock){}
 
-//Blockade::Blockade(Blockade* blockadeCopy):Order(blockadeCopy),toBlock(blockadeCopy->getToBlock()){}
+Blockade::Blockade(Blockade* blockadeCopy):Order(blockadeCopy),toBlock(blockadeCopy->toBlock){}
 
 Blockade::~Blockade(){}
 
