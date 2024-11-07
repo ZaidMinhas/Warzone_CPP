@@ -22,6 +22,12 @@ void testPlayer() {
         std::cout << territory << std::endl; 
     }*/ //-- ok
 
+    // store territories to map thru them
+    std::vector<Territory*> territoriesArray;
+    for (auto& territory : gameMap.graph) {
+        territoriesArray.push_back(&territory);
+    }
+
     // draw 3 cards from the deck into the hand -- make it random ~later
     Deck deck;
     Hand* hand = new Hand(); // empty hand
@@ -83,7 +89,7 @@ void testPlayer() {
 
 
     //Attack simulation
-    int choice;
+    /*int choice;
     std::cout << "Enter the territory you want to attack (1 to " << territoriesToAttack.size() << "): ";
     std::cin >> choice;
 
@@ -96,7 +102,50 @@ void testPlayer() {
         // (Call the appropriate method to issue the attack order)
     } else {
         std::cout << "Invalid choice. Please select a valid territory." << std::endl;
+    } -- works*/
+
+    /*std::string command;
+    std::cout << "Enter command: ";
+    std::getline(std::cin, command);
+
+    // Call the function -- ok
+    player1->issueOrder(command, playerId);*/
+
+
+
+    //------- Find a territory in <Territory*>
+    /*std::string territoryName;  // Use a simple string
+    std::cout << "Enter the name of the territory you want to find: ";
+    std::getline(std::cin, territoryName);  // Read the name of the territory
+    bool found = false;
+
+    for (auto* territory : territoriesArray) {  // Use auto* to iterate through the pointers in the array
+        if (territory->name && *(territory->name) == territoryName) {  // Dereference territory->name and compare
+            found = true;  // Set found to true if the territory is found
+            break;  // Exit the loop early once the territory is found
+        }
     }
+
+    if (found) {
+        std::cout << "Territory found";
+    } else {
+        std::cout << "Territory not found";
+    }*/
+
+    // Find a territory in <Territory*>
+    /*std::string territoryName;
+    std::cout << "Enter the name of the territory you want to find: ";
+    std::getline(std::cin, territoryName);  // Read the name of the territory
+
+    // Call findTerritoryByName using the player1 object
+    Territory* foundTerritory = player1->findTerritoryByName(territoryName, territoriesArray);
+
+    if (foundTerritory) {
+        std::cout << "Territory found: " << foundTerritory->name << std::endl;
+    } else {
+        std::cout << "Territory not found" << std::endl;
+    } */
+
 
 
 }

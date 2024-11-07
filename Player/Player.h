@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>  // to use std::string
-#include "..\Orders\OrdersList.h"
+#include "..\Orders\Orders.h"
 #include "..\Map\Map.h"
 #include "..\Cards\Cards.h"
 
@@ -30,7 +30,10 @@ public:
     //vector<Territory*> toAttack(vector<Territory*>); // changed - K - A2
     std::vector<Territory*> toAttack() const;
     std::vector<Territory*> toDefend() const;
-    void issueOrder(const std::string& orderName); // changed - K - A2
+    // Function to find a territory by name -- needed to issue the order
+    Territory* findTerritoryByName(const std::string& territoryName, const std::vector<Territory*>& territories);
+    //std::vector<Territory*> findTerritoryByName(const std::string& territoryName, const std::vector<Territory*>& territories) const;
+    void issueOrder(const std::string& command, int* playerId, const std::vector<Territory*>& allTerritoriesInMap);
     // Custom function to add a territory to the player's owned territories
     void addTerritory(Territory* territory);
     
