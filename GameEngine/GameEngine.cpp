@@ -6,6 +6,8 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
+#include <cmath>
+#include <vector>
 #include "../Map/Map.h"
 #include "../Player/Player.h"
 
@@ -406,12 +408,36 @@ void GameEngine::gamestart(){
     //Give every Player 50 inital troops and drawing 2 cards
     for(int j=0;j<playerList.size();j++){
         playerList.at(j)->_reinforcementPool=new int(50);
-        playerList.at(j)->_handCard=new Hand();
-        deck.draw(*playerList.at(j)->_handCard);
-        deck.draw(*playerList.at(j)->_handCard);
+        playerList.at(j)->setHand(new Hand());
+        deck.draw(*playerList.at(j)->getHand());
+        deck.draw(*playerList.at(j)->getHand());
         std::cout<<"\n"<<playerList.at(j)->getName();
         std::cout<<"\n"<<*playerList.at(j)->_reinforcementPool;
-        std::cout<<"\n"<<*playerList.at(j)->_handCard;
+        std::cout<<"\n";
+        playerList.at(j)->printHand();
+    }
+}
+
+void GameEngine::reinforcementPhase(){
+    for(int i=0;i<playerList.size();i++){
+        int reinforcement;
+        int continentOwn[gameMap.continentList.size()];
+        for(int j=0;j<gameMap.graph.size();j++){
+            if(*gameMap.graph.at(j).owner==playerList.at(i)->getID()){
+                reinforcement++;
+                continentOwn[*gameMap.graph.at(j).pContient->index]++;
+            }
+        }
+        reinforcement=std::floor((double)reinforcement/3.00);
+        for(int k=0;k<gameMap.continentList.size();k++){
+            if(continentOwn[k]==*gameMap.continentList.at(k).nbrTerritories){
+                reinforcement=reinforcement+*gameMap.continentList.at(k).bonus;
+            }
+        }
+        if(reinforcement<3){
+            reinforcement=3;
+        }
+        playerList.at(i)->_reinforcementPool=playerList.at(i)->_reinforcementPool+reinforcement;
     }
 
     //Shuffle player order
@@ -450,5 +476,5 @@ int GameEngine::checkWinCon(){
             }
         }
     }
-    
+    return 0;
 }

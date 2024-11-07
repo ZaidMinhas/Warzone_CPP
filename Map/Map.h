@@ -9,6 +9,8 @@ class Continent{
     public:
     string *name;
     int *bonus;
+    int *nbrTerritories;
+    int *index;
     string getName();
     int getBonus();
     Continent(string name, int bonus);
@@ -75,4 +77,5 @@ class InvalidMapException : public std::exception {
         char * what ();*/
 };
 
+//extern Map map; -- changed : ambiguous 'map' -> it's a keyword, throws a conflict error
 extern Map gameMap;
