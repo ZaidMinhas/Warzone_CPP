@@ -7,9 +7,12 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "../GameEngine/GameEngine.h"
 
 using std::cin, std::string, std::ifstream;
+
+CommandProcessor commandProcessor;
 
 Command::Command(const string &command) {
     this->command = command;
@@ -30,6 +33,18 @@ string Command::getEffect() {
 CommandProcessor::CommandProcessor(){}
 CommandProcessor::CommandProcessor(CommandProcessor* commandProcessor){}
 
+vector<string> CommandProcessor::splitCommand(const string command){
+    std::stringstream ss(command);
+    vector<string> args;
+    string word;
+    while(std::getline(ss, word, ' ')){
+        if(!word.empty()){
+            args.push_back(word);
+        }
+    }
+    return args;
+}
+
 string CommandProcessor::getCommand() {
     string command = readCommand();
     saveCommand(command);
@@ -49,7 +64,7 @@ void CommandProcessor::validate(const void *ptr) {
 
 string CommandProcessor::readCommand() {
     std::string command;
-    cin >> command;
+    std::getline(cin, command);
     return command;
 }
 

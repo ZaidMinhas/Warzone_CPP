@@ -10,9 +10,9 @@ void testGameStates(){
 
     GameEngine* gameEngine = new GameEngine();
 
-    gameEngine->run();
+    gameEngine->startupPhase();
 
-    delete gameEngine;
+    //delete gameEngine;
 }
 
 // int main() {

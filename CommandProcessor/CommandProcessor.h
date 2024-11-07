@@ -33,7 +33,7 @@ class CommandProcessor {
 		explicit CommandProcessor(CommandProcessor*);
 
 		virtual ~CommandProcessor() = default;
-
+        vector<string> splitCommand(const string command);
 		string getCommand();
 		void validate(const void* ptr);
 
@@ -56,5 +56,7 @@ class FileCommandProcessorAdapter : public CommandProcessor {
 private:
 	std::ifstream file;
 };
+
+extern CommandProcessor commandProcessor;
 
 #endif //COMMANDPROCESSOR_H

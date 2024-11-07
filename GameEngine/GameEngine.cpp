@@ -10,6 +10,7 @@
 #include <random>
 #include "../Map/Map.h"
 #include "../Player/Player.h"
+#include "../CommandProcessor/CommandProcessor.h"
 
 using std::cin;
 using std::cout;
@@ -136,7 +137,7 @@ State* PlayersAdded::handleInput(GameEngine& game_engine, std::string& input) {
     }
 
     if (input == "gamestart"){
-        gamestart();
+        game_engine.gamestart();
         return new AssignReinforcement();
     }
 
@@ -371,20 +372,20 @@ GameEngine& GameEngine::operator=(const GameEngine& other) {
 std::vector<int> turns;
 
 void GameEngine::startupPhase(){
-    string input;
+    std::vector<string> input;
     while(true){
     cout<<"Enter command:";
-    cin>>input;
-    if(input=="loadmap"&&(getCurrentState()=="Start"||getCurrentState()=="Map Loaded")){
+    input = commandProcessor.splitCommand(commandProcessor.getCommand());
+    if(input.at(0)=="loadmap"&&(getCurrentState()=="Start"||getCurrentState()=="Map Loaded")){
         string fileName;
-        cin>>fileName;
+        fileName = input.at(1);
         std::cout<<"\n"<<fileName<<"\n";
         if(gameMap.loadMap(fileName)==0){
             setCurrentState(new MapLoaded());
         }else{
             setCurrentState(new Start());
         }
-    }else if(input=="validatemap"&&(getCurrentState()=="Map Loaded"||getCurrentState()=="Map Validated")){
+    }else if(input.at(0)=="validatemap"&&(getCurrentState()=="Map Loaded"||getCurrentState()=="Map Validated")){
         if(gameMap.validate()==0){
             cout<<"Map is valid\n";
             setCurrentState(new MapValidated());
@@ -392,13 +393,13 @@ void GameEngine::startupPhase(){
             cout<<"Map is not valid\n";
             setCurrentState(new Start());
         }
-    }else if(input=="addplayer"&&(getCurrentState()=="Map Validated"||getCurrentState()=="Players Added")){
+    }else if(input.at(0)=="addplayer"&&(getCurrentState()=="Map Validated"||getCurrentState()=="Players Added")){
         string name;
-        cin>>name;
+        name = input.at(1);
         playerList.push_back(new Player(name, this->playerCount));
         this->playerCount++;
         setCurrentState(new PlayersAdded());
-    }else if(input=="gamestart"&&getCurrentState()=="Players Added"){
+    }else if(input.at(0)=="gamestart"&&getCurrentState()=="Players Added"){
         gamestart();
         setCurrentState(new AssignReinforcement());
         break;
@@ -462,5 +463,5 @@ int GameEngine::checkWinCon(){
             }
         }
     }
-    
+    return 0;
 }

@@ -11,8 +11,6 @@
 
 using std::string, std::vector;
 
-void gamestart();
-
 class GameEngine;
 
 class State {
