@@ -2,7 +2,9 @@
 #include <iostream>
 using namespace std;
 #include "Orders.h"
-class OrdersList{
+#include "..\LoggingObserver\LoggingObserver.h"
+
+class OrdersList: public ILoggable, public Subject{
 public:
     //Constructors and Destructors
     OrdersList();
@@ -26,6 +28,9 @@ public:
     is an order that required a card, put the card back into the players hand*/
     //operators
     OrdersList operator=(const OrdersList* ordersList);
+
+    string stringToLog() override {};
+
 private:
     Order* head;//The start of the list.
     Order* tail; //This will be used to add orders and will be good to improve performance of seeking.

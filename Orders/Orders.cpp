@@ -51,7 +51,19 @@ void Order::execute(){
     else{
         cout<<"Unable to execute order: "<<this<<endl;
     }
+
+    Notify(*this);
 }
+
+//Writes to observer txt file
+string Order::stringToLog() {
+    if(this->validate()){
+        return "Executing order: " + getOrderName() + "/n";
+    }
+    else{
+        return "Unable to execute order: " + getOrderName() + "/n";
+    }
+};
 
 void Deploy::execute(){
     if(this->validate()){

@@ -352,6 +352,8 @@ GameEngine::GameEngine()
 {
     gameOver = false;
     currentState = new Start();
+
+    addObserver(loggingObserver);
 }
 
 GameEngine::GameEngine(GameEngine *gameEngine)
@@ -386,7 +388,7 @@ void GameEngine::run()
     }*/
 }
 
-void GameEngine::handleInput(std::string &input)
+void GameEngine::transition(std::string &input)
 {
     State *nextState = currentState->handleInput(*this, input);
 
@@ -404,6 +406,13 @@ void GameEngine::handleInput(std::string &input)
         cout << "INCORRECT COMMAND\n"
              << endl;
     }
+
+    Notify(*this);
+}
+
+string GameEngine::stringToLog(){
+
+    return "changed state to " + currentState->getName();
 }
 
 void GameEngine::setCurrentState(State *state)

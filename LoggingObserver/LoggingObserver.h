@@ -11,14 +11,14 @@ using std::string;
 class ILoggable{
 public:
     virtual ~ILoggable() = default;
-    virtual string stringToLog() const = 0;
+    virtual string stringToLog() = 0;
 
 };
 
 class Observer{
 public:
     virtual ~Observer() = default;
-    virtual void Update(const ILoggable& loggable) = 0;
+    virtual void Update(ILoggable& loggable) = 0;
 
 };
 
@@ -28,20 +28,20 @@ class Subject{
     public:
     void addObserver(Observer* observer);
     protected:
-    void Notify(const ILoggable& loggable);
+    void Notify( ILoggable& loggable);
 };
 
 
 
-class LoggingObserver : public Observer{
+class LoggingObserver: public Observer{
     public:
     LoggingObserver();
-    void Update(const ILoggable& loggable) override;
+    void Update(ILoggable& loggable) override;
 
 };
 
 
 //Subscriber used by all classes
-extern LoggingObserver loggingObserver;
+extern LoggingObserver* loggingObserver;
 
 #endif //LOGGINGOBSERVER_H

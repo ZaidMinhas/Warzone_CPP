@@ -11,7 +11,7 @@ void Subject::addObserver(Observer *observer) {
   _observer = observer;
 }
 
-void Subject::Notify(const ILoggable& loggable){
+void Subject::Notify(ILoggable& loggable){
 	_observer->Update(loggable);
 }
 
@@ -23,10 +23,12 @@ LoggingObserver::LoggingObserver(){
 }
 
 
-void LoggingObserver::Update(const ILoggable& loggable){
+void LoggingObserver::Update(ILoggable& loggable){
 	string log = loggable.stringToLog();
   	std::ofstream myfile;
     myfile.open("gamelog.txt", std::ios_base::app);
     myfile << log;
     myfile.close();
 }
+
+LoggingObserver* loggingObserver = new LoggingObserver();

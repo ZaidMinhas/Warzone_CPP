@@ -8,6 +8,8 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include "..\LoggingObserver\LoggingObserver.h"
+
 
 using std::string, std::vector;
 
@@ -151,14 +153,14 @@ public:
 
 
 
-class GameEngine {
+class GameEngine: public ILoggable, public Subject {
     public:
     GameEngine();
     GameEngine(GameEngine* game_engine);
     GameEngine& operator=(const GameEngine& other);
 
     void run();
-    void handleInput(std::string& input);
+    void transition(std::string& input);
 
     void setGameOver(bool b);
 
@@ -170,6 +172,9 @@ class GameEngine {
     void setCurrentState(State* state);
     std::string getCurrentState();
     
+    string stringToLog() override {};
+
+
 private:
     int* playerCount;
     State* currentState;

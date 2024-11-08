@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
+#include "..\LoggingObserver\LoggingObserver.h"
 using namespace std;
-class Order{
+class Order: public ILoggable, public Subject {
 protected:
 	string orderName;
 	Order* next;
@@ -25,6 +26,8 @@ public:
 	virtual void execute();/*Executes the order specified, the implementation will be defined in the child classes.*/
 	//operators
 	Order operator=(const Order* order);
+
+	string stringToLog() override {};
 };
 
 class Deploy:public Order{
