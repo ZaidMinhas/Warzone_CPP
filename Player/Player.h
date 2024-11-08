@@ -4,9 +4,9 @@
 #include <iostream>
 #include <vector>
 #include <string>  // to use std::string
-#include "..\Orders\Orders.h"
-#include "..\Map\Map.h"
-#include "..\Cards\Cards.h"
+#include "../Orders/Orders.h"
+#include "../Map/Map.h"
+#include "../Cards/Cards.h"
 
 class Player {
 
@@ -30,12 +30,19 @@ public:
     //vector<Territory*> toAttack(vector<Territory*>); // changed - K - A2
     std::vector<Territory*> toAttack() const;
     std::vector<Territory*> toDefend() const;
+    
     // Function to find a territory by name -- needed to issue the order
-    Territory* findTerritoryByName(const std::string& territoryName, const std::vector<Territory*>& territories);
+    Territory* findTerritoryByName(const std::string& territoryName);
+    
     //std::vector<Territory*> findTerritoryByName(const std::string& territoryName, const std::vector<Territory*>& territories) const;
-    void issueOrder(const std::string& command, int* playerId, const std::vector<Territory*>& allTerritoriesInMap);
+    void issueOrder(const std::string& command, int* playerId);
+    
     // Custom function to add a territory to the player's owned territories
     void addTerritory(Territory* territory);
+    
+    // if a card exists in the player's hand by its name
+    bool hasCardType(const std::string& cardType);
+
     
     // --------------------------------------------------
     //                  Getters/Setters
@@ -67,6 +74,7 @@ private:
     std::vector<Territory*> _playerterritories;
     OrdersList* _orderList;  // Changed to OrdersList pointer - K - A2
     Hand* _handCard; //moved to private - A2 - K
+    std::vector<std::string> _handCards;  // Vector of card names
 };
 
 extern std::vector<Player*> playerList;

@@ -25,6 +25,11 @@ Cards Cards::play() {
     return *this;
 }
 
+// for A2 - K
+std::string Cards::getType() const {
+    return card;
+}
+
 std::ostream& operator<<(std::ostream& os, const Cards& c) {
     os << c.card << " card";
     return os;
@@ -126,6 +131,10 @@ bool Hand::isHandFull() {
 
 int Hand::getHandSize() {
     return cards.size();
+}
+
+const std::vector<Cards>& Hand::getCards() const {
+    return cards;
 }
 
 void Hand::play(Deck& deck, int i) {

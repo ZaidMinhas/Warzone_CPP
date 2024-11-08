@@ -4,19 +4,11 @@
 #include <iostream>
 #include <sstream> //spliting the command line
 #include <utility>
-#include "..\Orders\Orders.h"
+#include "../Orders/Orders.h"
 
 
 //Player::Player(){}; 
 Player::Player() : _orderList(new OrdersList()) {} // Added - K - A2
-
-/*Player::Player(const string &name, const vector<string*> &territory, const vector<string*> &hand, const vector<string*> &order)
-{
-    this->_name = name;
-    this->_territories = territory;
-    this->_handCard = hand;
-    this->_orderList = order;
-}*/
 
 Player::Player(const string &name, int* id){
     this->_name = name;
@@ -60,27 +52,6 @@ Player& Player::operator=(const Player& other) {
     return *this;
 }
 
-// Issue an order
-/*void Player::issueOrder(string order) {
-    _orderList.push_back(new string(order)); 
-} -- old */ 
-
-/*void Player::issueOrder(const string& orderName) { // changed - K - A2
-    Order* newOrder = new Order(orderName);  // Create a new order
-    _orderList->addOrder(newOrder);          // Add the new order to the actual OrdersList
-}*/
-
-// Print the list of orders
-
-/*void Player::printOrder() const {
-    for (const string* order : _orderList) {
-        cout << *order << endl;
-    }
-} old*/
-
-/*void Player::printOrder() const {
-    cout << *_orderList; // Overloaded << operator will handle OrdersList printing -> changing the method instead
-}*/
 
 void Player::printOrder() const { // changed - K - A2
     if (_orderList->getSize() == 0) {
@@ -97,11 +68,6 @@ void Player::printOrder() const { // changed - K - A2
         currentOrder = currentOrder->getNext();
     }
 }
-
-// Return a vector of orders
-/*vector<string*> Player::getOrderList() {
-    return _orderList;
-}*/
 
 // Return the OrdersList
 OrdersList* Player::getOrderList() { // changed - K - A2
@@ -130,27 +96,44 @@ int Player::getID(){
 }
 
 
-//New method - K - A2
-// --------------------------------------------------
-//         Find territory object by name
-// --------------------------------------------------
-Territory* Player::findTerritoryByName(const std::string& territoryName, const std::vector<Territory*>& allTerritoriesInMap) {  //allTerritoriesInMap is a vector that contains all the territories
-    for (auto* territory : allTerritoriesInMap) {
-        if (territory && territory->name && *(territory->name) == territoryName) {
-            return territory;  // Territory found
+// ------------------------------------------------
+//            Find Territory by name
+// ------------------------------------------------
+Territory* Player::findTerritoryByName(const std::string& territoryName) {  //allTerritoriesInMap is a vector that contains all the territories
+    for (Territory &territory : gameMap.graph) {
+        if (*(territory.name) == territoryName) {
+            return &territory;  // Territory found
         }
     }
     return nullptr;  // Territory not found
 } // when a player enters a territory name, this function should be called to check if the territory exists
 
 
+// -------------------------------------------------
+//   If player choice of card exists in their hand
+// -------------------------------------------------
+bool Player::hasCardType(const std::string& cardType) {
+    Hand* hand = getHand();
+    if (!hand) {
+        std::cout << "Player has no hand." << std::endl;
+        return false;
+    }
 
-//Defend changed - K - A2
+    const std::vector<Cards>& cardsInHand = hand->getCards();
+    for (const auto& card : cardsInHand) {
+        if (card.getType() == cardType) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 // --------------------------------------------------
 //                 Issue Order
 // --------------------------------------------------
 
-void Player::issueOrder(const std::string& command, int* playerId, const std::vector<Territory*>& allTerritoriesInMap){
+void Player::issueOrder(const std::string& command, int* playerId){
     //get the arguments from command arg[0] -> should mention to the player how to enter the command
     //command :  deploy 50 canada | arg[0]->deploy ; arg[1]->numbr of units ; arg[2]->terriroty on which the player deploys his armies
     //switch case of if deploy, if advance , if bomb , if airlift , if blockade , if negociate
@@ -165,60 +148,99 @@ void Player::issueOrder(const std::string& command, int* playerId, const std::ve
         args.push_back(word); //trims words
     }
 
-    // Print the player ID
-    ///std::cout << "Player ID: " << *playerId << std::endl;
-
-    // the split command words -- test only
-    /*std::cout << "Split command words:\n";
-    for (size_t i = 0; i < args.size(); ++i) {
-        std::cout << "arg[" << i << "]: " << args[i] << '\n';
-    }*/
-
     //if deploy : arg[0] = deploy and reinforce>0 (aka player has troops)
-    if (args[0] == "deploy" && *(_reinforcementPool)>0) { // player should have units to deploy - otherwise cannot deploy
-        //std::cout << "Deploy command recognized\n";
-        // add deploy order // deploy 15 canada
+    if (args[0] == "deploy" && _reinforcementPool>0) { // player should have units to deploy - otherwise cannot deploy
+        //command deploy 15 canada
         //Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits); - signature
 
         std::string orderName = args[0];  // e.g., "deploy"
         std::string toDeploy = args[2];   // e.g., the territory name
-        Territory* toDeployIn = findTerritoryByName(toDeploy, allTerritoriesInMap);
-        int nUnits = std::stoi(args[1]);  // to convert the number of units to int
-        int* playerIndex = playerId;      
+        Territory* toDeployIn = findTerritoryByName(toDeploy);
+        int nUnits = std::stoi(args[1]);  // to convert the number of units to int 
         //Deploy* deployOrder = new Deploy(orderName, toDeploy, playerIndex, new int(nUnits));
         Deploy* deployOrder = new Deploy(orderName, toDeployIn, playerId, &nUnits); 
         _orderList->addOrder(deployOrder);
 
-    } else if (args[0] == "advance" && _reinforcementPool==0) { //player should deploy all the units before advancing
-        //std::cout << "Advance command recognized\n";
-        // add advance order // command : advance 12 iraq syria
+    } else if (args[0] == "advance" && _reinforcementPool==0) { //player should deploy all the units before advancing // more conditions?
+        //command : advance 12 iraq iran
+        // Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits) - signature
+        std::string orderName = args[0];  
+        int nUnits = std::stoi(args[1]);
+        std::string owned = args[2];
+        std::string target = args[3];
 
-        //Advance* advanceOrder = new Advance("advance", playerId, args[2], args[3], std::stoi(args[1])); //territories should be the adjacent territories
-        //_orderList->addOrder(advanceOrder);
+        Territory* _owned = findTerritoryByName(owned);
+        Territory* _target = findTerritoryByName(target);
 
-    } else if (args[0] == "blockade") {
-        std::cout << "Blockade command recognized\n";
-        // Blockade* blockadeOrder = new Blockade("blockade", targetTerritory, playerId);
-        // _orderList->addOrder(blockadeOrder);
+        Advance* advanceOrder = new Advance(orderName, playerId, _owned, _target, &nUnits); //territories should be the adjacent territories
+        _orderList->addOrder(advanceOrder);
 
-    } else if (args[0] == "airlift") {
-        std::cout << "Airlift command recognized\n";
-        // Airlift* airliftOrder = new Airlift("airlift", sourceTerritory, targetTerritory, playerId, units);
-        // _orderList->addOrder(airliftOrder);
+    } else if (args[0] == "blockade" && _reinforcementPool==0) { 
+        //command : blockade indonesia
+        //Blockade::Blockade(string orderName,int* playerIndex,Territory* toBlock) - Signature
+        if (hasCardType("blockade")) {
+            std::string orderName = args[0]; 
+            std::string target = args[1];
+            Territory* _target = findTerritoryByName(target);
 
-    } else if (args[0] == "negotiate") {
-        std::cout << "Negotiate command recognized\n";
-        // Negotiate* negotiateOrder = new Negotiate("negotiate", otherPlayerId, playerId);
-        // _orderList->addOrder(negotiateOrder);
+            Blockade* blockadeOrder = new Blockade(orderName, playerId, _target); //territories should be the adjacent territories
+            _orderList->addOrder(blockadeOrder);
+        } else {
+            std::cout << "You do not have a blockade card.\n";
+        }
 
-    } else if (args[0] == "bomb") {
-        std::cout << "Bomb command recognized\n";
-        // Bomb* bombOrder = new Bomb("bomb", targetTerritory, playerId);
-        // _orderList->addOrder(bombOrder);
+    } else if (args[0] == "airlift" && _reinforcementPool==0) {
+        //command : airlift 18 indonesia philippines
+        //Airlift::Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits) -- Signature
+        if (hasCardType("airlift")) {
+            std::string orderName = args[0];  
+            int nUnits = std::stoi(args[1]);
+            std::string owned = args[2];
+            std::string target = args[3];
+
+            Territory* _owned = findTerritoryByName(owned);
+            Territory* _target = findTerritoryByName(target);
+            int* playerIndex = playerId;
+
+            
+            Airlift* airliftOrder = new Airlift(orderName, playerIndex, _owned, _target, &nUnits);
+            _orderList->addOrder(airliftOrder);
+        } else {
+            std::cout << "You do not have an Airlift card.\n";
+        }
+
+    } else if (args[0] == "negotiate" && _reinforcementPool==0) {
+        //command : negociate
+        // Negotiate::Negotiate(string orderName,int* playerIndex)
+        if (hasCardType("negociate")) {
+            std::string orderName = args[0];
+            int* playerIndex = playerId;
+
+            Negotiate* negociateOrder = new Negotiate(orderName, playerIndex);
+            _orderList->addOrder(negociateOrder);
+        } else {
+            std::cout << "You do not have a Negociate card.\n";
+        }
+
+    } else if (args[0] == "bomb" && _reinforcementPool==0) {
+        //command : bomb philippines
+        // Bomb::Bomb(string orderName,int* playerIndex,Territory* toBomb) -- Signature
+        if (hasCardType("bomb")) { 
+            std::string orderName = args[0];  
+            std::string target = args[1];
+            Territory* _target = findTerritoryByName(target);
+            int* playerIndex = playerId;
+
+            Bomb* bombOrder = new Bomb(orderName, playerIndex, _target);
+            _orderList->addOrder(bombOrder);
+        } else {
+            std::cout << "You do not have a Bomb card.\n";
+        }
 
     } else {
         std::cout << "Command: " << args[0] << " failed to process." << std::endl;
     }
+
 }
 
 
