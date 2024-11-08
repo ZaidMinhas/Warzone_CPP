@@ -37,11 +37,14 @@ public:
     //std::vector<Territory*> findTerritoryByName(const std::string& territoryName, const std::vector<Territory*>& territories) const;
     void issueOrder(const std::string& command, int* playerId);
     
-    // Custom function to add a territory to the player's owned territories
+    // custom function to add a territory to the player's owned territories
     void addTerritory(Territory* territory);
     
     // if a card exists in the player's hand by its name
     bool hasCardType(const std::string& cardType);
+
+    // check if the player has more orders to issue
+    bool hasMoreOrders() const;
 
     
     // --------------------------------------------------

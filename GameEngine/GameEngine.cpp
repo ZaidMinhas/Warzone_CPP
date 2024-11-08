@@ -358,7 +358,11 @@ GameEngine& GameEngine::operator=(const GameEngine& other) {
     return *this;
 }
 
-std::vector<int> turns;
+std::vector<int> turns; // TURNS FOR ISSUING PHASE
+
+// ----------------------------------------------------------------
+//                     Startup Phase
+// ----------------------------------------------------------------
 
 void GameEngine::startupPhase(){
     string input;
@@ -398,6 +402,10 @@ void GameEngine::startupPhase(){
     }
 }
 
+// ----------------------------------------------------------------
+//                     GAME START
+// ----------------------------------------------------------------
+
 void GameEngine::gamestart(){
     //Equal Distribution of Territories
     for (int i=0;i<gameMap.graph.size();i++){
@@ -417,6 +425,10 @@ void GameEngine::gamestart(){
         playerList.at(j)->printHand();
     }
 }
+
+// ----------------------------------------------------------------
+//                     Reinforcement Phase
+// ----------------------------------------------------------------
 
 void GameEngine::reinforcementPhase(){
     for(int i=0;i<playerList.size();i++){
@@ -449,6 +461,28 @@ void GameEngine::reinforcementPhase(){
     std::mt19937 m(rd());
 
     std::shuffle(turns.begin(), turns.end(), m);
+}
+
+// ----------------------------------------------------------------
+//                     Issue Orders Phase
+// ----------------------------------------------------------------
+
+void GameEngine::issueOrdersPhase(const std::string& command, int* playerId) {
+    bool allPlayersDone = false;  // flag to check if all players are done issuing orders
+
+    while (!allPlayersDone) {
+        allPlayersDone = true;  // when all players are done for this round
+
+        for (int playerIndex : turns) {  // Iterate through players in the order specified by `turns`
+            Player* currentPlayer = playerList[playerIndex];
+
+            // checking if the player has more orders to issue 
+            if (currentPlayer->hasMoreOrders()) {
+                currentPlayer->issueOrder(command, playerId);  
+                allPlayersDone = false;       // since this player issued an order, not all players are done
+            }
+        }
+    }
 }
 
 int GameEngine::checkWinCon(){

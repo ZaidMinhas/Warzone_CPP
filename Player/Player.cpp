@@ -70,6 +70,11 @@ void Player::printOrder() const { // changed - K - A2
     }
 }
 
+// check if the player has more orders to issue
+bool Player::hasMoreOrders() const {
+    return _orderList->getSize() > 0;  // Returns true if there are orders in the list
+}
+
 // Return the OrdersList
 OrdersList* Player::getOrderList() { // changed - K - A2
     return _orderList;
