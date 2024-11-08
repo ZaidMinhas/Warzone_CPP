@@ -43,10 +43,7 @@ public:
     void draw(Hand& hand);
     void addCard(const Cards & card);
 
-
     friend std::ostream& operator<<(std::ostream& os, const Deck& d);
-
-
 
 private:
     void fillDeck();

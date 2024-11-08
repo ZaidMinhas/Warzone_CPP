@@ -1,6 +1,6 @@
 #include "Player.h"  // Include the Player class definition
-#include "..\Map\Map.h" // Include the Map class definition
-#include "..\Cards\Cards.h"
+#include "../Map/Map.h" // Include the Map class definition
+#include "../Cards/Cards.h"
 #include <vector>
 #include <string>
 #include <iostream>
