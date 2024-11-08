@@ -26,7 +26,7 @@ State& State::operator=(const State& other) {
 
 //--------------------START STATE--------------------
 
-
+GameEngine gameEngine = GameEngine();
 State* Start::clone(){
     return new Start();
 }
@@ -135,7 +135,7 @@ State* PlayersAdded::handleInput(GameEngine& game_engine, std::string& input) {
     }
 
     if (input == "gamestart"){
-        gamestart();
+        gameEngine.gamestart();
         return new AssignReinforcement();
     }
 

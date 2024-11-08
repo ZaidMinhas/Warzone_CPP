@@ -13,6 +13,7 @@ Player::Player() : _orderList(new OrdersList()) {} // Added - K - A2
 Player::Player(const string &name, int* id){
     this->_name = name;
     this->_id=new int(*id);
+    this->_orderList=new OrdersList();
 }
 
 //copy constructor
@@ -149,7 +150,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
     }
 
     //if deploy : arg[0] = deploy and reinforce>0 (aka player has troops)
-    if (args[0] == "deploy" && _reinforcementPool>0) { // player should have units to deploy - otherwise cannot deploy
+    if (args[0] == "deploy" && *_reinforcementPool>0) { // player should have units to deploy - otherwise cannot deploy
         //command deploy 15 canada
         //Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits); - signature
 

@@ -7,7 +7,6 @@
 #include <string>
 #include <vector>
 
-void gamestart();
 
 class GameEngine;
 
@@ -176,6 +175,6 @@ private:
     State* currentState;
     bool gameOver;
 };
-
+extern GameEngine gameEngine;
 extern std::vector<int> turns;
 #endif //GAMEENGINE_H

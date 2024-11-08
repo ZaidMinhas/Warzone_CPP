@@ -39,6 +39,7 @@ void testPlayer() {
     // Instantiate Player 
     int* playerId = new int(1);
     Player* player1 = new Player("Player K", playerId);
+    player1->_reinforcementPool=new int(50);
     
     // Assign the hand created above to the player
     player1->setHand(hand);
@@ -104,12 +105,12 @@ void testPlayer() {
         std::cout << "Invalid choice. Please select a valid territory." << std::endl;
     } -- works*/
 
-    /*std::string command;
+    std::string command;
     std::cout << "Enter command: ";
     std::getline(std::cin, command);
 
     // Call the function -- ok
-    player1->issueOrder(command, playerId);*/
+    player1->issueOrder(command, playerId);
 
 
 
