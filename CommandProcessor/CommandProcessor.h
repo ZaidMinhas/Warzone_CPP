@@ -36,6 +36,7 @@ class CommandProcessor {
         vector<string> splitCommand(const string command);
 		string getCommand();
 		void validate(const void* ptr);
+        bool validate(const string command);
 
 private:
 	Command *currentCommand{};

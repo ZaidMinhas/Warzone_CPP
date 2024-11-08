@@ -8,9 +8,9 @@
 //Instantiate, run and delete game engine
 void testGameStates(){
 
-    GameEngine* gameEngine = new GameEngine();
+    
 
-    gameEngine->startupPhase();
+    gameEngine.run();
 
     //delete gameEngine;
 }

@@ -176,6 +176,7 @@ private:
     bool gameOver;
 };
 
+extern GameEngine gameEngine;
 extern std::vector<int> turns;
 
 

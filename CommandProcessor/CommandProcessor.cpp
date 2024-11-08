@@ -61,6 +61,32 @@ void CommandProcessor::validate(const void *ptr) {
     }
 }
 
+bool CommandProcessor::validate(const string command){
+    vector<string> args = splitCommand(command);
+    if(args.at(0)=="loadmap"&&(gameEngine.getCurrentState()=="Start"||gameEngine.getCurrentState()=="Map Loaded")&&args.size()>=2){
+        currentCommand->saveEffect("Loading Map");
+        return true;
+    }else if(args.at(0)=="validatemap"&&gameEngine.getCurrentState()=="Map Loaded"){
+        currentCommand->saveEffect("Validating Map");
+        return true;
+    }else if(args.at(0)=="addplayer"&&(gameEngine.getCurrentState()=="Map Validated"||gameEngine.getCurrentState()=="Players Added")&&args.size()>=2){
+        currentCommand->saveEffect("Adding Player "+args.at(1));
+        return true;
+    }else if(args.at(0)=="gamestart"&&gameEngine.getCurrentState()=="Players Added"){
+        currentCommand->saveEffect("Starting Game");
+        return true;
+    }else if(args.at(0)=="replay"&&gameEngine.getCurrentState()=="Win"){
+        currentCommand->saveEffect("Replaying Game");
+        return true;
+    }else if(args.at(0)=="quit"&&gameEngine.getCurrentState()=="Win"){
+        currentCommand->saveEffect("Quitting Game");
+        return true;
+    }else{
+        currentCommand->saveEffect("Cannot use command \""+args.at(0)+"\" in state \""+gameEngine.getCurrentState()+"\"");
+        return false;
+    }
+}
+
 
 string CommandProcessor::readCommand() {
     std::string command;
