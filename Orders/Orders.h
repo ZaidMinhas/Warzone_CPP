@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
+#include "../LoggingObserver/LoggingObserver.h"
+
 using namespace std;
-class Order{
+class Order : public ILoggable, public Subject{
 protected:
 	string orderName;
 	Order* next;
@@ -17,6 +19,7 @@ public:
 	string getOrderName(){return orderName;}
 	Order* getNext(){return next;};
 	Order* getPrevious(){return previous;}
+    string stringToLog() override;
 	void setNext(Order* next){this->next=next;}
 	void setOrderName(string orderName){this->orderName=orderName;}
 	void setPrevious(Order* previous){this->previous=previous;}

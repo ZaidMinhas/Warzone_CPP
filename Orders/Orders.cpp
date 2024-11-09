@@ -2,15 +2,18 @@
 #include "Orders.h"
 //Constructors and Destructors
 Order::Order(){
+  	addObserver(loggingObserver);
     orderName="N/A";
     next=nullptr;
 }
 
 Order::Order(string orderName){
+  	addObserver(loggingObserver);
     this->orderName=orderName;
 }
 
 Order::Order(Order* orderCopy){
+  	addObserver(loggingObserver);
     this->orderName=orderCopy->orderName;
     this->next=orderCopy->next;
     this->previous=orderCopy->previous;
@@ -21,6 +24,10 @@ Order::~Order(){
     next=NULL;
     delete previous;
     previous=NULL;
+}
+
+string Order::stringToLog(){
+  return "Order Executed: "+this->getOrderName();
 }
 
 Deploy::Deploy(string orderName):Order(orderName){}
@@ -57,6 +64,7 @@ void Deploy::execute(){
     if(this->validate()){
         cout<<"Executing order: "<<this<<endl;
         cout<<"Puts a certain number of army units on a target territory"<<endl;
+        Notify(*this);
     }
     else{
         cout<<"Unable to execute order: "<<this<<endl;
@@ -67,6 +75,7 @@ void Advance::execute(){
     if(this->validate()){
         cout<<"Executing order: "<<this<<endl;
         cout<<"moves a certain number of army units from one territory (source territory) to another territory (target territory)"<<endl;
+        Notify(*this);
     }
     else{
         cout<<"Unable to execute order: "<<this<<endl;
@@ -77,6 +86,7 @@ void Bomb::execute(){
     if(this->validate()){
         cout<<"Executing order: "<<this<<endl;
         cout<<"Destroys half of the army units located on a target territory. This order can only be issued if a player has the bomb card in their hand."<<endl;
+        Notify(*this);
     }
     else{
         cout<<"Unable to execute order: "<<this<<endl;
@@ -87,6 +97,7 @@ void Blockade::execute(){
     if(this->validate()){
         cout<<"Executing order: "<<this<<endl;
         cout<<"Triples the number of army units on a target territory and makes it a neutral territory. This order can only be issued if a player has the blockade card in their hand."<<endl;
+        Notify(*this);
     }
     else{
         cout<<"Unable to execute order: "<<this<<endl;
@@ -98,6 +109,7 @@ void Airlift::execute(){
         cout<<"Executing order: "<<this<<endl;
         cout<<"Advances a certain number of army units from one from one territory (source territory) to another"<<endl;
         cout<<"territory (target territory). This order can only be issued if a player has the airlift card in their hand."<<endl;
+        Notify(*this);
     }
     else{
         cout<<"Unable to execute order: "<<this<<endl;
@@ -109,6 +121,7 @@ void Negotiate::execute(){
         cout<<"Executing order: "<<this<<endl;
         cout<<"prevent attacks between the current player and another target player until the end of the turn. This"<<endl;
         cout<<"order can only be issued if a player has the diplomacy card in their hand."<<endl;
+        Notify(*this);
     }
     else{
         cout<<"Unable to execute order: "<<this<<endl;

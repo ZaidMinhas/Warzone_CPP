@@ -1,6 +1,7 @@
 #include "OrdersList.h"
 //Constructors and Destructors
 OrdersList::OrdersList(){
+    addObserver(loggingObserver);
     head=new Order("head");
     tail=new Order("tail");
     head->setNext(tail);
@@ -8,6 +9,7 @@ OrdersList::OrdersList(){
 }
 
 OrdersList::OrdersList(Order *firstOrder){
+    addObserver(loggingObserver);
     head->setNext(firstOrder);
     tail->setPrevious(firstOrder);
     firstOrder->setPrevious(head);
@@ -16,6 +18,7 @@ OrdersList::OrdersList(Order *firstOrder){
 }
 
 OrdersList::OrdersList(OrdersList* listCopy){
+    addObserver(loggingObserver);
     this->head=listCopy->head;
     this->tail=listCopy->tail;
     this->size=listCopy->size;
@@ -79,6 +82,11 @@ void OrdersList::addOrder(Order* newOrder){
         tail->setPrevious(newOrder);
     }
     size++;
+    Notify(*this);
+}
+
+string OrdersList::stringToLog(){
+  return "Order Issued: " + tail->getOrderName() + "\n";
 }
 
 void OrdersList::remove(int position){

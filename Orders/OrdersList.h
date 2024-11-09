@@ -2,7 +2,8 @@
 #include <iostream>
 using namespace std;
 #include "Orders.h"
-class OrdersList{
+#include "../LoggingObserver/LoggingObserver.h"
+class OrdersList : public ILoggable, public Subject{
 public:
     //Constructors and Destructors
     OrdersList();
@@ -18,6 +19,7 @@ public:
     void setTail(Order* tail);//This will be implemented if time permits.
     void setCurrentOrder(Order* currentOrder);
     void setSize(int size);
+    string stringToLog() override;
     //methods
     void addOrder(Order* order);//Will add an order to the end of the list.
     void move(int position1,int position2);/*Will seek the position of the order to move. Then will look for the order before position to be move.

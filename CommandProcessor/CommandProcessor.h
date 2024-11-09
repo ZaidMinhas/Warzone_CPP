@@ -9,7 +9,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include "..\LoggingObserver\LoggingObserver.h"
+#include "../LoggingObserver/LoggingObserver.h"
 
 using std::string, std::vector;
 
