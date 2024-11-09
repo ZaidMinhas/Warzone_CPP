@@ -148,6 +148,9 @@ public:
     Order* getHead();
     Order* getCurrentOrder();
     Order* getTail();
+	// Method to get the next order in the list relative to currentOrder - K - A2
+	Order* getNextOrder();
+
     int getSize();
     void setHead(Order* head);
     void setTail(Order* tail);//This will be implemented if time permits.

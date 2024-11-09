@@ -20,13 +20,12 @@ class Cards{
 public:
     Cards();
     Cards(const Cards& cards);
+    Cards(const std::string& cardType);  // constructor that accepts a card type string - K - A2
     Cards play();
 
-    // method to get the type of card - K
+    // method to get the type of card - K - A2
     std::string getType() const;
-
     Cards &operator=(const Cards &other);
-
     friend std::ostream& operator<<(std::ostream& os, const Cards& c);
 
 private:

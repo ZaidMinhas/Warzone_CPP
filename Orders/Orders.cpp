@@ -407,6 +407,7 @@ OrdersList::~OrdersList(){
     delete tail;
     tail=NULL;
 }
+
 //Accessors and Mutators
 Order* OrdersList::getHead(){
     return head;
@@ -414,6 +415,14 @@ Order* OrdersList::getHead(){
 
 Order* OrdersList::getCurrentOrder(){
     return currentOrder;
+}
+
+// Method to get the next order in the list relative to currentOrder - K - A2
+Order* OrdersList::getNextOrder() {
+    if (currentOrder != nullptr && currentOrder->getNext() != tail) {
+        return currentOrder->getNext();
+    }
+    return nullptr;  // return nullptr if there is no next order
 }
 
 Order* OrdersList::getTail(){
@@ -524,6 +533,7 @@ void OrdersList::move(int position1,int position2){
     }
     
 }
+
 //operators
 OrdersList OrdersList::operator=(const OrdersList* ordersList){
         if(this!=ordersList){
