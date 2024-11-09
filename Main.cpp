@@ -15,9 +15,10 @@ int main(int argc, char *argv[])
 	//testMap();
 	//testPlayer();
 	//testOrdersList();
-    //testCards();
+    	//testCards();
 	testStartupPhase();
 	testMainGameLoop();
+	testOrderExecution();
 	
 	std::string s;
 	std::cin>>s;
