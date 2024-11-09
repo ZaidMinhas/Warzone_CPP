@@ -420,6 +420,9 @@ void GameEngine::gamestart(){
         deck.draw(*playerList.at(j)->getHand());
         deck.draw(*playerList.at(j)->getHand());
         playerList.at(j)->negotiation=new bool[playerList.size()];
+        for(int i=0;i<playerList.size();i++){
+            playerList.at(j)->negotiations[i] = false;
+        }
         std::cout<<"\n"<<playerList.at(j)->getName();
         std::cout<<"\n"<<*playerList.at(j)->_reinforcementPool;
         std::cout<<"\n";
@@ -435,6 +438,11 @@ void GameEngine::reinforcementPhase(){
     for(int i=0;i<playerList.size();i++){
         int reinforcement;
         int continentOwn[gameMap.continentList.size()];
+        //Reset all players negotiation arrays so that everything is false.
+        for(int j=0;i<playerList.size();j++){
+            playerList.at(i)->negotiations[j] = false;
+        }
+        //Reset all territories that have -2 as owner to previous owner, This needs to be done before reinforcements can begin.
         for(int j=0;j<gameMap.graph.size();j++){
             if(*gameMap.graph.at(j).owner==playerList.at(i)->getID()){
                 reinforcement++;
