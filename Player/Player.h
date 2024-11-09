@@ -69,6 +69,7 @@ public:
     //Operator
     Player& operator = (const Player& player);
     int*  _reinforcementPool;
+    bool negotiation;
 
 private:
     int* _id;

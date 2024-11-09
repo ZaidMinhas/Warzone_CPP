@@ -419,6 +419,7 @@ void GameEngine::gamestart(){
         playerList.at(j)->setHand(new Hand());
         deck.draw(*playerList.at(j)->getHand());
         deck.draw(*playerList.at(j)->getHand());
+        playerList.at(j)->negotiation=new bool[playerList.size()];
         std::cout<<"\n"<<playerList.at(j)->getName();
         std::cout<<"\n"<<*playerList.at(j)->_reinforcementPool;
         std::cout<<"\n";
