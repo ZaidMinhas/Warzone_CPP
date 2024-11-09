@@ -46,6 +46,7 @@ public:
     // check if the player has more orders to issue
     bool hasMoreOrders() const;
 
+
     
     // --------------------------------------------------
     //                  Getters/Setters
