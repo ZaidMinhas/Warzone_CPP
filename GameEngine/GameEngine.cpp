@@ -406,7 +406,7 @@ void GameEngine::handleInput(std::string &input)
     }
 }
 
-void GameEngine::setCurrentState(State *state)
+void GameEngine::transition(State *state)
 {
     delete currentState;
     this->currentState = state;
@@ -460,11 +460,11 @@ void GameEngine::startupPhase()
                           << fileName << "\n";
                 if (gameMap.loadMap(fileName) == 0)
                 {
-                    setCurrentState(new MapLoaded());
+                    transition(new MapLoaded());
                 }
                 else
                 {
-                    setCurrentState(new Start());
+                    transition(new Start());
                 }
             }
             else if (args.at(0) == "validatemap")
@@ -472,12 +472,12 @@ void GameEngine::startupPhase()
                 if (gameMap.validate() == 0)
                 {
                     cout << "Map is valid\n";
-                    setCurrentState(new MapValidated());
+                    transition(new MapValidated());
                 }
                 else
                 {
                     cout << "Map is not valid\n";
-                    setCurrentState(new Start());
+                    transition(new Start());
                 }
             }
             else if (args.at(0) == "addplayer")
@@ -486,12 +486,12 @@ void GameEngine::startupPhase()
                 name = args.at(1);
                 playerList.push_back(new Player(name, this->playerCount));
                 this->playerCount++;
-                setCurrentState(new PlayersAdded());
+                transition(new PlayersAdded());
             }
             else if (args.at(0) == "gamestart")
             {
                 gamestart();
-                setCurrentState(new AssignReinforcement());
+                transition(new AssignReinforcement());
                 break;
             }
         }

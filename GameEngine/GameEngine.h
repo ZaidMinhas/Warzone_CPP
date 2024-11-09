@@ -167,7 +167,7 @@ class GameEngine {
     void startupPhase();
     void gamestart();
     int checkWinCon();
-    void setCurrentState(State* state);
+    void transition(State* state);
     std::string getCurrentState();
     
 private:
