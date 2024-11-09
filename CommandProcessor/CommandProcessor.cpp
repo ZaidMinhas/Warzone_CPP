@@ -15,11 +15,17 @@ using std::cin, std::string, std::ifstream;
 CommandProcessor commandProcessor;
 
 Command::Command(const string &command) {
+    addObserver(loggingObserver);
     this->command = command;
 }
 
 void Command::saveEffect(const string& effect) {
     this->effect = effect;
+    Notify(*this);
+}
+
+string Command::stringToLog() {
+    return "Command's Effect: " + this->effect;
 }
 
 string Command::getCommand() {
@@ -30,7 +36,9 @@ string Command::getEffect() {
     return this->effect;
 }
 
-CommandProcessor::CommandProcessor(){}
+CommandProcessor::CommandProcessor() {
+    addObserver(loggingObserver);
+}
 CommandProcessor::CommandProcessor(CommandProcessor* commandProcessor){}
 
 vector<string> CommandProcessor::splitCommand(const string command){
@@ -97,6 +105,11 @@ string CommandProcessor::readCommand() {
 void CommandProcessor::saveCommand(const string& command) {
     currentCommand = new Command(command);
     commands.push_back(currentCommand);
+    Notify(*this);
+}
+
+string CommandProcessor::stringToLog() {
+    return "Command: " + currentCommand->getCommand();
 }
 
 FileCommandProcessorAdapter::FileCommandProcessorAdapter(const string& fileName):file(fileName) {

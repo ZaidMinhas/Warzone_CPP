@@ -23,10 +23,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cfeef208-c80b-4133-bb57-cbc5b98d11b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.h" beforeDir="false" afterPath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameEngine/GameEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/GameEngine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameEngine/GameEngine.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/GameEngine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoggingObserver/LoggingObserver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LoggingObserver/LoggingObserver.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/a.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

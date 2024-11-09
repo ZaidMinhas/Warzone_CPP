@@ -417,7 +417,7 @@ void GameEngine::transition(State *state)
 
 
 string GameEngine::stringToLog() {
-    return "Entering State: " + getCurrentState();
+    return "GameEngine new state: " + getCurrentState();
 }
 
 
