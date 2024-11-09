@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 #include "../Map/Map.h"
+#include "../Player/Player.h"
 
 class abOrder{
 public:
@@ -126,10 +127,13 @@ private:
 class Negotiate:public Order{
 public:
 	Negotiate();
-	Negotiate(string orderName,int* playerIndex);
+	Negotiate(string orderName,int* playerIndex, int toNegotiate);
 	Negotiate(Negotiate* negotiateCopy);
 	~Negotiate();
+	bool validate();
 	void execute();
+private:
+	int toNegotiate;  
 };
 
 class OrdersList{
@@ -162,6 +166,8 @@ private:
     Order* currentOrder; 
     int size;
 };
+
+extern std::vector<Player*> playerList;
 
 ostream& operator<<(ostream &out,Order *o);
 

@@ -222,7 +222,13 @@ void Player::issueOrder(const std::string& command, int* playerId){
             std::string orderName = args[0];
             int* playerIndex = playerId;
 
-            Negotiate* negociateOrder = new Negotiate(orderName, playerIndex);
+            int toNegotiate;
+
+            cout<<"Which player would you like to negotiate with: ";
+
+            cin>>toNegotiate;
+
+            Negotiate* negociateOrder = new Negotiate(orderName, playerIndex, toNegotiate);
             _orderList->addOrder(negociateOrder);
         } else {
             std::cout << "You do not have a Negociate card.\n";

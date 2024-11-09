@@ -62,7 +62,7 @@ Airlift::~Airlift(){}
 
 Negotiate::Negotiate():Order(){}
 
-Negotiate::Negotiate(string orderName,int* playerIndex):Order(orderName,playerIndex){}
+Negotiate::Negotiate(string orderName,int* playerIndex, int toNegotiate):Order(orderName,playerIndex),toNegotiate(toNegotiate){}
 
 Negotiate::Negotiate(Negotiate* negotiateCopy):Order(negotiateCopy){}
 
@@ -161,13 +161,18 @@ bool Advance::validate(){
         cout<<"Unable to execute Advance order!! You do not own "<<advanceFrom->name<<endl;
         return false;
     }
-    /*If the player is attacking a player that has played the negatiate order on them,
+    /*If the player is attacking a player that has played the negotiate order on them,
      cout<<"Commander, we have made a peace treaty with <<advanceTo->owner<< this round!! We cannot invade their territory!!"<<endl;
      return false*/
+    //Advance will need the player's negotiate array.
     else{
         for(auto link : advanceFrom->connections){
            if(link->name==advanceTo->name){
-                return true;
+                if(playerList[*(playerIndex)]->negotiation[advanceTo->owner]){
+                    cout<<"We have negotiatiated a cease fire on this group commander!! We cannot execute this order!!"<<endl;
+                    return false;
+                }
+                    return true;
            } 
         }
     }
@@ -273,14 +278,18 @@ void Airlift::execute(){
     }
 }
 
+bool Negotiate::validate(){
+    if(toNegotiate==*(playerIndex)){
+        cout<<"Commander!! Have you gone mad?! We cannot issue a negotiate order with yourself!!"<<endl;
+        return false;
+    }
+    return true;
+}
+
 void Negotiate::execute(){
     if(this->validate()){
-        cout<<"Executing order: "<<this<<endl;
-        cout<<"prevent attacks between the current player and another target player until the end of the turn. This"<<endl;
-        cout<<"order can only be issued if a player has the diplomacy card in their hand."<<endl;
-    }
-    else{
-        cout<<"Unable to execute order: "<<this<<endl;
+        //Find the player to negotiate with in the players negotiate array and set it to true
+        playerList[toNegotiate]->negotiation[playerIndex] = true;
     }
 }
 
