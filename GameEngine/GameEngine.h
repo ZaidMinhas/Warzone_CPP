@@ -163,6 +163,7 @@ class GameEngine {
     void startupPhase();// A2
     void reinforcementPhase();// A2
     void issueOrdersPhase(const std::string& command, int* playerId); // K - A2
+    void executeOrdersPhase();// A - A2
 
     //Getters-Setters
     void setCurrentState(State* state);

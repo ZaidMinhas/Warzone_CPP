@@ -486,6 +486,52 @@ void GameEngine::issueOrdersPhase(const std::string& command, int* playerId) {
     }
 }
 
+// ----------------------------------------------------------------
+//                     Execute Orders Phase
+// ----------------------------------------------------------------
+
+void GameEngine::executeOrdersPhase(){
+    //This will set all the orders to the start of the list.
+    for(int i=0;i<playerList.size();i++){
+        playerList[i]->getOrdersList()->setCurrentOrder(playerList[i]->getOrdersList()->getHead()->getNext());
+    }
+    bool* executionDone = new bool[playerList.size()];
+    bool allOrdersExecuted = false;
+    while(true){
+        //Check if each person reached the end of their order list.
+        for(int i=0;i<playerList.size();i++){
+            //If a player finished their list and hasn't removed their orders already, remove all the orders in that list to prepare for next round.
+            if(executionDone[i] && playerList[i]->getOrdersList()->getSize()!=0){
+                for(int i=0;i<playerList[i]->getOrdersList()->getSize();i++){
+                    playerList[i]->getOrdersList()->remove(1);
+                }
+            }
+            else{
+                break;
+            }
+            //If all the players have finished their lists, break the loop.
+            if(i==playerList.size()-1){
+                allOrdersExecuted = true;
+                delete [] executionDone;
+                executionDone = nullptr;
+                return;
+            }
+        }
+        //Once everyone has been checked to see if they have finished their orders, those who haven't finished will do the next order in their list.
+        for(int i=0;i<playerList.size();i++){
+            if(executionDone[i]){
+                continue;
+            }
+            playerList[i]->getOrderList()->getCurrentOrder()->execute();
+            //If the player has reached the end of the order list, notify the rest of the loop
+            if(playerList->getOrderList()->getCurrentOrder()->getSize()==i+1){
+                executionDone[i] = true;
+            }
+            playerList[i]->getOrderList()->setCurrentOrder(playerList[i]->getOrderList()->getCurrentOrder()->getNext());
+        }
+    }
+}
+
 int GameEngine::checkWinCon(){
     int territoriesOwned[playerList.size()];
     int endCon=1;

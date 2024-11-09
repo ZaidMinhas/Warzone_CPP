@@ -84,6 +84,7 @@ public:
 	//Accessors and Mutators
 	Territory* getToBomb();
 	void setToBomb(Territory* toBomb);
+	bool validate();
 	void execute();
 
 private:
@@ -168,6 +169,7 @@ private:
 };
 
 extern std::vector<Player*> playerList;
+extern GameEngine* gameEngine;
 
 ostream& operator<<(ostream &out,Order *o);
 

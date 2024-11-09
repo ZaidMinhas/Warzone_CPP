@@ -138,6 +138,12 @@ bool Order::validate(){
 
 void Order::execute(){}
 
+// ----------------------------------------------------------------
+//                     Deploy Order
+// ----------------------------------------------------------------
+
+//Deploy order validates if the player has picked his/her territory. If that is the case it will deploy that many units onto the territory.
+
 bool Deploy::validate(){
     if(toDeploy->owner==playerIndex){
         return true;
@@ -156,15 +162,22 @@ void Deploy::execute(){
     }
 }
 
+// ----------------------------------------------------------------
+//                     Advance Order
+// ----------------------------------------------------------------
+
+/*Advance will validate these things:
+*1. If the player owns the territory he/she wants to advance from.
+*2. If the territory the player wants to advance to is neighbouring the territory that the player wants to advance from.
+*3. If the owner of the territory the player wants to advance to has not executed a negotiate order to the player. (If the player is moving to a territory they own, it will check anyway but it will always be false)
+* If any of these conditions are not met. The order will not be executed.
+*/
+
 bool Advance::validate(){
     if(advanceFrom->owner!=playerIndex){
         cout<<"Unable to execute Advance order!! You do not own "<<advanceFrom->name<<endl;
         return false;
     }
-    /*If the player is attacking a player that has played the negotiate order on them,
-     cout<<"Commander, we have made a peace treaty with <<advanceTo->owner<< this round!! We cannot invade their territory!!"<<endl;
-     return false*/
-    //Advance will need the player's negotiate array.
     else{
         for(auto link : advanceFrom->connections){
            if(link->name==advanceTo->name){
@@ -182,23 +195,27 @@ bool Advance::validate(){
 
 void Advance::execute(){
     if(this->validate()){
+        //Will first check if it is advancing on a territory owned by the player, no one, or by an opponent. If no one owns it or its owned by the player. No need for combat.
         if(advanceTo->owner==playerIndex||*(advanceTo->owner)==-1){
-            //Add validation for nUnits. if advanceFrom->army<nUnits. advanceFrom->army is transfered instead.
+            //If the number of units is greater than the number of units the player can advance form the territory, take the whole army and add it into the territory to advance to and set the territory of where the units came from to 0.
             if(nUnits>advanceTo->army){
                 *(advanceTo->army)=*(advanceTo->army)+*(advanceFrom->army);
                 *(advanceFrom->army) = 0;
             }
+            //Otherwise add the units to the territory to advance to, and subtract the same amount from the territory the units came from.
         else{
             *(advanceTo->army)=*(advanceTo->army)+*(nUnits);
             *(advanceFrom->army)=*(advanceFrom->army)-*(nUnits);
             }
         }
+        //If its an enemy, combat begins. Setup the attacking units to be the number of units advancing from.
         else{
             cout<<"Entering hostile territory!! Preparing the assault"<<endl;
             *(advanceFrom->army)=*(advanceFrom->army)-*(nUnits);
             int attackingUnits = *(nUnits);
+            //Keep doing this loop until one of the sides has not more units to attack with.
             while(attackingUnits!=0 && *(advanceTo->army)!=0){
-                //Randomizer to calculate the probability during combat.
+                //Randomizer to calculate the probability during combat. 60% for the army of the opposing territory to lose a unit, and 70% for the player's army to lose a unit.
                 random_device rd;
                 mt19937 gen(rd());
                 uniform_int_distribution<> distrib(1,100);
@@ -211,12 +228,13 @@ void Advance::execute(){
                 cout<<"Attacking units remaining: "<<attackingUnits<<endl;
                 cout<<"Defending units remaining: "<<*(advanceTo->army)<<endl;
             }
-
+            //Will check who won by seeing who got 0 units first. If both have 0 units, then the defender won.
             if(*(advanceTo->army)==0 && attackingUnits!=0){
                 *(advanceTo->owner)=*(playerIndex);
                 *(advanceTo->army)=attackingUnits;
                 cout<<"The attacking player has succeeded in taking over "<<advanceTo->name<<"!!"<<endl;
                 //Update Players owned Territories vector either after executing the function or during.
+                gameEngine->CheckWinCon();
             }
             else if(attackingUnits==0){
                 cout<<"The defender has successfully drove off the invaders from "<<advanceTo->name<<"!!"<<endl;
@@ -226,16 +244,35 @@ void Advance::execute(){
     }
 }
 
-//Will work with Kaoutar to determine how to update player's owned order list after advancing/Blockading
+// ----------------------------------------------------------------
+//                     Bomb Order
+// ----------------------------------------------------------------
+
+/*In bomb order. If the none of the neighbouring territories to the territory to bomb are owned by the player. Then the player cannot execute the bomb order*/
+bool Bomb::validate(){
+    for(auto link : toBomb->connections){
+        if(*(link->owner)==*(playerIndex)){
+            return true;
+        }
+        cout<<"The opponent you want to bomb is not in the vicinity of a territory you own commander!! We cannot reach that territory to bomb."<<endl;
+    }
+}
+//If bombing target has been validated, it will remove half of the units from that territory
 void Bomb::execute(){
     if(this->validate()){
-        cout<<"Executing order: "<<this<<endl;
-        cout<<"Destroys half of the army units located on a target territory. This order can only be issued if a player has the bomb card in their hand."<<endl;
+        cout<<"FIRE IN THE HOOOOOOOOOLE!!! "<<toBomb->name<<" will be hit with the bomb and lose half their units!!"<<endl;
+        *(toBomb->army) = *(toBomb->army)/2;
     }
     else{
         cout<<"Unable to execute order: "<<this<<endl;
     }
 }
+
+// ----------------------------------------------------------------
+//                     Blockade Order
+// ----------------------------------------------------------------
+
+//Blockade will check if the player owns that territory.
 bool Blockade::validate(){
     if(toBlock->owner!=playerIndex){
         cout<<"Commander, "<<toBlock->owner<<" is under enemy command!! We cannot execute the blockade."<<endl;
@@ -244,6 +281,7 @@ bool Blockade::validate(){
     return true;
 }
 
+//If validation is successful, the player will have double the number of units but will no longer own that territory until the round resets in the reinforcement phase.
 void Blockade::execute(){
     if(this->validate()){
         cout<<"Initiating Blockade on: "<<toBlock->name<<endl;
@@ -252,6 +290,11 @@ void Blockade::execute(){
     }
 }
 
+// ----------------------------------------------------------------
+//                     Airlift Order
+// ----------------------------------------------------------------
+
+//Will check if the player owns both the territory to airlift from and the territory to airlift to. If either is not owned by the player, it will not execute.
 bool Airlift::validate(){
     if(airliftFrom->owner!=playerIndex){
          cout<<"Commander!! Airlifting is not possible!! We cannot pick them up for "<<airliftFrom->name<<" is controlled by enemy hands!!"<<endl;
@@ -264,19 +307,29 @@ bool Airlift::validate(){
     return true;
 }
 
+//If it validates successfully, it will move the number of units from the territory to airlift from to the territory to airlift to.
+
 void Airlift::execute(){
     if(this->validate()){
         cout<<"Airlifting "<<*(nUnits)<<" units from "<<airliftFrom->name<<" to "<<airliftTo->name<<"!!!"<<endl;
+        //If the number of units is greater than the number of units the player can airlift form the territory, take the whole army and add it into the territory to airlift to and set the territory of where the units came from to 0.
         if(*(nUnits)>*(airliftFrom->army)){
             *(airliftTo->army) = *(airliftTo->army) + *(airliftFrom->army);
             *(airliftFrom->army) = 0;
         }
+        //else airlift the number of units asked in the issueing phase.
         else{
             *(airliftTo->army) = *(airliftTo->army) + *(nUnits);
             *(airliftFrom->army) = *(airliftFrom->army) - *(nUnits);
         }
     }
 }
+
+// ----------------------------------------------------------------
+//                     Negotiate Order
+// ----------------------------------------------------------------
+
+//Negotiate will check if the player is not negotiating with the himself/herself.
 
 bool Negotiate::validate(){
     if(toNegotiate==*(playerIndex)){
@@ -285,6 +338,8 @@ bool Negotiate::validate(){
     }
     return true;
 }
+
+//If validated successfully, the player will go into the game engines player list and set the negotiation index of the player who issued the order to be true. That way the opposing player that was targeted cannot attack tha player who issued the order.
 
 void Negotiate::execute(){
     if(this->validate()){
