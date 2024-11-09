@@ -8,6 +8,8 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
+#include <cmath>
+#include <vector>
 #include "../Map/Map.h"
 #include "../Player/Player.h"
 #include "../CommandProcessor/CommandProcessor.h"
@@ -27,8 +29,8 @@ State &State::operator=(const State &other)
 
 //--------------------START STATE--------------------
 
-State *Start::clone()
-{
+GameEngine gameEngine = GameEngine();
+State* Start::clone(){
     return new Start();
 }
 
@@ -164,9 +166,8 @@ State *PlayersAdded::handleInput(GameEngine &game_engine, std::string &input)
         return new PlayersAdded();
     }
 
-    if (input == "gamestart")
-    {
-        game_engine.gamestart();
+    if (input == "gamestart"){
+        gameEngine.gamestart();
         return new AssignReinforcement();
     }
 
@@ -435,11 +436,11 @@ GameEngine &GameEngine::operator=(const GameEngine &other)
     return *this;
 }
 
-///////////////////////////////////////////////////////
-//                   Startup Phase                   //
-///////////////////////////////////////////////////////
+std::vector<int> turns; // TURNS FOR ISSUING PHASE
 
-std::vector<int> turns;
+// ----------------------------------------------------------------
+//                     Startup Phase
+// ----------------------------------------------------------------
 
 void GameEngine::startupPhase()
 {
@@ -502,33 +503,67 @@ void GameEngine::startupPhase()
     }
 }
 
-void GameEngine::gamestart()
-{
-    // Equal Distribution of Territories
-    for (int i = 0; i < gameMap.graph.size(); i++)
-    {
-        playerList.at(i % playerList.size())->addTerritory(&gameMap.graph.at(i));
+// ----------------------------------------------------------------
+//                     GAME START
+// ----------------------------------------------------------------
+
+void GameEngine::gamestart(){
+    //Equal Distribution of Territories
+    for (int i=0;i<gameMap.graph.size();i++){
+        playerList.at(i%playerList.size())->addTerritory(&gameMap.graph.at(i));
     }
     // Determin random order of play
 
-    // Give every Player 50 inital troops and drawing 2 cards
-    for (int j = 0; j < playerList.size(); j++)
-    {
-        playerList.at(j)->_reinforcementPool = new int(50);
-        playerList.at(j)->_handCard = new Hand();
-        deck.draw(*playerList.at(j)->_handCard);
-        deck.draw(*playerList.at(j)->_handCard);
-        std::cout << "\n"
-                  << playerList.at(j)->getName();
-        std::cout << "\n"
-                  << *playerList.at(j)->_reinforcementPool;
-        std::cout << "\n"
-                  << *playerList.at(j)->_handCard;
+    //Give every Player 50 inital troops and drawing 2 cards
+    for(int j=0;j<playerList.size();j++){
+        playerList.at(j)->_reinforcementPool=new int(50);
+        playerList.at(j)->setHand(new Hand());
+        deck.draw(*playerList.at(j)->getHand());
+        deck.draw(*playerList.at(j)->getHand());
+        playerList.at(j)->negotiation=new bool[playerList.size()];
+        for(int i=0;i<playerList.size();i++){
+            playerList.at(j)->negotiations[i] = false;
+        }
+        std::cout<<"\n"<<playerList.at(j)->getName();
+        std::cout<<"\n"<<*playerList.at(j)->_reinforcementPool;
+        std::cout<<"\n";
+        playerList.at(j)->printHand();
+    }
+}
+
+// ----------------------------------------------------------------
+//                     Reinforcement Phase
+// ----------------------------------------------------------------
+
+void GameEngine::reinforcementPhase(){
+    for(int i=0;i<playerList.size();i++){
+        int reinforcement;
+        int continentOwn[gameMap.continentList.size()];
+        //Reset all players negotiation arrays so that everything is false.
+        for(int j=0;i<playerList.size();j++){
+            playerList.at(i)->negotiations[j] = false;
+        }
+        //Reset all territories that have -2 as owner to previous owner, This needs to be done before reinforcements can begin.
+        for(int j=0;j<gameMap.graph.size();j++){
+            if(*gameMap.graph.at(j).owner==playerList.at(i)->getID()){
+                reinforcement++;
+                continentOwn[*gameMap.graph.at(j).pContient->index]++;
+            }
+        }
+        reinforcement=std::floor((double)reinforcement/3.00);
+        for(int k=0;k<gameMap.continentList.size();k++){
+            if(continentOwn[k]==*gameMap.continentList.at(k).nbrTerritories){
+                reinforcement=reinforcement+*gameMap.continentList.at(k).bonus;
+            }
+        }
+        if(reinforcement<3){
+            reinforcement=3;
+        }
+        playerList.at(i)->_reinforcementPool=playerList.at(i)->_reinforcementPool+reinforcement;
     }
 
-    // Shuffle player order
-    for (int k = 0; k < playerList.size(); k++)
-    {
+    //Shuffle player order
+    for(int k=0;k<playerList.size();k++){
         turns.push_back(k);
     }
 
@@ -538,8 +573,75 @@ void GameEngine::gamestart()
     std::shuffle(turns.begin(), turns.end(), m);
 }
 
-int GameEngine::checkWinCon()
-{
+// ----------------------------------------------------------------
+//                     Issue Orders Phase
+// ----------------------------------------------------------------
+
+void GameEngine::issueOrdersPhase(const std::string& command, int* playerId) {
+    bool allPlayersDone = false;  // flag to check if all players are done issuing orders
+
+    while (!allPlayersDone) {
+        allPlayersDone = true;  // when all players are done for this round
+
+        for (int playerIndex : turns) {  // Iterate through players in the order specified by `turns`
+            Player* currentPlayer = playerList[playerIndex];
+
+            // checking if the player has more orders to issue 
+            if (currentPlayer->hasMoreOrders()) {
+                currentPlayer->issueOrder(command, playerId);  
+                allPlayersDone = false;       // since this player issued an order, not all players are done
+            }
+        }
+    }
+}
+
+// ----------------------------------------------------------------
+//                     Execute Orders Phase
+// ----------------------------------------------------------------
+
+void GameEngine::executeOrdersPhase(){
+    //This will set all the orders to the start of the list.
+    for(int i=0;i<playerList.size();i++){
+        playerList[i]->getOrdersList()->setCurrentOrder(playerList[i]->getOrdersList()->getHead()->getNext());
+    }
+    bool* executionDone = new bool[playerList.size()];
+    bool allOrdersExecuted = false;
+    while(true){
+        //Check if each person reached the end of their order list.
+        for(int i=0;i<playerList.size();i++){
+            //If a player finished their list and hasn't removed their orders already, remove all the orders in that list to prepare for next round.
+            if(executionDone[i] && playerList[i]->getOrdersList()->getSize()!=0){
+                for(int i=0;i<playerList[i]->getOrdersList()->getSize();i++){
+                    playerList[i]->getOrdersList()->remove(1);
+                }
+            }
+            else{
+                break;
+            }
+            //If all the players have finished their lists, break the loop.
+            if(i==playerList.size()-1){
+                allOrdersExecuted = true;
+                delete [] executionDone;
+                executionDone = nullptr;
+                return;
+            }
+        }
+        //Once everyone has been checked to see if they have finished their orders, those who haven't finished will do the next order in their list.
+        for(int i=0;i<playerList.size();i++){
+            if(executionDone[i]){
+                continue;
+            }
+            playerList[i]->getOrderList()->getCurrentOrder()->execute();
+            //If the player has reached the end of the order list, notify the rest of the loop
+            if(playerList->getOrderList()->getCurrentOrder()->getSize()==i+1){
+                executionDone[i] = true;
+            }
+            playerList[i]->getOrderList()->setCurrentOrder(playerList[i]->getOrderList()->getCurrentOrder()->getNext());
+        }
+    }
+}
+
+int GameEngine::checkWinCon(){
     int territoriesOwned[playerList.size()];
     int endCon = 1;
     int currentWinner = *gameMap.graph.at(0).owner;

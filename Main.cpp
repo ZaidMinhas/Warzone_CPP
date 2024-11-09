@@ -22,3 +22,5 @@ int main(int argc, char *argv[])
 	std::cin>>s;
 	return 0;
 }
+
+
