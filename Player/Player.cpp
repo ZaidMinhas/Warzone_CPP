@@ -155,7 +155,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
     }
 
     //if deploy : arg[0] = deploy and reinforce>0 (aka player has troops)
-    if (args[0] == "deploy" && *_reinforcementPool>0) { // player should have units to deploy - otherwise cannot deploy
+    if (args[0] == "deploy" && *_reinforcementPool>0 && *_reinforcementPool>=std::stoi(args[1])) { // player should have units to deploy - otherwise cannot deploy
         //command deploy 15 canada
         //Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits); - signature
 
@@ -166,6 +166,8 @@ void Player::issueOrder(const std::string& command, int* playerId){
         //Deploy* deployOrder = new Deploy(orderName, toDeploy, playerIndex, new int(nUnits));
         Deploy* deployOrder = new Deploy(orderName, toDeployIn, playerId, &nUnits); 
         _orderList->addOrder(deployOrder);
+
+        *_reinforcementPool=*_reinforcementPool-std::stoi(args[1]);
 
     } else if (args[0] == "advance" && _reinforcementPool==0) { //player should deploy all the units before advancing // more conditions?
         //command : advance 12 iraq iran
