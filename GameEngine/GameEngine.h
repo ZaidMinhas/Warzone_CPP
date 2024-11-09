@@ -168,6 +168,7 @@ class GameEngine {
     void issueOrdersPhase(); // K - A2
     void executeOrdersPhase();// A - A2
     void mainGameLoop();
+    void displayPlayerInfo(int id);
 
     //Getters-Setters
     void setCurrentState(State* state);

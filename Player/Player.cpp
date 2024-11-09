@@ -169,7 +169,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
 
         *_reinforcementPool=*_reinforcementPool-std::stoi(args[1]);
 
-    } else if (args[0] == "advance" && _reinforcementPool==0) { //player should deploy all the units before advancing // more conditions?
+    } else if (args[0] == "advance" && *_reinforcementPool==0) { //player should deploy all the units before advancing // more conditions?
         //command : advance 12 iraq iran
         // Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits) - signature
         std::string orderName = args[0];  
@@ -183,7 +183,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
         Advance* advanceOrder = new Advance(orderName, playerId, _owned, _target, &nUnits); //territories should be the adjacent territories
         _orderList->addOrder(advanceOrder);
 
-    } else if (args[0] == "blockade" && _reinforcementPool==0) { 
+    } else if (args[0] == "blockade" && *_reinforcementPool==0) { 
         //command : blockade indonesia
         //Blockade::Blockade(string orderName,int* playerIndex,Territory* toBlock) - Signature
         if (hasCardType("blockade")) {
@@ -197,7 +197,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
             std::cout << "You do not have a blockade card.\n";
         }
 
-    } else if (args[0] == "airlift" && _reinforcementPool==0) {
+    } else if (args[0] == "airlift" && *_reinforcementPool==0) {
         //command : airlift 18 indonesia philippines
         //Airlift::Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits) -- Signature
         if (hasCardType("airlift")) {
@@ -217,7 +217,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
             std::cout << "You do not have an Airlift card.\n";
         }
 
-    } else if (args[0] == "negociate" && _reinforcementPool==0) {
+    } else if (args[0] == "negociate" && *_reinforcementPool==0) {
         //command : negociate
         // Negotiate::Negotiate(string orderName,int* playerIndex)
         if (hasCardType("diplomacy")) {
@@ -236,7 +236,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
             std::cout << "You do not have a Negociate card.\n";
         }
 
-    } else if (args[0] == "bomb" && _reinforcementPool==0) {
+    } else if (args[0] == "bomb" && *_reinforcementPool==0) {
         //command : bomb philippines
         // Bomb::Bomb(string orderName,int* playerIndex,Territory* toBomb) -- Signature
         if (hasCardType("bomb")) { 
@@ -251,7 +251,9 @@ void Player::issueOrder(const std::string& command, int* playerId){
             std::cout << "You do not have a Bomb card.\n";
         }
 
-    } else {
+    }else if(args[0]=="done"){
+            *this->_doneTurn=true;
+        } else {
         std::cout << "Command: " << args[0] << " failed to process." << std::endl;
     }
 
@@ -298,7 +300,7 @@ std::vector<Territory*> Player::toDefend() const {
 //           Territories to add from map
 // --------------------------------------------------
 void Player::addTerritory(Territory* territory) {
-    territory->owner=this->_id;
+    *territory->owner=*this->_id;
     _playerterritories.push_back(territory);
 }
 

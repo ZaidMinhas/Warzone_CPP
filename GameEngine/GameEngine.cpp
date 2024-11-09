@@ -450,7 +450,7 @@ void GameEngine::startupPhase()
     string input;
     while (true)
     {
-        cout << "Enter command:";
+        cout << "\nEnter command:";
         input = commandProcessor.getCommand();
         args = commandProcessor.splitCommand(input);
         if (commandProcessor.validate(input))
@@ -580,6 +580,15 @@ void GameEngine::mainGameLoop()
             setCurrentState(new AssignReinforcement());
         }
     }
+    std::cout<<"GameOver: ";
+    string input=commandProcessor.getCommand();
+    if(commandProcessor.validate(input)){
+        if(input=="replay"){
+            system("exit");
+        }else if(input=="quit"){
+            system("exit");
+        }
+    }
 }
 
 // ----------------------------------------------------------------
@@ -590,7 +599,7 @@ void GameEngine::reinforcementPhase()
 {
     for (int i = 0; i < playerList.size(); i++)
     {
-        int reinforcement;
+        int reinforcement=0;
         int* continentOwn = new int[gameMap.continentList.size()];
         // Reset all players negotiation arrays so that everything is false.
         for (int j = 0; j < playerList.size(); j++)
@@ -612,16 +621,21 @@ void GameEngine::reinforcementPhase()
                 continentOwn[index]++;
             }
         }
+        std::cout<<"\nReinforcements for "<<playerList.at(i)->getName()<<": "<<reinforcement;//DEMO
         reinforcement = std::floor((double)reinforcement / 3.00);
+        int bonus=0;
         for (int k = 0; k < gameMap.continentList.size(); k++)
         {
             if (continentOwn[k] == *gameMap.continentList.at(k).nbrTerritories)
             {
-                reinforcement = reinforcement + *gameMap.continentList.at(k).bonus;
+                bonus = bonus + *gameMap.continentList.at(k).bonus;
             }
         }
+        reinforcement=reinforcement+bonus;
+        std::cout<<"/3 + "<<bonus<<" continent bonus = "<<reinforcement<<"\n";//DEMO
         if (reinforcement < 3)
         {
+            std::cout<<"\nReinforcements too low. Set to 3\n";//DEMO
             reinforcement = 3;
         }
         *playerList.at(i)->_reinforcementPool = *playerList.at(i)->_reinforcementPool + reinforcement;
@@ -644,9 +658,10 @@ void GameEngine::issueOrdersPhase()
         for (int i=0;i<turns.size();i++)
         { // Iterate through players in the order specified by `turns`
             Player *currentPlayer = playerList.at(turns.at(i));
+            displayPlayerInfo(turns.at(i));
 
             // checking if the player has more orders to issue
-            
+                std::cout<<"\nEnter command:";
                 string command = commandProcessor.getCommand();
                 currentPlayer->issueOrder(command, &turns.at(i));
 
@@ -754,4 +769,21 @@ int GameEngine::checkWinCon()
         }
     }
     return 0;
+}
+
+
+void GameEngine::displayPlayerInfo(int id){
+    std::cout<<"\nName: "<<playerList.at(id)->getName();
+    std::cout<<"\nReinforcement Pool: "<<*playerList.at(id)->_reinforcementPool;
+    std::vector<Territory*> v;
+    v=playerList.at(id)->toAttack();
+    std::cout<<"\nTo Attack:\n";
+    for (int i=0;i<v.size();i++){
+        std::cout<<*v.at(i)<<"\n";
+    }
+    v=playerList.at(id)->toDefend();
+    std::cout<<"\nTo Deffend:\n";
+    for (int i=0;i<v.size();i++){
+        std::cout<<"    "<<*v.at(i)<<"\n";
+    }
 }
