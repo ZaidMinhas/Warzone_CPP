@@ -31,7 +31,8 @@ Continent::Continent(string name, int bonus){
     this->name=new string(name);
     this->bonus=new int(bonus);
     this->nbrTerritories=new int(0);
-    this->index=ContinentCount;
+    this->index=(int*) malloc(sizeof(int));
+    *this->index=ContinentCount;
     ContinentCount++;
 }
 string Continent::getName(){
@@ -199,7 +200,7 @@ int Map::addContinent(string input){
     string name=input.substr(0, input.find("="));
     int bonus = std::stoi(input.substr(input.find("=")+1, input.length()));
     continentList.push_back(Continent(name, bonus));
-    continentList.at(continentList.size()-1).index=(ContinentCount-1);
+    //*continentList.at(continentList.size()-1).index=(ContinentCount-1);
     return 0;
 }
 int Map::addTerritory(string input){

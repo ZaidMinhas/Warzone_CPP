@@ -529,6 +529,7 @@ void GameEngine::gamestart()
         {
             playerList.at(j)->negotiation.push_back(false);
         }
+        playerList.at(j)->_doneTurn=new bool(false);
         std::cout << "\n"
                   << playerList.at(j)->getName();
         std::cout << "\n"
@@ -560,6 +561,10 @@ void GameEngine::mainGameLoop()
         reinforcementPhase();
 
         gameEngine.setCurrentState(new IssueOrders());
+
+        for(int i=0;i<playerList.size();i++){
+            *playerList.at(i)->_doneTurn=false;
+        }
 
         issueOrdersPhase();
 
@@ -598,7 +603,13 @@ void GameEngine::reinforcementPhase()
             if (*gameMap.graph.at(j).owner == playerList.at(i)->getID())
             {
                 reinforcement++;
-                continentOwn[gameMap.graph.at(j).pContient->index]++;
+                int index;
+                for(int l=0;l<gameMap.continentList.size();l++){
+                    if(gameMap.continentList.at(l).name==gameMap.graph.at(j).pContient->name){
+                        index=l;
+                    }
+                }
+                continentOwn[index]++;
             }
         }
         reinforcement = std::floor((double)reinforcement / 3.00);
@@ -635,12 +646,17 @@ void GameEngine::issueOrdersPhase()
             Player *currentPlayer = playerList.at(turns.at(i));
 
             // checking if the player has more orders to issue
-            if (currentPlayer->hasMoreOrders())
-            {
+            
                 string command = commandProcessor.getCommand();
                 currentPlayer->issueOrder(command, &turns.at(i));
-                allPlayersDone = false; // since this player issued an order, not all players are done
-            }
+
+                for(int j=0;j<playerList.size();j++){
+                    if(*playerList.at(i)->_doneTurn==false){
+                        allPlayersDone = false; // since this player issued an order, not all players are done
+                    }
+                }
+                
+            
         }
     }
     gameEngine.setCurrentState(new ExecuteOrders());

@@ -71,6 +71,7 @@ public:
     Player& operator = (const Player& player);
     int*  _reinforcementPool;
     std::vector<bool> negotiation;
+    bool* _doneTurn;
 
 private:
     int* _id;

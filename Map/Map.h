@@ -11,7 +11,7 @@ class Continent{
     string *name;
     int *bonus;
     int *nbrTerritories;
-    int index;
+    int *index;
     string getName();
     int getBonus();
     Continent(string name, int bonus);
