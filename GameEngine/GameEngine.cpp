@@ -624,7 +624,7 @@ void GameEngine::reinforcementPhase()
         {
             reinforcement = 3;
         }
-        playerList.at(i)->_reinforcementPool = playerList.at(i)->_reinforcementPool + reinforcement;
+        *playerList.at(i)->_reinforcementPool = *playerList.at(i)->_reinforcementPool + reinforcement;
     }
     
 }
