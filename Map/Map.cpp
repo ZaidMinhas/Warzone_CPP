@@ -1,9 +1,13 @@
+#include <string>
+using namespace std;
 #include "Map.h"
-using std::string;
+
+int ContinentCount=0;
 
 Continent::Continent(const Continent &c){
     bonus=new int(*c.bonus);
     name=c.name;
+    nbrTerritories=new int(0);
 }
 
 std::ostream & operator << (std::ostream &out, const Continent &c){
@@ -26,6 +30,10 @@ Continent &Continent::operator = (const Continent &c){
 Continent::Continent(string name, int bonus){
     this->name=new string(name);
     this->bonus=new int(bonus);
+    this->nbrTerritories=new int(0);
+    this->index=(int*) malloc(sizeof(int));
+    *this->index=ContinentCount;
+    ContinentCount++;
 }
 string Continent::getName(){
     return *name;
@@ -88,6 +96,7 @@ Territory::Territory(string name, string continentName, int x, int y){
     for(int i=0;i<gameMap.continentList.size();i++){
         if (*gameMap.continentList.at(i).name==continentName){
             this->pContient=&gameMap.continentList.at(i);
+            *gameMap.continentList.at(i).nbrTerritories++;
             found=true;
         }
     }
@@ -171,7 +180,8 @@ Map &Map::operator=(const Map &m)
     return *this;
 }
 
-Map gameMap=Map();
+//Map map=Map(); -- same reason why map is changed
+Map gameMap = Map();
 
 /*void Map::error(){
     std::cout<<"Invalid Map\n";
@@ -190,6 +200,7 @@ int Map::addContinent(string input){
     string name=input.substr(0, input.find("="));
     int bonus = std::stoi(input.substr(input.find("=")+1, input.length()));
     continentList.push_back(Continent(name, bonus));
+    //*continentList.at(continentList.size()-1).index=(ContinentCount-1);
     return 0;
 }
 int Map::addTerritory(string input){
@@ -283,8 +294,14 @@ int Map::getUserInput(string input){
         std::cout<<"File must end with .map";
         return 1;
     }else{
+        
         gameMap.mapFile.open(input);
-        return 0;
+        if(gameMap.mapFile.good()){
+            return 0;
+        }else{
+            std::cout<<"File does not exist";
+            return 1;
+        }
     }
 }
 
@@ -335,9 +352,11 @@ int Map::validate(){
 
 
 int Map::loadMap(string fileName){
+    
     try{
     if(gameMap.getUserInput(fileName)==1){
         gameMap.clear();
+        gameMap.mapFile.close();
         return 1;
     };
     string fileLine;
@@ -347,29 +366,34 @@ int Map::loadMap(string fileName){
     if(fileLine.compare("[Map]\n")){
         std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("author", 0)!=0){
-            std::cout<<"Invalid Meta Data";
+            std::cout<<"Invalid Meta Data 1\n";
+            std::cout<<fileLine<<"\n";
             gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
         gameMap.author=new string(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1));
         std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("image", 0)!=0){
-            std::cout<<"Invalid Meta Data";
+            std::cout<<"Invalid Meta Data 2";
             gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
         gameMap.image=new string(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1));
         std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("wrap", 0)!=0){
-            std::cout<<"Invalid Meta Data";
+            std::cout<<"Invalid Meta Data 3";
             gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
         gameMap.wrap=new bool(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes"));
         std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("scroll", 0)!=0){
-            std::cout<<"Invalid Meta Data";
+            std::cout<<"Invalid Meta Data 4";
             gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
         if(fileLine.compare("scroll=none")==0){gameMap.scroll=new int(0);}
@@ -377,14 +401,16 @@ int Map::loadMap(string fileName){
         else if(fileLine.compare("scroll=horizontal")==0){gameMap.scroll=new int(2);}
         std::getline(gameMap.mapFile, fileLine);
         if(fileLine.rfind("warn", 0)!=0){
-            std::cout<<"Invalid Meta Data";
+            std::cout<<"Invalid Meta Data 5";
             gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
         gameMap.warn=new bool(fileLine.substr(fileLine.find("=")+1, fileLine.length()-1).compare("yes"));
     }else{
         std::cout<<"Missing [Map] tag";
             gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
     }
     while(fileLine!="[Continents]"){
@@ -392,6 +418,7 @@ int Map::loadMap(string fileName){
         if(gameMap.mapFile.eof()){
             std::cout<<"Missing [Continents] tag";
             gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
     };
@@ -402,6 +429,7 @@ int Map::loadMap(string fileName){
             if(gameMap.addContinent(fileLine)==1){
                 std::cout<<"Can't add Continent";
                 gameMap.clear();
+                gameMap.mapFile.close();
                 return 1;
             };
             std::getline(gameMap.mapFile, fileLine);
@@ -413,6 +441,7 @@ int Map::loadMap(string fileName){
         if(gameMap.mapFile.eof()){
             std::cout<<"Missing [Territory] tag";
             gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
         }
     };
@@ -423,6 +452,7 @@ int Map::loadMap(string fileName){
                 if(gameMap.addTerritory(fileLine)==1){
                     std::cout<<"Can't add Territory";
                     gameMap.clear();
+                    gameMap.mapFile.close();
                     return 1;
                 };
             }
@@ -433,6 +463,7 @@ int Map::loadMap(string fileName){
     }catch(...){
             std::cout<<"Invalid map";
             gameMap.clear();
+            gameMap.mapFile.close();
             return 1;
     }
     mapFile.close();

@@ -17,7 +17,7 @@ void testCards(){
         while(!hand->isHandFull()){
             // std::cout << "LOOPY" << std::endl;
             deck->draw(*hand);
-            // break;
+            // break; 
         }
         std::cout << std::endl;
         int handSize = hand->getHandSize();

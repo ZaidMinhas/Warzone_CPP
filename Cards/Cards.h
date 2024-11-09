@@ -22,6 +22,9 @@ public:
     Cards(const Cards& cards);
     Cards play();
 
+    // method to get the type of card - K
+    std::string getType() const;
+
     Cards &operator=(const Cards &other);
 
     friend std::ostream& operator<<(std::ostream& os, const Cards& c);
@@ -40,10 +43,7 @@ public:
     void draw(Hand& hand);
     void addCard(const Cards & card);
 
-
     friend std::ostream& operator<<(std::ostream& os, const Deck& d);
-
-
 
 private:
     void fillDeck();
@@ -64,8 +64,10 @@ public:
     bool isHandFull();
     void play(Deck& deck, int i);
     void addCard(const Cards &card);
-
     int getHandSize();
+
+    //get player hand ---- 
+    const std::vector<Cards>& getCards() const;
 
     Hand &operator=(const Hand &other);
 

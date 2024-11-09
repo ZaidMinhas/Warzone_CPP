@@ -24,18 +24,15 @@ class State {
     State& operator=(const State& other);
 
     virtual State* clone()  = 0;
-
-
     virtual State* handleInput(GameEngine& game_engine, std::string& input) = 0;
 
     virtual void enter(GameEngine& game_engine) = 0;
     virtual void exit(GameEngine& game_engine) = 0;
+    
     // virtual void update(GameEngine& game_engine) = 0;
-
     virtual std::string getName() const = 0;
 
     // Declare the insertion operator as a friend function
-
     friend std::ostream& operator<<(std::ostream& os, const State& state);
 
 };
@@ -165,9 +162,16 @@ class GameEngine : public ILoggable, public Subject{
     string stringToLog() override;
     friend std::ostream& operator<<(std::ostream& os, const GameEngine& engine);
 
-    void startupPhase();
     void gamestart();
     int checkWinCon();
+    void startupPhase();// A2
+    void reinforcementPhase();// A2
+    void issueOrdersPhase(); // K - A2
+    void executeOrdersPhase();// A - A2
+    void mainGameLoop();
+    void displayPlayerInfo(int id);
+
+    //Getters-Setters
     void transition(State* state);
     std::string getCurrentState();
     
@@ -176,7 +180,6 @@ private:
     State* currentState;
     bool gameOver;
 };
-
 extern GameEngine gameEngine;
 extern std::vector<int> turns;
 

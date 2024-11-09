@@ -16,9 +16,12 @@ int main(int argc, char *argv[])
 	//testPlayer();
 	//testOrdersList();
     //testCards();
-	testGameStates();
+	testStartupPhase();
+	testMainGameLoop();
 	
 	std::string s;
 	std::cin>>s;
 	return 0;
 }
+
+

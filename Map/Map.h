@@ -4,17 +4,22 @@
 #include <fstream>
 using std::string;
 using std::vector;
+
 class Continent{
     
     public:
     string *name;
     int *bonus;
+    int *nbrTerritories;
+    int *index;
     string getName();
     int getBonus();
     Continent(string name, int bonus);
     Continent(const Continent &c);
     friend std::ostream & operator << (std::ostream &out, const Continent &c);
     Continent & operator = (const Continent &c);
+
+    
 };
 class Territory{
     public:
@@ -75,4 +80,6 @@ class InvalidMapException : public std::exception {
         char * what ();*/
 };
 
+//extern Map map; -- changed : ambiguous 'map' -> it's a keyword, throws a conflict error
 extern Map gameMap;
+extern int ContinentCount;
