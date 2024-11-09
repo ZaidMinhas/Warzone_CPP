@@ -215,10 +215,10 @@ void Player::issueOrder(const std::string& command, int* playerId){
             std::cout << "You do not have an Airlift card.\n";
         }
 
-    } else if (args[0] == "negotiate" && _reinforcementPool==0) {
+    } else if (args[0] == "negociate" && _reinforcementPool==0) {
         //command : negociate
         // Negotiate::Negotiate(string orderName,int* playerIndex)
-        if (hasCardType("negociate")) {
+        if (hasCardType("diplomacy")) {
             std::string orderName = args[0];
             int* playerIndex = playerId;
 
