@@ -257,6 +257,7 @@ bool Bomb::validate(){
         }
         cout<<"The opponent you want to bomb is not in the vicinity of a territory you own commander!! We cannot reach that territory to bomb."<<endl;
     }
+    return false;
 }
 //If bombing target has been validated, it will remove half of the units from that territory
 void Bomb::execute(){
