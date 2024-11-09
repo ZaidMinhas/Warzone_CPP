@@ -4,6 +4,7 @@ using namespace std;
 #include "Orders.h"
 #include "../Map/Map.h"
 #include "../GameEngine/GameEngine.h"
+#include "../Player/Player.h"
 //Constructors and Destructors
 abOrder::abOrder(){}
 
@@ -181,7 +182,7 @@ bool Advance::validate(){
     else{
         for(auto link : advanceFrom->connections){
            if(link->name==advanceTo->name){
-                if(playerList[*(playerIndex)]->negotiation[advanceTo->owner]){
+                if(playerList[*(playerIndex)]->negotiation[*advanceTo->owner]){
                     cout<<"We have negotiatiated a cease fire on this group commander!! We cannot execute this order!!"<<endl;
                     return false;
                 }
@@ -234,7 +235,7 @@ void Advance::execute(){
                 *(advanceTo->army)=attackingUnits;
                 cout<<"The attacking player has succeeded in taking over "<<advanceTo->name<<"!!"<<endl;
                 //Update Players owned Territories vector either after executing the function or during.
-                gameEngine->CheckWinCon();
+                gameEngine.checkWinCon();
             }
             else if(attackingUnits==0){
                 cout<<"The defender has successfully drove off the invaders from "<<advanceTo->name<<"!!"<<endl;
@@ -344,7 +345,7 @@ bool Negotiate::validate(){
 void Negotiate::execute(){
     if(this->validate()){
         //Find the player to negotiate with in the players negotiate array and set it to true
-        playerList[toNegotiate]->negotiation[playerIndex] = true;
+        playerList[toNegotiate]->negotiation[*playerIndex] = true;
     }
 }
 

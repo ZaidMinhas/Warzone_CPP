@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 #include "../Map/Map.h"
-#include "../Player/Player.h"
+
 
 class abOrder{
 public:
@@ -168,8 +168,6 @@ private:
     int size;
 };
 
-extern std::vector<Player*> playerList;
-extern GameEngine* gameEngine;
 
 ostream& operator<<(ostream &out,Order *o);
 

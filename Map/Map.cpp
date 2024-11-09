@@ -2,6 +2,7 @@
 using namespace std;
 #include "Map.h"
 
+int ContinentCount=0;
 
 Continent::Continent(const Continent &c){
     bonus=new int(*c.bonus);
@@ -30,7 +31,8 @@ Continent::Continent(string name, int bonus){
     this->name=new string(name);
     this->bonus=new int(bonus);
     this->nbrTerritories=new int(0);
-    this->index=new int(gameMap.continentList.size());
+    this->index=ContinentCount;
+    ContinentCount++;
 }
 string Continent::getName(){
     return *name;
@@ -197,6 +199,7 @@ int Map::addContinent(string input){
     string name=input.substr(0, input.find("="));
     int bonus = std::stoi(input.substr(input.find("=")+1, input.length()));
     continentList.push_back(Continent(name, bonus));
+    continentList.at(continentList.size()-1).index=(ContinentCount-1);
     return 0;
 }
 int Map::addTerritory(string input){
@@ -348,6 +351,7 @@ int Map::validate(){
 
 
 int Map::loadMap(string fileName){
+    
     try{
     if(gameMap.getUserInput(fileName)==1){
         gameMap.clear();

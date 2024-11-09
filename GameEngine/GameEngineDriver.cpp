@@ -7,12 +7,14 @@
 
 //Instantiate, run and delete game engine
 void testGameStates(){
-
-    
-
     gameEngine.run();
+}
 
-    //delete gameEngine;
+void testStartupPhase(){
+    gameEngine.startupPhase();
+}
+void testMainGameLoop(){
+    gameEngine.mainGameLoop();
 }
 
 // int main() {

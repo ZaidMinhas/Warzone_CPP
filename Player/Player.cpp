@@ -76,7 +76,7 @@ bool Player::hasMoreOrders() const {
 }
 
 // Return the OrdersList
-OrdersList* Player::getOrderList() { // changed - K - A2
+OrdersList* Player::getOrdersList() { // changed - K - A2
     return _orderList;
 }
 

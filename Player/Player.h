@@ -52,7 +52,7 @@ public:
     //                  Getters/Setters
     // --------------------------------------------------
     
-    OrdersList* getOrderList(); // changed - K - A2
+    OrdersList* getOrdersList(); // changed - K - A2
     std::string getName() const;
     Hand* getHand();
     std::vector<Territory*> getTerritories() const;  // New method to get owned territories - K - A2
@@ -70,7 +70,7 @@ public:
     //Operator
     Player& operator = (const Player& player);
     int*  _reinforcementPool;
-    bool negotiation;
+    std::vector<bool> negotiation;
 
 private:
     int* _id;

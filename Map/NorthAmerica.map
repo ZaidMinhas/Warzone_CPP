@@ -1,0 +1,19 @@
+[Map]
+author=Rustin Terry
+image=Asia.bmp
+wrap=yes
+scroll=horizontal
+warn=yes
+
+
+[Continents]
+North America=3
+Atlantic=1
+
+
+[Territories]
+Canada,0,0,North America,USA,Greenland
+USA,0,0,North America,Canada,Mexico
+Mexico,0,0,North America,USA
+
+Greenland,0,0,Atlantic,Canada
