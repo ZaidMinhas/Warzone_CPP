@@ -569,7 +569,7 @@ void GameEngine::mainGameLoop()
     {
         reinforcementPhase();
 
-        gameEngine.setCurrentState(new IssueOrders());
+        gameEngine.transition(new IssueOrders());
 
         for(int i=0;i<playerList.size();i++){
             *playerList.at(i)->_doneTurn=false;
@@ -577,16 +577,16 @@ void GameEngine::mainGameLoop()
 
         issueOrdersPhase();
 
-        gameEngine.setCurrentState(new ExecuteOrders());
+        gameEngine.transition(new ExecuteOrders());
 
         executeOrdersPhase();
         if (checkWinCon() == 1)
         {
-            gameEngine.setCurrentState(new Win());
+            gameEngine.transition(new Win());
         }
         else
         {
-            setCurrentState(new AssignReinforcement());
+            transition(new AssignReinforcement());
         }
     }
     std::cout<<"GameOver: ";
@@ -683,7 +683,7 @@ void GameEngine::issueOrdersPhase()
             
         }
     }
-    gameEngine.setCurrentState(new ExecuteOrders());
+    gameEngine.transition(new ExecuteOrders());
 }
 
 // ----------------------------------------------------------------
