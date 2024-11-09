@@ -28,7 +28,7 @@ void LoggingObserver::Update(ILoggable& loggable){
   	std::ofstream myfile;
 
     myfile.open("gamelog.txt", std::ios_base::app);
-    myfile << log;
+    myfile << log << "\n";
     myfile.close();
 }
 

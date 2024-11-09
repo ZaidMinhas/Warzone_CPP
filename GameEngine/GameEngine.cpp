@@ -350,12 +350,14 @@ GameEngine gameEngine = GameEngine();
 //--------------------GAME ENGINE--------------------
 GameEngine::GameEngine()
 {
+    addObserver(loggingObserver);
     gameOver = false;
     currentState = new Start();
 }
 
 GameEngine::GameEngine(GameEngine *gameEngine)
 {
+    addObserver(loggingObserver);
     gameOver = gameEngine->gameOver;
     currentState = gameEngine->currentState ? gameEngine->currentState->clone() : nullptr;
 }
@@ -410,7 +412,14 @@ void GameEngine::transition(State *state)
 {
     delete currentState;
     this->currentState = state;
+    Notify(*this);
 }
+
+
+string GameEngine::stringToLog() {
+    return "Entering State: " + getCurrentState();
+}
+
 
 string GameEngine::getCurrentState()
 {
