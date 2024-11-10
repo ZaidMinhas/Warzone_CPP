@@ -4,12 +4,14 @@ GameEngine new state: Map Loaded
 Command: validatemap
 Command's Effect: Validating Map
 GameEngine new state: Map Validated
-Command: addplayer Skibidi_Rizz_Ohio
-Command's Effect: Adding Player Skibidi_Rizz_Ohio
+Command: addplayer Rev
+Command's Effect: Adding Player Rev
 GameEngine new state: Players Added
-Command: addplayer Joe
-Command's Effect: Adding Player Joe
+Command: addplayer Rev2
+Command's Effect: Adding Player Rev2
 GameEngine new state: Players Added
 Command: gamestart
 Command's Effect: Starting Game
 GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Command: exit

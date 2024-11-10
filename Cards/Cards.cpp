@@ -44,7 +44,7 @@ Cards& Cards::operator=(const Cards& other) {
 
 //-----------------------------DECK---------------------------------
 
-Deck::Deck(): size(5) {
+Deck::Deck(): size(12) {
     fillDeck();
 
 }
@@ -73,10 +73,10 @@ void Deck::draw(Hand &hand) {
     }
     else {
         if (cards.empty()) {
-            cout << "Deck is empty";
+            cout << "Deck is empty\n";
         }
         else {
-            cout << "Hand is full";
+            cout << "Hand is full\n";
         }
     }
 }
@@ -148,14 +148,14 @@ void Hand::addCard(const Cards &card) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Hand& h) {
-    cout << "Card in hands: " << endl;
+    cout << "Cards in Hand: " << endl;
     for (int i = 0; i < h.cards.size(); i++) {
         os << "  " << i << ": " <<  h.cards[i] << endl;
     }
-    os << "\n";
-
+    //os << "\n";
     return os;
 }
+
 Hand& Hand::operator=(const Hand& other) {
     if (this != &other) { // Check for self-assignment
         size = other.size; // Copy size

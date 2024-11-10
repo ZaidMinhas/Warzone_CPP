@@ -83,9 +83,9 @@ OrdersList* Player::getOrdersList() { // changed - K - A2
     return _orderList;
 }
 
-// Print the hand cards
+// Print the hand of cards for Player
 void Player::printHand() const {
-    std::cout << _name << "'s hand cards:\n";
+    std::cout << _name << "'s ";
     std::cout << *_handCard;
 }
 

@@ -525,13 +525,16 @@ void GameEngine::gamestart()
     {
         playerList.at(i % playerList.size())->addTerritory(&gameMap.graph.at(i));
     }
-    // Determin random order of play
+    
+    std::cout <<endl; //line break for clarity
 
     // Give every Player 50 inital troops and drawing 2 cards
     for (int j = 0; j < playerList.size(); j++)
     {
         playerList.at(j)->_reinforcementPool = new int(50);
+
         playerList.at(j)->setHand(new Hand());
+        std::cout << "Drawing cards..." << endl;
         deck.draw(*playerList.at(j)->getHand());
         deck.draw(*playerList.at(j)->getHand());
         for (int i = 0; i < playerList.size(); i++)
@@ -539,12 +542,18 @@ void GameEngine::gamestart()
             playerList.at(j)->negotiation.push_back(false);
         }
         playerList.at(j)->_doneTurn=new bool(false);
+
+        //info output for each Player
+        std::cout << "\n" 
+                  << "Player "
+                  << playerList.at(j)->getName()
+                  << "\n------------------------";
         std::cout << "\n"
-                  << playerList.at(j)->getName();
-        std::cout << "\n"
+                  << "Reinforcement Pool: "
                   << *playerList.at(j)->_reinforcementPool;
         std::cout << "\n";
         playerList.at(j)->printHand();
+        std::cout << "------------------------" << "\n" << endl;
     }
 
     // Shuffle player order
