@@ -12,7 +12,6 @@
 
 using std::cin, std::string, std::ifstream;
 
-CommandProcessor commandProcessor;
 
 Command::Command(const string &command) {
     addObserver(loggingObserver);
@@ -37,9 +36,12 @@ string Command::getEffect() {
 }
 
 CommandProcessor::CommandProcessor() {
+
     addObserver(loggingObserver);
 }
 CommandProcessor::CommandProcessor(CommandProcessor* commandProcessor){}
+
+
 
 vector<string> CommandProcessor::splitCommand(const string command){
     std::stringstream ss(command);
@@ -112,19 +114,24 @@ string CommandProcessor::stringToLog() {
     return "Command: " + currentCommand->getCommand();
 }
 
+
+FileCommandProcessorAdapter::FileCommandProcessorAdapter() = default;
+
 FileCommandProcessorAdapter::FileCommandProcessorAdapter(const string& fileName):file(fileName) {
+
     if (!file.is_open()) {
         std::cerr << "Error: Could not open file " << fileName << std::endl;
     }
 }
 
-string FileCommandProcessorAdapter::readCommand()  {
+string FileCommandProcessorAdapter::readCommand() {
 
     string line;
-    if (file >> line) {
+    if (getline(file, line)) {
         return line;
     } else {
-        std::cerr << "End of file reached or error reading file.\n";
         return "";
     }
 }
+
+CommandProcessor* commandProcessor = nullptr;

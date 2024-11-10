@@ -3,4 +3,6 @@ project(Warzone_CPP)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Warzone_CPP Main.cpp)
+add_executable(Warzone_CPP Main.cpp
+        CommandProcessor/CommandProcessingDriver.cpp
+        CommandProcessor/CommandProcessor.cpp)
