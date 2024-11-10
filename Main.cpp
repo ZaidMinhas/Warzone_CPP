@@ -15,9 +15,15 @@ int main(int argc, char *argv[])
 	//testMap();
 	//testPlayer();
 	//testOrdersList();
-    	//testCards();
+    //testCards();
+	
+	//
 	testStartupPhase();
+
+	//GameEngineDriver.cpp => GameEngine.cpp
 	testMainGameLoop();
+
+	//OrderDriver.cpp
 	testOrderExecution();
 	
 	std::string s;
