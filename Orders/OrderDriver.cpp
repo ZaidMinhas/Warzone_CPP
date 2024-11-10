@@ -57,7 +57,7 @@ void testOrderExecution() {
 
     // order execution phase in the GameEngine
     std::string input;
-    gameEngine.setCurrentState(new IssueOrders());  // IssueOrders state -> should be changed to transition
+    gameEngine.transition(new IssueOrders());  // IssueOrders state -> should be changed to transition
 
     // Execute orders
     std::cout << "Executing Player1's orders:" << std::endl;
