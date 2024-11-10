@@ -146,22 +146,26 @@ void Order::execute(){}
 //Deploy order validates if the player has picked his/her territory. If that is the case it will deploy that many units onto the territory.
 
 bool Deploy::validate(){
-    cout<<*(playerIndex)<<"is validating deployment"<<endl;
-    if(toDeploy->owner==playerIndex){
+    cout<<*(playerIndex)<<" is validating deployment"<<endl;
+    cout<<*(toDeploy->owner)<<endl;
+    cout<<*(playerIndex)<<endl;
+    if(*(toDeploy->owner)==*(playerIndex)){
+        cout<<"Deploying now"<<endl;
         return true;
     }
     return false;
 }
 
 void Deploy::execute(){
-    cout<<*(playerIndex)<<"is Deploying"<<endl;
+    cout<<*(playerIndex)<<" is Deploying"<<endl;
     if(this->validate()){
-        cout<<"Deploying on: "<<toDeploy->name<<endl;
+        cout<<"Deploy Order validated!!!"<<endl;
+        cout<<"Deploying on: "<<*(toDeploy->name)<<endl;
         toDeploy->army= toDeploy->army+*(this->getNUnits());
-        cout<<"Puts a certain number of army units on a target territory"<<endl;
+        cout<<"Deployment successful"<<endl;
     }
     else{
-        cout<<"Unable to Deploy on: "<<toDeploy->name<<" for you no longer, or never did, own that territory" <<endl;
+        cout<<"Unable to Deploy on: "<<*(toDeploy->name)<<" for you no longer, or never did, own that territory" <<endl;
     }
 }
 
