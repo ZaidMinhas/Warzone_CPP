@@ -72,7 +72,10 @@ void Player::printOrder() const { // changed - K - A2
 
 // check if the player has more orders to issue
 bool Player::hasMoreOrders() const {
-    return _orderList->getSize() > 0;  // Returns true if there are orders in the list
+    if(_orderList->getCurrentOrder()->getNext()==nullptr){
+        return true;
+    }  // Returns true if there are orders in the list
+    return false;
 }
 
 // Return the OrdersList
@@ -164,8 +167,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
         Territory* toDeployIn = findTerritoryByName(toDeploy);
         int nUnits = std::stoi(args[1]);  // to convert the number of units to int 
         //Deploy* deployOrder = new Deploy(orderName, toDeploy, playerIndex, new int(nUnits));
-        Deploy* deployOrder = new Deploy(orderName, toDeployIn, playerId, &nUnits); 
-        _orderList->addOrder(deployOrder);
+        _orderList->addOrder(new Deploy(orderName, toDeployIn, playerId, &nUnits));
 
         *_reinforcementPool=*_reinforcementPool-std::stoi(args[1]);
 
@@ -180,8 +182,8 @@ void Player::issueOrder(const std::string& command, int* playerId){
         Territory* _owned = findTerritoryByName(owned);
         Territory* _target = findTerritoryByName(target);
 
-        Advance* advanceOrder = new Advance(orderName, playerId, _owned, _target, &nUnits); //territories should be the adjacent territories
-        _orderList->addOrder(advanceOrder);
+        //territories should be the adjacent territories
+        _orderList->addOrder(new Advance(orderName, playerId, _owned, _target, &nUnits));
 
     } else if (args[0] == "blockade" && *_reinforcementPool==0) { 
         //command : blockade indonesia
@@ -191,8 +193,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
             std::string target = args[1];
             Territory* _target = findTerritoryByName(target);
 
-            Blockade* blockadeOrder = new Blockade(orderName, playerId, _target); //territories should be the adjacent territories
-            _orderList->addOrder(blockadeOrder);
+            _orderList->addOrder(new Blockade(orderName, playerId, _target));
         } else {
             std::cout << "You do not have a blockade card.\n";
         }
@@ -210,9 +211,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
             Territory* _target = findTerritoryByName(target);
             int* playerIndex = playerId;
 
-            
-            Airlift* airliftOrder = new Airlift(orderName, playerIndex, _owned, _target, &nUnits);
-            _orderList->addOrder(airliftOrder);
+            _orderList->addOrder(new Airlift(orderName, playerIndex, _owned, _target, &nUnits));
         } else {
             std::cout << "You do not have an Airlift card.\n";
         }
@@ -223,15 +222,10 @@ void Player::issueOrder(const std::string& command, int* playerId){
         if (hasCardType("diplomacy")) {
             std::string orderName = args[0];
             int* playerIndex = playerId;
+            int toNegotiate = std::stoi(args[1]);
 
-            int toNegotiate;
 
-            cout<<"Which player would you like to negotiate with: ";
-
-            cin>>toNegotiate;
-
-            Negotiate* negociateOrder = new Negotiate(orderName, playerIndex, toNegotiate);
-            _orderList->addOrder(negociateOrder);
+            _orderList->addOrder(new Negotiate(orderName, playerIndex, toNegotiate));
         } else {
             std::cout << "You do not have a Negociate card.\n";
         }

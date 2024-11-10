@@ -1,8 +1,7 @@
-#ifndef ORDER_H
-#define ORDER_H
+#pragma once
 
 #include <iostream>
 
 void testOrderExecution();
 
-#endif
+

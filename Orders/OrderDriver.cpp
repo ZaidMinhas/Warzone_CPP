@@ -1,4 +1,4 @@
-#include "OrdersDriver.h"
+#include "OrderDriver.h"
 #include "../Player/Player.h"
 #include "../GameEngine/GameEngine.h"
 #include "../Map/Map.h"
@@ -53,7 +53,7 @@ void testOrderExecution() {
     player2->issueOrder("blockade vietnam",&playerID_2);
     player1->issueOrder("airlift 5 vietnam japan", &playerID_1);
     player1->issueOrder("bomb japan", &playerID_1);
-    player1->issueOrder("negociate", &playerID_1);
+    player1->issueOrder("negociate 1", &playerID_1);
 
     // order execution phase in the GameEngine
     std::string input;
@@ -61,24 +61,19 @@ void testOrderExecution() {
 
     // Execute orders
     std::cout << "Executing Player1's orders:" << std::endl;
-    while (player1->hasMoreOrders()) {
-        Order* order = player1->getOrderList()->getNextOrder();
-        if (order->validate()) {
-            order->execute();
-        } else {
-            std::cout << "Order validation failed: " << order->getOrderName() << std::endl;
-        }
-    }
+    player1->getOrdersList()->setCurrentOrder(player1->getOrdersList()->getHead()->getNext());
+    do{
+        player1->getOrdersList()->getCurrentOrder()->execute();
+        player1->getOrdersList()->setCurrentOrder(player1->getOrdersList()->getCurrentOrder()->getNext());
+    }while(player1->hasMoreOrders());
+    
     
     std::cout << "Executing Player2's orders:" << std::endl;
-    while (player2->hasMoreOrders()) {
-        Order* order = player2->getOrderList()->getNextOrder();
-        if (order->validate()) {
-            order->execute();
-        } else {
-            std::cout << "Order validation failed: " << order->getOrderName() << std::endl;
-        }
-    }
+    player2->getOrdersList()->setCurrentOrder(player2->getOrdersList()->getHead()->getNext());
+    do{
+        player1->getOrdersList()->getCurrentOrder()->execute();
+        player1->getOrdersList()->setCurrentOrder(player1->getOrdersList()->getCurrentOrder()->getNext());
+    }while(player2->hasMoreOrders());
 
     // ownership transfers, card awarding, and negotiation effect
     std::cout << "Ownership and card verification:" << std::endl;
@@ -87,7 +82,7 @@ void testOrderExecution() {
     for (auto& territory : player1->getTerritories()) {
         if (*territory->owner == player1->getID()) {
             std::cout << "Player1 conquered " << territory->name << ". Ownership transferred." << std::endl;
-            player1->getHand()->addCard(Cards("Reward Card")); // Award card for territory conquest
+            player1->getHand()->addCard(Cards()); // Award card for territory conquest
         }
     }
 
