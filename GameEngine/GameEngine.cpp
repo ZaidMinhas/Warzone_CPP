@@ -460,9 +460,9 @@ void GameEngine::startupPhase()
     while (true)
     {
         cout << "\nEnter command:";
-        input = commandProcessor.getCommand();
-        args = commandProcessor.splitCommand(input);
-        if (commandProcessor.validate(input))
+        input = commandProcessor->getCommand();
+        args = commandProcessor->splitCommand(input);
+        if (commandProcessor->validate(input))
         {
             if (args.at(0) == "loadmap")
             {
@@ -599,8 +599,8 @@ void GameEngine::mainGameLoop()
         }
     }
     std::cout<<"GameOver: ";
-    string input=commandProcessor.getCommand();
-    if(commandProcessor.validate(input)){
+    string input=commandProcessor->getCommand();
+    if(commandProcessor->validate(input)){
         if(input=="replay"){
             system("exit");
         }else if(input=="quit"){
@@ -680,7 +680,9 @@ void GameEngine::issueOrdersPhase()
 
             // checking if the player has more orders to issue
                 std::cout<<"\nEnter command:";
-                string command = commandProcessor.getCommand();
+//                string command = commandProcessor.getCommand();
+                string command;
+                cin >> command;
                 currentPlayer->issueOrder(command, &turns.at(i));
 
                 for(int j=0;j<playerList.size();j++){

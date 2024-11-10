@@ -51,6 +51,7 @@ private:
 
 class FileCommandProcessorAdapter : public CommandProcessor {
 	public:
+	FileCommandProcessorAdapter();
 	explicit FileCommandProcessorAdapter(const string& fileName);
 
 	string readCommand() override;
@@ -59,6 +60,6 @@ private:
 	std::ifstream file;
 };
 
-extern CommandProcessor commandProcessor;
+extern CommandProcessor* commandProcessor;
 
 #endif //COMMANDPROCESSOR_H

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "CommandProcessor\CommandProcessor.h"
+#include "CommandProcessor\CommandProcessingDriver.h"
 #include "Map\MapDriver.h"
 #include "GameEngine\GameEngineDriver.h"
 //#include "Player\PlayerDriver.h"
@@ -7,17 +7,15 @@
 #include "Cards\CardsDriver.h"
 int main(int argc, char *argv[])
 {	
-	if(argc==1||argv[1]=="-console"){
-		commandProcessor = CommandProcessor();
-	}else if(argc==3||argv[1]=="-file"){
-		commandProcessor = FileCommandProcessorAdapter(argv[2]);
-	}
+
 	//testMap();
 	//testPlayer();
 	//testOrdersList();
     //testCards();
-	
-	//
+
+	//Part 1 PLEASE DONT TOUCH
+	testCommandProcessor(argv);
+
 	testStartupPhase();
 
 	//GameEngineDriver.cpp => GameEngine.cpp

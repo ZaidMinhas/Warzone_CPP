@@ -1,0 +1,5 @@
+loadmap Map\Asia.map
+validatemap
+addplayer Joe
+addplayer Hann
+gamestart
