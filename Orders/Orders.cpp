@@ -146,6 +146,7 @@ void Order::execute(){}
 //Deploy order validates if the player has picked his/her territory. If that is the case it will deploy that many units onto the territory.
 
 bool Deploy::validate(){
+    cout<<*(playerIndex)<<"is validating deployment"<<endl;
     if(toDeploy->owner==playerIndex){
         return true;
     }
@@ -153,6 +154,7 @@ bool Deploy::validate(){
 }
 
 void Deploy::execute(){
+    cout<<*(playerIndex)<<"is Deploying"<<endl;
     if(this->validate()){
         cout<<"Deploying on: "<<toDeploy->name<<endl;
         toDeploy->army= toDeploy->army+*(this->getNUnits());
@@ -445,6 +447,7 @@ void OrdersList::setSize(int size){
 //methods
 //Will add an order to the end of the list
 void OrdersList::addOrder(Order* newOrder){
+    cout<<"Adding Order"<<endl;
     if(size==0){
         head->setNext(newOrder);
         tail->setPrevious(newOrder);
@@ -467,7 +470,7 @@ void OrdersList::remove(int position){
         cout<<"Position of order to remove is out of bounds"<<endl;
     }
     else{
-        cout<<"Roger that! Removing order "<<position<< "from the list"<<endl;
+        cout<<"Roger that! Removing order "<<position<< " from the list"<<endl;
         //Step 2: Seek the position of the order to remove.
         currentOrder=head->getNext();
         for(int i=1;i<=this->getSize();i++){

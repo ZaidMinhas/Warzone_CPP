@@ -681,13 +681,12 @@ void GameEngine::issueOrdersPhase()
         std::cout << "HAHA WE ARE ORDERING ISSUES NOW" << endl;
         for (int i=0;i<turns.size();i++)
         { // Iterate through players in the order specified by `turns`
-            Player *currentPlayer = playerList.at(turns.at(i));
-            displayPlayerInfo(turns.at(i)); //displays current player turn info
+            displayPlayerInfo(turns.at(i));
 
             // checking if the player has more orders to issue
                 std::cout<<"\nEnter command:";
                 string command = commandProcessor.getCommand();
-                currentPlayer->issueOrder(command, &turns.at(i));
+                playerList.at(turns.at(i))->issueOrder(command, &turns.at(i));
 
                 for(int j=0;j<playerList.size();j++){
                     if(*playerList.at(i)->_doneTurn==false){
@@ -707,56 +706,19 @@ void GameEngine::issueOrdersPhase()
 
 void GameEngine::executeOrdersPhase()
 {
-    // This will set all the orders to the start of the list.
-    for (int i = 0; i < playerList.size(); i++)
-    {
-        playerList.at(i)->getOrdersList()->setCurrentOrder(playerList.at(i)->getOrdersList()->getHead()->getNext());
-    }
-    bool *executionDone = new bool[playerList.size()];
-    bool allOrdersExecuted = false;
-    while (true)
-    {
-        // Check if each person reached the end of their order list.
-        for (int i = 0; i < playerList.size(); i++)
-        {
-            // If a player finished their list and hasn't removed their orders already, remove all the orders in that list to prepare for next round.
-            if (executionDone[i] && playerList.at(i)->getOrdersList()->getSize() != 0)
-            {
-                for (int i = 0; i < playerList.at(i)->getOrdersList()->getSize(); i++)
-                {
-                    playerList.at(i)->getOrdersList()->remove(1);
-                }
-            }
-            else
-            {
-                break;
-            }
-            // If all the players have finished their lists, break the loop.
-            if (i == playerList.size() - 1)
-            {
-                allOrdersExecuted = true;
-                delete[] executionDone;
-                executionDone = nullptr;
-
-                return;
-            }
-        }
-        // Once everyone has been checked to see if they have finished their orders, those who haven't finished will do the next order in their list.
-        for (int i = 0; i < playerList.size(); i++)
-        {
-            if (executionDone[i])
-            {
-                continue;
-            }
-            playerList.at(i)->getOrdersList()->getCurrentOrder()->execute();
-            // If the player has reached the end of the order list, notify the rest of the loop
-            if (playerList.at(i)->getOrdersList()->getSize() == i + 1)
-            {
-                executionDone[i] = true;
-            }
-            playerList.at(i)->getOrdersList()->setCurrentOrder(playerList.at(i)->getOrdersList()->getCurrentOrder()->getNext());
-        }
-    }
+    cout<<"ATTEMPTING DEPLOYMENT!!!"<<endl;
+    cout<<playerList.at(0)->getOrdersList();
+    cout<<playerList.at(1)->getOrdersList();
+    cout<<"Reached Head!!"<<endl;
+    playerList.at(0)->getOrdersList()->setCurrentOrder(playerList.at(0)->getOrdersList()->getHead()->getNext());
+    playerList.at(1)->getOrdersList()->setCurrentOrder(playerList.at(1)->getOrdersList()->getHead()->getNext());
+    playerList.at(0)->getOrdersList()->getCurrentOrder()->execute();
+    playerList.at(1)->getOrdersList()->getCurrentOrder()->execute();
+    playerList.at(0)->getOrdersList()->remove(1);
+    playerList.at(1)->getOrdersList()->remove(1);      
+    // Once everyone has been checked to see if they have finished their orders, those who haven't finished will do the next order in their list.
+        
+    
 }
 
 int GameEngine::checkWinCon()
