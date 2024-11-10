@@ -7,11 +7,10 @@ GameEngine new state: Map Validated
 Command: addplayer Rev
 Command's Effect: Adding Player Rev
 GameEngine new state: Players Added
-Command: addplayer Rev2
-Command's Effect: Adding Player Rev2
+Command: addplayer Adam
+Command's Effect: Adding Player Adam
 GameEngine new state: Players Added
 Command: gamestart
 Command's Effect: Starting Game
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
-Command: exit

@@ -615,16 +615,21 @@ void GameEngine::mainGameLoop()
 
 void GameEngine::reinforcementPhase()
 {
+    //lets player know reinforcement phase has started
+    std::cout << "New troops have arrived!" << endl;
+
     for (int i = 0; i < playerList.size(); i++)
     {
         int reinforcement=0;
         int* continentOwn = new int[gameMap.continentList.size()];
-        // Reset all players negotiation arrays so that everything is false.
+        // Reset:
+        // reset's all players negotiation arrays so that everything is false.
         for (int j = 0; j < playerList.size(); j++)
         {
             playerList.at(i)->negotiation.at(j) = false;
         }
-        // Reset all territories that have -2 as owner to previous owner, This needs to be done before reinforcements can begin.
+        // Reset:
+        // reset's all territories that have -2 as owner to previous owner, This needs to be done before reinforcements can begin.
         for (int j = 0; j < gameMap.graph.size(); j++)
         {
             if (*gameMap.graph.at(j).owner == playerList.at(i)->getID())
@@ -639,7 +644,7 @@ void GameEngine::reinforcementPhase()
                 continentOwn[index]++;
             }
         }
-        std::cout<<"\nReinforcements for "<<playerList.at(i)->getName()<<": "<<reinforcement;//DEMO
+        std::cout<<"Reinforcements for "<<playerList.at(i)->getName()<<": "<<reinforcement;//DEMO
         reinforcement = std::floor((double)reinforcement / 3.00);
         int bonus=0;
         for (int k = 0; k < gameMap.continentList.size(); k++)
@@ -658,7 +663,8 @@ void GameEngine::reinforcementPhase()
         }
         *playerList.at(i)->_reinforcementPool = *playerList.at(i)->_reinforcementPool + reinforcement;
     }
-    
+
+    std::cout << "\n"; //new line for clarity
 }
 
 // ----------------------------------------------------------------
@@ -672,11 +678,11 @@ void GameEngine::issueOrdersPhase()
     while (!allPlayersDone)
     {
         allPlayersDone = true; // when all players are done for this round
-
+        std::cout << "HAHA WE ARE ORDERING ISSUES NOW" << endl;
         for (int i=0;i<turns.size();i++)
         { // Iterate through players in the order specified by `turns`
             Player *currentPlayer = playerList.at(turns.at(i));
-            displayPlayerInfo(turns.at(i));
+            displayPlayerInfo(turns.at(i)); //displays current player turn info
 
             // checking if the player has more orders to issue
                 std::cout<<"\nEnter command:";
@@ -789,7 +795,7 @@ int GameEngine::checkWinCon()
     return 0;
 }
 
-
+//Display's a players current info on their turn
 void GameEngine::displayPlayerInfo(int id){
     std::cout<<"\nName: "<<playerList.at(id)->getName();
     std::cout<<"\nReinforcement Pool: "<<*playerList.at(id)->_reinforcementPool;
