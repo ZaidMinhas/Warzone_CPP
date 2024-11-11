@@ -687,7 +687,7 @@ void GameEngine::issueOrdersPhase()
         std::cout << "HAHA WE ARE ORDERING ISSUES NOW" << endl;
         for (int i=0;i<turns.size();i++)
         { // Iterate through players in the order specified by `turns`
-            //displayPlayerInfo(turns.at(i));
+            displayPlayerInfo(turns.at(i));
 
             // checking if the player has more orders to issue
                 std::cout<<"\nEnter command:";
@@ -718,7 +718,6 @@ void GameEngine::executeOrdersPhase()
     cout<<"ATTEMPTING DEPLOYMENT!!!"<<endl;
     cout<<playerList.at(0)->getOrdersList();
     cout<<playerList.at(1)->getOrdersList();
-    cout<<"Reached Head!!"<<endl;
     playerList.at(0)->getOrdersList()->setCurrentOrder(playerList.at(0)->getOrdersList()->getHead()->getNext());
     playerList.at(1)->getOrdersList()->setCurrentOrder(playerList.at(1)->getOrdersList()->getHead()->getNext());
     playerList.at(0)->getOrdersList()->getCurrentOrder()->execute();
