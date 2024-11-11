@@ -1,0 +1,21 @@
+Command: loadmap Map\Asia.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer Joe
+Command's Effect: Adding Player Joe
+GameEngine new state: Players Added
+Command: addplayer Hann
+Command's Effect: Adding Player Hann
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: deploy
+Order Issued: deploy
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: deploy
