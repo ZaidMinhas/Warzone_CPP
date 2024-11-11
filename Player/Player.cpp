@@ -188,8 +188,20 @@ void Player::issueOrder(const std::string& command, int* playerId){
         // Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits) - signature
         std::string orderName = args[0];  
         int* nUnits = new int(std::stoi(args[1]));
+        int counter = 2;
         std::string owned = args[2];
-        std::string target = args[3];
+        for(counter=3;counter<args.size();counter++){
+            if(args[counter] == ","){
+                break;
+            }
+            else{
+                owned += " "+args[counter];
+            }
+        }
+        std::string target = args[++counter];
+        for(++counter;counter<args.size();counter++){
+            target += " "+args[counter];
+        }
         cout<<"Advancing to: "<<owned<<endl;
         cout<<"Advancing From: "<<target<<endl;
 

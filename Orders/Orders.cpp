@@ -244,12 +244,12 @@ void Advance::execute(){
             if(*(advanceTo->army)==0 && attackingUnits!=0){
                 *(advanceTo->owner)=*(playerIndex);
                 *(advanceTo->army)=attackingUnits;
-                cout<<"The attacking player has succeeded in taking over "<<advanceTo->name<<"!!"<<endl;
+                cout<<"The attacking player has succeeded in taking over "<<*(advanceTo->name)<<"!!"<<endl;
                 //Update Players owned Territories vector either after executing the function or during.
                 gameEngine.checkWinCon();
             }
             else if(attackingUnits==0){
-                cout<<"The defender has successfully drove off the invaders from "<<advanceTo->name<<"!!"<<endl;
+                cout<<"The defender has successfully drove off the invaders from "<<*(advanceTo->name)<<"!!"<<endl;
             }
 
         }
@@ -268,8 +268,8 @@ bool Bomb::validate(){
         if(*(link->owner)==*(playerIndex)){
             return true;
         }
-        cout<<"The opponent you want to bomb is not in the vicinity of a territory you own commander!! We cannot reach that territory to bomb."<<endl;
     }
+    cout<<"The opponent you want to bomb is not in the vicinity of a territory you own commander!! We cannot reach that territory to bomb."<<endl;
     return false;
 }
 //If bombing target has been validated, it will remove half of the units from that territory
@@ -362,7 +362,7 @@ bool Negotiate::validate(){
 void Negotiate::execute(){
     if(this->validate()){
         //Find the player to negotiate with in the players negotiate array and set it to true
-        cout<<"Proceeding to send a cease fire negotiation with player "<<playerList.at(toNegotiate)<<endl;
+        cout<<"Proceeding to send a cease fire negotiation with player "<<(playerList.at(toNegotiate)->getName())<<endl;
         playerList[toNegotiate]->negotiation[*playerIndex] = true;
         Notify(*this);
     }
