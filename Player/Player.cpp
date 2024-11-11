@@ -207,8 +207,8 @@ void Player::issueOrder(const std::string& command, int* playerId){
         if (hasCardType("blockade")) {
             std::string orderName = args[0]; 
             std::string target = args[1];
-            if (args.size() == 4) {
-                target += " " + args[3];
+            if (args.size() == 3) {
+                target += " " + args[2];
             }
             Territory* _target = findTerritoryByName(target);
 
@@ -257,6 +257,9 @@ void Player::issueOrder(const std::string& command, int* playerId){
         if (hasCardType("bomb")) { 
             std::string orderName = args[0];  
             std::string target = args[1];
+            if (args.size() == 3) {
+                target += " " + args[2];
+            }
             Territory* _target = findTerritoryByName(target);
             int* playerIndex = playerId;
 

@@ -274,6 +274,7 @@ bool Bomb::validate(){
 }
 //If bombing target has been validated, it will remove half of the units from that territory
 void Bomb::execute(){
+    cout<<"You may fire when ready!! Attempting bomb order!!"<<endl;
     if(this->validate()){
         cout<<"FIRE IN THE HOOOOOOOOOLE!!! "<<*(toBomb->name)<<" will be hit with the bomb and lose half their units!!"<<endl;
         *(toBomb->army) = *(toBomb->army)/2;
@@ -300,6 +301,7 @@ void Blockade::execute(){
         cout<<"Initiating Blockade on: "<<*(toBlock->name)<<endl;
         *(toBlock->army) = *(toBlock->army)*2;
         *(toBlock->owner) = -2;
+        cout<<"Blockade Successful"<<endl;
         Notify(*this);
     }
 }
