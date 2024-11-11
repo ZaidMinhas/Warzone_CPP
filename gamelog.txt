@@ -16,15 +16,10 @@ GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
 Order Issued: deploy
 Order Issued: deploy
+Order Issued: blockade
+Order Issued: bomb
+Order Issued: negotiate
 GameEngine new state: Execute Orders
 GameEngine new state: Execute Orders
 Order Executed: deploy
 Order Executed: deploy
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
-Order Issued: deploy
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-Order Executed: deploy
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
