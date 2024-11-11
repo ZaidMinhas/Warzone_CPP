@@ -719,7 +719,6 @@ void GameEngine::executeOrdersPhase()
     cout<<"ATTEMPTING DEPLOYMENT!!!"<<endl;
     cout<<playerList.at(0)->getOrdersList();
     cout<<playerList.at(1)->getOrdersList();
-    cout<<"Reached Head!!"<<endl;
     playerList.at(0)->getOrdersList()->setCurrentOrder(playerList.at(0)->getOrdersList()->getHead()->getNext());
     playerList.at(1)->getOrdersList()->setCurrentOrder(playerList.at(1)->getOrdersList()->getHead()->getNext());
     playerList.at(0)->getOrdersList()->getCurrentOrder()->execute();
