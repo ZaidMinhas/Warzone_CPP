@@ -181,7 +181,6 @@ void Deploy::execute(){
 *3. If the owner of the territory the player wants to advance to has not executed a negotiate order to the player. (If the player is moving to a territory they own, it will check anyway but it will always be false)
 * If any of these conditions are not met. The order will not be executed.
 */
-// deploy 58 Singapour
 
 bool Advance::validate(){
     cout<<"Attempting validation of advance order!!"<<endl;
