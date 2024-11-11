@@ -688,7 +688,8 @@ void GameEngine::issueOrdersPhase()
 //                string command = commandProcessor.getCommand();
                 string command;
                 cin >> command;
-                currentPlayer->issueOrder(command, &turns.at(i));
+//                currentPlayer->issueOrder(command, &turns.at(i));
+            playerList.at(turns.at(i))->issueOrder(command, &turns.at(i));
 
                 for(int j=0;j<playerList.size();j++){
                     if(*playerList.at(i)->_doneTurn==false){

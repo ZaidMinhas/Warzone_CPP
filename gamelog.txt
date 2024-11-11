@@ -1,58 +1,16 @@
-Command: loadmap Map/Asia.map
+Command: loadmap Map\Asia.map
 Command's Effect: Loading Map
 GameEngine new state: Map Loaded
 Command: validatemap
 Command's Effect: Validating Map
 GameEngine new state: Map Validated
-Command: addplayer Adam
-Command's Effect: Adding Player Adam
 Command: addplayer Joe
 Command's Effect: Adding Player Joe
 GameEngine new state: Players Added
 Command: addplayer Hann
 Command's Effect: Adding Player Hann
 GameEngine new state: Players Added
-Command: addplayer Rev
-Command's Effect: Adding Player Rev
-GameEngine new state: Players Added
-Command: addplayer Adam
-Command's Effect: Adding Player Adam
-GameEngine new state: Players Added
 Command: gamestart
 Command's Effect: Starting Game
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-Command: Deploy 50 Signapore
-Command: deploy 50 Brunei
-Command: done
-Command: done
-Command: done
-Command: done
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
-Command: done
-Command: done
-Command: done
-Command: done
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
-Command: done
-Command: done
-Command: done
-Command: done
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
->>>>>>> Stashed changes
-=======
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
->>>>>>> origin/main
