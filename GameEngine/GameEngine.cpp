@@ -829,7 +829,10 @@ void GameEngine::displayPlayerInfo(int id){
               << playerList.at(id)->getID();
 
     std::cout <<"\nCurrent Reinforcement Pool: "
-              << *playerList.at(id)->_reinforcementPool << endl;
+              << *playerList.at(id)->_reinforcementPool;
+    //Cards in hand
+    std::cout <<"\n";
+    playerList.at(id)->printHand();
     
     //Displays every single territory a player can attack
     std::vector<Territory*> v;
