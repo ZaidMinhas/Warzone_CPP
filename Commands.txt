@@ -1,4 +1,4 @@
-loadmap Map\Asia.map
+loadmap Map\NorthAmerica.map
 validatemap
 addplayer Joe
 addplayer Hann

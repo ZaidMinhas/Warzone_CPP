@@ -688,15 +688,9 @@ void GameEngine::issueOrdersPhase()
         for (int i=0;i<turns.size();i++)
         {  
             //skips player's turn if theyre done :)
-            if(*playerList.at(i)->_doneTurn==true){
-                std::cout << "\n\n" << playerList.at(i)->getName() 
-                          << " is done issuing orders." << endl;
-                continue;
-            }
-
-            else{
+            if(*playerList.at(i)->_doneTurn == false){
                 displayPlayerInfo(turns.at(i));
-
+                
             // Takes in a player's command
                 std::cout<<"\nEnter command:";
                 string command;
@@ -704,12 +698,19 @@ void GameEngine::issueOrdersPhase()
 
                 playerList.at(turns.at(i))->issueOrder(command, &turns.at(i));
             }
+
+            else{
+                std::cout << "\n\n" << playerList.at(i)->getName() 
+                          << " is done issuing orders." << endl;
+                *playerList.at(i)->_doneTurn == false;
+            }
+
         }
 
         allPlayersDone = true;
 
-        for(int j=0;j<playerList.size();j++){
-            if(*playerList.at(j)->_doneTurn==false){
+        for(int j=0; j<playerList.size(); j++){
+            if(*playerList.at(j)->_doneTurn == false){
                     allPlayersDone = false; // since this player issued an order, not all players are done
             }
         }
