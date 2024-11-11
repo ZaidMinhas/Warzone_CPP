@@ -27,9 +27,12 @@ Deploy::Deploy():Order(),toDeploy(nullptr),nUnits(new int (0)) {
     addObserver(loggingObserver);
 }
 
-Deploy::Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits):Order(orderName,playerIndex),toDeploy(toDeploy),nUnits(nUnits){addObserver(loggingObserver);}
+Deploy::Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits):Order(orderName,playerIndex),toDeploy(toDeploy),nUnits(nUnits){
+    cout<<"Number of Units after deploy construction: "<<*(this->nUnits)<<endl;
+    addObserver(loggingObserver);
+}
 
-Deploy::Deploy(Deploy* deployCopy):Order(deployCopy),toDeploy(deployCopy->toDeploy),nUnits(new int(*(deployCopy->nUnits))){addObserver(loggingObserver);}
+Deploy::Deploy(Deploy* deployCopy):Order(deployCopy),toDeploy(deployCopy->toDeploy),nUnits(new int(*(deployCopy->nUnits))){ addObserver(loggingObserver);}
 
 Deploy::~Deploy(){}
 
@@ -498,6 +501,26 @@ void OrdersList::addOrder(Order* newOrder){
         tail->getPrevious()->setNext(newOrder);
         tail->setPrevious(newOrder);
     }
+    Notify(*this);
+    size++;
+}
+
+void OrdersList::addOrder(Deploy* newOrder){
+    cout<<"Adding Deploy Order"<<endl;
+    if(size==0){
+        head->setNext(newOrder);
+        tail->setPrevious(newOrder);
+        newOrder->setPrevious(head);
+        newOrder->setNext(tail);
+    }
+    else{
+       //Step 1:set next of newOrder to tail.
+        newOrder->setNext(tail);
+        newOrder->setPrevious(tail->getPrevious());
+        tail->getPrevious()->setNext(newOrder);
+        tail->setPrevious(newOrder);
+    }
+    cout<<"Number of Units after adding: "<<*(newOrder->getNUnits());
     Notify(*this);
     size++;
 }

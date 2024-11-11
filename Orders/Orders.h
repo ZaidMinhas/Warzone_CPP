@@ -161,6 +161,7 @@ public:
     void setSize(int size);
     //methods
     void addOrder(Order* order);//Will add an order to the end of the list.
+	void addOrder(Deploy* order);//Will add an order to the end of the list.
     void move(int position1,int position2);/*Will seek the position of the order to move. Then will look for the order before position to be move.
     Then but it in between that and the order currently on the position.*/
 
