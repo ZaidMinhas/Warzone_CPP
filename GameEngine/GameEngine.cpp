@@ -628,10 +628,11 @@ void GameEngine::reinforcementPhase()
     std::cout << "\nNew troops have arrived!" << endl;
 
     // Reset:
-    // reset's all territories that have -2 as owner to previous owner, This needs to be done before reinforcements can begin.
+    // reset's all territories that have -2 as owner to previous owner and reduce the size by half, This needs to be done before reinforcements can begin.
     for(int j=0;j<gameMap.graph.size();j++){
         if(*gameMap.graph.at(j).owner<-1){
             *gameMap.graph.at(j).owner=((*gameMap.graph.at(j).owner)+2)*(-1);
+            *gameMap.graph.at(j).army=*gameMap.graph.at(j).army/2;
         }
     }
 
