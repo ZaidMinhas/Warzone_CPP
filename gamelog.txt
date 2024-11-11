@@ -14,19 +14,3 @@ Command: gamestart
 Command's Effect: Starting Game
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
-Order Issued: deploy
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-Order Executed: deploy
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
-Order Issued: deploy
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-Order Executed: deploy
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders

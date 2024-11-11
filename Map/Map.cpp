@@ -10,8 +10,10 @@ Continent::Continent(const Continent &c){
     nbrTerritories=new int(0);
 }
 
+//Outputs Continent Information :))
 std::ostream & operator << (std::ostream &out, const Continent &c){
-    std::cout<<"Name: "<<*c.name<<"\nBonus: "<<*c.bonus<<"\n";
+    std::cout<<*c.name
+             <<" bonus: "<<*c.bonus;
     return std::cout;
 }
 
@@ -56,8 +58,18 @@ Territory::Territory(const Territory &t){
 
 }
 
+//Outputs Territory Info :) 
 std::ostream & operator << (std::ostream &out, const Territory &t){
-    std::cout<<"Contient: \n"<<*t.pContient<<"\nName: "<<*t.name<<"\nArmy: "<<*t.army<<"\nx: "<<*t.x<<"\ny: "<<*t.y<<"\nOwner: "<<*t.owner;
+    std::cout 
+              
+              <<"\n- "<<*t.name << " -" //country's name
+              <<"\nOwner ID#: "<<*t.owner 
+              <<"\nArmy = "<<*t.army
+              <<"\n(x, y): (" << *t.x << ", " << *t.y << ")" //coordinates
+             //<<"\nContient: \n"
+              <<"\n"<<*t.pContient
+              << endl;
+
     return std::cout;
 }
 
