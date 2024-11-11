@@ -624,6 +624,14 @@ void GameEngine::reinforcementPhase()
     //lets player know reinforcement phase has started
     std::cout << "\nNew troops have arrived!" << endl;
 
+    // Reset:
+    // reset's all territories that have -2 as owner to previous owner, This needs to be done before reinforcements can begin.
+    for(int j=0;j<gameMap.graph.size();j++){
+        if(*gameMap.graph.at(j).owner<-1){
+            *gameMap.graph.at(j).owner=((*gameMap.graph.at(j).owner)+2)*(-1);
+        }
+    }
+
     for (int i = 0; i < playerList.size(); i++)
     {
         int reinforcement=0;
@@ -634,8 +642,7 @@ void GameEngine::reinforcementPhase()
         {
             playerList.at(i)->negotiation.at(j) = false;
         }
-        // Reset:
-        // reset's all territories that have -2 as owner to previous owner, This needs to be done before reinforcements can begin.
+        
         for (int j = 0; j < gameMap.graph.size(); j++)
         {
             if (*gameMap.graph.at(j).owner == playerList.at(i)->getID())
