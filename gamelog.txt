@@ -26,9 +26,11 @@ Order Issued: deploy
 GameEngine new state: Execute Orders
 GameEngine new state: Execute Orders
 Order Executed: deploy
+Order Executed: deploy
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
 Order Issued: deploy
+Order Issued: advance
 Order Issued: advance
 GameEngine new state: Execute Orders
 GameEngine new state: Execute Orders
@@ -51,3 +53,6 @@ GameEngine new state: Win
 Command: quit
 Command's Effect: Quitting Game
 GameEngine new state: End
+Order Executed: advance
+GameEngine new state: Win
+Command: 
