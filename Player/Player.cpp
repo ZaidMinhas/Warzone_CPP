@@ -190,9 +190,13 @@ void Player::issueOrder(const std::string& command, int* playerId){
         int* nUnits = new int(std::stoi(args[1]));
         std::string owned = args[2];
         std::string target = args[3];
+        cout<<"Advancing to: "<<owned<<endl;
+        cout<<"Advancing From: "<<target<<endl;
 
         Territory* _owned = findTerritoryByName(owned);
         Territory* _target = findTerritoryByName(target);
+
+        cout<<*(_target->name)<<endl;
 
         //territories should be the adjacent territories
         _orderList->addOrder(new Advance(orderName, playerId, _owned, _target, nUnits));
@@ -207,6 +211,8 @@ void Player::issueOrder(const std::string& command, int* playerId){
                 target += " " + args[3];
             }
             Territory* _target = findTerritoryByName(target);
+
+            cout<<*(_target->name)<<"Is preparing a blockade!!!"<<endl;
 
             _orderList->addOrder(new Blockade(orderName, playerId, _target));
         } else {
@@ -253,6 +259,8 @@ void Player::issueOrder(const std::string& command, int* playerId){
             std::string target = args[1];
             Territory* _target = findTerritoryByName(target);
             int* playerIndex = playerId;
+
+            cout<<"Target to be bombed "<<*(_target->name)<<endl;
 
             Bomb* bombOrder = new Bomb(orderName, playerIndex, _target);
             _orderList->addOrder(bombOrder);

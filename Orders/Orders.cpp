@@ -184,6 +184,7 @@ void Deploy::execute(){
 // deploy 58 Singapour
 
 bool Advance::validate(){
+    cout<<"Attempting validation of advance order!!"<<endl;
     if(*(advanceFrom->owner)!=*(playerIndex)){
         cout<<"Unable to execute Advance order!! You do not own "<<advanceFrom->name<<endl;
         return false;
@@ -199,12 +200,14 @@ bool Advance::validate(){
            } 
         }
     }
-    cout<<"Unable to execute Advance order!! "<<advanceFrom->name<<" does not connect to "<<advanceTo->name<<"!!"<<endl;
+    cout<<"Unable to execute Advance order!! "<<*(advanceFrom->name)<<" does not connect to "<<*(advanceTo->name)<<"!!"<<endl;
     return false;
 }
 
 void Advance::execute(){
+    cout<<"Commencing the Advance from "<<*(advanceFrom->name)<<" to "<<*(advanceTo->name)<<" with "<<*(nUnits)<<" units!!"<<endl;
     if(this->validate()){
+        cout<<"Advance Order has been successfully validated!!"<<endl;
         //Will first check if it is advancing on a territory owned by the player, no one, or by an opponent. If no one owns it or its owned by the player. No need for combat.
         if(*(advanceTo->owner)==*(playerIndex)||*(advanceTo->owner)==-1){
             //If the number of units is greater than the number of units the player can advance form the territory, take the whole army and add it into the territory to advance to and set the territory of where the units came from to 0.
@@ -261,6 +264,7 @@ void Advance::execute(){
 
 /*In bomb order. If the none of the neighbouring territories to the territory to bomb are owned by the player. Then the player cannot execute the bomb order*/
 bool Bomb::validate(){
+    cout<<"Checking if target is possible for bombing!!!"<<endl;
     for(auto link : toBomb->connections){
         if(*(link->owner)==*(playerIndex)){
             return true;
@@ -275,9 +279,6 @@ void Bomb::execute(){
         cout<<"FIRE IN THE HOOOOOOOOOLE!!! "<<*(toBomb->name)<<" will be hit with the bomb and lose half their units!!"<<endl;
         *(toBomb->army) = *(toBomb->army)/2;
     }
-    else{
-        cout<<"Unable to execute order: "<<this<<endl;
-    }
 }
 
 // ----------------------------------------------------------------
@@ -286,6 +287,7 @@ void Bomb::execute(){
 
 //Blockade will check if the player owns that territory.
 bool Blockade::validate(){
+    cout<<"Attempting to check validity of blockade order"<<endl;
     if(*(toBlock->owner)!=*(playerIndex)){
         cout<<"Commander, "<<*(toBlock->owner)<<" is under enemy command!! We cannot execute the blockade."<<endl;
         return false;
@@ -346,6 +348,7 @@ void Airlift::execute(){
 //Negotiate will check if the player is not negotiating with the himself/herself.
 
 bool Negotiate::validate(){
+    cout<<"Checking if player issueing order is not negotiating with themselves!!!"<<endl;
     if(toNegotiate==*(playerIndex)){
         cout<<"Commander!! Have you gone mad?! We cannot issue a negotiate order with yourself!!"<<endl;
         return false;
@@ -358,6 +361,7 @@ bool Negotiate::validate(){
 void Negotiate::execute(){
     if(this->validate()){
         //Find the player to negotiate with in the players negotiate array and set it to true
+        cout<<"Proceeding to send a cease fire negotiation with player "<<playerList.at(toNegotiate)<<endl;
         playerList[toNegotiate]->negotiation[*playerIndex] = true;
         Notify(*this);
     }
@@ -535,7 +539,7 @@ void OrdersList::remove(int position){
         cout<<"Position of order to remove is out of bounds"<<endl;
     }
     else{
-        cout<<"Roger that! Removing order "<<position<< " from the list"<<endl;
+        //cout<<"Roger that! Removing order "<<position<< " from the list"<<endl;
         //Step 2: Seek the position of the order to remove.
         currentOrder=head->getNext();
         for(int i=1;i<=this->getSize();i++){
