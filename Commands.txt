@@ -1,5 +1,6 @@
 loadmap Map\NorthAmerica.map
 validatemap
 addplayer Joe
-addplayer Hann
+addplayer Hannah
 gamestart
+quit
