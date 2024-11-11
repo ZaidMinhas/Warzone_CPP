@@ -687,25 +687,36 @@ void GameEngine::issueOrdersPhase()
         // Iterate through players in the order specified by `turns`
         for (int i=0;i<turns.size();i++)
         {  
+            /* //BUG TESTING CHECKS:
+            std::cout << "Turn Order = "<<endl;
+            for (int i = 0; i < turns.size(); i++){
+                std::cout << turns.at(i) << " ";}
+
+            std::cout << "\nPlayer List Order = "<<endl;
+            for (int i = 0; i < playerList.size(); i++){
+                std::cout << playerList.at(i)->getName() << " ";}*/
+            
             //skips player's turn if theyre done :)
-            if(*playerList.at(i)->_doneTurn == false){
+            if (*playerList.at(turns.at(i))->_doneTurn == true){
+                std::cout << "\n\n" << playerList.at(i)->getName() 
+                         << " is done issuing orders.\n" << endl;
+            }
+
+            //runs player's turn for giving out orders!
+            else if (*playerList.at(turns.at(i))->_doneTurn == false) {
                 displayPlayerInfo(turns.at(i));
                 
-            // Takes in a player's command
+                // Takes in a player's command
                 std::cout<<"\nEnter command:";
                 string command;
                 std::getline(cin, command);
 
                 playerList.at(turns.at(i))->issueOrder(command, &turns.at(i));
-            }
-
-            else{
-                std::cout << "\n\n" << playerList.at(i)->getName() 
-                          << " is done issuing orders." << endl;
-                *playerList.at(i)->_doneTurn == false;
-            }
-
+            }  
         }
+        //NOTE: playerList != turns list
+        //      since playerList != turns, gotta make sure to check specifically at whichever 
+        //      turns ID we're at in the playerList
 
         allPlayersDone = true;
 
