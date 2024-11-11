@@ -18,10 +18,21 @@ Command::Command(const string &command) {
     this->command = command;
 }
 
+Command::Command(Command& command) {
+    addObserver(loggingObserver);
+    this->command = command.command;
+
+}
+
+
+
+
 void Command::saveEffect(const string& effect) {
     this->effect = effect;
     Notify(*this);
 }
+
+
 
 string Command::stringToLog() {
     return "Command's Effect: " + this->effect;
@@ -36,11 +47,13 @@ string Command::getEffect() {
 }
 
 CommandProcessor::CommandProcessor() {
+    addObserver(loggingObserver);
 
+}
+CommandProcessor::CommandProcessor(CommandProcessor* commandProcessor) {
+    this->commands = vector<Command*>(commandProcessor->commands);
     addObserver(loggingObserver);
 }
-CommandProcessor::CommandProcessor(CommandProcessor* commandProcessor){}
-
 
 
 vector<string> CommandProcessor::splitCommand(const string command){

@@ -559,7 +559,7 @@ void GameEngine::gamestart()
         std::cout << "\n";
         //Player's cards in hand
         playerList.at(j)->printHand();
-        std::cout << "------------------------" << "\n" << endl;
+        std::cout << "------------------------" << endl;
     }
 
     // Shuffle player order
@@ -622,7 +622,7 @@ void GameEngine::mainGameLoop()
 void GameEngine::reinforcementPhase()
 {
     //lets player know reinforcement phase has started
-    std::cout << "New troops have arrived!" << endl;
+    std::cout << "\nNew troops have arrived!" << endl;
 
     for (int i = 0; i < playerList.size(); i++)
     {

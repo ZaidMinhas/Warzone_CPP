@@ -20,6 +20,9 @@ private:
 	string effect;
 public:
 	explicit Command(const string &command);
+	Command(Command &command);
+	~Command() = default;
+
 	void saveEffect(const string &effect);
 	string stringToLog() override;
 	string getCommand();
@@ -31,6 +34,7 @@ class CommandProcessor : public ILoggable, Subject {
 		vector<Command*> commands;
 		CommandProcessor();
 		explicit CommandProcessor(CommandProcessor*);
+		CommandProcessor(CommandProcessor &);
 		virtual ~CommandProcessor() = default;
 
 		string stringToLog() override;
