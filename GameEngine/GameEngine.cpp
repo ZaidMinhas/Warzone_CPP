@@ -497,7 +497,7 @@ void GameEngine::startupPhase()
                 string name;
                 name = args.at(1);
                 playerList.push_back(new Player(name, this->playerCount));
-                this->playerCount++;
+                *(this->playerCount) = *(this->playerCount)+1;
                 transition(new PlayersAdded());
             }
             else if (args.at(0) == "gamestart")
