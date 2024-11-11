@@ -283,9 +283,12 @@ void Player::issueOrder(const std::string& command, int* playerId){
             std::cout << "You do not have a Bomb card.\n";
         }
 
+    // Player has done turn
     }else if(args[0]=="done"){
             *this->_doneTurn=true;
-        } else {
+        } 
+    
+    else {
         std::cout << "Command: " << args[0] << " failed to process." << std::endl;
     }
 
