@@ -865,27 +865,41 @@ void GameEngine::displayPlayerInfo(int id){
     playerList.at(id)->printHand();
     
     //Displays every single territory a player can attack
-    std::vector<Territory*> v;
-    v=playerList.at(id)->toAttack();
+    // --> display problem: not showing properly the player's territories to attack
+    //std::vector<Territory*> v;
+    //v=playerList.at(id)->toAttack();
+    std::vector<Territory*> attackList = playerList.at(id)->toAttack(); //Refresh and display every single territory a player can attack
 
-    std::cout <<"\n--------------";
-    std::cout <<"\n| Can Attack |\n";
-    std::cout <<"--------------" << endl;
-
-    //std::cout<<*v.at(0)<<"\n";
-    for (int i=0;i<v.size();i++){
-        std::cout<<*v.at(i)<<"\n";
+    std::cout << "\n--------------";
+    std::cout << "\n| Can Attack |\n";
+    std::cout << "--------------" << endl;
+    for (Territory* territory : attackList) {
+        std::cout << *territory << "\n";
     }
 
-    //Displays every single territory a player can defend
-    v=playerList.at(id)->toDefend();
+    //std::cout<<*v.at(0)<<"\n";
+    //for (int i=0;i<v.size();i++){
+       // std::cout<<*v.at(i)<<"\n";
+    //}
 
-    std::cout <<"\n--------------";
+    //Displays every single territory a player can defend
+    //v=playerList.at(id)->toDefend();
+
+    // refresh and display every single territory a player can defend -- fix
+    std::vector<Territory*> defendList = playerList.at(id)->toDefend();
+    std::cout << "\n--------------";
+    std::cout << "\n| To Defend |\n";
+    std::cout << "--------------" << endl;
+    for (Territory* territory : defendList) {
+        std::cout << *territory << "\n";
+    }
+
+    /*std::cout <<"\n--------------";
     std::cout <<"\n| To Defend |\n";
     std::cout <<"--------------" << endl;
 
     //std::cout<<*v.at(0)<<"\n";
     for (int i=0;i<v.size();i++){
         std::cout<<*v.at(i)<<"\n";
-    }
+    }*/
 }

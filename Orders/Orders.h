@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 #include "../Map/Map.h"
-#include "..\LoggingObserver/LoggingObserver.h"
+#include "../LoggingObserver/LoggingObserver.h"
 
 class abOrder{
 public:
