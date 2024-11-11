@@ -166,10 +166,11 @@ void Player::issueOrder(const std::string& command, int* playerId){
         std::string toDeploy = args[2];   // e.g., the territory name
         Territory* toDeployIn = findTerritoryByName(toDeploy);
         int nUnits = std::stoi(args[1]);  // to convert the number of units to int 
+        std::cout << nUnits;
         //Deploy* deployOrder = new Deploy(orderName, toDeploy, playerIndex, new int(nUnits));
         _orderList->addOrder(new Deploy(orderName, toDeployIn, playerId, &nUnits));
 
-        *_reinforcementPool=*_reinforcementPool-std::stoi(args[1]);
+        *_reinforcementPool = *_reinforcementPool - std::stoi(args[1]);
 
     } else if (args[0] == "advance" && *_reinforcementPool==0) { //player should deploy all the units before advancing // more conditions?
         //command : advance 12 iraq iran

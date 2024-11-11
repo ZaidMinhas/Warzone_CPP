@@ -783,14 +783,16 @@ void GameEngine::displayPlayerInfo(int id){
     v=playerList.at(id)->toAttack();
 
     std::cout<<"\nTo Attack:\n";
-    for (int i=0;i<v.size();i++){
-        std::cout<<*v.at(i)<<"\n";
-    }
+    std::cout<<*v.at(0)<<"\n";
+    // for (int i=0;i<v.size();i++){
+    //     std::cout<<*v.at(i)<<"\n";
+    // }
 
     //Displays every single territory a player can defend
     v=playerList.at(id)->toDefend();
     std::cout<<"\nTo Defend:\n";
-    for (int i=0;i<v.size();i++){
-        std::cout<<"    "<<*v.at(i)<<"\n";
-    }
+    std::cout<<*v.at(0)<<"\n";
+    // for (int i=0;i<v.size();i++){
+    //     std::cout<<"    "<<*v.at(i)<<"\n";
+    // }
 }
