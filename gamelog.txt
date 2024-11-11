@@ -4,11 +4,19 @@ GameEngine new state: Map Loaded
 Command: validatemap
 Command's Effect: Validating Map
 GameEngine new state: Map Validated
-Command: addplayer Joe
-Command's Effect: Adding Player Joe
+Command: addplayer adam
+Command's Effect: Adding Player adam
 GameEngine new state: Players Added
-Command: addplayer Hann
-Command's Effect: Adding Player Hann
+Command: addplayer dog
+Command's Effect: Adding Player dog
+GameEngine new state: Players Added
+Command: addplayer Adam
+Command's Effect: Adding Player Adam
+GameEngine new state: Players Added
+Command: exit
+Command's Effect: Cannot use command "exit" in state "Players Added"
+Command: addplayer x
+Command's Effect: Adding Player x
 GameEngine new state: Players Added
 Command: gamestart
 Command's Effect: Starting Game
