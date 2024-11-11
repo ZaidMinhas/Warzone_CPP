@@ -300,7 +300,7 @@ void Blockade::execute(){
     if(this->validate()){
         cout<<"Initiating Blockade on: "<<*(toBlock->name)<<endl;
         *(toBlock->army) = *(toBlock->army)*2;
-        *(toBlock->owner) = -2;
+        *(toBlock->owner) = *(toBlock->owner)*(-1)-2;
         cout<<"Blockade Successful"<<endl;
         Notify(*this);
     }
