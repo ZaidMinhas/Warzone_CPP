@@ -605,12 +605,15 @@ void GameEngine::mainGameLoop()
         }
     }
     std::cout<<"GameOver: ";
+    transition(new Win());
+
     string input=commandProcessor->getCommand();
     if(commandProcessor->validate(input)){
         if(input=="replay"){
-            system("exit");
+            std::exit(EXIT_SUCCESS);
         }else if(input=="quit"){
-            system("exit");
+            transition(new End());
+            std::exit(EXIT_SUCCESS);
         }
     }
 }

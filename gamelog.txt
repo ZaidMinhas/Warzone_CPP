@@ -7,8 +7,8 @@ GameEngine new state: Map Validated
 Command: addplayer Joe
 Command's Effect: Adding Player Joe
 GameEngine new state: Players Added
-Command: addplayer Hann
-Command's Effect: Adding Player Hann
+Command: addplayer Hannah
+Command's Effect: Adding Player Hannah
 GameEngine new state: Players Added
 Command: gamestart
 Command's Effect: Starting Game
@@ -22,11 +22,32 @@ Order Executed: deploy
 Order Executed: deploy
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
+Order Issued: deploy
 GameEngine new state: Execute Orders
 GameEngine new state: Execute Orders
+Order Executed: deploy
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: deploy
+Order Issued: advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: deploy
+Order Executed: advance
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
 GameEngine new state: Execute Orders
 GameEngine new state: Execute Orders
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
+Order Issued: deploy
+Order Issued: advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: deploy
+Order Executed: advance
+GameEngine new state: Win
+GameEngine new state: Win
+Command: quit
+Command's Effect: Quitting Game
+GameEngine new state: End
