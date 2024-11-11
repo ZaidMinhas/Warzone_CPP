@@ -75,7 +75,7 @@ private:
 	int* nUnits;
 };
 
-class Bomb:public Order{
+class Bomb:virtual public Order{
 public:
 	Bomb();
 	Bomb(string orderName,int* playerIndex,Territory* toBomb);
@@ -91,7 +91,7 @@ private:
 	Territory* toBomb;
 };
 
-class Blockade:public Order{
+class Blockade:virtual public Order{
 public:
 	Blockade();
 	Blockade(string orderName,int* playerIndex,Territory* toBlock);
@@ -106,7 +106,7 @@ private:
 	Territory* toBlock;
 };
 
-class Airlift:public Order{
+class Airlift:virtual public Order{
 public:
 	Airlift();
 	Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits);
@@ -125,7 +125,7 @@ private:
 	int* nUnits;
 };
 
-class Negotiate:public Order{
+class Negotiate:virtual public Order{
 public:
 	Negotiate();
 	Negotiate(string orderName,int* playerIndex, int toNegotiate);
