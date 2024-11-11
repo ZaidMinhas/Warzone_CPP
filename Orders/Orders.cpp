@@ -594,6 +594,13 @@ void OrdersList::move(int position1,int position2){
     }
     
 }
+
+bool OrdersList::isEmpty(){
+    if(size==0){
+        return true;
+    }
+    return false;
+}
 //operators
 OrdersList OrdersList::operator=(const OrdersList* ordersList){
         if(this!=ordersList){

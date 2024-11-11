@@ -164,6 +164,7 @@ public:
 	void addOrder(Deploy* order);//Will add an order to the end of the list.
     void move(int position1,int position2);/*Will seek the position of the order to move. Then will look for the order before position to be move.
     Then but it in between that and the order currently on the position.*/
+	bool isEmpty();
 
     void remove(int position);/*Will seek the order before the one to remove, then set the next order to be the order after the one to remove. Delete the order, if the order
     is an order that required a card, put the card back into the players hand*/

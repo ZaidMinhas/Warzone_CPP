@@ -187,7 +187,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
         //command : advance 12 iraq iran
         // Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits) - signature
         std::string orderName = args[0];  
-        int nUnits = std::stoi(args[1]);
+        int* nUnits = new int(std::stoi(args[1]));
         std::string owned = args[2];
         std::string target = args[3];
 
@@ -195,7 +195,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
         Territory* _target = findTerritoryByName(target);
 
         //territories should be the adjacent territories
-        _orderList->addOrder(new Advance(orderName, playerId, _owned, _target, &nUnits));
+        _orderList->addOrder(new Advance(orderName, playerId, _owned, _target, nUnits));
 
     } else if (args[0] == "blockade" && *_reinforcementPool==0) { 
         //command : blockade indonesia
@@ -203,6 +203,9 @@ void Player::issueOrder(const std::string& command, int* playerId){
         if (hasCardType("blockade")) {
             std::string orderName = args[0]; 
             std::string target = args[1];
+            if (args.size() == 4) {
+                target += " " + args[3];
+            }
             Territory* _target = findTerritoryByName(target);
 
             _orderList->addOrder(new Blockade(orderName, playerId, _target));
@@ -215,7 +218,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
         //Airlift::Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits) -- Signature
         if (hasCardType("airlift")) {
             std::string orderName = args[0];  
-            int nUnits = std::stoi(args[1]);
+            int* nUnits = new int(std::stoi(args[1]));
             std::string owned = args[2];
             std::string target = args[3];
 
@@ -223,12 +226,12 @@ void Player::issueOrder(const std::string& command, int* playerId){
             Territory* _target = findTerritoryByName(target);
             int* playerIndex = playerId;
 
-            _orderList->addOrder(new Airlift(orderName, playerIndex, _owned, _target, &nUnits));
+            _orderList->addOrder(new Airlift(orderName, playerIndex, _owned, _target, nUnits));
         } else {
             std::cout << "You do not have an Airlift card.\n";
         }
 
-    } else if (args[0] == "negociate" && *_reinforcementPool==0) {
+    } else if (args[0] == "negotiate" && *_reinforcementPool==0) {
         //command : negociate
         // Negotiate::Negotiate(string orderName,int* playerIndex)
         if (hasCardType("diplomacy")) {

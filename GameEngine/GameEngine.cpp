@@ -716,7 +716,62 @@ void GameEngine::issueOrdersPhase()
 
 void GameEngine::executeOrdersPhase()
 {
-    cout<<"ATTEMPTING DEPLOYMENT!!!"<<endl;
+    /*
+    *Step1: Set the current order of every players list to head->getNext()
+    *Step2: Check if player has finished executing orders, if all orders are executed. Set a boolean to true and skip step 3.
+    *Step3: Execute Order.
+    *Step4: Set the currentorder to currentorder->getNext()
+    *Step5: Repeat steps 2-4. If all orders are executed, Proceed to Step 6.
+    *Step6: If all players have finished their orders. Proceed to empty the list instead. 
+    */
+   cout<<"ATTEMPTING TO EXECUTE ORDERS!!!"<<endl;
+   bool* executedOrders = new bool[playerList.size()];
+   bool notDone = true;
+   for(int i=0;i<playerList.size();i++){
+        executedOrders[i]=false;
+   }
+   for(int i=0;i<playerList.size();i++){
+        playerList.at(i)->getOrdersList()->setCurrentOrder(playerList.at(i)->getOrdersList()->getHead()->getNext());
+   }
+   int counter = 1;
+   while(notDone){
+        for(int i=0;i<playerList.size();i++){
+            //Check if the size of the orderlist is less than the counter, if it is executedOrders[i] is true, continue.
+            if(playerList.at(turns.at(i))->getOrdersList()->getSize()<counter){
+                executedOrders[i] = true;
+                continue;
+            }
+            playerList.at(turns.at(i))->getOrdersList()->getCurrentOrder()->execute();
+            playerList.at(turns.at(i))->getOrdersList()->setCurrentOrder(playerList.at(i)->getOrdersList()->getCurrentOrder()->getNext());
+            //Execute Order of player.
+        }
+        //Check if all players finished their orders. If they did, set notDone to false to break the while loop.
+        for(int i=0;i<playerList.size();i++){
+            if(!executedOrders[i]){
+                break;
+            }
+            else if(i==playerList.size()-1){
+                notDone = false;
+            }
+        }
+        counter++;
+   }
+   /*REMOVING THE ORDERS FROM THE LIST
+   *Step 1: Check if list is empty.
+   *Step 2: If not, remove the first order
+   *Step 3: If yes, end loop
+   */
+   for(int i=0;i<playerList.size();i++){
+        while(true){
+            if(playerList.at(turns.at(i))->getOrdersList()->isEmpty()){
+                break;
+            }
+            else{
+                playerList.at(turns.at(i))->getOrdersList()->remove(1);
+            }
+        }
+   }
+    /*cout<<"ATTEMPTING TO EXECUTE ORDERS!!!"<<endl;
     cout<<playerList.at(0)->getOrdersList();
     cout<<playerList.at(1)->getOrdersList();
     playerList.at(0)->getOrdersList()->setCurrentOrder(playerList.at(0)->getOrdersList()->getHead()->getNext());
@@ -724,8 +779,7 @@ void GameEngine::executeOrdersPhase()
     playerList.at(0)->getOrdersList()->getCurrentOrder()->execute();
     playerList.at(1)->getOrdersList()->getCurrentOrder()->execute();
     playerList.at(0)->getOrdersList()->remove(1);
-    playerList.at(1)->getOrdersList()->remove(1);      
-    // Once everyone has been checked to see if they have finished their orders, those who haven't finished will do the next order in their list.
+    playerList.at(1)->getOrdersList()->remove(1);  */    
         
     
 }
