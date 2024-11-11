@@ -685,9 +685,9 @@ void GameEngine::issueOrdersPhase()
 
             // checking if the player has more orders to issue
                 std::cout<<"\nEnter command:";
-//                string command = commandProcessor.getCommand();
+//                string command = commandProcessor->getCommand();
                 string command;
-                cin >> command;
+                std::getline(cin, command);
 //                currentPlayer->issueOrder(command, &turns.at(i));
             playerList.at(turns.at(i))->issueOrder(command, &turns.at(i));
 

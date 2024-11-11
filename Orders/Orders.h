@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 #include "../Map/Map.h"
-
+#include "..\LoggingObserver/LoggingObserver.h"
 
 class abOrder{
 public:
@@ -36,12 +36,13 @@ public:
 	virtual void execute();/*Executes the order specified, the implementation will be defined in the child classes.*/
 };
 
-class Deploy:virtual public Order{
+class Deploy:virtual public Order, public ILoggable, public Subject{
 public:
 	Deploy();
 	Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits);
 	Deploy(Deploy* deployCopy);
 	~Deploy();
+	string stringToLog() override;
 	bool validate();
 	void execute();
 	//Accessors
@@ -54,7 +55,7 @@ private:
 	int* nUnits;
 };
 
-class Advance:virtual public Order{
+class Advance:virtual public Order, public ILoggable, public Subject{
 public:
 	Advance();
 	Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits);
@@ -65,6 +66,7 @@ public:
 	Territory* getAdvanceTo();
 	int* getNUnits();
 	//methods
+	string stringToLog() override;
 	bool validate();
 	void execute();
 	//operator
@@ -83,6 +85,7 @@ public:
 	~Bomb();
 	//Accessors and Mutators
 	Territory* getToBomb();
+	// string stringToLog() override;
 	void setToBomb(Territory* toBomb);
 	bool validate();
 	void execute();
@@ -91,7 +94,7 @@ private:
 	Territory* toBomb;
 };
 
-class Blockade:virtual public Order{
+class Blockade:virtual public Order , public ILoggable, public Subject{
 public:
 	Blockade();
 	Blockade(string orderName,int* playerIndex,Territory* toBlock);
@@ -99,6 +102,7 @@ public:
 	~Blockade();
 	//Accessors
 	Territory* getToBlock();
+	string stringToLog() override;
 	//methods
 	bool validate();
 	void execute();
@@ -106,7 +110,7 @@ private:
 	Territory* toBlock;
 };
 
-class Airlift:virtual public Order{
+class Airlift:virtual public Order , public ILoggable, public Subject{
 public:
 	Airlift();
 	Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits);
@@ -116,6 +120,7 @@ public:
 	Territory* getAirliftFrom();
 	Territory* getAirliftTo();
 	int* getnUnits();
+	string stringToLog() override;
 	bool validate();
 	void execute();
 
@@ -125,19 +130,20 @@ private:
 	int* nUnits;
 };
 
-class Negotiate:virtual public Order{
+class Negotiate:virtual public Order, public ILoggable, public Subject{
 public:
 	Negotiate();
 	Negotiate(string orderName,int* playerIndex, int toNegotiate);
 	Negotiate(Negotiate* negotiateCopy);
 	~Negotiate();
+	string stringToLog() override;
 	bool validate();
 	void execute();
 private:
 	int toNegotiate;  
 };
 
-class OrdersList{
+class OrdersList : public ILoggable, public Subject{
 public:
     //Constructors and Destructors
     OrdersList();
@@ -157,9 +163,11 @@ public:
     void addOrder(Order* order);//Will add an order to the end of the list.
     void move(int position1,int position2);/*Will seek the position of the order to move. Then will look for the order before position to be move.
     Then but it in between that and the order currently on the position.*/
+
     void remove(int position);/*Will seek the order before the one to remove, then set the next order to be the order after the one to remove. Delete the order, if the order
     is an order that required a card, put the card back into the players hand*/
     //operators
+	string stringToLog() override;
     OrdersList operator=(const OrdersList* ordersList);
 private:
     Order* head;//The start of the list.

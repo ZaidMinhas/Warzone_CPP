@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Warzone_CPP Main.cpp
         CommandProcessor/CommandProcessingDriver.cpp
-        CommandProcessor/CommandProcessor.cpp)
+        CommandProcessor/CommandProcessor.cpp
+        Orders/Orders.h
+        Orders/Orders.cpp)

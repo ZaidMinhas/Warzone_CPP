@@ -24,10 +24,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfeef208-c80b-4133-bb57-cbc5b98d11b9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameEngine/GameEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/GameEngine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-11-10T23-24-37-0839.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Orders/Orders.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Orders/Orders.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Orders/Orders.h" beforeDir="false" afterPath="$PROJECT_DIR$/Orders/Orders.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-b04f0cc36015708e9cc2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-11-11T00-08-43-0858.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Warzone_CPP-Debug-8f3e088c85a636da6218.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +54,8 @@
     <setting file="file://$PROJECT_DIR$/GameEngine/GameEngine.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GameEngine/GameEngineDriver.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Main.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Orders/Orders.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Orders/Orders.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Orders/Orders.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Orders/Orders.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />

@@ -23,19 +23,21 @@ Order::~Order(){
     previous=NULL;
 }
 
-Deploy::Deploy():Order(),toDeploy(nullptr),nUnits(new int (0)){}
+Deploy::Deploy():Order(),toDeploy(nullptr),nUnits(new int (0)) {
+    addObserver(loggingObserver);
+}
 
-Deploy::Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits):Order(orderName,playerIndex),toDeploy(toDeploy),nUnits(nUnits){}
+Deploy::Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits):Order(orderName,playerIndex),toDeploy(toDeploy),nUnits(nUnits){addObserver(loggingObserver);}
 
-Deploy::Deploy(Deploy* deployCopy):Order(deployCopy),toDeploy(deployCopy->toDeploy),nUnits(new int(*(deployCopy->nUnits))){}
+Deploy::Deploy(Deploy* deployCopy):Order(deployCopy),toDeploy(deployCopy->toDeploy),nUnits(new int(*(deployCopy->nUnits))){addObserver(loggingObserver);}
 
 Deploy::~Deploy(){}
 
-Advance::Advance():Order(),advanceFrom(nullptr),advanceTo(nullptr),nUnits(new int(0)){}
+Advance::Advance():Order(),advanceFrom(nullptr),advanceTo(nullptr),nUnits(new int(0)){addObserver(loggingObserver);}
 
-Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits):Order(orderName,playerIndex),advanceFrom(advanceFrom),advanceTo(advanceTo),nUnits(nUnits){}
+Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits):Order(orderName,playerIndex),advanceFrom(advanceFrom),advanceTo(advanceTo),nUnits(nUnits){addObserver(loggingObserver);}
 
-Advance::Advance(Advance* advanceCopy):Order(advanceCopy),advanceFrom(advanceCopy->advanceFrom),advanceTo(advanceCopy->advanceTo),nUnits(advanceCopy->nUnits){}
+Advance::Advance(Advance* advanceCopy):Order(advanceCopy),advanceFrom(advanceCopy->advanceFrom),advanceTo(advanceCopy->advanceTo),nUnits(advanceCopy->nUnits){addObserver(loggingObserver);}
 
 Advance::~Advance(){}
 
@@ -45,27 +47,27 @@ Bomb::Bomb(string orderName,int* playerIndex,Territory* toBomb):Order(orderName,
 
 Bomb::Bomb(Bomb* bombCopy):Order(bombCopy),toBomb(bombCopy->getToBomb()){}
 
-Blockade::Blockade():Order(),toBlock(nullptr){}
+Blockade::Blockade():Order(),toBlock(nullptr){addObserver(loggingObserver);}
 
-Blockade::Blockade(string orderName,int* playerIndex,Territory* toBlock):Order(orderName,playerIndex),toBlock(toBlock){}
+Blockade::Blockade(string orderName,int* playerIndex,Territory* toBlock):Order(orderName,playerIndex),toBlock(toBlock){addObserver(loggingObserver);}
 
-Blockade::Blockade(Blockade* blockadeCopy):Order(blockadeCopy),toBlock(blockadeCopy->toBlock){}
+Blockade::Blockade(Blockade* blockadeCopy):Order(blockadeCopy),toBlock(blockadeCopy->toBlock){addObserver(loggingObserver);}
 
 Blockade::~Blockade(){}
 
-Airlift::Airlift():Order(),airliftFrom(nullptr),airliftTo(nullptr){}
+Airlift::Airlift():Order(),airliftFrom(nullptr),airliftTo(nullptr){addObserver(loggingObserver);}
 
-Airlift::Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits):Order(orderName,playerIndex),airliftFrom(airliftFrom),airliftTo(airliftTo),nUnits(nUnits){}
+Airlift::Airlift(string orderName,int* playerIndex,Territory* airliftFrom,Territory* airliftTo,int* nUnits):Order(orderName,playerIndex),airliftFrom(airliftFrom),airliftTo(airliftTo),nUnits(nUnits){addObserver(loggingObserver);}
 
-Airlift::Airlift(Airlift* airliftCopy):Order(airliftCopy),airliftFrom(airliftCopy->getAirliftFrom()),airliftTo(airliftCopy->getAirliftTo()),nUnits(new int(*(airliftCopy->getnUnits()))){}
+Airlift::Airlift(Airlift* airliftCopy):Order(airliftCopy),airliftFrom(airliftCopy->getAirliftFrom()),airliftTo(airliftCopy->getAirliftTo()),nUnits(new int(*(airliftCopy->getnUnits()))){addObserver(loggingObserver);}
 
 Airlift::~Airlift(){}
 
-Negotiate::Negotiate():Order(){}
+Negotiate::Negotiate():Order(){addObserver(loggingObserver);}
 
-Negotiate::Negotiate(string orderName,int* playerIndex, int toNegotiate):Order(orderName,playerIndex),toNegotiate(toNegotiate){}
+Negotiate::Negotiate(string orderName,int* playerIndex, int toNegotiate):Order(orderName,playerIndex),toNegotiate(toNegotiate){addObserver(loggingObserver);}
 
-Negotiate::Negotiate(Negotiate* negotiateCopy):Order(negotiateCopy){}
+Negotiate::Negotiate(Negotiate* negotiateCopy):Order(negotiateCopy){addObserver(loggingObserver);}
 
 Negotiate::~Negotiate(){}
 
@@ -163,6 +165,7 @@ void Deploy::execute(){
         cout<<"Deploying on: "<<*(toDeploy->name)<<endl;
         toDeploy->army= toDeploy->army+*(this->getNUnits());
         cout<<"Deployment successful"<<endl;
+        Notify(*this);
     }
     else{
         cout<<"Unable to Deploy on: "<<*(toDeploy->name)<<" for you no longer, or never did, own that territory" <<endl;
@@ -249,6 +252,7 @@ void Advance::execute(){
 
         }
     }
+    Notify(*this);
 }
 
 // ----------------------------------------------------------------
@@ -295,6 +299,7 @@ void Blockade::execute(){
         cout<<"Initiating Blockade on: "<<toBlock->name<<endl;
         *(toBlock->army) = *(toBlock->army)*2;
         *(toBlock->owner) = -2;
+        Notify(*this);
     }
 }
 
@@ -331,6 +336,7 @@ void Airlift::execute(){
             *(airliftFrom->army) = *(airliftFrom->army) - *(nUnits);
         }
     }
+    Notify(*this);
 }
 
 // ----------------------------------------------------------------
@@ -353,7 +359,34 @@ void Negotiate::execute(){
     if(this->validate()){
         //Find the player to negotiate with in the players negotiate array and set it to true
         playerList[toNegotiate]->negotiation[*playerIndex] = true;
+        Notify(*this);
     }
+}
+
+//ALL LOGGING
+
+string Deploy::stringToLog() {
+    return "Order Executed: " + orderName;
+}
+
+string Advance::stringToLog() {
+    return "Order Executed: " + orderName;
+}
+
+// string Bomb::stringToLog() {
+//     return "Order Executed: " + orderName;
+// }
+
+string Blockade::stringToLog() {
+    return "Order Executed: " + orderName;
+}
+
+string Airlift::stringToLog() {
+    return "Order Executed: " + orderName;
+}
+
+string Negotiate::stringToLog() {
+    return "Order Executed: " + orderName;
 }
 
 //operators
@@ -386,6 +419,7 @@ ostream& operator<<(ostream &out, Order *o){
 
 //Constructors and Destructors
 OrdersList::OrdersList(){
+    addObserver(loggingObserver);
     head = new Order();
     tail = new Order();
     head->setNext(tail);
@@ -394,6 +428,7 @@ OrdersList::OrdersList(){
 }
 
 OrdersList::OrdersList(Order *firstOrder){
+    addObserver(loggingObserver);
     head->setNext(firstOrder);
     tail->setPrevious(firstOrder);
     firstOrder->setPrevious(head);
@@ -402,6 +437,7 @@ OrdersList::OrdersList(Order *firstOrder){
 }
 
 OrdersList::OrdersList(OrdersList* listCopy){
+    addObserver(loggingObserver);
     this->head=listCopy->head;
     this->tail=listCopy->tail;
     this->size=listCopy->size;
@@ -465,7 +501,12 @@ void OrdersList::addOrder(Order* newOrder){
         tail->getPrevious()->setNext(newOrder);
         tail->setPrevious(newOrder);
     }
+    Notify(*this);
     size++;
+}
+
+string OrdersList::stringToLog() {
+    return "Order Issued: " + getTail()->getPrevious()->getOrderName();
 }
 
 void OrdersList::remove(int position){
