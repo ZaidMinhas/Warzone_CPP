@@ -6,3 +6,6 @@ clangd
 compile_commands.json
 **clang**
 .vscode/
+gamelog.txt
+a.exe
+a.out
