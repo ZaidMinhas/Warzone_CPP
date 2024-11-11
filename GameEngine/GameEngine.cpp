@@ -680,11 +680,12 @@ void GameEngine::reinforcementPhase()
 void GameEngine::issueOrdersPhase()
 {
     bool allPlayersDone = false; // flag to check if all players are done issuing orders
+    std::cout << "|| Starting Order Issueing Phase ||" << endl;
 
     while (!allPlayersDone)
     {
         allPlayersDone = true; // when all players are done for this round
-        std::cout << "HAHA WE ARE ORDERING ISSUES NOW" << endl;
+
         for (int i=0;i<turns.size();i++)
         { // Iterate through players in the order specified by `turns`
             displayPlayerInfo(turns.at(i));
@@ -767,16 +768,27 @@ int GameEngine::checkWinCon()
 
 //Display's a players current info on their turn
 void GameEngine::displayPlayerInfo(int id){
-    std::cout<<"\nName: "<<playerList.at(id)->getName();
-    std::cout<<"\nReinforcement Pool: "<<*playerList.at(id)->_reinforcementPool;
+    std::cout <<"\nPlayer " << playerList.at(id)->getName() << "'s Turn: "
+              << "\n=======================" << endl;
+
+    std::cout << "ID #: "
+              << playerList.at(id)->getID();
+
+    std::cout <<"\nCurrent Reinforcement Pool: "
+              << *playerList.at(id)->_reinforcementPool << endl;
+    
+    //Displays every single territory a player can attack
     std::vector<Territory*> v;
     v=playerList.at(id)->toAttack();
+
     std::cout<<"\nTo Attack:\n";
     for (int i=0;i<v.size();i++){
         std::cout<<*v.at(i)<<"\n";
     }
+
+    //Displays every single territory a player can defend
     v=playerList.at(id)->toDefend();
-    std::cout<<"\nTo Deffend:\n";
+    std::cout<<"\nTo Defend:\n";
     for (int i=0;i<v.size();i++){
         std::cout<<"    "<<*v.at(i)<<"\n";
     }
