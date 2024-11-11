@@ -1,36 +1,20 @@
-Command: loadmap Map\NorthAmerica.map
+Command: loadmap Map/NorthAmerica.map
 Command's Effect: Loading Map
 GameEngine new state: Map Loaded
 Command: validatemap
 Command's Effect: Validating Map
 GameEngine new state: Map Validated
-Command: addplayer Joe
-Command's Effect: Adding Player Joe
+Command: addplayer jojo
+Command's Effect: Adding Player jojo
 GameEngine new state: Players Added
-Command: addplayer Hannah
-Command's Effect: Adding Player Hannah
+Command: addplayer dio
+Command's Effect: Adding Player dio
 GameEngine new state: Players Added
 Command: gamestart
 Command's Effect: Starting Game
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
 Order Issued: deploy
-Order Issued: deploy
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-Order Executed: deploy
-Order Executed: deploy
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
-Order Issued: deploy
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-Order Executed: deploy
-Order Executed: deploy
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
-Order Issued: deploy
-Order Issued: advance
 Order Issued: advance
 GameEngine new state: Execute Orders
 GameEngine new state: Execute Orders
@@ -38,21 +22,3 @@ Order Executed: deploy
 Order Executed: advance
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
-Order Issued: deploy
-Order Issued: advance
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-Order Executed: deploy
-Order Executed: advance
-GameEngine new state: Win
-GameEngine new state: Win
-Command: quit
-Command's Effect: Quitting Game
-GameEngine new state: End
-Order Executed: advance
-GameEngine new state: Win
-Command: 

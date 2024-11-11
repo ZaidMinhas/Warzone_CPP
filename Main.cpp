@@ -19,10 +19,10 @@ int main(int argc, char *argv[])
 	//Part 1 PLEASE DONT TOUCH
 	testCommandProcessor(argv, argc);
 
-	//testStartupPhase();
+	testStartupPhase();
 
 	//GameEngineDriver.cpp => GameEngine.cpp
-	//testMainGameLoop();
+	testMainGameLoop();
 
 	//OrderDriver.cpp
 	testOrderExecution();

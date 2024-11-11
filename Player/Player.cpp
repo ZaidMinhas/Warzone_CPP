@@ -303,11 +303,11 @@ std::vector<Territory*> Player::toAttack() const {
     std::vector<Territory*> territoriesToAttack;
 
     // Loop through all territories in the game map
-    for (const Territory& territory : gameMap.graph) {
+    for (int i=0; i<gameMap.graph.size();i++) {
         // Check if the territory is not owned by the player
-        if (std::find(_playerterritories.begin(), _playerterritories.end(), &territory) == _playerterritories.end()) {
+        if (*gameMap.graph.at(i).owner!=*_id) {
             // Territory is available for attack, push back the pointer to the territory
-            territoriesToAttack.push_back(const_cast<Territory*>(&territory));
+            territoriesToAttack.push_back(&gameMap.graph.at(i));
         }
     }
 
@@ -323,8 +323,10 @@ std::vector<Territory*> Player::toDefend() const {
     std::vector<Territory*> territoriesToDefend;
 
     // Add all player-owned territories to the vector
-    for (const auto& territory : _playerterritories) { // Each time the player concquer a territory, it should be added in _playerTerritory
-        territoriesToDefend.push_back(territory);
+    for (int i=0; i<gameMap.graph.size();i++) { // Each time the player concquer a territory, it should be added in _playerTerritory
+        if (*gameMap.graph.at(i).owner==*_id) {
+            territoriesToDefend.push_back(&gameMap.graph.at(i));
+        }
     }
 
     return territoriesToDefend;
