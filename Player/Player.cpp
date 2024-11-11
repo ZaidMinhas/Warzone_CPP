@@ -163,14 +163,25 @@ void Player::issueOrder(const std::string& command, int* playerId){
         //Deploy(string orderName,Territory* toDeploy,int* playerIndex,int* nUnits); - signature
 
         std::string orderName = args[0];  // e.g., "deploy"
-        std::string toDeploy = args[2];   // e.g., the territory name
-        Territory* toDeployIn = findTerritoryByName(toDeploy);
-        int nUnits = std::stoi(args[1]);  // to convert the number of units to int 
-        std::cout << nUnits;
-        //Deploy* deployOrder = new Deploy(orderName, toDeploy, playerIndex, new int(nUnits));
-        _orderList->addOrder(new Deploy(orderName, toDeployIn, playerId, &nUnits));
 
-        *_reinforcementPool = *_reinforcementPool - std::stoi(args[1]);
+        //COUNTRIES WITH MULTIPLE WORDS
+        std::string toDeploy = args[2];
+        if (args.size() == 4) {
+            toDeploy += " " + args[3];
+        }
+
+        /*
+        for (int i = 3; i < args.size(); i++) {
+          toDeploy += " " + args[i];
+        }
+         */
+        Territory* toDeployIn = findTerritoryByName(toDeploy);
+        //MAKE SURE THAT THIS IS A POINTER AND NOT A VARIABLS
+        int* nUnits = new int(std::stoi(args[1]));  // to convert the number of units to int
+        //Deploy* deployOrder = new Deploy(orderName, toDeploy, playerIndex, new int(nUnits));
+        _orderList->addOrder(new Deploy(orderName, toDeployIn, playerId, nUnits));
+
+        *_reinforcementPool=*_reinforcementPool-std::stoi(args[1]);
 
     } else if (args[0] == "advance" && *_reinforcementPool==0) { //player should deploy all the units before advancing // more conditions?
         //command : advance 12 iraq iran
