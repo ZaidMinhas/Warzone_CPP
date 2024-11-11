@@ -544,14 +544,20 @@ void GameEngine::gamestart()
         playerList.at(j)->_doneTurn=new bool(false);
 
         //info output for each Player
+        //Player Name
         std::cout << "\n" 
                   << "Player "
                   << playerList.at(j)->getName()
-                  << "\n------------------------";
+                  << "\n------------------------\n";
+        //Player's ID
+        std::cout << "ID #: "
+                  << playerList.at(j)->getID();
+        //Player'a base Recinformcments
         std::cout << "\n"
                   << "Reinforcement Pool: "
                   << *playerList.at(j)->_reinforcementPool;
         std::cout << "\n";
+        //Player's cards in hand
         playerList.at(j)->printHand();
         std::cout << "------------------------" << "\n" << endl;
     }
