@@ -7,7 +7,7 @@ int ContinentCount=0;
 Continent::Continent(const Continent &c){
     bonus=new int(*c.bonus);
     name=c.name;
-    nbrTerritories=new int(0);
+    nbrTerritories=new int(*c.nbrTerritories);
 }
 
 //Outputs Continent Information :))
@@ -108,7 +108,7 @@ Territory::Territory(string name, string continentName, int x, int y){
     for(int i=0;i<gameMap.continentList.size();i++){
         if (*gameMap.continentList.at(i).name==continentName){
             this->pContient=&gameMap.continentList.at(i);
-            *gameMap.continentList.at(i).nbrTerritories++;
+            *gameMap.continentList.at(i).nbrTerritories=*gameMap.continentList.at(i).nbrTerritories+1;
             found=true;
         }
     }

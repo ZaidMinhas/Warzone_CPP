@@ -6,7 +6,7 @@
 #define COMMANDPROCESSINGDRIVER_H
 
 
-void testCommandProcessor(char **argv);
+void testCommandProcessor(char **argv, int argc);
 
 
 #endif //COMMANDPROCESSINGDRIVER_H

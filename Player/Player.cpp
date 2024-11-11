@@ -184,7 +184,7 @@ void Player::issueOrder(const std::string& command, int* playerId){
         *_reinforcementPool=*_reinforcementPool-std::stoi(args[1]);
 
     } else if (args[0] == "advance" && *_reinforcementPool==0) { //player should deploy all the units before advancing // more conditions?
-        //command : advance 12 iraq iran
+        //command : advance 12 iraq , iran
         // Advance::Advance(string orderName,int* playerIndex,Territory* advanceFrom,Territory* advanceTo,int* nUnits) - signature
         std::string orderName = args[0];  
         int* nUnits = new int(std::stoi(args[1]));
@@ -202,8 +202,8 @@ void Player::issueOrder(const std::string& command, int* playerId){
         for(++counter;counter<args.size();counter++){
             target += " "+args[counter];
         }
-        cout<<"Advancing to: "<<owned<<endl;
-        cout<<"Advancing From: "<<target<<endl;
+        cout<<"Advancing from: "<<owned<<endl;
+        cout<<"Advancing to: "<<target<<endl;
 
         Territory* _owned = findTerritoryByName(owned);
         Territory* _target = findTerritoryByName(target);

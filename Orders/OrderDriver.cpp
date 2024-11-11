@@ -18,8 +18,11 @@ void testOrderExecution() {
     int* playerId_n = new int(3);
 
     Player* player1 = new Player("Player 1", playerId_1);
+    player1->_reinforcementPool=new int(50);
     Player* player2 = new Player("Player 2", playerId_2);
+    player2->_reinforcementPool=new int(50);
     Player* player_neutral = new Player("Player N", playerId_n); // neutral for negociate
+    player_neutral->_reinforcementPool=new int(50);
     
     std::vector<Territory*> availableTerritories;
     for (auto& territory : gameMap.graph) {

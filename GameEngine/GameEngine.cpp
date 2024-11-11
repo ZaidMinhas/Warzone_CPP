@@ -604,7 +604,7 @@ void GameEngine::mainGameLoop()
             transition(new AssignReinforcement());
         }
     }
-    std::cout<<"GameOver: ";
+    std::cout<<"GameOver: \n";
     transition(new Win());
 
     string input=commandProcessor->getCommand();
@@ -639,7 +639,7 @@ void GameEngine::reinforcementPhase()
     for (int i = 0; i < playerList.size(); i++)
     {
         int reinforcement=0;
-        int* continentOwn = new int[gameMap.continentList.size()];
+        int continentOwn [gameMap.continentList.size()];
         // Reset:
         // reset's all players negotiation arrays so that everything is false.
         for (int j = 0; j < playerList.size(); j++)
@@ -667,9 +667,10 @@ void GameEngine::reinforcementPhase()
         for (int k = 0; k < gameMap.continentList.size(); k++)
         {
             if (continentOwn[k] == *gameMap.continentList.at(k).nbrTerritories)
-            {
+            {   
                 bonus = bonus + *gameMap.continentList.at(k).bonus;
             }
+            continentOwn[k]=0;
         }
         reinforcement=reinforcement+bonus;
         std::cout<<"/3 + "<<bonus<<" continent bonus = "<<reinforcement<<"\n";//DEMO
@@ -772,7 +773,7 @@ void GameEngine::executeOrdersPhase()
                 continue;
             }
             playerList.at(turns.at(i))->getOrdersList()->getCurrentOrder()->execute();
-            playerList.at(turns.at(i))->getOrdersList()->setCurrentOrder(playerList.at(i)->getOrdersList()->getCurrentOrder()->getNext());
+            playerList.at(turns.at(i))->getOrdersList()->setCurrentOrder(playerList.at(turns.at(i))->getOrdersList()->getCurrentOrder()->getNext());
             //Execute Order of player.
         }
         //Check if all players finished their orders. If they did, set notDone to false to break the while loop.

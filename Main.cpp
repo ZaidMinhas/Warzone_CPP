@@ -17,12 +17,12 @@ int main(int argc, char *argv[])
 	//PART 5 DO NOT CHANGE ORDER
 	testLoggingObserver();
 	//Part 1 PLEASE DONT TOUCH
-	testCommandProcessor(argv);
+	testCommandProcessor(argv, argc);
 
-	testStartupPhase();
+	//testStartupPhase();
 
 	//GameEngineDriver.cpp => GameEngine.cpp
-	testMainGameLoop();
+	//testMainGameLoop();
 
 	//OrderDriver.cpp
 	testOrderExecution();
