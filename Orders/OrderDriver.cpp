@@ -9,22 +9,47 @@
 #include <random>
 #include <vector>
 
+void theGreatReset(){
+    gameMap.loadMap("Map/NorthAmerica.map");
+    playerList.clear();
+    gameEngine=GameEngine();
+}
+
+
 void testOrderExecution() {
 
     // set up game environment
-    GameEngine gameEngine;
+
+    theGreatReset();
+
+    //Setting up the players
     int* playerId_1 = new int(1);
     int* playerId_2 = new int(2);
     int* playerId_n = new int(3);
 
     Player* player1 = new Player("Player 1", playerId_1);
-    player1->_reinforcementPool=new int(50);
+    player1->_reinforcementPool=new int(10);
     Player* player2 = new Player("Player 2", playerId_2);
-    player2->_reinforcementPool=new int(50);
+    player2->_reinforcementPool=new int(10);
     Player* player_neutral = new Player("Player N", playerId_n); // neutral for negociate
-    player_neutral->_reinforcementPool=new int(50);
+    player_neutral->_reinforcementPool=new int(10);
     
-    std::vector<Territory*> availableTerritories;
+    playerList.push_back(player1);
+    playerList.push_back(player2);
+
+    //Giving them territories
+    *gameMap.graph.at(0).owner=playerList.at(0)->getID();
+    *gameMap.graph.at(1).owner=playerList.at(0)->getID();
+    *gameMap.graph.at(2).owner=playerList.at(1)->getID();
+    *gameMap.graph.at(3).owner=playerList.at(1)->getID();
+
+    //Giving them Cards
+    playerList.at(0)->setHand(new Hand());
+    for (int i=0;i<5;i++){
+        deck.draw(*playerList.at(0)->getHand());
+    }
+
+    /*std::vector<Territory*> availableTerritories;
     for (auto& territory : gameMap.graph) {
         availableTerritories.push_back(&territory); // pointers looping
     }
@@ -45,18 +70,19 @@ void testOrderExecution() {
     } else {
         // handle the case where there are not enough territories for assignment
         std::cerr << "Not enough territories available to assign to players!" << std::endl;
-    }
+    }*/
 
     // Player commands for orders
     int playerID_1 = player1->getID();  // Store the result in a local variable
     int playerID_2 = player2->getID();  // Store the result in a local variable
 
-    player1->issueOrder("deploy 10 china", &playerID_1);
-    player1->issueOrder("advance 5 china vietnam", &playerID_1);
-    player2->issueOrder("blockade vietnam",&playerID_2);
-    player1->issueOrder("airlift 5 vietnam japan", &playerID_1);
-    player1->issueOrder("bomb japan", &playerID_1);
-    player1->issueOrder("negociate 1", &playerID_1);
+    player1->issueOrder("deploy 10 Canada", &playerID_1);
+    player1->issueOrder("advance 5 Canada , Greenland", &playerID_1);
+    player2->issueOrder("blockade USA",&playerID_2);
+    player1->issueOrder("airlift 5 Canada , Mexico", &playerID_1);
+    player1->issueOrder("bomb Mexico", &playerID_1);
+    player1->issueOrder("negotiate 1", &playerID_1);
+
 
     // order execution phase in the GameEngine
     std::string input;
@@ -74,8 +100,8 @@ void testOrderExecution() {
     std::cout << "Executing Player2's orders:" << std::endl;
     player2->getOrdersList()->setCurrentOrder(player2->getOrdersList()->getHead()->getNext());
     do{
-        player1->getOrdersList()->getCurrentOrder()->execute();
-        player1->getOrdersList()->setCurrentOrder(player1->getOrdersList()->getCurrentOrder()->getNext());
+        player2->getOrdersList()->getCurrentOrder()->execute();
+        player2->getOrdersList()->setCurrentOrder(player1->getOrdersList()->getCurrentOrder()->getNext());
     }while(player2->hasMoreOrders());
 
     // ownership transfers, card awarding, and negotiation effect
@@ -98,3 +124,4 @@ void testOrderExecution() {
     
     
 }
+

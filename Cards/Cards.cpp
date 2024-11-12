@@ -112,7 +112,7 @@ Deck deck=Deck();
 
 //--------------------------------------HAND-------------------------------------
 
-Hand::Hand() : size(3) {
+Hand::Hand() : size(5) {
 }
 
 Hand::Hand(int size) {

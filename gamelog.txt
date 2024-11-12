@@ -1,24 +1,6 @@
-Command: loadmap Map/NorthAmerica.map
-Command's Effect: Loading Map
-GameEngine new state: Map Loaded
-Command: validatemap
-Command's Effect: Validating Map
-GameEngine new state: Map Validated
-Command: addplayer jojo
-Command's Effect: Adding Player jojo
-GameEngine new state: Players Added
-Command: addplayer dio
-Command's Effect: Adding Player dio
-GameEngine new state: Players Added
-Command: gamestart
-Command's Effect: Starting Game
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
 Order Issued: deploy
 Order Issued: advance
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-Order Executed: deploy
-Order Executed: advance
-GameEngine new state: Assign Reinforcement
+Order Issued: bomb
+Order Issued: negotiate
 GameEngine new state: Issue Orders
+Order Executed: deploy
