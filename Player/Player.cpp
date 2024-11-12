@@ -143,6 +143,11 @@ bool Player::hasCardType(const std::string& cardType) {
 // --------------------------------------------------
 
 void Player::issueOrder(const std::string& command, int* playerId){
+    //--------------PLAYER STRATEGY----------------------
+    //playerStrategy->issueOrder();
+    //---------------------------------------------------
+
+
     //get the arguments from command arg[0] -> should mention to the player how to enter the command
     //command :  deploy 50 canada | arg[0]->deploy ; arg[1]->numbr of units ; arg[2]->terriroty on which the player deploys his armies
     //switch case of if deploy, if advance , if bomb , if airlift , if blockade , if negociate
@@ -300,6 +305,10 @@ void Player::issueOrder(const std::string& command, int* playerId){
 //              Territories to attack
 // --------------------------------------------------
 std::vector<Territory*> Player::toAttack() const {
+    //--------------PLAYER STRATEGY----------------------
+    //playerStrategy->toAttack();
+    //---------------------------------------------------
+
     std::vector<Territory*> territoriesToAttack;
 
     // Loop through all territories in the game map
@@ -320,6 +329,9 @@ std::vector<Territory*> Player::toAttack() const {
 //              Territories to defend
 // --------------------------------------------------
 std::vector<Territory*> Player::toDefend() const {
+    //--------------PLAYER STRATEGY----------------------
+    //playerStrategy->toDefend();
+    //---------------------------------------------------
     std::vector<Territory*> territoriesToDefend;
 
     // Add all player-owned territories to the vector

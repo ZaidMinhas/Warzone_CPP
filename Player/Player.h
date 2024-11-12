@@ -7,6 +7,7 @@
 #include "../Orders/Orders.h"
 #include "../Map/Map.h"
 #include "../Cards/Cards.h"
+#include "..\PlayerStrategies/PlayerStrategies.h"
 
 class Player {
 
@@ -81,6 +82,7 @@ private:
     OrdersList* _orderList;  // Changed to OrdersList pointer - K - A2
     Hand* _handCard; //moved to private - A2 - K
     std::vector<std::string> _handCards;  // Vector of card names
+    PlayerStrategies* playerStrategy;
 };
 
 extern std::vector<Player*> playerList;

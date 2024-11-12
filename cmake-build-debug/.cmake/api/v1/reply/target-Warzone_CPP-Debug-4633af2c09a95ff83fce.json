@@ -55,7 +55,9 @@
 				0,
 				1,
 				2,
-				4
+				4,
+				5,
+				6
 			]
 		}
 	],
@@ -95,7 +97,9 @@
 				0,
 				1,
 				2,
-				4
+				4,
+				5,
+				6
 			]
 		},
 		{
@@ -135,6 +139,18 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "Orders/Orders.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "PlayerStrategies/PlayerStrategiesDriver.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Player/Player.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

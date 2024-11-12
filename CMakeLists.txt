@@ -7,4 +7,6 @@ add_executable(Warzone_CPP Main.cpp
         CommandProcessor/CommandProcessingDriver.cpp
         CommandProcessor/CommandProcessor.cpp
         Orders/Orders.h
-        Orders/Orders.cpp)
+        Orders/Orders.cpp
+        PlayerStrategies/PlayerStrategiesDriver.cpp
+        Player/Player.cpp)
