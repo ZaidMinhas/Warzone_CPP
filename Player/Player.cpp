@@ -79,7 +79,7 @@ void Player::setPlayerStrategy(const string& strategy) {
             delete playerStrategy;
             //IDK yet
             break;
-        
+
         default: ;
     }
 }

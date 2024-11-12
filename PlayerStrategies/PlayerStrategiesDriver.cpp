@@ -7,4 +7,9 @@
 
 void testPlayerStrategies(){
 
+    //Assign players with a strategy
+
+    //Change strategies mid game
+
+    //Have human player make decisions by user
 }
