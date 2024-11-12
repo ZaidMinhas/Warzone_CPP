@@ -76,5 +76,15 @@ public:
 Cheater player: computer player that automatically conquers all territories that are adjacent to its own
 territories (only once per turn). Does not use cards, though it may have or receive cards.
  */
+class CheaterPlayerStrategy : public PlayerStrategies {
+public:
+ explicit CheaterPlayerStrategy(::Player *player): PlayerStrategies(player) {}
+ ~CheaterPlayerStrategy() override;
+ void issueOrder() override;
+ void toAttack() override;
+ void toDefend() override;
+};
+
+
 
 #endif //PLAYERSTRATEGIES_H
