@@ -31,7 +31,10 @@ public:
     //vector<Territory*> toAttack(vector<Territory*>); // changed - K - A2
     std::vector<Territory*> toAttack() const;
     std::vector<Territory*> toDefend() const;
-    
+
+    //Set Player Strategy
+    void setPlayerStrategy(const string& strategy);
+
     // Function to find a territory by name -- needed to issue the order
     Territory* findTerritoryByName(const std::string& territoryName);
     
@@ -46,6 +49,7 @@ public:
 
     // check if the player has more orders to issue
     bool hasMoreOrders() const;
+
 
 
     
@@ -66,6 +70,7 @@ public:
     void printOrder() const;
     // Function to print hand cards -- optional just to show player's hand
     void printHand() const;
+
     
    
     //Operator

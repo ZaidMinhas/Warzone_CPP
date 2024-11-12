@@ -53,6 +53,37 @@ Player& Player::operator=(const Player& other) {
     return *this;
 }
 
+void Player::setPlayerStrategy(const string& strategy) {
+    switch (strategy) {
+        case "Human":
+            delete playerStrategy;
+            playerStrategy = new HumanPlayerStrategy(this);
+            break;
+
+        case "Aggressive":
+            delete playerStrategy;
+            playerStrategy = new AggressivePlayerStrategy(this);
+            break;
+
+        case "Benevolent":
+            delete playerStrategy;
+            playerStrategy = new BenevolentPlayerStrategy(this);
+            break;
+
+        case "Neutral":
+            delete playerStrategy;
+            playerStrategy = new NeutralPlayerStrategy(this);
+            break;
+
+        case "Cheater":
+            delete playerStrategy;
+            //IDK yet
+            break;
+        
+        default: ;
+    }
+}
+
 
 void Player::printOrder() const { // changed - K - A2
     if (_orderList->getSize() == 0) {
