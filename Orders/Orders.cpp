@@ -210,7 +210,7 @@ void Advance::execute(){
         //Will first check if it is advancing on a territory owned by the player, no one, or by an opponent. If no one owns it or its owned by the player. No need for combat.
         if(*(advanceTo->owner)==*(playerIndex)||*(advanceTo->owner)==-1){
             //If the number of units is greater than the number of units the player can advance form the territory, take the whole army and add it into the territory to advance to and set the territory of where the units came from to 0.
-            if(nUnits>advanceTo->army){
+            if(*(nUnits)>*(advanceTo->army)){
                 *(advanceTo->army)=*(advanceTo->army)+*(advanceFrom->army);
                 *(advanceFrom->army) = 0;
             }
@@ -223,8 +223,16 @@ void Advance::execute(){
         //If its an enemy, combat begins. Setup the attacking units to be the number of units advancing from.
         else{
             cout<<"Entering hostile territory!! Preparing the assault"<<endl;
-            *(advanceFrom->army)=*(advanceFrom->army)-*(nUnits);
-            int attackingUnits = *(nUnits);
+            int attackingUnits;
+            if(*(nUnits)>*(advanceTo->army)){
+                attackingUnits=*(advanceFrom->army);
+                *(advanceFrom->army) = 0;
+            }
+            else{
+                *(advanceFrom->army)=*(advanceFrom->army)-*(nUnits);
+                attackingUnits = *(nUnits);
+            }
+
             //Keep doing this loop until one of the sides has not more units to attack with.
             while(attackingUnits!=0 && *(advanceTo->army)!=0){
                 //Randomizer to calculate the probability during combat. 60% for the army of the opposing territory to lose a unit, and 70% for the player's army to lose a unit.
