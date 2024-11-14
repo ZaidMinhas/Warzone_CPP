@@ -388,6 +388,7 @@ void Negotiate::execute(){
         //Find the player to negotiate with in the players negotiate array and set it to true
         cout<<"Proceeding to send a cease fire negotiation with player "<<(playerList.at(toNegotiate)->getName())<<endl;
         playerList[toNegotiate]->negotiation[*playerIndex] = true;
+        playerList[*(playerIndex)]->negotiation[toNegotiate] = true;
         Notify(*this);
     }
 }
