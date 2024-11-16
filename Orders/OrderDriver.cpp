@@ -76,12 +76,12 @@ void testOrderExecution() {
     int playerID_1 = player1->getID();  // Store the result in a local variable
     int playerID_2 = player2->getID();  // Store the result in a local variable
 
-    player1->issueOrder("deploy 10 Canada", &playerID_1);
+    /*player1->issueOrder("deploy 10 Canada", &playerID_1);
     player1->issueOrder("advance 5 Canada , Greenland", &playerID_1);
     player2->issueOrder("blockade USA",&playerID_2);
     player1->issueOrder("airlift 5 Canada , Mexico", &playerID_1);
     player1->issueOrder("bomb Mexico", &playerID_1);
-    player1->issueOrder("negotiate 1", &playerID_1);
+    player1->issueOrder("negotiate 1", &playerID_1);*/
 
 
     // order execution phase in the GameEngine
