@@ -719,11 +719,8 @@ void GameEngine::issueOrdersPhase()
                 displayPlayerInfo(turns.at(i));
                 
                 // Takes in a player's command
-                std::cout<<"\nEnter command:";
-                string command;
-                std::getline(cin, command);
 
-                playerList.at(turns.at(i))->issueOrder(command, &turns.at(i));
+                playerList.at(turns.at(i))->issueOrder();
             }  
         }
         //NOTE: playerList != turns list

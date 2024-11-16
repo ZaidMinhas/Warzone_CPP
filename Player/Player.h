@@ -39,7 +39,7 @@ public:
     Territory* findTerritoryByName(const std::string& territoryName);
     
     //std::vector<Territory*> findTerritoryByName(const std::string& territoryName, const std::vector<Territory*>& territories) const;
-    void issueOrder(const std::string& command, int* playerId);
+    void issueOrder();
     
     // custom function to add a territory to the player's owned territories
     void addTerritory(Territory* territory);
