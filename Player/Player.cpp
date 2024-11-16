@@ -5,6 +5,7 @@
 #include <sstream> //spliting the command line
 #include <utility>
 #include "../Orders/Orders.h"
+#include "..\PlayerStrategies/PlayerStrategies.h"
 
 
 //Player::Player(){}; 
@@ -54,34 +55,30 @@ Player& Player::operator=(const Player& other) {
 }
 
 void Player::setPlayerStrategy(const string& strategy) {
-    switch (strategy) {
-        case "Human":
+        if (strategy=="Human"){
             delete playerStrategy;
             playerStrategy = new HumanPlayerStrategy(this);
-            break;
+        }
 
-        case "Aggressive":
+        else if (strategy=="Aggressive"){
             delete playerStrategy;
             playerStrategy = new AggressivePlayerStrategy(this);
-            break;
+        }
 
-        case "Benevolent":
+        else if (strategy =="Benevolent"){
             delete playerStrategy;
             playerStrategy = new BenevolentPlayerStrategy(this);
-            break;
+        }
 
-        case "Neutral":
+        else if (strategy=="Neutral"){
             delete playerStrategy;
             playerStrategy = new NeutralPlayerStrategy(this);
-            break;
+        }
 
-        case "Cheater":
+        else if (strategy=="Cheater"){
             delete playerStrategy;
-            //IDK yet
-            break;
-
-        default: ;
-    }
+            playerStrategy = new CheaterPlayerStrategy(this);
+        }
 }
 
 

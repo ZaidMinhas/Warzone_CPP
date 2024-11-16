@@ -4,17 +4,18 @@
 
 #ifndef PLAYERSTRATEGIES_H
 #define PLAYERSTRATEGIES_H
-#include "..\Player/Player.h"
+#include "../Player/Player.h"
 
 
 class PlayerStrategies {
+    protected:
     Player*player = nullptr;
     public:
     explicit PlayerStrategies(Player* player) : player(player) {}
     virtual ~PlayerStrategies() = default;
-    virtual void issueOrder();
-    virtual void toAttack();
-    virtual void toDefend();
+    virtual void issueOrder(){};
+    virtual std::vector<Territory*> toAttack(){std::vector<Territory*> a;return a;}
+    virtual std::vector<Territory*> toDefend(){std::vector<Territory*> a;return a;};
 };
 
 /*
@@ -27,8 +28,8 @@ public:
  explicit HumanPlayerStrategy(::Player *player): PlayerStrategies(player){}
  ~HumanPlayerStrategy() override;
  void issueOrder() override;
- void toAttack() override;
- void toDefend() override;
+ std::vector<Territory*> toAttack() override;
+ std::vector<Territory*> toDefend() override;
 };
 
 /*
@@ -39,10 +40,10 @@ will use any card with an aggressive purpose, as defined above).
 class AggressivePlayerStrategy : public PlayerStrategies {
 public:
  explicit AggressivePlayerStrategy(::Player *player) : PlayerStrategies(player){}
- ~AggressivePlayerStrategy() override;
+ //~AggressivePlayerStrategy() override;
  void issueOrder() override;
- void toAttack() override;
- void toDefend() override;
+ std::vector<Territory*> toAttack() override;
+ std::vector<Territory*> toDefend() override;
 };
 
 /*
@@ -53,10 +54,10 @@ may use cards but will never use a card in a way that purposefully will harm any
 class BenevolentPlayerStrategy : public PlayerStrategies {
 public:
  explicit BenevolentPlayerStrategy(::Player *player): PlayerStrategies(player) {}
- ~BenevolentPlayerStrategy() override;
+ //~BenevolentPlayerStrategy() override;
  void issueOrder() override;
- void toAttack() override;
- void toDefend() override;
+ std::vector<Territory*> toAttack() override;
+ std::vector<Territory*> toDefend() override;
 };
 
 /*
@@ -68,8 +69,8 @@ public:
  explicit NeutralPlayerStrategy(::Player *player): PlayerStrategies(player) {}
  ~NeutralPlayerStrategy() override;
  void issueOrder() override;
- void toAttack() override;
- void toDefend() override;
+ std::vector<Territory*> toAttack() override;
+ std::vector<Territory*> toDefend() override;
 };
 
 /*
@@ -81,8 +82,8 @@ public:
  explicit CheaterPlayerStrategy(::Player *player): PlayerStrategies(player) {}
  ~CheaterPlayerStrategy() override;
  void issueOrder() override;
- void toAttack() override;
- void toDefend() override;
+ std::vector<Territory*> toAttack() override;
+ std::vector<Territory*> toDefend() override;
 };
 
 

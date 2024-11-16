@@ -143,6 +143,16 @@ private:
 	int toNegotiate;  
 };
 
+class Cheat:virtual public Order, public ILoggable, public Subject{
+	public:
+	Cheat();
+	Cheat(string orderName, int* playerIndex);
+	Cheat(Cheat* cheatCopy);
+	~Cheat();
+	string stringToLog() override;
+	void execute();
+};
+
 class OrdersList : public ILoggable, public Subject{
 public:
     //Constructors and Destructors

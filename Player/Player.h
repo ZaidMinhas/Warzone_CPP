@@ -7,8 +7,8 @@
 #include "../Orders/Orders.h"
 #include "../Map/Map.h"
 #include "../Cards/Cards.h"
-#include "..\PlayerStrategies/PlayerStrategies.h"
-
+//#include "..\PlayerStrategies/PlayerStrategies.h"
+class PlayerStrategies;//To solve circular dependency
 class Player {
 
 public:
@@ -78,13 +78,14 @@ public:
     int*  _reinforcementPool;
     std::vector<bool> negotiation;
     bool* _doneTurn;
-
-private:
+    OrdersList* _orderList;  // Changed to OrdersList pointer - K - A2
     int* _id;
+private:
+    
     std::string _name;
     std::vector<Territory*> _territories;
     std::vector<Territory*> _playerterritories;
-    OrdersList* _orderList;  // Changed to OrdersList pointer - K - A2
+    
     Hand* _handCard; //moved to private - A2 - K
     std::vector<std::string> _handCards;  // Vector of card names
     PlayerStrategies* playerStrategy;

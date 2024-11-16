@@ -74,6 +74,13 @@ Negotiate::Negotiate(Negotiate* negotiateCopy):Order(negotiateCopy){addObserver(
 
 Negotiate::~Negotiate(){}
 
+Cheat::Cheat():Order(){addObserver(loggingObserver);}
+
+Cheat::Cheat(string orderName, int* playerIndex):Order(orderName, playerIndex){addObserver(loggingObserver);}
+
+Cheat::Cheat(Cheat* cheatCopy):Order(cheatCopy){addObserver(loggingObserver);}
+
+Cheat::~Cheat(){};
 //Accessors
 
 string Order::getOrderName(){
@@ -368,6 +375,24 @@ void Negotiate::execute(){
     }
 }
 
+// ----------------------------------------------------------------
+//                            Cheat
+// ----------------------------------------------------------------
+
+//Order only available to the cheater player strategy
+
+void Cheat::execute(){
+    std::vector<Territory*> owned = playerList.at(*playerIndex)->toDefend();
+    for (int i=0;i<owned.size();i++){
+        for (int j=0;j<owned.at(i)->connections.size();j++){
+            if(*owned.at(i)->connections.at(j)->owner!=playerList.at(*playerIndex)->getID()){
+                *owned.at(i)->connections.at(j)->owner=playerList.at(*playerIndex)->getID();
+                cout<<playerList.at(*playerIndex)->getName()<<" just took "<<*owned.at(i)->connections.at(j)->name;
+            }
+        }
+    }
+    Notify(*this);
+}
 //ALL LOGGING
 
 string Deploy::stringToLog() {
@@ -392,6 +417,10 @@ string Airlift::stringToLog() {
 
 string Negotiate::stringToLog() {
     return "Order Executed: " + orderName;
+}
+
+string Cheat::stringToLog() {
+    return "Order Executed: "+orderName;
 }
 
 //operators
