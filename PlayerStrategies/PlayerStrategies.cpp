@@ -266,7 +266,24 @@ std::vector<Territory*> BenevolentPlayerStrategy::toAttack() { //based on the re
 
 
 //----------------Neutral player------------------
+NeutralPlayerStrategy::~NeutralPlayerStrategy() {}
 
+void NeutralPlayerStrategy::issueOrder() { //based on the requirements, neutral player NEVER issues orders
+    std::cout << "Neutral player does not issue orders!" << std::endl;
+}
+
+std::vector<Territory*> NeutralPlayerStrategy::toDefend() { //based on the requirements, neutral player doesn't defend 
+    return {};
+}
+
+std::vector<Territory*> NeutralPlayerStrategy::toAttack() { //based on the requirements, neutral player doesn't attack 
+    return {};
+}
+
+void NeutralPlayerStrategy::handleAttack() { // If attacked, neutral player switches to aggressive player
+    std::cout << "Neutral player has been attacked! Switching to Aggressive ..." << std::endl;
+    //player->setStrategy(new AggressivePlayerStrategy(player)); -- not yet implemented as of now
+}
 //------------------------------------------------
 
 

@@ -69,6 +69,7 @@ public:
  void issueOrder() override;
  std::vector<Territory*> toAttack() override;
  std::vector<Territory*> toDefend() override;
+ void NeutralPlayerStrategy::handleAttack();
 };
 
 /*

@@ -5,7 +5,7 @@
 #include <sstream> //spliting the command line
 #include <utility>
 #include "../Orders/Orders.h"
-#include "..\PlayerStrategies/PlayerStrategies.h"
+#include "../PlayerStrategies/PlayerStrategies.h"
 
 
 //Player::Player(){}; 
@@ -183,22 +183,7 @@ void Player::issueOrder(){
 //              Territories to attack
 // --------------------------------------------------
 std::vector<Territory*> Player::toAttack() const {
-    //--------------PLAYER STRATEGY----------------------
-    //playerStrategy->toAttack();
-    //---------------------------------------------------
-
-    std::vector<Territory*> territoriesToAttack;
-
-    // Loop through all territories in the game map
-    for (int i=0; i<gameMap.graph.size();i++) {
-        // Check if the territory is not owned by the player
-        if (*gameMap.graph.at(i).owner!=*_id) {
-            // Territory is available for attack, push back the pointer to the territory
-            territoriesToAttack.push_back(&gameMap.graph.at(i));
-        }
-    }
-
-    return territoriesToAttack;
+    return playerStrategy->toAttack();
 }
 
 
@@ -207,19 +192,7 @@ std::vector<Territory*> Player::toAttack() const {
 //              Territories to defend
 // --------------------------------------------------
 std::vector<Territory*> Player::toDefend() const {
-    //--------------PLAYER STRATEGY----------------------
-    //playerStrategy->toDefend();
-    //---------------------------------------------------
-    std::vector<Territory*> territoriesToDefend;
-
-    // Add all player-owned territories to the vector
-    for (int i=0; i<gameMap.graph.size();i++) { // Each time the player concquer a territory, it should be added in _playerTerritory
-        if (*gameMap.graph.at(i).owner==*_id) {
-            territoriesToDefend.push_back(&gameMap.graph.at(i));
-        }
-    }
-
-    return territoriesToDefend;
+    return playerStrategy->toDefend();
 }
 
 
