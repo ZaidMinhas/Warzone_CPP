@@ -1,6 +1,4 @@
-//
-// Created by minha on 11/11/2024.
-//
+
 
 #include "PlayerStrategies.h"
 #include "../Orders/Orders.h"
@@ -209,6 +207,59 @@ std::vector<Territory*> HumanPlayerStrategy::toAttack(){
 
 
 //----------------Benevolent player----------------
+
+BenevolentPlayerStrategy::~BenevolentPlayerStrategy(){}
+
+void BenevolentPlayerStrategy::issueOrder(){
+    // Focus on reinforcing the weakest territories --> REQ 1
+    std::vector<Territory*> defendList = toDefend();
+    if(defendList.empty()){
+        std::cout << "There's not territories to defend" << std::endl; // any territories to defend?
+        return;
+    }
+
+    if(*player->_reinforcementPool>0){ // if there are units to deploy ...
+        // armies deployment to the weakest territories for defence
+        Territory* weakestTerritory = defendList.front();
+        int* nUnits = new int(*player->_reinforcementPool);
+        player->_orderList->addOrder(new Deploy("Deploy", weakestTerritory, player->_id, nUnits));
+        *player->_reinforcementPool = 0; // empty reinforcement pool
+        std::cout << "All armies deloyed to protect " << *(weakestTerritory->name) << "." << std::endl;
+    } else {
+        // no reiforcement ? --> advance
+        if(defendList.size()<1){
+            Territory* original_territory = defendList.at(1); // next weakest territory on the defend list
+            Territory* target_territory = defendList.front(); // weakest territory NOW
+            int *nUnits = new int(*original_territory->army/2 ); // advance half the armies
+            player->_orderList->addOrder(new Advance("Advance", player->_id, original_territory, target_territory, nUnits));
+            std::cout << "Armies advanced from " << *(original_territory->name) << " to " << *(target_territory->name) << "." << std::endl;
+        } else {
+            std::cout << "You cannot advance to protect territories." << std::endl;
+        }
+    }
+
+}
+
+std::vector<Territory*> BenevolentPlayerStrategy::toDefend() {
+    std::vector<Territory*> territoriesToDefend;
+
+    // add all territories owned by the player 
+    for (auto& territory : gameMap.graph) {
+        if (*territory.owner == *player->_id) {
+            territoriesToDefend.push_back(&territory);
+        }
+    }
+
+    // sort the territories by the number of armies in ascending order -> to determine afterwards the weakest territories 
+    std::sort(territoriesToDefend.begin(), territoriesToDefend.end(),
+              [](Territory* a, Territory* b) { return a->army < b->army; });
+
+    return territoriesToDefend;
+}
+
+std::vector<Territory*> BenevolentPlayerStrategy::toAttack() { //based on the requirements, benevolent player NEVER attacks
+    return {};
+}
 
 //------------------------------------------------
 

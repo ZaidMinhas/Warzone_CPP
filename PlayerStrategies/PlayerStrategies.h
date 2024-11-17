@@ -1,6 +1,4 @@
-//
-// Created by minha on 11/11/2024.
-//
+
 
 #ifndef PLAYERSTRATEGIES_H
 #define PLAYERSTRATEGIES_H
