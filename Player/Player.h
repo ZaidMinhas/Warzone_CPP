@@ -35,6 +35,8 @@ public:
     //Set Player Strategy
     void setPlayerStrategy(const string& strategy);
 
+    std::string getPlayerStrategy();
+
     // Function to find a territory by name -- needed to issue the order
     Territory* findTerritoryByName(const std::string& territoryName);
     

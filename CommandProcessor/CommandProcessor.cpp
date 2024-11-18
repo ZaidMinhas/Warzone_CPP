@@ -69,6 +69,7 @@ vector<string> CommandProcessor::splitCommand(const string command){
 }
 
 string CommandProcessor::getCommand() {
+    std::cerr<<"Command: ";
     string command = readCommand();
     saveCommand(command);
     return command;

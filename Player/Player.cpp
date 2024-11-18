@@ -15,6 +15,7 @@ Player::Player(const string &name, int* id){
     this->_name = name;
     this->_id=new int(*id);
     this->_orderList=new OrdersList();
+    this->playerStrategy=new HumanPlayerStrategy(this);
 }
 
 //copy constructor
@@ -81,6 +82,9 @@ void Player::setPlayerStrategy(const string& strategy) {
         }
 }
 
+std::string Player::getPlayerStrategy(){
+    return playerStrategy->getStrategy();
+}
 
 void Player::printOrder() const { // changed - K - A2
     if (_orderList->getSize() == 0) {

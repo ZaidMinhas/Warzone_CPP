@@ -715,7 +715,7 @@ void GameEngine::issueOrdersPhase()
             }
 
             //runs player's turn for giving out orders!
-            else if (*playerList.at(turns.at(i))->_doneTurn == false) {
+            else{
                 displayPlayerInfo(turns.at(i));
                 
                 // Takes in a player's command

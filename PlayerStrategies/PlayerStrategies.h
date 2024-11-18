@@ -9,6 +9,7 @@ class PlayerStrategies {
     protected:
     Player*player = nullptr;
     public:
+    virtual std::string getStrategy(){return "";}
     explicit PlayerStrategies(Player* player) : player(player) {}
     virtual ~PlayerStrategies() = default;
     virtual void issueOrder(){};
@@ -28,6 +29,7 @@ public:
  void issueOrder() override;
  std::vector<Territory*> toAttack() override;
  std::vector<Territory*> toDefend() override;
+ std::string getStrategy()override{return "Human";}
 };
 
 /*
@@ -38,10 +40,11 @@ will use any card with an aggressive purpose, as defined above).
 class AggressivePlayerStrategy : public PlayerStrategies {
 public:
  explicit AggressivePlayerStrategy(::Player *player) : PlayerStrategies(player){}
- //~AggressivePlayerStrategy() override;
+ ~AggressivePlayerStrategy() override;
  void issueOrder() override;
  std::vector<Territory*> toAttack() override;
  std::vector<Territory*> toDefend() override;
+ std::string getStrategy()override{return "Aggressive";}
 };
 
 /*
@@ -52,10 +55,11 @@ may use cards but will never use a card in a way that purposefully will harm any
 class BenevolentPlayerStrategy : public PlayerStrategies {
 public:
  explicit BenevolentPlayerStrategy(::Player *player): PlayerStrategies(player) {}
- //~BenevolentPlayerStrategy() override;
+ ~BenevolentPlayerStrategy() override;
  void issueOrder() override;
  std::vector<Territory*> toAttack() override;
  std::vector<Territory*> toDefend() override;
+ std::string getStrategy()override{return "Benevolent";}
 };
 
 /*
@@ -69,7 +73,8 @@ public:
  void issueOrder() override;
  std::vector<Territory*> toAttack() override;
  std::vector<Territory*> toDefend() override;
- void NeutralPlayerStrategy::handleAttack();
+ void handleAttack();
+ std::string getStrategy()override{return "Neutral";}
 };
 
 /*
@@ -83,6 +88,7 @@ public:
  void issueOrder() override;
  std::vector<Territory*> toAttack() override;
  std::vector<Territory*> toDefend() override;
+ std::string getStrategy()override{return "Cheater";}
 };
 
 

@@ -262,6 +262,9 @@ void Advance::execute(){
         }
     }
     Notify(*this);
+    if(*playerIndex!=*advanceTo->owner && playerList.at(*advanceTo->owner)->getPlayerStrategy()=="Neutral"){
+        playerList.at(*advanceTo->owner)->setPlayerStrategy("Aggressive");
+    }
 }
 
 // ----------------------------------------------------------------
@@ -285,6 +288,9 @@ void Bomb::execute(){
     if(this->validate()){
         cout<<"FIRE IN THE HOOOOOOOOOLE!!! "<<*(toBomb->name)<<" will be hit with the bomb and lose half their units!!"<<endl;
         *(toBomb->army) = *(toBomb->army)/2;
+    }
+    if(*playerIndex!=*toBomb->owner && playerList.at(*toBomb->owner)->getPlayerStrategy()=="Neutral"){
+        playerList.at(*toBomb->owner)->setPlayerStrategy("Aggressive");
     }
 }
 
@@ -387,7 +393,7 @@ void Cheat::execute(){
         for (int j=0;j<owned.at(i)->connections.size();j++){
             if(*owned.at(i)->connections.at(j)->owner!=playerList.at(*playerIndex)->getID()){
                 *owned.at(i)->connections.at(j)->owner=playerList.at(*playerIndex)->getID();
-                cout<<playerList.at(*playerIndex)->getName()<<" just took "<<*owned.at(i)->connections.at(j)->name;
+                cout<<playerList.at(*playerIndex)->getName()<<" just took "<<*owned.at(i)->connections.at(j)->name<<"\n";
             }
         }
     }

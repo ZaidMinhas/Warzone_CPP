@@ -1,6 +1,31 @@
-Order Issued: deploy
-Order Issued: advance
-Order Issued: bomb
-Order Issued: negotiate
+GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
-Order Executed: deploy
+Order Issued: Deploy
+Order Issued: Deploy
+Command: done
+Order Issued: Deploy
+Order Issued: Cheat
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Cheat
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Command: done
+Order Issued: Deploy
+Order Issued: Cheat
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Cheat
+GameEngine new state: Win
+GameEngine new state: Win
+Command: quit
+Command's Effect: Quitting Game
+GameEngine new state: End

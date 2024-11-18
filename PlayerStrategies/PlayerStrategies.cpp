@@ -212,6 +212,7 @@ void AggressivePlayerStrategy::issueOrder(){
     if (*player->_reinforcementPool>0){
         //Deploy
         player->_orderList->addOrder(new Deploy("Deploy", owned.at(0), player->_id, player->_reinforcementPool));
+        *player->_reinforcementPool=0;
         turnOver=true;
     }else{
 
@@ -235,6 +236,7 @@ void AggressivePlayerStrategy::issueOrder(){
                     player->_orderList->addOrder(new Advance("Advance", player->_id, owned.at(0), owned.at(0)->connections.at(j), owned.at(0)->army));
                     turnOver=true;
                     advanced=true;
+                    *player->_doneTurn=true;
                     break;
                 }
             }
@@ -321,8 +323,10 @@ void BenevolentPlayerStrategy::issueOrder(){
             int *nUnits = new int(*original_territory->army/2 ); // advance half the armies
             player->_orderList->addOrder(new Advance("Advance", player->_id, original_territory, target_territory, nUnits));
             std::cout << "Armies advanced from " << *(original_territory->name) << " to " << *(target_territory->name) << "." << std::endl;
+            *player->_doneTurn=true;
         } else {
-            std::cout << "You cannot advance to protect territories." << std::endl;
+            //std::cout << "You cannot advance to protect territories." << std::endl;
+            *player->_doneTurn=true;
         }
     }
 
@@ -358,6 +362,7 @@ NeutralPlayerStrategy::~NeutralPlayerStrategy() {}
 
 void NeutralPlayerStrategy::issueOrder() { //based on the requirements, neutral player NEVER issues orders
     std::cout << "Neutral player does not issue orders!" << std::endl;
+    *player->_doneTurn=true;
 }
 
 std::vector<Territory*> NeutralPlayerStrategy::toDefend() { //based on the requirements, neutral player doesn't defend 
@@ -370,7 +375,7 @@ std::vector<Territory*> NeutralPlayerStrategy::toAttack() { //based on the requi
 
 void NeutralPlayerStrategy::handleAttack() { // If attacked, neutral player switches to aggressive player
     std::cout << "Neutral player has been attacked! Switching to Aggressive ..." << std::endl;
-    //player->setStrategy(new AggressivePlayerStrategy(player)); -- not yet implemented as of now
+    player->setPlayerStrategy("Aggressive");
 }
 //------------------------------------------------
 
@@ -383,6 +388,7 @@ void CheaterPlayerStrategy::issueOrder(){
     if(*player->_reinforcementPool>0){
         std::vector<Territory*> owned = toDefend();
         player->_orderList->addOrder(new Deploy("Deploy", owned.at(0), player->_id, player->_reinforcementPool));
+        *player->_reinforcementPool=0;
     }else{
         player->_orderList->addOrder(new Cheat("Cheat", player->_id));
         *player->_doneTurn=true;
