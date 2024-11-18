@@ -202,6 +202,94 @@ std::vector<Territory*> HumanPlayerStrategy::toAttack(){
 
 //----------------Aggressive player----------------
 
+AggressivePlayerStrategy::~AggressivePlayerStrategy(){}
+
+void AggressivePlayerStrategy::issueOrder(){
+    std::vector<Territory*> owned = toDefend();
+    std::vector<Territory*> targets = toAttack();
+    bool turnOver=false;
+    bool advanced=false;
+    if (*player->_reinforcementPool>0){
+        //Deploy
+        player->_orderList->addOrder(new Deploy("Deploy", owned.at(0), player->_id, player->_reinforcementPool));
+        turnOver=true;
+    }else{
+
+        //Using the bomb card if available
+        for(int i=0;i<player->getHand()->getCards().size();i++){
+            if(player->getHand()->getCards().at(i).getType()=="Bomb"){
+                for(int j=0;j<owned.at(0)->connections.size();j++){
+                    if(*owned.at(0)->connections.at(j)->owner!=*player->_id && *owned.at(0)->connections.at(j)->army>0){
+                        player->_orderList->addOrder(new Bomb("Bomb", player->_id, owned.at(0)->connections.at(j)));
+                        turnOver=true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        //Advance
+        if(turnOver==false){
+            for(int j=0;j<owned.at(0)->connections.size();j++){
+                if(*owned.at(0)->connections.at(j)->owner!=*player->_id && *owned.at(0)->connections.at(j)->army<*owned.at(0)->army){
+                    player->_orderList->addOrder(new Advance("Advance", player->_id, owned.at(0), owned.at(0)->connections.at(j), owned.at(0)->army));
+                    turnOver=true;
+                    advanced=true;
+                    break;
+                }
+            }
+            if(advanced==false){
+                *player->_doneTurn=true;
+            }
+        }
+    }
+}
+
+
+std::vector<Territory*> AggressivePlayerStrategy::toDefend(){
+    std::vector<Territory*> territoriesToDefend;
+
+    // Add all player-owned territories to the vector
+    for (int i=0; i<gameMap.graph.size();i++) { // Each time the player concquer a territory, it should be added in _playerTerritory
+        if (*gameMap.graph.at(i).owner==*player->_id) {
+            for(int j=0;j<gameMap.graph.at(i).connections.size();j++){
+                if(*gameMap.graph.at(i).connections.at(j)->owner!=*player->_id){
+                    territoriesToDefend.push_back(&gameMap.graph.at(i));
+                    break;
+                }
+            }
+            
+        }
+    }
+
+    std::sort(territoriesToDefend.begin(), territoriesToDefend.end(),
+              [](Territory* a, Territory* b) { return *a->army > *b->army; });
+
+    return territoriesToDefend;
+}
+
+std::vector<Territory*> AggressivePlayerStrategy::toAttack(){
+    std::vector<Territory*> territoriesToAttack;
+
+    // Loop through all territories in the game map
+    for (int i=0; i<gameMap.graph.size();i++) {
+        // Check if the territory is not owned by the player
+        if (*gameMap.graph.at(i).owner!=*player->_id) {
+            // Territory is available for attack, push back the pointer to the territory
+            for(int j=0;j<gameMap.graph.at(i).connections.size();j++){
+                if(*gameMap.graph.at(i).connections.at(j)->owner==*player->_id){
+                    territoriesToAttack.push_back(&gameMap.graph.at(i));
+                    break;
+                }
+            }
+        }
+    }
+
+    
+
+    return territoriesToAttack;
+}
+
 //-------------------------------------------------
 
 
