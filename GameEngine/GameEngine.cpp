@@ -624,6 +624,7 @@ void GameEngine::mainGameLoop()
 
 void GameEngine::reinforcementPhase()
 {
+    checkWinCon();
     //lets player know reinforcement phase has started
     std::cout << "\nNew troops have arrived!" << endl;
 
@@ -815,9 +816,12 @@ void GameEngine::executeOrdersPhase()
 int GameEngine::checkWinCon()
 {
     int territoriesOwned[playerList.size()];
+    for(int i=0;i<playerList.size();i++){
+        territoriesOwned[i]=0;
+    }
     int endCon = 1;
     int currentWinner = *gameMap.graph.at(0).owner;
-    territoriesOwned[currentWinner]++;
+    territoriesOwned[currentWinner]=territoriesOwned[currentWinner]+1;
 
     for (int i = 1; i < gameMap.graph.size(); i++)
     {
@@ -836,11 +840,26 @@ int GameEngine::checkWinCon()
         if (territoriesOwned[j] == 0)
         {
             playerList.erase(playerList.begin() + j);
+            for(int k=0;k<gameMap.graph.size();k++){
+                if(*gameMap.graph.at(k).owner>j){
+                    *gameMap.graph.at(k).owner=*gameMap.graph.at(k).owner-1;
+                }
+            }
+            for(int k=0;k<playerList.size();k++){
+                if(*playerList.at(k)->_id>j){
+                    *playerList.at(k)->_id=*playerList.at(k)->_id-1;
+                }
+            }
             for (int k = 0; k < turns.size(); k++)
             {
                 if (turns[k] == j)
                 {
                     turns.erase(turns.begin() + k);
+                }
+            }
+            for (int k = 0; k < turns.size(); k++){
+                if(turns[k]>j){
+                    turns[k]=turns[k]-1;
                 }
             }
         }

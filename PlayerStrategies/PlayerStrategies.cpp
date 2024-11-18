@@ -211,7 +211,8 @@ void AggressivePlayerStrategy::issueOrder(){
     bool advanced=false;
     if (*player->_reinforcementPool>0){
         //Deploy
-        player->_orderList->addOrder(new Deploy("Deploy", owned.at(0), player->_id, player->_reinforcementPool));
+        int* nUnits = new int(*player->_reinforcementPool);
+        player->_orderList->addOrder(new Deploy("Deploy", owned.at(0), player->_id, nUnits));
         *player->_reinforcementPool=0;
         turnOver=true;
     }else{
@@ -232,8 +233,9 @@ void AggressivePlayerStrategy::issueOrder(){
         //Advance
         if(turnOver==false){
             for(int j=0;j<owned.at(0)->connections.size();j++){
-                if(*owned.at(0)->connections.at(j)->owner!=*player->_id && *owned.at(0)->connections.at(j)->army<*owned.at(0)->army){
-                    player->_orderList->addOrder(new Advance("Advance", player->_id, owned.at(0), owned.at(0)->connections.at(j), owned.at(0)->army));
+                if(*owned.at(0)->connections.at(j)->owner!=*player->_id && *owned.at(0)->connections.at(j)->army<=*owned.at(0)->army){
+                    int* nUnits = new int(*owned.at(0)->army);
+                    player->_orderList->addOrder(new Advance("Advance", player->_id, owned.at(0), owned.at(0)->connections.at(j), nUnits));
                     turnOver=true;
                     advanced=true;
                     *player->_doneTurn=true;
@@ -387,7 +389,8 @@ CheaterPlayerStrategy::~CheaterPlayerStrategy(){}
 void CheaterPlayerStrategy::issueOrder(){
     if(*player->_reinforcementPool>0){
         std::vector<Territory*> owned = toDefend();
-        player->_orderList->addOrder(new Deploy("Deploy", owned.at(0), player->_id, player->_reinforcementPool));
+        int* nUnits = new int(*player->_reinforcementPool);
+        player->_orderList->addOrder(new Deploy("Deploy", owned.at(0), player->_id, nUnits));
         *player->_reinforcementPool=0;
     }else{
         player->_orderList->addOrder(new Cheat("Cheat", player->_id));

@@ -198,7 +198,7 @@ bool Advance::validate(){
     else{
         for(auto link : advanceFrom->connections){
            if(link->name==advanceTo->name){
-                if(playerList[*(playerIndex)]->negotiation[*(advanceTo->owner)]){
+                if(playerList.at(*(playerIndex))->negotiation.at(*(advanceTo->owner))){
                     cout<<"We have negotiatiated a cease fire on this group commander!! We cannot execute this order!!"<<endl;
                     return false;
                 }
@@ -253,7 +253,7 @@ void Advance::execute(){
                 *(advanceTo->army)=attackingUnits;
                 cout<<"The attacking player has succeeded in taking over "<<*(advanceTo->name)<<"!!"<<endl;
                 //Update Players owned Territories vector either after executing the function or during.
-                gameEngine.checkWinCon();
+                //gameEngine.checkWinCon();
             }
             else if(attackingUnits==0){
                 cout<<"The defender has successfully drove off the invaders from "<<*(advanceTo->name)<<"!!"<<endl;
@@ -376,7 +376,7 @@ void Negotiate::execute(){
     if(this->validate()){
         //Find the player to negotiate with in the players negotiate array and set it to true
         cout<<"Proceeding to send a cease fire negotiation with player "<<(playerList.at(toNegotiate)->getName())<<endl;
-        playerList[toNegotiate]->negotiation[*playerIndex] = true;
+        playerList.at(toNegotiate)->negotiation.at(*playerIndex) = true;
         Notify(*this);
     }
 }
