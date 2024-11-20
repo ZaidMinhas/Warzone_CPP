@@ -1,11 +1,4 @@
-loadmap Map\NorthAmerica.map
-validatemap
-addplayer C1 Cheater
-addplayer N2 Neutral
-addplayer A3 Aggressive
-gamestart
-replay
-loadmap Map\NorthAmerica.map
+loadmap Map\Asia.map
 validatemap
 addplayer C1 Cheater
 addplayer N2 Neutral
