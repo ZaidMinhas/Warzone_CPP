@@ -402,11 +402,11 @@ void Cheat::execute(){
 //ALL LOGGING
 
 string Deploy::stringToLog() {
-    return "Order Executed: " + orderName;
+    return "Order Executed: " + orderName + " by PlayerID: " + std::to_string(*getPlayerIndex());
 }
 
 string Advance::stringToLog() {
-    return "Order Executed: " + orderName;
+    return "Order Executed: " + orderName + " by PlayerID: " + std::to_string(*getPlayerIndex());
 }
 
 // string Bomb::stringToLog() {
@@ -414,19 +414,19 @@ string Advance::stringToLog() {
 // }
 
 string Blockade::stringToLog() {
-    return "Order Executed: " + orderName;
+    return "Order Executed: " + orderName + " by PlayerID: " + std::to_string(*getPlayerIndex());
 }
 
 string Airlift::stringToLog() {
-    return "Order Executed: " + orderName;
+    return "Order Executed: " + orderName + " by PlayerID: " + std::to_string(*getPlayerIndex());
 }
 
 string Negotiate::stringToLog() {
-    return "Order Executed: " + orderName;
+    return "Order Executed: " + orderName + " by PlayerID: " + std::to_string(*getPlayerIndex());
 }
 
 string Cheat::stringToLog() {
-    return "Order Executed: "+orderName;
+    return "Order Executed: "+orderName + " by PlayerID: " + std::to_string(*getPlayerIndex());
 }
 
 //operators
@@ -566,7 +566,7 @@ void OrdersList::addOrder(Deploy* newOrder){
 }
 
 string OrdersList::stringToLog() {
-    return "Order Issued: " + getTail()->getPrevious()->getOrderName();
+    return "Order Issued: " + getTail()->getPrevious()->getOrderName() + " by PlayerID: " + std::to_string(*getTail()->getPrevious()->getPlayerIndex());
 }
 
 void OrdersList::remove(int position){

@@ -1,2 +1,47 @@
-Command: tournament -M Map\Asia.map Map\NorthAmerica.map -P cheater neutral aggressive -G 5 -D 50
+Command: tournament -M Map\NorthAmerica.map -P Cheater Neutral Aggressive -G 2 -D 50
 Command's Effect: Starting a tournament
+Command: loadmap Map\NorthAmerica.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer C1 Cheater
+Command's Effect: Adding Player C1, using Cheater Strategy
+GameEngine new state: Players Added
+Command: addplayer N2 Neutral
+Command's Effect: Adding Player N2, using Neutral Strategy
+GameEngine new state: Players Added
+Command: addplayer A3 Aggressive
+Command's Effect: Adding Player A3, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 2
+Order Issued: Cheat by PlayerID: 0
+Order Issued: Advance by PlayerID: 2
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 2
+Order Executed: Cheat by PlayerID: 0
+Order Executed: Advance by PlayerID: 2
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Cheat by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Cheat by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Win
+GameEngine new state: Win
+Command: replay
+Command's Effect: Replaying Game

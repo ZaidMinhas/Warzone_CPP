@@ -147,6 +147,7 @@ string FileCommandProcessorAdapter::readCommand() {
 
     string line;
     if (getline(file, line)) {
+        std::cout << line;
         return line;
     } else {
         return "";

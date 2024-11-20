@@ -11,4 +11,5 @@ add_executable(Warzone_CPP Main.cpp
         PlayerStrategies/PlayerStrategiesDriver.cpp
         Player/Player.cpp
         PlayerStrategies/PlayerStrategies.cpp
-        GameEngine/GameEngine.cpp)
+        GameEngine/GameEngine.cpp
+        LoggingObserver/LoggingObserver.cpp)

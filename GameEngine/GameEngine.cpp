@@ -506,6 +506,12 @@ void GameEngine::startupPhase()
                 myfile.close();
                 //----------------------------------------------
 
+
+                //----------------Replacing Command Processor-------------------
+                delete commandProcessor;
+                commandProcessor = new FileCommandProcessorAdapter("TournamentCommand.txt");
+                //--------------------------------------------------------------
+
             }
             else if (args.at(0) == "loadmap")
             {
