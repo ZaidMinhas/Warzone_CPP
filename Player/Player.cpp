@@ -11,6 +11,7 @@
 //Player::Player(){}; 
 Player::Player() : _orderList(new OrdersList()) {} // Added - K - A2
 
+//Player constructor for only name and id
 Player::Player(const string &name, int* id){
     this->_name = name;
     this->_id=new int(*id);
@@ -18,6 +19,7 @@ Player::Player(const string &name, int* id){
     setPlayerStrategy("Human");
 }
 
+//Player constructor for name, id and strategy
 Player::Player(const std::string &name, int *id, const std::string &strategy) {
     this->_name = name;
     this->_id=new int(*id);
@@ -64,7 +66,10 @@ Player& Player::operator=(const Player& other) {
     return *this;
 }
 
+
+//Set player strategy based on string
 void Player::setPlayerStrategy(const string &strategy) {
+
         if (strategy=="Human"){
             if (playerStrategy == nullptr)
                 delete playerStrategy;
@@ -96,6 +101,7 @@ void Player::setPlayerStrategy(const string &strategy) {
         }
 }
 
+//Basic getter for strategy
 std::string Player::getPlayerStrategy() const{
     return playerStrategy->getStrategy();
 }

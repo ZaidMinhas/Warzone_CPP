@@ -19,7 +19,14 @@ void HumanPlayerStrategy::issueOrder(){
     //get the arguments from command arg[0] -> should mention to the player how to enter the command
     //command :  deploy 50 canada | arg[0]->deploy ; arg[1]->numbr of units ; arg[2]->terriroty on which the player deploys his armies
     //switch case of if deploy, if advance , if bomb , if airlift , if blockade , if negociate
-    std::string command=commandProcessor->getCommand();
+
+    // Do not use command processor for orders
+    // std::string command=commandProcessor->getCommand();
+
+    cout << "Issue an order: ";
+    string command;
+    std::getline(cin, command);
+
     int* playerId = player->_id;
     // the split words
     std::vector<std::string> args;

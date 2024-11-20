@@ -71,6 +71,7 @@ vector<string> CommandProcessor::splitCommand(const string command){
 string CommandProcessor::getCommand() {
     std::cerr<<"Command: ";
     string command = readCommand();
+    std::cerr<<"\n";
     saveCommand(command);
     return command;
 
@@ -88,6 +89,7 @@ void CommandProcessor::validate(const void *ptr) {
 bool CommandProcessor::validate(const string command){
     vector<string> args = splitCommand(command);
     if (args.at(0)=="tournament"&& gameEngine.getCurrentState()=="Start" && args.size() >= 10){
+        //Validate tournament command by checking if there are at least 10 arguments
         currentCommand->saveEffect("Starting a tournament");
         return true;
     }

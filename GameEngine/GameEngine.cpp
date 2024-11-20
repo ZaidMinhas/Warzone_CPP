@@ -459,7 +459,7 @@ void GameEngine::startupPhase()
     string input;
     while (true)
     {
-        cout << "\nEnter command:";
+        //cout << "\nEnter command:";
         input = commandProcessor->getCommand();
         args = commandProcessor->splitCommand(input);
         if (commandProcessor->validate(input))
@@ -468,38 +468,47 @@ void GameEngine::startupPhase()
 
                 //----------GETTING INFO FROM COMMAND--------
                 int i = 1;
+
+                //Collection of maps and players extracted from command
                 vector<string> mapFiles;
                 vector<string> playerStrategies;
+
+                //getting map files
                 while (args.at(++i) != "-P") {
                     mapFiles.push_back(args.at(i));
-
                 }
 
+                //Getting player strategies
                 while (args.at(++i) != "-G") {
                     playerStrategies.push_back(args.at(i));
                 }
 
-
+                //Get number of games and max number of turns
                 int numGames = std::stoi(args.at(i+1));
                 int maxTurns = std::stoi(args.at(i+3));
 
                 //--------------------------------------------
 
                 //----------WRITING COMMANDS TO A FILE----------
+                //Input File
                 std::ofstream myfile;
                 myfile.open("TournamentCommand.txt");
 
+                //Each -G games have -M maps with -P players
                 for (int game_i = 0; game_i < numGames; game_i++) {
                     for (int map_i = 0; map_i < mapFiles.size(); map_i++) {
                         myfile << "loadmap " << mapFiles.at(map_i) << "\n";
                         myfile << "validatemap" << "\n";
 
+                        //Addplayers
                         for (int player_i = 0; player_i < playerStrategies.size(); player_i++) {
                             string strategy = playerStrategies.at(player_i);
+                            //Player name based on strategy and order
                             string playerName = strategy[0] + std::to_string(player_i+1);
                             myfile << "addplayer " << playerName << " " << strategy << "\n";
                         }
                         myfile << "gamestart" << "\n";
+                        //Check if last game
                         myfile << ((game_i == numGames - 1 && map_i == mapFiles.size()-1) ? "quit" : "replay") << "\n";
                     }
                 }
@@ -508,9 +517,13 @@ void GameEngine::startupPhase()
 
 
                 //----------------Replacing Command Processor-------------------
+                //CmdProc replaced to make sure commands are read from tournament file
                 delete commandProcessor;
                 commandProcessor = new FileCommandProcessorAdapter("TournamentCommand.txt");
                 //--------------------------------------------------------------
+
+                cout << "Starting Tournement\n";
+                transition(new Start());
 
             }
             else if (args.at(0) == "loadmap")
