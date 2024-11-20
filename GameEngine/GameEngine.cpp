@@ -368,13 +368,13 @@ void GameEngine::setGameOver(bool b) { gameOver = b; }
 
 void GameEngine::run()
 {
-    string command;
-    
-    cout << "Welcome to Warzone\n"
-         << endl;
-    // Run first state
-    // currentState->enter(*this);
-    startupPhase();
+    cout << "Welcome to Warzone\n" << endl;
+    while (!gameOver) {
+        startupPhase();
+        mainGameLoop();
+    }
+
+    cout << "Thank you for playing!" << endl;
 
     /*while (true)
     {
@@ -671,15 +671,17 @@ void GameEngine::mainGameLoop()
         }
     }
     std::cout<<"GameOver: \n";
-    transition(new Win());
+    // transition(new Win());
 
     string input=commandProcessor->getCommand();
     if(commandProcessor->validate(input)){
         if(input=="replay"){
-            std::exit(EXIT_SUCCESS);
-        }else if(input=="quit"){
+            gameOver = true;
+            transition(new Start());
+        }
+        else if(input=="quit"){
             transition(new End());
-            std::exit(EXIT_SUCCESS);
+            gameOver = true;
         }
     }
 }

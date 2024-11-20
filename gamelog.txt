@@ -1,7 +1,7 @@
-Command: tournament -M Map\Asia.map -P Cheater Neutral Aggressive -G 1 -D 50
+Command: tournament -M Map\NorthAmerica.map -P Cheater Neutral Aggressive -G 3 -D 50
 Command's Effect: Starting a tournament
 GameEngine new state: Start
-Command: loadmap Map\Asia.map
+Command: loadmap Map\NorthAmerica.map
 Command's Effect: Loading Map
 GameEngine new state: Map Loaded
 Command: validatemap
@@ -33,17 +33,16 @@ Order Executed: Advance by PlayerID: 2
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
 Order Issued: Deploy by PlayerID: 0
-Order Issued: Deploy by PlayerID: 2
+Order Issued: Deploy by PlayerID: 1
 Order Issued: Cheat by PlayerID: 0
-Order Issued: Advance by PlayerID: 2
+Order Issued: Advance by PlayerID: 1
 GameEngine new state: Execute Orders
 GameEngine new state: Execute Orders
 Order Executed: Deploy by PlayerID: 0
-Order Executed: Deploy by PlayerID: 2
+Order Executed: Deploy by PlayerID: 1
 Order Executed: Cheat by PlayerID: 0
-Order Executed: Advance by PlayerID: 2
+Order Executed: Advance by PlayerID: 1
 GameEngine new state: Win
-GameEngine new state: Win
-Command: quit
-Command's Effect: Quitting Game
-GameEngine new state: End
+Command: replay
+Command's Effect: Replaying Game
+GameEngine new state: Start

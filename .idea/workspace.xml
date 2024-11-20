@@ -25,11 +25,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cfeef208-c80b-4133-bb57-cbc5b98d11b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameEngine/GameEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/GameEngine.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameEngine/TournamentDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/TournamentDriver.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Player/Player.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayerStrategies/PlayerStrategies.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerStrategies/PlayerStrategies.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TournamentCommand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TournamentCommand.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-11-20T19-55-39-0311.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gamelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gamelog.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,16 +125,5 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Player/Player.cpp</url>
-          <line>233</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
