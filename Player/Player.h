@@ -18,6 +18,9 @@ public:
     // Constructor with only name and id
     Player(const std::string &name, int* id);
 
+    // Constructor with name, id and strategy
+    Player(const std::string &name, int* id, const std::string &strategy);
+
     // Copy constructor
     Player(const Player&);
 
@@ -33,9 +36,9 @@ public:
     std::vector<Territory*> toDefend() const;
 
     //Set Player Strategy
-    void setPlayerStrategy(const string& strategy);
+    void setPlayerStrategy(const string &strategy);
 
-    std::string getPlayerStrategy();
+    std::string getPlayerStrategy() const;
 
     // Function to find a territory by name -- needed to issue the order
     Territory* findTerritoryByName(const std::string& territoryName);

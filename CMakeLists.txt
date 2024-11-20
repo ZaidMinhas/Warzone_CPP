@@ -10,4 +10,5 @@ add_executable(Warzone_CPP Main.cpp
         Orders/Orders.cpp
         PlayerStrategies/PlayerStrategiesDriver.cpp
         Player/Player.cpp
-        PlayerStrategies/PlayerStrategies.cpp)
+        PlayerStrategies/PlayerStrategies.cpp
+        GameEngine/GameEngine.cpp)

@@ -15,8 +15,16 @@ Player::Player(const string &name, int* id){
     this->_name = name;
     this->_id=new int(*id);
     this->_orderList=new OrdersList();
-    this->playerStrategy=new HumanPlayerStrategy(this);
+    setPlayerStrategy("Human");
 }
+
+Player::Player(const std::string &name, int *id, const std::string &strategy) {
+    this->_name = name;
+    this->_id=new int(*id);
+    this->_orderList=new OrdersList();
+    setPlayerStrategy(strategy);
+}
+
 
 //copy constructor
 Player::Player(const Player& other)
@@ -25,6 +33,7 @@ Player::Player(const Player& other)
     this->_territories = other._territories;
     this->_handCard = other._handCard;
     this->_playerterritories = other._playerterritories;
+    setPlayerStrategy(other.getPlayerStrategy());
     _orderList = new OrdersList(*other._orderList);
 }
 
@@ -55,34 +64,39 @@ Player& Player::operator=(const Player& other) {
     return *this;
 }
 
-void Player::setPlayerStrategy(const string& strategy) {
+void Player::setPlayerStrategy(const string &strategy) {
         if (strategy=="Human"){
-            delete playerStrategy;
+            if (playerStrategy == nullptr)
+                delete playerStrategy;
             playerStrategy = new HumanPlayerStrategy(this);
         }
 
         else if (strategy=="Aggressive"){
-            delete playerStrategy;
+            if (playerStrategy == nullptr)
+                delete playerStrategy;
             playerStrategy = new AggressivePlayerStrategy(this);
         }
 
         else if (strategy =="Benevolent"){
-            delete playerStrategy;
+            if (playerStrategy == nullptr)
+                delete playerStrategy;
             playerStrategy = new BenevolentPlayerStrategy(this);
         }
 
         else if (strategy=="Neutral"){
-            delete playerStrategy;
+            if (playerStrategy == nullptr)
+                delete playerStrategy;
             playerStrategy = new NeutralPlayerStrategy(this);
         }
 
         else if (strategy=="Cheater"){
-            delete playerStrategy;
+            if (playerStrategy == nullptr)
+                delete playerStrategy;
             playerStrategy = new CheaterPlayerStrategy(this);
         }
 }
 
-std::string Player::getPlayerStrategy(){
+std::string Player::getPlayerStrategy() const{
     return playerStrategy->getStrategy();
 }
 

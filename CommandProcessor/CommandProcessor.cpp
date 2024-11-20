@@ -94,7 +94,8 @@ bool CommandProcessor::validate(const string command){
         currentCommand->saveEffect("Validating Map");
         return true;
     }else if(args.at(0)=="addplayer"&&(gameEngine.getCurrentState()=="Map Validated"||gameEngine.getCurrentState()=="Players Added")&&args.size()>=2){
-        currentCommand->saveEffect("Adding Player "+args.at(1));
+        string strategy = (args.size() == 3) ? args.at(2) : "Human";
+        currentCommand->saveEffect("Adding Player "+args.at(1) + ", using " + strategy + " Strategy");
         return true;
     }else if(args.at(0)=="gamestart"&&gameEngine.getCurrentState()=="Players Added"){
         currentCommand->saveEffect("Starting Game");

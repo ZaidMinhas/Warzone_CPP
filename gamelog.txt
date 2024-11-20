@@ -1,34 +1,24 @@
+Command: loadmap Map\NorthAmerica.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer Joe Neutral
+Command's Effect: Adding Player Joe, using Neutral Strategy
+GameEngine new state: Players Added
+Command: addplayer Hannah Aggressive
+Command's Effect: Adding Player Hannah, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
 Order Issued: Deploy
-Order Issued: Deploy
-Order Issued: Deploy
-Order Issued: Advance
-Order Issued: Advance
 Order Issued: Advance
 GameEngine new state: Execute Orders
 GameEngine new state: Execute Orders
 Order Executed: Deploy
-Order Executed: Deploy
-Order Executed: Deploy
-Order Executed: Advance
-Order Executed: Advance
-Order Executed: Advance
-GameEngine new state: Assign Reinforcement
-GameEngine new state: Issue Orders
-Order Issued: Deploy
-Order Issued: Deploy
-Order Issued: Deploy
-Order Issued: Advance
-Order Issued: Advance
-Order Issued: Advance
-GameEngine new state: Execute Orders
-GameEngine new state: Execute Orders
-Order Executed: Deploy
-Order Executed: Deploy
-Order Executed: Deploy
-Order Executed: Advance
-Order Executed: Advance
 Order Executed: Advance
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders
@@ -41,6 +31,154 @@ GameEngine new state: Execute Orders
 Order Executed: Deploy
 Order Executed: Deploy
 Order Executed: Advance
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
+Order Executed: Advance
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy
+Order Issued: Deploy
+Order Issued: Advance
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy
+Order Executed: Deploy
 Order Executed: Advance
 GameEngine new state: Assign Reinforcement
 GameEngine new state: Issue Orders

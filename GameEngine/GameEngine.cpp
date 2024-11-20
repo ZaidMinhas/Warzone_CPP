@@ -496,7 +496,11 @@ void GameEngine::startupPhase()
             {
                 string name;
                 name = args.at(1);
-                playerList.push_back(new Player(name, this->playerCount));
+                string strategy = (args.size() == 3) ? args.at(2) : "Human";
+
+                Player *p = new Player(name, this->playerCount, strategy);
+                playerList.push_back(p);
+
                 *(this->playerCount) = *(this->playerCount)+1;
                 transition(new PlayersAdded());
             }

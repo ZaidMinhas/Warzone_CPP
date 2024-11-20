@@ -1,6 +1,6 @@
 loadmap Map\NorthAmerica.map
 validatemap
-addplayer Joe
-addplayer Hannah
+addplayer Joe Neutral
+addplayer Hannah Aggressive
 gamestart
 quit
