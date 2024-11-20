@@ -464,7 +464,11 @@ void GameEngine::startupPhase()
         args = commandProcessor->splitCommand(input);
         if (commandProcessor->validate(input))
         {
-            if (args.at(0) == "loadmap")
+
+            if (args.at(0) == "tournament") {
+
+            }
+            else if (args.at(0) == "loadmap")
             {
                 string fileName;
                 fileName = args.at(1);

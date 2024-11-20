@@ -87,7 +87,11 @@ void CommandProcessor::validate(const void *ptr) {
 
 bool CommandProcessor::validate(const string command){
     vector<string> args = splitCommand(command);
-    if(args.at(0)=="loadmap"&&(gameEngine.getCurrentState()=="Start"||gameEngine.getCurrentState()=="Map Loaded")&&args.size()>=2){
+    if (args.at(0)=="tournament"&& gameEngine.getCurrentState()=="Start" && args.size() >= 10){
+        currentCommand->saveEffect("Starting a tournament");
+        return true;
+    }
+    else if(args.at(0)=="loadmap"&&(gameEngine.getCurrentState()=="Start"||gameEngine.getCurrentState()=="Map Loaded")&&args.size()>=2){
         currentCommand->saveEffect("Loading Map");
         return true;
     }else if(args.at(0)=="validatemap"&&gameEngine.getCurrentState()=="Map Loaded"){
