@@ -4,11 +4,9 @@
 
 
 #include "TournamentDriver.h"
-#include "GameEngineDriver.h"
+#include "GameEngine.h"
 
 void testTournament(){
-
-    testStartupPhase();
-    testMainGameLoop();
-
+    gameEngine.startupPhase();
+    gameEngine.mainGameLoop();
 }

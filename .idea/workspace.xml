@@ -25,13 +25,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cfeef208-c80b-4133-bb57-cbc5b98d11b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/TournamentDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/TournamentDriver.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TournamentCommand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TournamentCommand.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-0df1d5a40be4acf5d9a4.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-11-20T19-44-10-0564.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Warzone_CPP-Debug-00dd7cb5450d50fcfa19.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gamelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gamelog.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

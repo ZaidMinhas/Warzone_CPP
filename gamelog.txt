@@ -1,3 +1,5 @@
+Command: g++ Main.cpp Orders\Orders.cpp Player\Player.cpp Map\Map.cpp GameEngine\GameEngine.cpp Cards\Cards.cpp CommandProcessor\CommandProcessor.cpp LoggingObserver\LoggingObserver.cpp PlayerStrategies\PlayerStrategies.cpp CommandProcessor\CommandProcessingDriver.cpp LoggingObserver\LoggingObserverDriver.cpp PlayerStrategies\PlayerStrategiesDriver.cpp GameEngine\TournamentDriver.cpp GameEngine\GameEngineDriver.cp
+Command's Effect: Cannot use command "g++" in state "Start"
 Command: tournament -M Map\Asia.map -P Cheater Neutral Aggressive -G 1 -D 50
 Command's Effect: Starting a tournament
 Command: loadmap Map\Asia.map
