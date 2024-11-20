@@ -676,7 +676,13 @@ void GameEngine::mainGameLoop()
     string input=commandProcessor->getCommand();
     if(commandProcessor->validate(input)){
         if(input=="replay"){
-            gameOver = true;
+            gameMap.clear();
+            for (Player* player : playerList) {
+                delete player;  // Free the memory
+            }
+            playerList.clear();  // Clear the vector
+            // gameOver = true;
+            turns.clear();
             transition(new Start());
         }
         else if(input=="quit"){

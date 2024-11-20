@@ -16,11 +16,11 @@ Order::Order(Order* orderCopy): orderName(orderCopy->orderName),next(orderCopy->
 
 Order::~Order(){
     delete playerIndex;
-    playerIndex = NULL;
-    delete next;
-    next=NULL;
-    delete previous;
-    previous=NULL;
+    // playerIndex = NULL;
+    // delete next;
+    // next=NULL;
+    // delete previous;
+    // previous=NULL;
 }
 
 Deploy::Deploy():Order(),toDeploy(nullptr),nUnits(new int (0)) {
@@ -484,12 +484,15 @@ OrdersList::OrdersList(OrdersList* listCopy){
 }
 
 OrdersList::~OrdersList(){
-    delete currentOrder;
-    currentOrder=NULL;
-    delete head;
-    head=NULL;
-    delete tail;
-    tail=NULL;
+
+
+        Order* current = head;
+        while (current != nullptr) {
+            Order* nextNode = current->getNext();
+            delete current;
+            current = nextNode;
+        }
+
 }
 //Accessors and Mutators
 Order* OrdersList::getHead(){
