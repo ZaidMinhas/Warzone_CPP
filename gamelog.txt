@@ -1,0 +1,2 @@
+Command: tournament -M Map\Asia.map Map\NorthAmerica.map -P cheater neutral aggressive -G 5 -D 50
+Command's Effect: Starting a tournament

@@ -1,0 +1,70 @@
+loadmap Map\Asia.map
+validatemap
+addplayer c1 cheater
+addplayer n2 neutral
+addplayer a3 aggressive
+gamestart
+replay
+loadmap Map\NorthAmerica.map
+validatemap
+addplayer c1 cheater
+addplayer n2 neutral
+addplayer a3 aggressive
+gamestart
+replay
+loadmap Map\Asia.map
+validatemap
+addplayer c1 cheater
+addplayer n2 neutral
+addplayer a3 aggressive
+gamestart
+replay
+loadmap Map\NorthAmerica.map
+validatemap
+addplayer c1 cheater
+addplayer n2 neutral
+addplayer a3 aggressive
+gamestart
+replay
+loadmap Map\Asia.map
+validatemap
+addplayer c1 cheater
+addplayer n2 neutral
+addplayer a3 aggressive
+gamestart
+replay
+loadmap Map\NorthAmerica.map
+validatemap
+addplayer c1 cheater
+addplayer n2 neutral
+addplayer a3 aggressive
+gamestart
+replay
+loadmap Map\Asia.map
+validatemap
+addplayer c1 cheater
+addplayer n2 neutral
+addplayer a3 aggressive
+gamestart
+replay
+loadmap Map\NorthAmerica.map
+validatemap
+addplayer c1 cheater
+addplayer n2 neutral
+addplayer a3 aggressive
+gamestart
+replay
+loadmap Map\Asia.map
+validatemap
+addplayer c1 cheater
+addplayer n2 neutral
+addplayer a3 aggressive
+gamestart
+replay
+loadmap Map\NorthAmerica.map
+validatemap
+addplayer c1 cheater
+addplayer n2 neutral
+addplayer a3 aggressive
+gamestart
+quit

@@ -464,8 +464,47 @@ void GameEngine::startupPhase()
         args = commandProcessor->splitCommand(input);
         if (commandProcessor->validate(input))
         {
-
             if (args.at(0) == "tournament") {
+
+                //----------GETTING INFO FROM COMMAND--------
+                int i = 1;
+                vector<string> mapFiles;
+                vector<string> playerStrategies;
+                while (args.at(++i) != "-P") {
+                    mapFiles.push_back(args.at(i));
+
+                }
+
+                while (args.at(++i) != "-G") {
+                    playerStrategies.push_back(args.at(i));
+                }
+
+
+                int numGames = std::stoi(args.at(i+1));
+                int maxTurns = std::stoi(args.at(i+3));
+
+                //--------------------------------------------
+
+                //----------WRITING COMMANDS TO A FILE----------
+                std::ofstream myfile;
+                myfile.open("TournamentCommand.txt");
+
+                for (int game_i = 0; game_i < numGames; game_i++) {
+                    for (int map_i = 0; map_i < mapFiles.size(); map_i++) {
+                        myfile << "loadmap " << mapFiles.at(map_i) << "\n";
+                        myfile << "validatemap" << "\n";
+
+                        for (int player_i = 0; player_i < playerStrategies.size(); player_i++) {
+                            string strategy = playerStrategies.at(player_i);
+                            string playerName = strategy[0] + std::to_string(player_i+1);
+                            myfile << "addplayer " << playerName << " " << strategy << "\n";
+                        }
+                        myfile << "gamestart" << "\n";
+                        myfile << ((game_i == numGames - 1 && map_i == mapFiles.size()-1) ? "quit" : "replay") << "\n";
+                    }
+                }
+                myfile.close();
+                //----------------------------------------------
 
             }
             else if (args.at(0) == "loadmap")

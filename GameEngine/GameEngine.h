@@ -179,6 +179,8 @@ private:
     int* playerCount;
     State* currentState;
     bool gameOver;
+    bool tournamentMode = false;
+    int maxTurns = -1;
 };
 extern GameEngine gameEngine;
 extern std::vector<int> turns;
