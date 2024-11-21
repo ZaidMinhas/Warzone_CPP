@@ -192,7 +192,7 @@ void Deploy::execute(){
 bool Advance::validate(){
     cout<<"Attempting validation of advance order!!"<<endl;
     if(*(advanceFrom->owner)!=*(playerIndex)){
-        cout<<"Unable to execute Advance order!! You do not own "<<advanceFrom->name<<endl;
+        cout<<"Unable to execute Advance order!! You do not own "<<*(advanceFrom->name)<<endl;
         return false;
     }
     else{
