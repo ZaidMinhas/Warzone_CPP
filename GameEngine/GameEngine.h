@@ -170,17 +170,22 @@ class GameEngine : public ILoggable, public Subject{
     void executeOrdersPhase();// A - A2
     void mainGameLoop();
     void displayPlayerInfo(int id);
-
+    void displayResults();
     //Getters-Setters
     void transition(State* state);
     std::string getCurrentState();
     
 private:
+    int numTurns;
     int* playerCount;
+    vector<string> winners;
+    vector<string> mapFiles;
     State* currentState;
     bool gameOver;
     bool tournamentMode = false;
     int maxTurns = -1;
+    int numGames;
+
 };
 extern GameEngine gameEngine;
 extern std::vector<int> turns;

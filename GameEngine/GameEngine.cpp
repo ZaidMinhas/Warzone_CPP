@@ -13,7 +13,7 @@
 #include "../Map/Map.h"
 #include "../Player/Player.h"
 #include "../CommandProcessor/CommandProcessor.h"
-
+#include <iomanip>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -373,7 +373,10 @@ void GameEngine::run()
         startupPhase();
         mainGameLoop();
     }
-
+    if (tournamentMode) {
+        displayResults();
+        winners.clear();
+    }
     cout << "Thank you for playing!" << endl;
 
     /*while (true)
@@ -453,7 +456,8 @@ std::vector<int> turns; // TURNS FOR ISSUING PHASE
 // ----------------------------------------------------------------
 
 void GameEngine::startupPhase()
-{   
+{
+    numTurns = 0;
     this->playerCount = new int(0);
     std::vector<string> args;
     string input;
@@ -465,12 +469,12 @@ void GameEngine::startupPhase()
         if (commandProcessor->validate(input))
         {
             if (args.at(0) == "tournament") {
+                tournamentMode = true;
 
                 //----------GETTING INFO FROM COMMAND--------
                 int i = 1;
 
                 //Collection of maps and players extracted from command
-                vector<string> mapFiles;
                 vector<string> playerStrategies;
 
                 //getting map files
@@ -484,8 +488,8 @@ void GameEngine::startupPhase()
                 }
 
                 //Get number of games and max number of turns
-                int numGames = std::stoi(args.at(i+1));
-                int maxTurns = std::stoi(args.at(i+3));
+                numGames = std::stoi(args.at(i+1));
+                maxTurns = std::stoi(args.at(i+3));
 
                 //--------------------------------------------
 
@@ -495,8 +499,8 @@ void GameEngine::startupPhase()
                 myfile.open("TournamentCommand.txt");
 
                 //Each -G games have -M maps with -P players
-                for (int game_i = 0; game_i < numGames; game_i++) {
-                    for (int map_i = 0; map_i < mapFiles.size(); map_i++) {
+                for (int map_i = 0; map_i < mapFiles.size(); map_i++) {
+                    for (int game_i = 0; game_i < numGames; game_i++) {
                         myfile << "loadmap " << mapFiles.at(map_i) << "\n";
                         myfile << "validatemap" << "\n";
 
@@ -648,6 +652,7 @@ void GameEngine::mainGameLoop()
 {
     while (gameEngine.getCurrentState() != "Win")
     {
+        numTurns++;
         reinforcementPhase();
 
         gameEngine.transition(new IssueOrders());
@@ -889,6 +894,13 @@ void GameEngine::executeOrdersPhase()
 
 int GameEngine::checkWinCon()
 {
+
+    //Game Draw
+    if (tournamentMode && numTurns > maxTurns) {
+        winners.push_back("Draw");
+        return 1;
+    }
+
     int territoriesOwned[playerList.size()];
     for(int i=0;i<playerList.size();i++){
         territoriesOwned[i]=0;
@@ -907,6 +919,9 @@ int GameEngine::checkWinCon()
     }
     if (endCon == 1)
     {
+        if (tournamentMode) {
+            winners.push_back(playerList.at(currentWinner)->getName());
+        }
         return 1; // Game is over a player owns everything
     }
     for (int j = 0; j < playerList.size(); j++)
@@ -993,4 +1008,48 @@ void GameEngine::displayPlayerInfo(int id){
     for (int i=0;i<v.size();i++){
         std::cout<<*v.at(i)<<"\n";
     }*/
+}
+
+void GameEngine::displayResults() {
+    size_t numMaps = mapFiles.size();
+
+    cout << "Tournament mode:" << "\n";
+    cout << "M: ";
+    for (int i = 0; i < numMaps; i++){cout << mapFiles[i] << ", ";}
+    cout << "\n";
+    cout << "P: ";
+    for (int i = 0; i < playerList.size(); i++){ cout << playerList.at(i)->getName() << ", "; }
+    cout << "\n";
+    cout << "G: " << numGames << "\n";
+    cout << "D: " << maxTurns << "\n\n";
+
+
+    // Calculate column widths
+    size_t mapColumnWidth = 12; // Minimum width for the map names
+    for (const string& map : mapFiles) {
+        mapColumnWidth = std::max(mapColumnWidth, map.size() + 2);
+    }
+
+    size_t gameColumnWidth = 8; // Minimum width for the game columns
+    for (const string& player : winners) {
+        gameColumnWidth = std::max(gameColumnWidth, player.size() + 2);
+    }
+
+    // Print header row
+    cout << std::setw(mapColumnWidth) << std::left << "Results:";
+    for (size_t game = 1; game <= numGames; ++game) {
+        cout << std::setw(gameColumnWidth) << std::left << "Game " + std::to_string(game);
+    }
+    cout << "\n";
+
+    // Print map rows
+    for (size_t i = 0; i < numMaps; ++i) {
+        cout << std::setw(mapColumnWidth) << std::left << mapFiles[i];
+        for (size_t j = 0; j < numGames; ++j) {
+            cout << std::setw(gameColumnWidth) << std::left << winners[i * numGames + j];
+        }
+        cout << "\n";
+    }
+
+    cout << "\n";
 }
