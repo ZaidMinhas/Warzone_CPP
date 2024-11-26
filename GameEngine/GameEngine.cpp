@@ -353,6 +353,7 @@ GameEngine gameEngine = GameEngine();
 GameEngine::GameEngine()
 {
     addObserver(loggingObserver);
+    showingTournament = false;
     gameOver = false;
     currentState = new Start();
 }
@@ -360,6 +361,7 @@ GameEngine::GameEngine()
 GameEngine::GameEngine(GameEngine *gameEngine)
 {
     addObserver(loggingObserver);
+    showingTournament = gameEngine->showingTournament;
     gameOver = gameEngine->gameOver;
     currentState = gameEngine->currentState ? gameEngine->currentState->clone() : nullptr;
 }
@@ -374,7 +376,9 @@ void GameEngine::run()
         mainGameLoop();
     }
     if (tournamentMode) {
-        displayResults();
+        showingTournament = true;
+        Notify(*this);
+
         winners.clear();
     }
     cout << "Thank you for playing!" << endl;
@@ -422,7 +426,13 @@ void GameEngine::transition(State *state)
 
 
 string GameEngine::stringToLog() {
-    return "GameEngine new state: " + getCurrentState();
+    if (showingTournament) {
+        return getResults();
+    }
+    else {
+        return "GameEngine new state: " + getCurrentState();
+    }
+
 }
 
 
@@ -1010,46 +1020,59 @@ void GameEngine::displayPlayerInfo(int id){
     }*/
 }
 
-void GameEngine::displayResults() {
+
+std::string GameEngine::getResults() {
     size_t numMaps = mapFiles.size();
-
-    cout << "Tournament mode:" << "\n";
-    cout << "M: ";
-    for (int i = 0; i < numMaps; i++){cout << mapFiles[i] << ", ";}
-    cout << "\n";
-    cout << "P: ";
-    for (int i = 0; i < playerList.size(); i++){ cout << playerList.at(i)->getName() << ", "; }
-    cout << "\n";
-    cout << "G: " << numGames << "\n";
-    cout << "D: " << maxTurns << "\n\n";
-
 
     // Calculate column widths
     size_t mapColumnWidth = 12; // Minimum width for the map names
-    for (const string& map : mapFiles) {
-        mapColumnWidth = std::max(mapColumnWidth, map.size() + 2);
+    for (const std::string& map : mapFiles) {
+        mapColumnWidth = std::max(mapColumnWidth, map.size());
     }
 
     size_t gameColumnWidth = 8; // Minimum width for the game columns
-    for (const string& player : winners) {
-        gameColumnWidth = std::max(gameColumnWidth, player.size() + 2);
+    for (const std::string& player : winners) {
+        gameColumnWidth = std::max(gameColumnWidth, player.size());
     }
 
-    // Print header row
-    cout << std::setw(mapColumnWidth) << std::left << "Results:";
-    for (size_t game = 1; game <= numGames; ++game) {
-        cout << std::setw(gameColumnWidth) << std::left << "Game " + std::to_string(game);
-    }
-    cout << "\n";
+    std::ostringstream oss;
 
-    // Print map rows
-    for (size_t i = 0; i < numMaps; ++i) {
-        cout << std::setw(mapColumnWidth) << std::left << mapFiles[i];
-        for (size_t j = 0; j < numGames; ++j) {
-            cout << std::setw(gameColumnWidth) << std::left << winners[i * numGames + j];
+    // Border drawing function
+    auto getHorizontalBorder = [&](size_t totalColumns) {
+        std::ostringstream border;
+        border << "+";
+        border << std::string(mapColumnWidth + 2, '-') << "+"; // Map column
+        for (size_t i = 0; i < totalColumns; ++i) {
+            border << std::string(gameColumnWidth + 2, '-') << "+";
         }
-        cout << "\n";
+        border << "\n";
+        return border.str();
+    };
+
+    // Append top border
+    oss << getHorizontalBorder(numGames);
+
+    // Append header row
+    oss << "| " << std::setw(mapColumnWidth) << std::left << "Results:" << " |";
+    for (size_t game = 1; game <= numGames; ++game) {
+        oss << " " << std::setw(gameColumnWidth) << std::left << "Game " + std::to_string(game) << " |";
+    }
+    oss << "\n";
+
+    // Append header bottom border
+    oss << getHorizontalBorder(numGames);
+
+    // Append map rows
+    for (size_t i = 0; i < numMaps; ++i) {
+        oss << "| " << std::setw(mapColumnWidth) << std::left << mapFiles[i] << " |";
+        for (size_t j = 0; j < numGames; ++j) {
+            oss << " " << std::setw(gameColumnWidth) << std::left << winners[i * numGames + j] << " |";
+        }
+        oss << "\n";
+
+        // Append row border
+        oss << getHorizontalBorder(numGames);
     }
 
-    cout << "\n";
+    return oss.str();
 }

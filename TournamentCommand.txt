@@ -1,70 +1,60 @@
 loadmap Map\Asia.map
 validatemap
-addplayer N1 Neutral
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer B1 Benevolent
+addplayer A2 Aggressive
 gamestart
 replay
 loadmap Map\Asia.map
 validatemap
-addplayer N1 Neutral
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer B1 Benevolent
+addplayer A2 Aggressive
 gamestart
 replay
 loadmap Map\Asia.map
 validatemap
-addplayer N1 Neutral
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer B1 Benevolent
+addplayer A2 Aggressive
 gamestart
 replay
 loadmap Map\Asia.map
 validatemap
-addplayer N1 Neutral
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer B1 Benevolent
+addplayer A2 Aggressive
 gamestart
 replay
 loadmap Map\Asia.map
 validatemap
-addplayer N1 Neutral
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer B1 Benevolent
+addplayer A2 Aggressive
 gamestart
 replay
 loadmap Map\NorthAmerica.map
 validatemap
-addplayer N1 Neutral
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer B1 Benevolent
+addplayer A2 Aggressive
 gamestart
 replay
 loadmap Map\NorthAmerica.map
 validatemap
-addplayer N1 Neutral
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer B1 Benevolent
+addplayer A2 Aggressive
 gamestart
 replay
 loadmap Map\NorthAmerica.map
 validatemap
-addplayer N1 Neutral
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer B1 Benevolent
+addplayer A2 Aggressive
 gamestart
 replay
 loadmap Map\NorthAmerica.map
 validatemap
-addplayer N1 Neutral
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer B1 Benevolent
+addplayer A2 Aggressive
 gamestart
 replay
 loadmap Map\NorthAmerica.map
 validatemap
-addplayer N1 Neutral
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer B1 Benevolent
+addplayer A2 Aggressive
 gamestart
 quit

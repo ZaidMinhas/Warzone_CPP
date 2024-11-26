@@ -170,12 +170,13 @@ class GameEngine : public ILoggable, public Subject{
     void executeOrdersPhase();// A - A2
     void mainGameLoop();
     void displayPlayerInfo(int id);
-    void displayResults();
+    std::string getResults();
     //Getters-Setters
     void transition(State* state);
     std::string getCurrentState();
     
 private:
+    bool showingTournament;
     int numTurns;
     int* playerCount;
     vector<string> winners;
