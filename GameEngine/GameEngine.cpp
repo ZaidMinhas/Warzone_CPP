@@ -377,6 +377,7 @@ void GameEngine::run()
     }
     if (tournamentMode) {
         showingTournament = true;
+        cout << getResults();
         Notify(*this);
 
         winners.clear();
@@ -1024,6 +1025,18 @@ void GameEngine::displayPlayerInfo(int id){
 std::string GameEngine::getResults() {
     size_t numMaps = mapFiles.size();
 
+    std::ostringstream oss;
+
+    oss << "\nTournament mode:" << "\n";
+    oss << "M: ";
+    for (int i = 0; i < numMaps; i++){oss << mapFiles[i] << ", ";}
+    oss << "\n";
+    oss << "P: ";
+    for (int i = 0; i < playerList.size(); i++){ oss << playerList.at(i)->getName() << ", "; }
+    oss << "\n";
+    oss << "G: " << numGames << "\n";
+    oss << "D: " << maxTurns << "\n\n";
+
     // Calculate column widths
     size_t mapColumnWidth = 12; // Minimum width for the map names
     for (const std::string& map : mapFiles) {
@@ -1035,7 +1048,7 @@ std::string GameEngine::getResults() {
         gameColumnWidth = std::max(gameColumnWidth, player.size());
     }
 
-    std::ostringstream oss;
+
 
     // Border drawing function
     auto getHorizontalBorder = [&](size_t totalColumns) {
