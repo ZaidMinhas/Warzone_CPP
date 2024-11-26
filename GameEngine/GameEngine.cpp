@@ -468,6 +468,11 @@ std::vector<int> turns; // TURNS FOR ISSUING PHASE
 
 void GameEngine::startupPhase()
 {
+    const int MAX_GAMES = 5;
+    const int MIN_GAMES = 1;
+    const int MIN_MAXTURNS = 10;
+    const int MAX_MAXTURNS = 50;
+    const int MAX_PLAYERS = 4;
     numTurns = 0;
     this->playerCount = new int(0);
     std::vector<string> args;
@@ -493,14 +498,43 @@ void GameEngine::startupPhase()
                     mapFiles.push_back(args.at(i));
                 }
 
-                //Getting player strategies
+                int playerCounter = 0;
+                //Getting player strategies, up to 4, add an Aggressuve player if less than 2.
                 while (args.at(++i) != "-G") {
-                    playerStrategies.push_back(args.at(i));
+                    playerCounter++;
+                    if(playerCounter<=MAX_PLAYERS){
+                        playerStrategies.push_back(args.at(i));
+                        cout<<playerCounter<<endl;
+                    }
                 }
 
-                //Get number of games and max number of turns
+                //Get number of games and max number of turns, check for base cases of minimum 1 game and maximum 5 games
                 numGames = std::stoi(args.at(i+1));
+                if(numGames>MAX_GAMES){
+                    cout<<"The max games you set was too high, we set it to 5"<<endl;
+                    numGames = MAX_GAMES;
+                }
+                else if(numGames<MIN_GAMES){
+                    cout<<"The min games you set was too low, we set it to 1"<<endl;
+                    numGames = MIN_GAMES;
+                }
                 maxTurns = std::stoi(args.at(i+3));
+                if(maxTurns<MIN_MAXTURNS){
+                    cout<<"The turns you set was too low, we set it to 10"<<endl;
+                    maxTurns = MIN_MAXTURNS;
+                }
+                else if(maxTurns>MAX_MAXTURNS){
+                    cout<<"The max turns you set was too high, we set it to 50"<<endl;
+                    maxTurns = MAX_MAXTURNS;
+                }
+
+                cout<<"Max Number of Games: "<<numGames<<endl;
+                cout<<"Max Number of Turns: "<<maxTurns<<endl;
+                for(int i = 0;i < playerStrategies.size();i++){
+                    cout<<"Player "<<(i+1)<<": "<<playerStrategies.at(i)<<endl;
+                }
+
+                system("pause");
 
                 //--------------------------------------------
 
@@ -511,10 +545,11 @@ void GameEngine::startupPhase()
 
                 //Each -G games have -M maps with -P players
                 for (int map_i = 0; map_i < mapFiles.size(); map_i++) {
+                    
                     for (int game_i = 0; game_i < numGames; game_i++) {
                         myfile << "loadmap " << mapFiles.at(map_i) << "\n";
                         myfile << "validatemap" << "\n";
-
+                        
                         //Addplayers
                         for (int player_i = 0; player_i < playerStrategies.size(); player_i++) {
                             string strategy = playerStrategies.at(player_i);
