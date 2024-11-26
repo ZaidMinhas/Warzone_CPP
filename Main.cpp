@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "PlayerStrategies/PlayerStrategiesDriver.h"
 #include "CommandProcessor/CommandProcessingDriver.h"
 #include "GameEngine/TournamentDriver.h"
@@ -16,8 +17,9 @@ int main(int argc, char *argv[])
 	// testPlayerStrategies();
 	testTournament();
 	
-	std::string s;
-	std::cin>>s;
+	system("pause");
+	/*std::string s;
+	std::cin>>s;*/
 	return 0;
 }
 
