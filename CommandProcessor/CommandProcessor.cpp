@@ -91,33 +91,33 @@ bool CommandProcessor::validate(const string command){
     vector<string> args = splitCommand(command);
 
     if (args.at(0)=="tournament"&& gameEngine.getCurrentState()=="Start" && args.size() >= 10){
-        int i = 1;
-
-        if (args.at(i) != "-M") {
-            return false;
-        }
-        int mapCount = 0;
-        while (args.at(++i) != "-P") {
-            mapCount++;
-        }
-
-        if (mapCount > 5 || mapCount < 1) {
-            return false;
-        }
-
-        int playerCount = 0;
-        while (args.at(++i) != "-G") {
-            playerCount++;
-            if (!(args.at(i) == "Neutral" || args.at(i) == "Aggressive" || args.at(i) == "Cheater" || args.at(i) == "Benevolent")) {
-                return false;
-            }
-        }
-        if (playerCount > 4 || playerCount < 2) {
-            return false;
-        }
-
-        if (const int numGames = std::stoi(args.at(i+1)); numGames < 1 || numGames > 5) { return false; }
-        if (const int maxTurns = std::stoi(args.at(i+3)); maxTurns < 10 || maxTurns > 50) { return false; }
+        // int i = 1;
+        //
+        // if (args.at(i) != "-M") {
+        //     return false;
+        // }
+        // int mapCount = 0;
+        // while (args.at(++i) != "-P") {
+        //     mapCount++;
+        // }
+        //
+        // if (mapCount > 5 || mapCount < 1) {
+        //     return false;
+        // }
+        //
+        // int playerCount = 0;
+        // while (args.at(++i) != "-G") {
+        //     playerCount++;
+        //     if (!(args.at(i) == "Neutral" || args.at(i) == "Aggressive" || args.at(i) == "Cheater" || args.at(i) == "Benevolent")) {
+        //         return false;
+        //     }
+        // }
+        // if (playerCount > 4 || playerCount < 2) {
+        //     return false;
+        // }
+        //
+        // if (const int numGames = std::stoi(args.at(i+1)); numGames < 1 || numGames > 5) { return false; }
+        // if (const int maxTurns = std::stoi(args.at(i+3)); maxTurns < 10 || maxTurns > 50) { return false; }
 
 
         //Validate tournament command by checking if there are at least 10 arguments
