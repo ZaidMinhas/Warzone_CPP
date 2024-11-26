@@ -1,33 +1,3 @@
-loadmap Map\Asia.map
-validatemap
-addplayer B1 Benevolent
-addplayer A2 Aggressive
-gamestart
-replay
-loadmap Map\Asia.map
-validatemap
-addplayer B1 Benevolent
-addplayer A2 Aggressive
-gamestart
-replay
-loadmap Map\Asia.map
-validatemap
-addplayer B1 Benevolent
-addplayer A2 Aggressive
-gamestart
-replay
-loadmap Map\Asia.map
-validatemap
-addplayer B1 Benevolent
-addplayer A2 Aggressive
-gamestart
-replay
-loadmap Map\Asia.map
-validatemap
-addplayer B1 Benevolent
-addplayer A2 Aggressive
-gamestart
-replay
 loadmap Map\NorthAmerica.map
 validatemap
 addplayer B1 Benevolent
