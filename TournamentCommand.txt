@@ -1,90 +1,63 @@
-loadmap Map\Africa.map
+loadmap Map\Worldplus.map
 validatemap
 addplayer A1 Aggressive
 addplayer A2 Aggressive
+addplayer A3 Aggressive
 gamestart
 replay
-loadmap Map\Africa.map
+loadmap Map\Worldplus.map
 validatemap
 addplayer A1 Aggressive
 addplayer A2 Aggressive
+addplayer A3 Aggressive
 gamestart
 replay
-loadmap Map\Africa.map
+loadmap Map\Worldplus.map
 validatemap
 addplayer A1 Aggressive
 addplayer A2 Aggressive
+addplayer A3 Aggressive
 gamestart
 replay
-loadmap Map\Africa.map
+loadmap Map\World.map
 validatemap
 addplayer A1 Aggressive
 addplayer A2 Aggressive
+addplayer A3 Aggressive
 gamestart
 replay
-loadmap Map\Africa.map
+loadmap Map\World.map
 validatemap
 addplayer A1 Aggressive
 addplayer A2 Aggressive
+addplayer A3 Aggressive
 gamestart
 replay
-loadmap Map\Asia.map
+loadmap Map\World.map
 validatemap
 addplayer A1 Aggressive
 addplayer A2 Aggressive
+addplayer A3 Aggressive
 gamestart
 replay
-loadmap Map\Asia.map
+loadmap Map\Earth.map
 validatemap
 addplayer A1 Aggressive
 addplayer A2 Aggressive
+addplayer A3 Aggressive
 gamestart
 replay
-loadmap Map\Asia.map
+loadmap Map\Earth.map
 validatemap
 addplayer A1 Aggressive
 addplayer A2 Aggressive
+addplayer A3 Aggressive
 gamestart
 replay
-loadmap Map\Asia.map
+loadmap Map\Earth.map
 validatemap
 addplayer A1 Aggressive
 addplayer A2 Aggressive
-gamestart
-replay
-loadmap Map\Asia.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-gamestart
-replay
-loadmap Map\NorthAmerica.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-gamestart
-replay
-loadmap Map\NorthAmerica.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-gamestart
-replay
-loadmap Map\NorthAmerica.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-gamestart
-replay
-loadmap Map\NorthAmerica.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-gamestart
-replay
-loadmap Map\NorthAmerica.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
+addplayer A3 Aggressive
 gamestart
 quit
