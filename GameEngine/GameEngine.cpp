@@ -588,6 +588,9 @@ void GameEngine::startupPhase()
                 }
                 else
                 {
+                    if (tournamentMode) {
+                        exit(0);
+                    }
                     transition(new Start());
                 }
             }
@@ -600,6 +603,9 @@ void GameEngine::startupPhase()
                 }
                 else
                 {
+                    if (tournamentMode) {
+                        exit(0);
+                    }
                     cout << "Map is not valid\n";
                     transition(new Start());
                 }
