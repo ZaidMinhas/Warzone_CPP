@@ -1,14 +1,90 @@
+loadmap Map\Africa.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\Africa.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\Africa.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\Africa.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\Africa.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
 loadmap Map\Asia.map
 validatemap
-addplayer C1 Cheater
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\Asia.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\Asia.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\Asia.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\Asia.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
 gamestart
 replay
 loadmap Map\NorthAmerica.map
 validatemap
-addplayer C1 Cheater
-addplayer N2 Neutral
-addplayer A3 Aggressive
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\NorthAmerica.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\NorthAmerica.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\NorthAmerica.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
+gamestart
+replay
+loadmap Map\NorthAmerica.map
+validatemap
+addplayer A1 Aggressive
+addplayer A2 Aggressive
 gamestart
 quit

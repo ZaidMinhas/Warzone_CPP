@@ -9,6 +9,8 @@
 #include <map>
 #include <string>
 #include <sstream>
+#include <regex>
+
 #include "../GameEngine/GameEngine.h"
 
 using std::cin, std::string, std::ifstream;
@@ -90,39 +92,15 @@ void CommandProcessor::validate(const void *ptr) {
 bool CommandProcessor::validate(const string command){
     vector<string> args = splitCommand(command);
 
-    if (args.at(0)=="tournament"&& gameEngine.getCurrentState()=="Start" && args.size() >= 10){
-        // int i = 1;
-        //
-        // if (args.at(i) != "-M") {
-        //     return false;
-        // }
-        // int mapCount = 0;
-        // while (args.at(++i) != "-P") {
-        //     mapCount++;
-        // }
-        //
-        // if (mapCount > 5 || mapCount < 1) {
-        //     return false;
-        // }
-        //
-        // int playerCount = 0;
-        // while (args.at(++i) != "-G") {
-        //     playerCount++;
-        //     if (!(args.at(i) == "Neutral" || args.at(i) == "Aggressive" || args.at(i) == "Cheater" || args.at(i) == "Benevolent")) {
-        //         return false;
-        //     }
-        // }
-        // if (playerCount > 4 || playerCount < 2) {
-        //     return false;
-        // }
-        //
-        // if (const int numGames = std::stoi(args.at(i+1)); numGames < 1 || numGames > 5) { return false; }
-        // if (const int maxTurns = std::stoi(args.at(i+3)); maxTurns < 10 || maxTurns > 50) { return false; }
+    if (args.at(0)=="tournament" && gameEngine.getCurrentState()=="Start"){
+        std::regex tournamentRegex(R"(tournament -M ([\w\\/]+\.map\s?){1,5}-P (Aggressive\s?|Benevolent\s?|Neutral\s?|Cheater\s?|Human\s?){2,4}-G ([1-5]) -D ([1-4][0-9]|50))");
 
-
-        //Validate tournament command by checking if there are at least 10 arguments
-        currentCommand->saveEffect("Starting a tournament");
-        return true;
+        if (std::smatch match; std::regex_match(command,match, tournamentRegex)) {
+            currentCommand->saveEffect("Starting a tournament");
+            return true;
+        }
+        std::cout << "WRONG\n";
+        return false;
     }
     else if(args.at(0)=="loadmap"&&(gameEngine.getCurrentState()=="Start"||gameEngine.getCurrentState()=="Map Loaded")&&args.size()>=2){
         currentCommand->saveEffect("Loading Map");

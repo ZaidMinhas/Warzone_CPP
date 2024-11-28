@@ -1,1 +1,4468 @@
-Command: tournament  Map\Asia.map Map\NorthAmerica.map -P Benevolent Aggressive -G 5 -D 10
+Command: tournament -M Map\Africa.map Map\Asia.map Map\NorthAmerica.map -P Aggressive Aggressive -G 5 -D 50
+Command's Effect: Starting a tournament
+GameEngine new state: Start
+Command: loadmap Map\Africa.map
+Command's Effect: Loading Map
+GameEngine new state: Start
+Command: validatemap
+Command's Effect: Cannot use command "validatemap" in state "Start"
+Command: addplayer A1 Aggressive
+Command's Effect: Cannot use command "addplayer" in state "Start"
+Command: addplayer A2 Aggressive
+Command's Effect: Cannot use command "addplayer" in state "Start"
+Command: gamestart
+Command's Effect: Cannot use command "gamestart" in state "Start"
+Command: replay
+Command's Effect: Cannot use command "replay" in state "Start"
+Command: loadmap Map\Africa.map
+Command's Effect: Loading Map
+GameEngine new state: Start
+Command: validatemap
+Command's Effect: Cannot use command "validatemap" in state "Start"
+Command: addplayer A1 Aggressive
+Command's Effect: Cannot use command "addplayer" in state "Start"
+Command: addplayer A2 Aggressive
+Command's Effect: Cannot use command "addplayer" in state "Start"
+Command: gamestart
+Command's Effect: Cannot use command "gamestart" in state "Start"
+Command: replay
+Command's Effect: Cannot use command "replay" in state "Start"
+Command: loadmap Map\Africa.map
+Command's Effect: Loading Map
+GameEngine new state: Start
+Command: validatemap
+Command's Effect: Cannot use command "validatemap" in state "Start"
+Command: addplayer A1 Aggressive
+Command's Effect: Cannot use command "addplayer" in state "Start"
+Command: addplayer A2 Aggressive
+Command's Effect: Cannot use command "addplayer" in state "Start"
+Command: gamestart
+Command's Effect: Cannot use command "gamestart" in state "Start"
+Command: replay
+Command's Effect: Cannot use command "replay" in state "Start"
+Command: loadmap Map\Africa.map
+Command's Effect: Loading Map
+GameEngine new state: Start
+Command: validatemap
+Command's Effect: Cannot use command "validatemap" in state "Start"
+Command: addplayer A1 Aggressive
+Command's Effect: Cannot use command "addplayer" in state "Start"
+Command: addplayer A2 Aggressive
+Command's Effect: Cannot use command "addplayer" in state "Start"
+Command: gamestart
+Command's Effect: Cannot use command "gamestart" in state "Start"
+Command: replay
+Command's Effect: Cannot use command "replay" in state "Start"
+Command: loadmap Map\Africa.map
+Command's Effect: Loading Map
+GameEngine new state: Start
+Command: validatemap
+Command's Effect: Cannot use command "validatemap" in state "Start"
+Command: addplayer A1 Aggressive
+Command's Effect: Cannot use command "addplayer" in state "Start"
+Command: addplayer A2 Aggressive
+Command's Effect: Cannot use command "addplayer" in state "Start"
+Command: gamestart
+Command's Effect: Cannot use command "gamestart" in state "Start"
+Command: replay
+Command's Effect: Cannot use command "replay" in state "Start"
+Command: loadmap Map\Asia.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer A1 Aggressive
+Command's Effect: Adding Player A1, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: addplayer A2 Aggressive
+Command's Effect: Adding Player A2, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Win
+Command: replay
+Command's Effect: Replaying Game
+GameEngine new state: Start
+Command: loadmap Map\Asia.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer A1 Aggressive
+Command's Effect: Adding Player A1, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: addplayer A2 Aggressive
+Command's Effect: Adding Player A2, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Win
+Command: replay
+Command's Effect: Replaying Game
+GameEngine new state: Start
+Command: loadmap Map\Asia.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer A1 Aggressive
+Command's Effect: Adding Player A1, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: addplayer A2 Aggressive
+Command's Effect: Adding Player A2, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Win
+Command: replay
+Command's Effect: Replaying Game
+GameEngine new state: Start
+Command: loadmap Map\Asia.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer A1 Aggressive
+Command's Effect: Adding Player A1, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: addplayer A2 Aggressive
+Command's Effect: Adding Player A2, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Win
+Command: replay
+Command's Effect: Replaying Game
+GameEngine new state: Start
+Command: loadmap Map\Asia.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer A1 Aggressive
+Command's Effect: Adding Player A1, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: addplayer A2 Aggressive
+Command's Effect: Adding Player A2, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Win
+Command: replay
+Command's Effect: Replaying Game
+GameEngine new state: Start
+Command: loadmap Map\NorthAmerica.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer A1 Aggressive
+Command's Effect: Adding Player A1, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: addplayer A2 Aggressive
+Command's Effect: Adding Player A2, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Win
+Command: replay
+Command's Effect: Replaying Game
+GameEngine new state: Start
+Command: loadmap Map\NorthAmerica.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer A1 Aggressive
+Command's Effect: Adding Player A1, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: addplayer A2 Aggressive
+Command's Effect: Adding Player A2, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Win
+Command: replay
+Command's Effect: Replaying Game
+GameEngine new state: Start
+Command: loadmap Map\NorthAmerica.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer A1 Aggressive
+Command's Effect: Adding Player A1, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: addplayer A2 Aggressive
+Command's Effect: Adding Player A2, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Win
+Command: replay
+Command's Effect: Replaying Game
+GameEngine new state: Start
+Command: loadmap Map\NorthAmerica.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer A1 Aggressive
+Command's Effect: Adding Player A1, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: addplayer A2 Aggressive
+Command's Effect: Adding Player A2, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Win
+Command: replay
+Command's Effect: Replaying Game
+GameEngine new state: Start
+Command: loadmap Map\NorthAmerica.map
+Command's Effect: Loading Map
+GameEngine new state: Map Loaded
+Command: validatemap
+Command's Effect: Validating Map
+GameEngine new state: Map Validated
+Command: addplayer A1 Aggressive
+Command's Effect: Adding Player A1, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: addplayer A2 Aggressive
+Command's Effect: Adding Player A2, using Aggressive Strategy
+GameEngine new state: Players Added
+Command: gamestart
+Command's Effect: Starting Game
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+Order Issued: Advance by PlayerID: 1
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+Order Executed: Advance by PlayerID: 1
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Assign Reinforcement
+GameEngine new state: Issue Orders
+Order Issued: Deploy by PlayerID: 0
+Order Issued: Deploy by PlayerID: 1
+Order Issued: Advance by PlayerID: 0
+GameEngine new state: Execute Orders
+GameEngine new state: Execute Orders
+Order Executed: Deploy by PlayerID: 0
+Order Executed: Deploy by PlayerID: 1
+Order Executed: Advance by PlayerID: 0
+GameEngine new state: Win
+Command: quit
+Command's Effect: Quitting Game
+GameEngine new state: End
