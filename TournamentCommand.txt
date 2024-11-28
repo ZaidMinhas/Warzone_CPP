@@ -1,63 +1,21 @@
-loadmap Map\Worldplus.map
+loadmap Map\NorthAmerica.map
 validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
+addplayer C1 Cheater
+addplayer N2 Neutral
 addplayer A3 Aggressive
 gamestart
 replay
-loadmap Map\Worldplus.map
+loadmap Map\NorthAmerica.map
 validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
+addplayer C1 Cheater
+addplayer N2 Neutral
 addplayer A3 Aggressive
 gamestart
 replay
-loadmap Map\Worldplus.map
+loadmap Map\NorthAmerica.map
 validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-addplayer A3 Aggressive
-gamestart
-replay
-loadmap Map\World.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-addplayer A3 Aggressive
-gamestart
-replay
-loadmap Map\World.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-addplayer A3 Aggressive
-gamestart
-replay
-loadmap Map\World.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-addplayer A3 Aggressive
-gamestart
-replay
-loadmap Map\Earth.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-addplayer A3 Aggressive
-gamestart
-replay
-loadmap Map\Earth.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
-addplayer A3 Aggressive
-gamestart
-replay
-loadmap Map\Earth.map
-validatemap
-addplayer A1 Aggressive
-addplayer A2 Aggressive
+addplayer C1 Cheater
+addplayer N2 Neutral
 addplayer A3 Aggressive
 gamestart
 quit

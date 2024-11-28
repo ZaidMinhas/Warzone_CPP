@@ -90,6 +90,9 @@ void CommandProcessor::validate(const void *ptr) {
 }
 
 bool CommandProcessor::validate(const string command){
+    if (command.empty()) {
+        return false;
+    }
     vector<string> args = splitCommand(command);
 
     if (args.at(0)=="tournament" && gameEngine.getCurrentState()=="Start"){
