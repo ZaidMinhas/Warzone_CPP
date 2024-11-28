@@ -25,9 +25,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cfeef208-c80b-4133-bb57-cbc5b98d11b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CommandProcessor/CommandProcessor.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameEngine/GameEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/GameEngine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TournamentCommand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TournamentCommand.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gamelog.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +43,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/GameEngine/GameEngine.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GameEngine/GameEngine.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/GameEngine/GameEngineDriver.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GameEngine/GameEngineDriver.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LoggingObserver/LoggingObserver.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Main.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Orders/Orders.cpp" root0="FORCE_HIGHLIGHTING" />

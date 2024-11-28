@@ -543,9 +543,8 @@ void GameEngine::startupPhase()
                 std::ofstream myfile;
                 myfile.open("TournamentCommand.txt");
 
-                //Each -G games have -M maps with -P players
+                //Each of the -G games have -M maps with -P players
                 for (int map_i = 0; map_i < mapFiles.size(); map_i++) {
-                    
                     for (int game_i = 0; game_i < numGames; game_i++) {
                         myfile << "loadmap " << mapFiles.at(map_i) << "\n";
                         myfile << "validatemap" << "\n";

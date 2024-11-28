@@ -96,13 +96,13 @@ bool CommandProcessor::validate(const string command){
     vector<string> args = splitCommand(command);
 
     if (args.at(0)=="tournament" && gameEngine.getCurrentState()=="Start"){
+        //Regex to see if tournament command is correct
         std::regex tournamentRegex(R"(tournament -M ([\w\\/]+\.map\s?){1,5}-P (Aggressive\s?|Benevolent\s?|Neutral\s?|Cheater\s?|Human\s?){2,4}-G ([1-5]) -D ([1-4][0-9]|50))");
 
         if (std::smatch match; std::regex_match(command,match, tournamentRegex)) {
             currentCommand->saveEffect("Starting a tournament");
             return true;
         }
-        std::cout << "WRONG\n";
         return false;
     }
     else if(args.at(0)=="loadmap"&&(gameEngine.getCurrentState()=="Start"||gameEngine.getCurrentState()=="Map Loaded")&&args.size()>=2){
