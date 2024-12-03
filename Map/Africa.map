@@ -1,9 +1,9 @@
 [Map]
 author=Sean O'Connor
-warn=yes
 image=Africa.bmp
 wrap=no
 scroll=horizontal
+warn=yes
 
 [Continents]
 Northern Africa=4

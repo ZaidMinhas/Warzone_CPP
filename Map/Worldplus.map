@@ -1,8 +1,9 @@
 [Map]
+author=dragon_kicker
 image=worldplus.bmp
 wrap=yes
 scroll=horizontal
-author=dragon_kicker
+warn=yes
 
 [Continents]
 North America=5
